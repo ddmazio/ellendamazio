@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About me</title>
+        <link rel="stylesheet" href="css/portfolio.css">
+    </head>
+    
+    <body class="about-page">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="nav-left">
+                    <a href="index.html" class="nav-link">Home</a>
+                </div>
+                
+                <div class="nav-right">
+                    <a href="about.html" class="nav-link">About</a>
+                    <button class="search-trigger" aria-label="Search projects">
+                        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+        
+                <!-- Mobile Controls -->
+                <div class="mobile-controls">
+                    <button class="mobile-search-btn" aria-label="Search projects">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    
+                    <button class="hamburger-menu" aria-label="Open mobile menu">
+                        <div class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-overlay-header">
+                <button class="search-close-btn" aria-label="Close search">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="search-overlay-content">
+                <div class="search-overlay-sidebar">
+                    <div class="search-overlay-title">
+                        <h2>Take a look in all of my projects</h2>
+                        <p>Explore work by category</p>
+                    </div>
+
+                    <div class="search-categories">
+                        <div class="search-category-item active" data-category="all">
+                            <div class="category-info">
+                                <span class="category-name">All Projects</span>
+                                <span class="category-count">6 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="branding">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="9" cy="9" r="2"></circle>
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Branding</span>
+                                <span class="category-count">2 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="ui-ux">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">UI/UX Design</span>
+                                <span class="category-count">2 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="editorial">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Editorial</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="motion">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Motion Design</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="packaging">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Packaging</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="typography">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 19l9-7-9-7-9 7 9 7z"></path>
+                                <path d="M5 12l7-7 7 7M5 12l7 7 7-7"></path>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Typography</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Overlay Redesigned -->
+                <div class="search-overlay">
+                    <!-- Header minimalista -->
+                    <div class="search-overlay-header">
+                        <button class="search-close-btn" aria-label="Close search">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Container principal -->
+                    <div class="search-overlay-main">
+                        <!-- Campo de busca principal -->
+                        <div class="search-main-input">
+                            <input 
+                                type="text" 
+                                class="search-input" 
+                                placeholder="Search projects, skills, or anything..."
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <!-- Categorias populares -->
+                        <div class="popular-searches">
+                            <h3>Popular Searches</h3>
+                            <div class="popular-tags">
+                                <a href="#" class="popular-tag" data-category="branding">Branding</a>
+                                <a href="#" class="popular-tag" data-category="ui-ux">UI/UX Design</a>
+                                <a href="#" class="popular-tag" data-category="editorial">Editorial</a>
+                                <a href="#" class="popular-tag" data-category="motion">Motion Design</a>
+                                <a href="#" class="popular-tag" data-category="packaging">Packaging</a>
+                                <a href="#" class="popular-tag" data-category="typography">Typography</a>
+                            </div>
+                        </div>
+
+                        <!-- Grid de resultados -->
+                        <div class="search-results-grid">
+                            <!-- Project: UNPROMPT -->
+                            <div class="search-project-card" data-category="branding" data-href="unprompt.html">
+                                <div class="search-project-image">
+                                    <img src="unprompt/mockup_lanyardBoldtron.png" alt="UNPROMPT" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">UNPROMPT</h4>
+                                    <p class="search-project-category">Branding</p>
+                                    <span class="search-project-year">2025</span>
+                                </div>
+                            </div>
+
+                            <!-- Project: Azucrinação -->
+                            <div class="search-project-card" data-category="branding packaging ui-ux" data-href="azucrinacao.html">
+                                <div class="search-project-image">
+                                    <img src="azucrinação/capavinil4.png" alt="Azucrinação" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">Azucrinação</h4>
+                                    <p class="search-project-category">Branding, Packaging, UI/UX</p>
+                                    <span class="search-project-year">2025</span>
+                                </div>
+                            </div>
+
+                            <!-- Project: ting -->
+                            <div class="search-project-card" data-category="ui-ux" data-href="ting.html">
+                                <div class="search-project-image">
+                                    <img src="ting/Scene 9.png" alt="ting" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">ting</h4>
+                                    <p class="search-project-category">UI/UX Design</p>
+                                    <span class="search-project-year">2025</span>
+                                </div>
+                            </div>
+
+                            <!-- Project: All in a Chain -->
+                            <div class="search-project-card" data-category="motion" data-href="chain.html">
+                                <div class="search-project-image">
+                                    <img src="chain/frame4.png" alt="All in a Chain" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">All in a Chain</h4>
+                                    <p class="search-project-category">Motion Design</p>
+                                    <span class="search-project-year">2023</span>
+                                </div>
+                            </div>
+
+                            <!-- Project: Zine -->
+                            <div class="search-project-card" data-category="typography" data-href="zine.html">
+                                <div class="search-project-image">
+                                    <img src="zine/zine-ft.png" alt="Zine" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">Zine</h4>
+                                    <p class="search-project-category">Typography</p>
+                                    <span class="search-project-year">2023</span>
+                                </div>
+                            </div>
+
+                            <!-- Project: A to B -->
+                            <div class="search-project-card" data-category="editorial" data-href="atob.html">
+                                <div class="search-project-image">
+                                    <img src="img/ezgif.com-animated-gif-maker.gif" alt="A to B Editorial" />
+                                </div>
+                                <div class="search-project-content">
+                                    <h4 class="search-project-title">A to B</h4>
+                                    <p class="search-project-category">Editorial</p>
+                                    <span class="search-project-year">2024</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estado vazio (mostrado quando não há resultados) -->
+                        <div class="search-empty-state">
+                            <h4>No projects found</h4>
+                            <p>Try searching for something else or browse our popular categories above.</p>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-header">
+                <button class="close-btn" aria-label="Close mobile menu">
+                    <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-links">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                </div>
+
+                <div class="mobile-categories">
+                    <h3 class="mobile-categories-title">Browse by Category</h3>
+                    
+                    <a href="#" class="mobile-category-item" data-category="branding">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="9" cy="9" r="2"></circle>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Branding</div>
+                            <div class="category-count">2 projects</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="ui-ux">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">UI/UX Design</div>
+                            <div class="category-count">2 projects</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="editorial">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Editorial</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="motion">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Motion Design</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="packaging">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Packaging</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="typography">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 19l9-7-9-7-9 7 9 7z"></path>
+                            <path d="M5 12l7-7 7 7M5 12l7 7 7-7"></path>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Typography</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="mailto:ellensdamazio@gmail.com" class="mobile-contact-btn">Let's Talk!</a>
+            </div>
+        </div>
+
+        <!-- About Content -->
+        <main class="about-main-clean">
+            <div class="about-container-clean">
+                <!-- Single Column Layout -->
+                <div class="left-column">
+                    <h1>Hi, I'm Ellen Damazio.</h1>
+                    
+                    <p>After trying out different career paths and fields of study, I found my sweet spot in Communication Design—a space where my love for design, art, and tech all come together. It's where I can truly express my creativity while diving into the technical side of things, making it the perfect fit for me.</p>
+                    
+                    <p>My journey has been all over the place, but in the best way possible. Along the way, I co-founded an NGO that helps young Brazilians in public schools discover their potential and grab new opportunities. This experience really showed me how powerful design can be in creating positive change and making a real difference. Through my work, I'm always blending design, art, and technology to come up with fresh, impactful solutions.</p>
+                    
+                    <p>My portfolio is a snapshot of this adventure, full of projects that showcase my range and passion for Communication Design.</p>
+
+                    <p>Currently, I'm volunteering at <a href="https://www.instagram.com/vitalisprojeto/" target="_blank">Vitalis Project ↗</a> and always looking for new projects.</p>
+
+                </div>
+            </div>
+
+            <!-- Full Width Photo Gallery Section -->
+            <div class="full-width-gallery">
+                <div class="gallery-container">
+                    <h2>Fun Facts!</h2>
+                    <p>Here are some moments that shaped who I am today. Each photo tells a different part of my journey!</p>
+                    
+                    <div class="photo-gallery-grid">
+                        <div class="photo-item">
+                            <div class="photo-wrapper">
+                                <img src="img/radio.jpeg" alt="Radio station memories"/>
+                            </div>
+                            <div class="photo-text">
+                                <h3>Being raised on a radio station!</h3>
+                                <p>My father has worked as a sound technician my entire life, and obviously I couldn't help but have memories of the radio station where he worked for 15 years.</p>
+                                <span class="photo-period">2007-2022</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-item">
+                            <div class="photo-wrapper">
+                                <img src="img/amigos.jpg" alt="Friends gathering"/>
+                            </div>
+                            <div class="photo-text">
+                                <h3>Catch Me with My Crew</h3>
+                                <p>Nothing makes me happier than laughter at the dinner table or spontaneous adventures with friends. I live for those little moments with the people I love most.</p>
+                                <span class="photo-period">Always</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-item">
+                            <div class="photo-wrapper">
+                                <img src="img/jmj.jpg" alt="Volunteering activities"/>
+                            </div>
+                            <div class="photo-text">
+                                <h3>Always volunteering!</h3>
+                                <p>I've been volunteering since I was 13 — it all started in Catholic youth groups, and somehow I never stopped! At the moment, I'm part of Vitalis, a project focused on real impact and community care.</p>
+                                <span class="photo-period">2014-Present</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-item">
+                            <div class="photo-wrapper">
+                                <img src="img/osorio.jpg" alt="Family time"/>
+                            </div>
+                            <div class="photo-text">
+                                <h3>My Anchor</h3>
+                                <p>My family is my safe place and biggest inspiration. Being with them reminds me of who I am, where I come from, and what truly matters.</p>
+                                <span class="photo-period">Always</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spotify Section -->
+            <div class="middle-column">
+                <div class="content-section2">
+                    <h2>Soundtracks of my life</h2>
+                    
+                    <div class="spotify-playlist">
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4g7RHSkDFrc2dRCCMz70oj?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <a href="mailto:ellensdamazio@gmail.com">Let's Talk!</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://www.behance.net/ellendamazio1" target="_blank">Behance</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://drive.google.com/file/d/1MT_6wjWuCaNB-sHtB_wSC0khFIsPsbON/view?usp=sharing" target="_blank">Resume</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-back-to-top">
+                        <button class="back-to-top" aria-label="Voltar ao topo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 15l-6-6-6 6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <script src="javascript/portfolio.js"></script>
+        </footer>
+    </body>
+</html>
