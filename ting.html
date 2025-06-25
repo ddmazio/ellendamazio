@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ting - UI/UX Design Project | Ellen Damazio</title>
+        <meta name="description" content="ting - A UI/UX design project by Ellen Damazio exploring emotional connection through technology. Discover how AI can facilitate real-world human interactions.">
+        <meta name="keywords" content="ting, UI/UX Design, Ellen Damazio, Interaction Design, Human Connection, Technology, Gen Z, Social App, Portfolio">
+        <meta name="author" content="Ellen Damazio">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://ddmazio.github.io/ellendamazio/ting.html">
+        <meta property="og:title" content="ting - UI/UX Design Project by Ellen Damazio">
+        <meta property="og:description" content="Exploring how technology can facilitate authentic human connections. A UI/UX design project focused on Gen Z loneliness and real-world interactions.">
+        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/img/ting-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="img/profile.jpeg"> 
+        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+        
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="css/portfolio.css">
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://ddmazio.github.io/ellendamazio/ting.html">
+    </head>
+
+    <body class="project-page">
+        <div class="hero-section">
+            <!-- Header -->
+            <header>
+                <div class="header-container">
+                    <div class="desktop-logo">
+                        <a href="index.html" class="mobile-logo-link">
+                            <img src="img/main-logo2.webp" alt="Ellen Damazio Logo" class="mobile-logo-img">
+                        </a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="about.html" class="nav-link">About</a>
+                        <button class="search-trigger" aria-label="Search projects">
+                            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+            
+                    <!-- Mobile Controls -->
+                    <div class="mobile-controls">
+                        <button class="mobile-search-btn" aria-label="Search projects">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        
+                        <button class="hamburger-menu" aria-label="Open mobile menu">
+                            <div class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-overlay-header">
+                <button class="search-close-btn" aria-label="Close search">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="search-overlay-content">
+                <div class="search-overlay-sidebar">
+                    <div class="search-overlay-title">
+                        <h2>Take a look in all of my projects</h2>
+                        <p>Explore work by category</p>
+                    </div>
+
+                    <div class="search-categories">
+                        <div class="search-category-item" data-category="all">
+                            <div class="category-info">
+                                <span class="category-name">All Projects</span>
+                                <span class="category-count">6 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="branding">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="9" cy="9" r="2"></circle>
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Branding</span>
+                                <span class="category-count">3 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item active" data-category="ui-ux">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">UI/UX Design</span>
+                                <span class="category-count">2 projects</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="editorial">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Editorial</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+
+                        <div class="search-category-item" data-category="motion">
+                            <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                            <div class="category-info">
+                                <span class="category-name">Motion Design</span>
+                                <span class="category-count">1 project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-overlay-projects">
+                    <div class="search-projects-grid">
+                        <!-- Project: Maisedu -->
+                        <div class="search-project-item" data-category="branding" data-href="maisedu.html">
+                            <div class="search-project-image">
+                                <img src="img/maisedu-main.jpg" alt="Maisedu Visual Identity Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>Maisedu</h4>
+                                <p>Visual Identity</p>
+                                <span class="project-year">2024</span>
+                            </div>
+                        </div>
+
+                        <!-- Project: ting -->
+                        <div class="search-project-item" data-category="ui-ux" data-href="ting.html">
+                            <div class="search-project-image">
+                                <img src="ting/Scene-9.png" alt="Ting UI/UX Design Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>ting</h4>
+                                <p>UI/UX Design</p>
+                                <span class="project-year">2025</span>
+                            </div>
+                        </div>
+
+                        <!-- Project: Azucrinação -->
+                        <div class="search-project-item" data-category="branding ui-ux" data-href="azucrinacao.html">
+                            <div class="search-project-image">
+                                <img src="img/azucri-main.jpg" alt="Azucrinação Branding Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>Azucrinação</h4>
+                                <p>Branding, UI/UX</p>
+                                <span class="project-year">2025</span>
+                            </div>
+                        </div>
+
+                        <!-- Project: UNPROMPT -->
+                        <div class="search-project-item" data-category="branding" data-href="unprompt.html">
+                            <div class="search-project-image">
+                                <img src="img/unprompt-main.jpg" alt="UNPROMPT Branding Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>UNPROMPT</h4>
+                                <p>Branding</p>
+                                <span class="project-year">2025</span>
+                            </div>
+                        </div>
+            
+                        <!-- Project: A to B -->
+                        <div class="search-project-item" data-category="editorial" data-href="atob.html">
+                            <div class="search-project-image">
+                                <img src="a to b/04-brochure-a4-vert13x.png" alt="A to B Editorial Design Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>A to B</h4>
+                                <p>Editorial Design</p>
+                                <span class="project-year">2023</span>
+                            </div>   
+                        </div>
+
+                        <!-- Project: All in a Chain -->
+                        <div class="search-project-item" data-category="motion" data-href="chain.html">
+                            <div class="search-project-image">
+                                <img src="chain/frame4.png" alt="All in a Chain Motion Design Project" />
+                            </div>
+                            <div class="search-project-info">
+                                <h4>All in a Chain</h4>
+                                <p>Motion Design</p>
+                                <span class="project-year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-header">
+                <button class="close-btn" aria-label="Close mobile menu">
+                    <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-links">
+                    <a href="index.html" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                </div>
+
+                <div class="mobile-categories">
+                    <h3 class="mobile-categories-title">Browse by Category</h3>
+                    
+                    <a href="#" class="mobile-category-item" data-category="branding">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="9" cy="9" r="2"></circle>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Branding</div>
+                            <div class="category-count">3 projects</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="ui-ux">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">UI/UX Design</div>
+                            <div class="category-count">2 projects</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="editorial">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Editorial</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mobile-category-item" data-category="motion">
+                        <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                        <div class="category-content">
+                            <div class="category-name">Motion Design</div>
+                            <div class="category-count">1 project</div>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="mailto:ellensdamazio@gmail.com" class="mobile-contact-btn">Let's Talk!</a>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <main class="project-main">
+            <div class="project-container">
+                <!-- Project Header -->
+                <div class="project-header-new">
+                    <div class="project-main-info">
+                        <h1 class="project-title">ting</h1>
+                        <div class="project-subtitle">The Path of Wayfinding Systems in the UK</div>
+                        <div class="project-category">UI/UX Design</div>
+                        <div class="project-year">2025</div>
+                    </div>
+
+                    <!-- Grid de informações organizadas -->
+                    <div class="project-info-grid">
+                        <!-- Descrição principal -->
+                        <div class="project-description-main">
+                            <h3>The Problem</h3>
+                            <p>Despite being the most digitally connected generation, Gen Z is experiencing unprecedented levels of loneliness and anxiety around human interaction. Current dating apps and social platforms often heighten performance pressure and diminish authentic connection. What if we could use technology to facilitate real-world moments instead of replacing them—bringing intimacy back to interaction?</p>
+
+                            <h3>The Research</h3>
+                            <p>Our research started with a paradox: How can the most connected generation feel the most alone? According to Cigna (2020), 79% of Gen Z reported feeling lonely frequently. McKinsey (2023) adds that 58% have multiple unmet social needs.</p>
+                            
+                            <p>From scientific literature to user surveys, we explored:
+                                The Polyvagal Theory (Porges), which explains how the vagus nerve governs our sense of emotional safety.
+                                The psychological impact of digital overstimulation and the loss of face-to-face rituals.
+                                Our own survey (93+ participants) confirmed: people want deeper, more intuitive, and emotionally intelligent ways to connect — starting from the body, not the screen.</p>
+                        </div>
+
+                        <!-- Detalhes do projeto -->
+                        <div class="project-details-sidebar">
+                            <div class="project-info-section">
+                                <h3>Theme</h3>
+                                <p>UX & UI Design, Website, Visual Identity</p>
+                            </div>
+
+                            <div class="project-info-section">
+                                <h3>Program</h3>
+                                <p>Interaction Design</p>
+                            </div>
+
+                            <div class="project-info-section">
+                                <h3>Year</h3>
+                                <p>2025</p>
+                            </div>
+
+                            <div class="project-info-section">
+                                <h3>Team</h3>
+                                <p>Ellen Damazio<br>
+                                Marta Caeiro<br>
+                                Salete Correia<br>
+                                Sofia Calú<br>
+                                Teresa Soares</p>
+                            </div>
+
+                            <!-- Project Buttons -->
+                            <div class="project-buttons">
+                                <a href="https://www.figma.com/proto/ihBizkLVVJZ9VWdBaX1Xyq/Ting-%7C-B1---DI-24-25?page-id=618%3A262&node-id=724-1158&viewport=1074%2C-637%2C0.06&t=yqq404FZQmhDke3M-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=876%3A1627&show-proto-sidebar=1" 
+                                   class="prototype-link" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer">Try Interactive Prototype</a>
+                                <a href="https://drive.google.com/file/d/1yeIxO4_Ygj3WolYqkjagChqNZqSKminI/view?usp=sharing" 
+                                   class="prototype-link" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer">Full Research</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-details-research">
+                    <div class="project-user-research">
+                        <h3>User Research</h3>
+                        <p>Young adults aged 18–25 expressed difficulty starting conversations, discomfort in social spaces, and fatigue from app superficiality. Most still meet people at school, events, or public spaces — but struggle to initiate or trust these encounters.</p>
+                        <p>They want fewer features, more meaning. Not another feed, but a silent bridge between bodies. That's where ting begins.</p>
+                    </div>
+
+                    <div class="project-analysis">
+                        <h3>Competitive Analysis</h3>
+                        <p>We studied platforms like Tinder, Bumble BFF, Hinge, Replika AI, Life360, and Bond Touch. Each has strengths — visual profiles, emotional companionship, location sharing — but they all miss something essential: the body.</p>
+                        <p>Ting reframes the interface of connection as a physical and emotional experience — not just a digital one.</p>
+                    </div>
+
+                    <!-- Statistics Section with Images - MANTENDO LAYOUT ESPECÍFICO -->
+                    <div class="ting-statistics">
+                        <div class="stats-images">
+                            <div class="stat-image">
+                                <img src="ting/grafico-1.png" alt="Chart showing Gen Z loneliness statistics" />
+                            </div>
+                            <div class="stat-image">
+                                <img src="ting/grafico-2.png" alt="Chart showing social connection research data" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prototyping Section - MANTENDO LAYOUT ESPECÍFICO -->
+                <div class="ting-prototyping">
+                    <h3>Prototyping</h3>
+                    <p>We developed two parallel prototypes:</p>
+
+                    <ul class="prototype-features">
+                        <li>A minimalist mobile interface for onboarding, affective journaling by data, and reflection;</li>
+                        <li>A wearable simulation using subtle vibrations to simulate a real-world match.</li>
+                    </ul>
+
+                    <p>The mobile UI avoids noise: no swipes, no chats, no pressure — just emotional tracking and consent-based action.</p>
+
+                    <!-- App Interface Mockups - MANTENDO LAYOUT ESPECÍFICO -->
+                    <div class="ting-mockups">
+                        <div class="mockup-item">
+                            <img src="ting/Scene-9.jpg" alt="Ting mobile app interface mockup" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Testing & Visual Identity Section - MANTENDO LAYOUT ESPECÍFICO -->
+                <div class="ting-testing-identity">
+                    <div class="testing-identity-content">
+                        <div class="testing-identity-text">
+                            <div class="user-testing-section">
+                                <h3>User Testing</h3>
+                                <p>In a small testing session with Gen Z participants, feedback was clear:</p>
+                                <p>Ting feels calming, intuitive, and refreshingly human. The absence of visuals was a relief, not a flaw. Participants felt invited rather than overwhelmed.</p>
+                                <p>Critiques included clarifying the meaning of vibrations and refining consent flows. These insights are guiding our next iteration</p>
+                            </div>
+
+                            <div class="visual-identity-section">
+                                <h3>Visual Identity & Interface</h3>
+                                <p>The visual system of ting was designed around softness, warmth, and intuition.</p>
+                                <p>A gradient spectrum inspired by affective states fades from calming blues to energizing yellows and reds. Typography is geometric and round, echoing the product's circular feedback system.</p>
+                                <p>UI elements are minimal, silent, and grounded in emotional clarity.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testing-identity-visual">
+                            <img src="ting/gif-ting.gif" alt="Ting app interface animation showing emotional states" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How Ting Works Section - MANTENDO LAYOUT ESPECÍFICO -->
+                <div class="ting-how-works">
+                    <h3>How ting Works</h3>
+                    <p>Once a user signs up, they answer an emotional profile questionnaire to train their personal AI. The wearable continuously reads:</p>
+
+                    <div class="how-works-steps">
+                        <div class="step">
+                            <p>Heart rate (stress or attraction);</p>
+                        </div>
+                        <div class="step">
+                            <p>Skin temperature (emotional arousal);</p>
+                        </div>
+                        <div class="step">
+                            <p>Posture (openness or tension);</p>
+                        </div>
+                    </div>
+
+                    <p>When two compatible users are within ~10m, the device vibrates softly. If the user taps the notification and agrees to meet, the app opens a shared live map to facilitate a physical encounter. No on-line chat. Just emotional compatibility, consent, and presence.</p>
+                    
+                    <div class="final-mockups">
+                        <img src="ting/iPhone-15.jpg" alt="Ting final mobile mockup showing the complete interface" />
+                    </div>
+                </div>
+
+                <!-- Video Section - MANTENDO LAYOUT ESPECÍFICO -->
+                <div class="ting-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ObY7lk0Vo5A" 
+                            title="Ting Project Demo Video"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Final Thoughts Section - MANTENDO LAYOUT ESPECÍFICO -->
+                <div class="ting-final">
+                    <h3>Final Thoughts</h3>
+                    <p>Ting is not another social app. It's a paradigm shift — a return to bodily intuition in a world that has muted it. By prioritizing technology drift isn't preventing, we likely not just a new approach, but a movement step a social a new philosophy.</p>
+                    <p>It doesn't shout. It doesn't sell dopamine. It vibrates quietly — inviting you to listen to yourself, and maybe… to someone else too.</p>
+                </div>
+
+                <!-- Project Navigation -->
+                <div class="project-navigation">
+                    <a href="index.html" class="nav-btn nav-btn-back">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Portfolio
+                    </a>
+                    
+                    <div class="project-nav-links">
+                        <a href="maisedu.html" class="nav-btn nav-btn-prev">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Previous Project
+                        </a>
+                        
+                        <a href="azucrinacao.html" class="nav-btn nav-btn-next">
+                            Next Project
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <a href="mailto:ellensdamazio@gmail.com">Let's Talk!</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://www.behance.net/ellendamazio1" target="_blank" rel="noopener noreferrer">Behance</a>
+                        </div>
+                        <div class="footer-column">
+                            <a href="https://drive.google.com/file/d/1nm2DKzhTqt_FzLcFrlXvNHIE9YyIT-4o/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-back-to-top">
+                        <button class="back-to-top" aria-label="Back to top">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 15l-6-6-6 6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="javascript/portfolio.js"></script>
+    </body>
+</html>
