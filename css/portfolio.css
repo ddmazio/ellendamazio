@@ -799,7 +799,6 @@ body:not(.homepage) header {
     cursor: pointer;
     overflow: hidden;
     transition: var(--transition-base);
-    border-radius: var(--radius-lg);
     width: 100%;
 }
 
@@ -1095,7 +1094,6 @@ body:not(.homepage) header {
         width: 100% !important;
         cursor: pointer;
         transition: var(--transition-base);
-        border-radius: 0;
         overflow: visible;
     }
     
