@@ -1,9 +1,3 @@
-// ========================================
-// PORTFOLIO JAVASCRIPT - VERSÃO COMPLETA COM BACK TO TOP INTELIGENTE
-// ========================================
-
-console.log('🚀 Portfolio JS inicializado - Nova versão com Back to Top');
-
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
@@ -42,18 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         body: document.body,
         header: document.querySelector('header')
     };
-    
-    console.log('📱 Elementos encontrados:', {
-        hamburgerBtn: !!elements.hamburgerBtn,
-        hamburgerIcon: !!elements.hamburgerIcon,
-        mobileNav: !!elements.mobileNav,
-        mobileControls: !!elements.mobileControls,
-        searchOverlay: !!elements.searchOverlay,
-        searchTriggers: elements.searchTriggers.length,
-        projectCards: elements.projectCards.length,
-        backToTopBtn: !!elements.backToTopBtn,
-        introSection: !!elements.introSection
-    });
     
     // ====================================
     // ESTADO DA APLICAÇÃO
@@ -111,17 +93,15 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         handleViewportChange() {
-            // Fechar menus ao mudar para desktop
             if (!state.isMobile) {
                 mobileMenu.close();
                 searchOverlay.close();
             }
             
-            // Forçar visibilidade correta
             hamburgerManager.forceVisibility();
             navigationManager.updateVisibility();
             
-            // Reconfigurar funcionalidades baseadas no viewport
+            // Reconfigurar hover effects e cursor
             hoverEffects.setup();
             customCursor.setup();
         },
@@ -153,108 +133,78 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ====================================
-    // BACK TO TOP CONTROLLER - NOVO
+    // BACK TO TOP CONTROLLER
     // ====================================
     const backToTopController = {
-        // Configurações
         config: {
-            // Homepage: threshold baseado na altura da intro section
             homepageThreshold: () => {
                 if (elements.introSection) {
                     return elements.introSection.offsetHeight - 100;
                 }
-                return 600; // fallback
+                return 600;
             },
-            
-            // Outras páginas: threshold pequeno para aparecer logo
             otherPagesThreshold: 50,
-            
-            // Threshold para detectar final da página
             bottomThreshold: 100,
-            
-            // Debounce delay para performance
             debounceDelay: 10
         },
 
-        // Inicializar
         init() {
             if (!elements.backToTopBtn) {
                 console.warn('⚠️ Back to top button não encontrado');
                 return;
             }
 
-            // Adicionar atributo de tooltip
             elements.backToTopBtn.setAttribute('data-tooltip', 'Back to top');
             elements.backToTopBtn.setAttribute('aria-label', 'Voltar ao topo da página');
             
-            // Verificação inicial
             this.handleScroll();
             
             utils.log('Back to Top inicializado', 
                 state.isHomepage ? 'Modo Homepage' : 'Modo Outras Páginas');
         },
 
-        // Handler principal de scroll
         handleScroll() {
-            // Atualizar posição atual
             state.currentScrollY = window.pageYOffset;
-            
-            // Calcular estados
             this.updateScrollStates();
-            
-            // Aplicar classes CSS baseadas no estado
             this.updateBodyClasses();
         },
 
-        // Atualizar estados baseados na posição do scroll
         updateScrollStates() {
             const { currentScrollY } = state;
             const documentHeight = document.documentElement.scrollHeight;
             const windowHeight = window.innerHeight;
 
-            // Detectar se está no topo
             state.isAtTop = currentScrollY <= 10;
-
-            // Detectar se está no final
             state.isAtBottom = (currentScrollY + windowHeight) >= 
                              (documentHeight - this.config.bottomThreshold);
 
             if (state.isHomepage) {
-                // Homepage: verificar se passou da intro section
                 const threshold = this.config.homepageThreshold();
                 state.hasPassedIntro = currentScrollY > threshold;
             } else {
-                // Outras páginas: verificar se começou a rolar
                 state.hasScrolled = currentScrollY > this.config.otherPagesThreshold;
             }
         },
 
-        // Atualizar classes CSS no body
         updateBodyClasses() {
             const { isAtTop, isAtBottom, hasPassedIntro, hasScrolled, isHomepage } = state;
 
-            // Classes de estado geral
             elements.body.classList.toggle('at-top', isAtTop);
             elements.body.classList.toggle('at-bottom', isAtBottom);
 
             if (isHomepage) {
-                // Homepage: classe para quando passou da intro
                 elements.body.classList.toggle('scrolled-past-intro', hasPassedIntro);
             } else {
-                // Outras páginas: classe para quando começou a rolar
                 elements.body.classList.toggle('scrolled', hasScrolled);
             }
         },
 
-        // Scroll suave para o topo
         scrollToTop() {
-            // Scroll suave para o topo
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
 
-            // Focus no primeiro elemento focável da página após o scroll
             setTimeout(() => {
                 const firstFocusable = document.querySelector('a, button, input, [tabindex]:not([tabindex="-1"])');
                 if (firstFocusable) {
@@ -276,10 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             }
             
-            // Sempre recriar os spans para garantir
             elements.hamburgerIcon.innerHTML = '<span></span><span></span><span></span>';
             
-            // Aplicar estilos diretamente com máxima força
             const spans = elements.hamburgerIcon.querySelectorAll('span');
             spans.forEach((span, index) => {
                 span.style.cssText = `
@@ -310,7 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('🔧 Forçando visibilidade do hamburger...');
             
-            // Forçar mobile controls
             if (elements.mobileControls) {
                 elements.mobileControls.style.cssText = `
                     display: flex !important;
@@ -324,7 +271,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             }
             
-            // Forçar hamburger button
             if (elements.hamburgerBtn) {
                 elements.hamburgerBtn.style.cssText = `
                     display: flex !important;
@@ -346,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             }
             
-            // Forçar hamburger icon
             if (elements.hamburgerIcon) {
                 elements.hamburgerIcon.style.cssText = `
                     width: 24px !important;
@@ -358,7 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             }
             
-            // Garantir spans
             this.ensureSpans();
             
             utils.log('Hamburger forçado a ser visível');
@@ -377,13 +321,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navigationManager = {
         updateVisibility() {
             if (state.isMobile) {
-                // Mobile: esconder desktop nav, mostrar mobile controls
                 if (elements.navLeft) elements.navLeft.style.display = 'none';
                 if (elements.navRight) elements.navRight.style.display = 'none';
                 
                 hamburgerManager.forceVisibility();
             } else {
-                // Desktop: mostrar desktop nav, esconder mobile controls
                 if (elements.navLeft) {
                     elements.navLeft.style.display = 'flex';
                     elements.navLeft.style.visibility = 'visible';
@@ -430,7 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     width: 100% !important;
                 `;
                 
-                // Melhorar links individuais
                 const navLinks = mobileNavLinks.querySelectorAll('.mobile-nav-link');
                 navLinks.forEach(link => {
                     link.style.cssText = `
@@ -449,7 +390,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         display: block !important;
                     `;
                     
-                    // Hover effects
                     link.addEventListener('mouseenter', function() {
                         this.style.color = 'var(--color-hover)';
                         this.style.transform = 'scale(1.05)';
@@ -484,16 +424,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Fechar search se estiver aberto
             searchOverlay.close();
             
-            // Abrir menu
             elements.mobileNav.classList.add('active');
             hamburgerManager.updateState(true);
             utils.lockScroll();
             state.mobileMenuOpen = true;
             
-            // Melhorar layout após abrir
             setTimeout(() => {
                 navigationManager.improveMobileLayout();
             }, 50);
@@ -531,15 +468,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Fechar menu mobile se estiver aberto
             mobileMenu.close();
             
-            // Abrir search
             elements.searchOverlay.classList.add('active');
             utils.lockScroll();
             state.searchOverlayOpen = true;
             
-            // Reset para "all categories"
             this.setCategory('all');
             
             utils.log('Search overlay aberto');
@@ -558,13 +492,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setCategory(category) {
             state.currentCategory = category;
             
-            // Atualizar categoria ativa
             elements.categoryItems.forEach(item => {
                 const isActive = item.dataset.category === category;
                 item.classList.toggle('active', isActive);
             });
             
-            // Filtrar projetos
             this.filterProjects(category);
             
             utils.log('Categoria selecionada', category);
@@ -588,15 +520,33 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ====================================
-    // EFEITOS HOVER
+    // EFEITOS HOVER - CORRIGIDO
     // ====================================
     const hoverEffects = {
         setup() {
-            if (!elements.introText || window.innerWidth < 769) return;
+            // Só aplicar em desktop e se estiver na homepage
+            if (!elements.introText || window.innerWidth < 769 || !state.isHomepage) {
+                utils.log('Hover effects não aplicados', 'Mobile ou não homepage');
+                return;
+            }
+            
+            // Aguardar um pouco para garantir que o DOM está pronto
+            setTimeout(() => {
+                this.applyHoverWords();
+            }, 100);
+        },
+        
+        applyHoverWords() {
+            if (!elements.introText) return;
             
             let text = elements.introText.innerHTML;
             
-            // Substituir palavras específicas por spans com hover
+            // Verificar se já foi aplicado
+            if (text.includes('hover-word')) {
+                utils.log('Hover words já aplicados');
+                return;
+            }
+            
             const words = {
                 'Ellen': { emoji: '🐢', class: 'ellen' },
                 'Brazilian': { emoji: '🧉', class: 'brazil' },
@@ -604,6 +554,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'UX': { emoji: '👩🏻‍💻', class: 'ux' }
             };
             
+            // Aplicar as substituições
             Object.entries(words).forEach(([word, config]) => {
                 const regex = new RegExp(`\\b${word}\\b`, 'g');
                 text = text.replace(regex, 
@@ -612,26 +563,33 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             elements.introText.innerHTML = text;
-            utils.log('Hover words configuradas');
+            
+            // Configurar cursor customizado após aplicar as palavras
+            setTimeout(() => {
+                customCursor.setup();
+                utils.log('Hover words aplicados e cursor configurado');
+            }, 50);
         }
     };
     
     // ====================================
-    // CURSOR CUSTOMIZADO
+    // CURSOR CUSTOMIZADO - CORRIGIDO
     // ====================================
     const customCursor = {
         cursor: null,
         
         setup() {
-            // Só aplicar em desktop/tablet (769px+)
-            if (window.innerWidth < 769) {
+            // Só aplicar em desktop/tablet (769px+) e se estiver na homepage
+            if (window.innerWidth < 769 || !state.isHomepage) {
                 this.destroy();
                 return;
             }
             
-            this.create();
-            this.bindEvents();
-            utils.log('Cursor customizado configurado');
+            // Aguardar um pouco para garantir que as hover words foram aplicadas
+            setTimeout(() => {
+                this.create();
+                this.bindEvents();
+            }, 200);
         },
         
         create() {
@@ -650,6 +608,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
             `;
             document.body.appendChild(this.cursor);
+            
+            utils.log('Cursor customizado criado');
         },
         
         bindEvents() {
@@ -662,50 +622,64 @@ document.addEventListener('DOMContentLoaded', function() {
                 'ux': '👩🏻‍💻'
             };
             
-            document.querySelectorAll('.hover-word').forEach(word => {
+            // Buscar as palavras com hover depois que foram aplicadas
+            const hoverWords = document.querySelectorAll('.hover-word');
+            
+            if (hoverWords.length === 0) {
+                utils.log('Nenhuma hover word encontrada');
+                return;
+            }
+            
+            hoverWords.forEach(word => {
                 const className = Array.from(word.classList).find(cls => emojiMap[cls]);
                 if (!className) return;
                 
-                word.addEventListener('mouseenter', () => {
+                word.addEventListener('mouseenter', (e) => {
                     this.cursor.textContent = emojiMap[className];
                     this.cursor.style.opacity = '1';
                     word.style.cursor = 'none';
+                    word.style.fontWeight = '800';
+                    
+                    // Posicionar cursor na posição atual do mouse
+                    this.cursor.style.left = e.clientX + 'px';
+                    this.cursor.style.top = e.clientY + 'px';
                 });
                 
                 word.addEventListener('mouseleave', () => {
                     this.cursor.style.opacity = '0';
                     word.style.cursor = 'default';
+                    word.style.fontWeight = 'var(--font-weight-bold)';
                 });
                 
                 word.addEventListener('mousemove', (e) => {
-                    this.cursor.style.left = e.clientX + 'px';
-                    this.cursor.style.top = e.clientY + 'px';
+                    if (this.cursor.style.opacity === '1') {
+                        this.cursor.style.left = e.clientX + 'px';
+                        this.cursor.style.top = e.clientY + 'px';
+                    }
                 });
             });
+            
+            utils.log('Event listeners do cursor configurados', `${hoverWords.length} palavras`);
         },
         
         destroy() {
             if (this.cursor) {
                 this.cursor.remove();
                 this.cursor = null;
+                utils.log('Cursor customizado removido');
             }
         }
     };
     
     // ====================================
-    // SCROLL HANDLER - ATUALIZADO COM BACK TO TOP
+    // SCROLL HANDLER
     // ====================================
     const scrollHandler = {
         setup() {
-            // Inicializar o back to top controller
             backToTopController.init();
 
-            // Scroll handler combinado com debounce
             const debouncedScroll = utils.debounce(() => {
-                // Back to top handling
                 backToTopController.handleScroll();
-                
-                // Outras funcionalidades de scroll podem ser adicionadas aqui
             }, backToTopController.config.debounceDelay);
             
             window.addEventListener('scroll', debouncedScroll, { passive: true });
@@ -731,7 +705,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         setupMenuEvents() {
-            // Hamburger menu
             if (elements.hamburgerBtn) {
                 elements.hamburgerBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -744,7 +717,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('❌ HAMBURGER BUTTON NÃO ENCONTRADO!');
             }
             
-            // Mobile nav close
             if (elements.mobileNavClose) {
                 elements.mobileNavClose.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -757,7 +729,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         setupSearchEvents() {
-            // Search triggers
             elements.searchTriggers.forEach((trigger, index) => {
                 if (trigger) {
                     trigger.addEventListener('click', function(e) {
@@ -770,7 +741,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             console.log('✅ Search triggers configurados:', elements.searchTriggers.length);
             
-            // Search close
             if (elements.searchCloseBtn) {
                 elements.searchCloseBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -779,7 +749,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Category items
             elements.categoryItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -788,7 +757,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (category) {
                         searchOverlay.setCategory(category);
                         
-                        // Se for mobile category, fechar menu e abrir search
                         if (this.classList.contains('mobile-category-item')) {
                             mobileMenu.close();
                             setTimeout(() => {
@@ -801,7 +769,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         setupProjectEvents() {
-            // Project cards navigation
             elements.projectCards.forEach(card => {
                 card.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -815,7 +782,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         setupBackToTopEvents() {
-            // Back to top click
             if (elements.backToTopBtn) {
                 elements.backToTopBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -832,7 +798,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenu.close();
                 }
                 
-                // Back to top com teclado (Home key)
                 if (e.key === 'Home' && e.ctrlKey) {
                     e.preventDefault();
                     backToTopController.scrollToTop();
@@ -841,37 +806,38 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         setupWindowEvents() {
-            // Resize handler
             const debouncedResize = utils.debounce(() => {
                 utils.checkMobile();
-                // Recalcular thresholds do back to top após resize
                 if (backToTopController && elements.backToTopBtn) {
                     backToTopController.handleScroll();
                 }
+                
+                // Reconfigurar hover effects no resize
+                hoverEffects.setup();
+                customCursor.setup();
             }, 150);
             
             window.addEventListener('resize', debouncedResize, { passive: true });
             
-            // Orientation change
             window.addEventListener('orientationchange', function() {
                 setTimeout(() => {
                     utils.checkMobile();
                     if (backToTopController && elements.backToTopBtn) {
                         backToTopController.handleScroll();
                     }
+                    hoverEffects.setup();
+                    customCursor.setup();
                 }, 500);
             });
         },
         
         setupClickOutside() {
             document.addEventListener('click', function(e) {
-                // Fechar search se clicar fora
                 if (state.searchOverlayOpen && elements.searchOverlay && 
                     e.target === elements.searchOverlay) {
                     searchOverlay.close();
                 }
                 
-                // Fechar mobile menu se clicar fora
                 if (state.mobileMenuOpen && elements.mobileNav && 
                     e.target === elements.mobileNav) {
                     mobileMenu.close();
@@ -894,74 +860,29 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Project Cards:', elements.projectCards.length);
             console.log('Back to Top encontrado:', !!elements.backToTopBtn);
             console.log('Intro Section encontrada:', !!elements.introSection);
+            console.log('Intro Text encontrado:', !!elements.introText);
             console.log('Largura da tela:', window.innerWidth);
             console.log('É mobile:', state.isMobile);
             console.log('É homepage:', state.isHomepage);
             
-            if (elements.hamburgerBtn) {
-                const style = window.getComputedStyle(elements.hamburgerBtn);
-                console.log('📊 Status do hamburger:', {
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    pointerEvents: style.pointerEvents,
-                    zIndex: style.zIndex
-                });
-            }
-            
-            if (elements.backToTopBtn) {
-                const style = window.getComputedStyle(elements.backToTopBtn);
-                console.log('📊 Status do back to top:', {
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    transform: style.transform
-                });
-            }
+            // Debug específico do hover
+            const hoverWords = document.querySelectorAll('.hover-word');
+            console.log('Hover words encontradas:', hoverWords.length);
+            console.log('Cursor customizado existe:', !!customCursor.cursor);
             
             console.log('========================');
         },
         
-        testMobileMenu() {
-            console.log('🧪 Testando menu mobile...');
-            if (elements.hamburgerBtn) {
-                console.log('✅ Simulando click no hamburger...');
-                elements.hamburgerBtn.click();
-            } else {
-                console.error('❌ Hamburger não encontrado para teste');
-            }
-        },
-        
-        testBackToTop() {
-            console.log('🧪 Testando back to top...');
-            console.log('Estado atual:', {
-                isHomepage: state.isHomepage,
-                currentScrollY: state.currentScrollY,
-                hasPassedIntro: state.hasPassedIntro,
-                hasScrolled: state.hasScrolled,
-                isAtTop: state.isAtTop,
-                isAtBottom: state.isAtBottom
-            });
-            console.log('Configuração:', backToTopController.config);
-        },
-        
-        simulateHomepageScroll() {
-            console.log('🧪 Simulando scroll na homepage...');
-            const threshold = backToTopController.config.homepageThreshold();
-            window.scrollTo({ top: threshold + 100, behavior: 'smooth' });
+        testHoverEffects() {
+            console.log('🧪 Testando hover effects...');
+            hoverEffects.setup();
+            customCursor.setup();
+            
             setTimeout(() => {
-                console.log('✅ Scroll simulado - verificar se botão apareceu');
-                this.testBackToTop();
-            }, 1000);
-        },
-        
-        simulateOtherPageScroll() {
-            console.log('🧪 Simulando scroll em outras páginas...');
-            window.scrollTo({ top: backToTopController.config.otherPagesThreshold + 100, behavior: 'smooth' });
-            setTimeout(() => {
-                console.log('✅ Scroll simulado - verificar se botão apareceu');
-                this.testBackToTop();
-            }, 1000);
+                const hoverWords = document.querySelectorAll('.hover-word');
+                console.log('✅ Hover words após setup:', hoverWords.length);
+                console.log('✅ Cursor após setup:', !!customCursor.cursor);
+            }, 500);
         },
         
         forceCorrections() {
@@ -970,6 +891,13 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburgerManager.ensureSpans();
             navigationManager.updateVisibility();
             navigationManager.improveMobileLayout();
+            
+            // Forçar hover effects
+            if (state.isHomepage) {
+                hoverEffects.setup();
+                customCursor.setup();
+            }
+            
             if (backToTopController && elements.backToTopBtn) {
                 backToTopController.handleScroll();
             }
@@ -999,9 +927,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Configurar scroll handler (inclui back to top)
             scrollHandler.setup();
             
-            // Configurar efeitos visuais
-            hoverEffects.setup();
-            customCursor.setup();
+            // Configurar efeitos visuais - AGUARDAR UM POUCO MAIS
+            setTimeout(() => {
+                if (state.isHomepage && window.innerWidth >= 769) {
+                    hoverEffects.setup();
+                }
+            }, 300);
             
             // Debug inicial
             debug.testElements();
@@ -1034,6 +965,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerManager.forceVisibility();
         hamburgerManager.ensureSpans();
         navigationManager.improveMobileLayout();
+        
+        // Verificação específica dos hover effects
+        if (state.isHomepage && window.innerWidth >= 769) {
+            console.log('🎨 Configurando hover effects (500ms)...');
+            hoverEffects.setup();
+        }
+        
         if (backToTopController && elements.backToTopBtn) {
             backToTopController.handleScroll();
         }
@@ -1044,6 +982,23 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerManager.forceVisibility();
         hamburgerManager.ensureSpans();
         navigationManager.improveMobileLayout();
+        
+        // Verificação final dos hover effects
+        if (state.isHomepage && window.innerWidth >= 769) {
+            console.log('🎨 Verificação final dos hover effects...');
+            const hoverWords = document.querySelectorAll('.hover-word');
+            if (hoverWords.length === 0) {
+                console.log('⚠️ Hover words não encontradas, reaplicando...');
+                hoverEffects.setup();
+            } else {
+                console.log('✅ Hover words já aplicadas:', hoverWords.length);
+                // Reconfigurar cursor se necessário
+                if (!customCursor.cursor) {
+                    customCursor.setup();
+                }
+            }
+        }
+        
         if (backToTopController && elements.backToTopBtn) {
             backToTopController.handleScroll();
         }
@@ -1060,6 +1015,8 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerManager,
         navigationManager,
         backToTopController,
+        hoverEffects,
+        customCursor,
         debug,
         utils,
         
@@ -1068,141 +1025,84 @@ document.addEventListener('DOMContentLoaded', function() {
         testElements: debug.testElements,
         forceCorrections: debug.forceCorrections,
         testBackToTop: debug.testBackToTop,
-        simulateHomepageScroll: debug.simulateHomepageScroll,
-        simulateOtherPageScroll: debug.simulateOtherPageScroll,
+        testHoverEffects: debug.testHoverEffects,
         
-        // Funções específicas para hamburger (mantidas por compatibilidade)
-        testHamburgerClick: function() {
-            console.log('🧪 Testando click direto no hamburger...');
-            if (elements.hamburgerBtn) {
-                console.log('✅ Elemento encontrado, simulando click...');
-                elements.hamburgerBtn.click();
-            } else {
-                console.error('❌ Hamburger não encontrado');
-            }
+        // Funções específicas para hover effects
+        testHover: function() {
+            console.log('🧪 Testando hover effects manualmente...');
+            debug.testHoverEffects();
         },
         
-        checkHamburgerStatus: function() {
-            if (elements.hamburgerBtn) {
-                const style = window.getComputedStyle(elements.hamburgerBtn);
-                console.log('📊 Status completo do hamburger:', {
-                    element: elements.hamburgerBtn,
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    pointerEvents: style.pointerEvents,
-                    zIndex: style.zIndex,
-                    position: style.position,
-                    cursor: style.cursor,
-                    width: style.width,
-                    height: style.height
-                });
-                
-                const rect = elements.hamburgerBtn.getBoundingClientRect();
-                console.log('📐 Posição e tamanho:', {
-                    top: rect.top,
-                    left: rect.left,
-                    width: rect.width,
-                    height: rect.height,
-                    visible: rect.width > 0 && rect.height > 0
-                });
-            } else {
-                console.error('❌ Hamburger button não encontrado');
-            }
-        },
-        
-        forceHamburgerExtreme: function() {
-            console.log('🚨 Aplicando correção EXTREMA no hamburger...');
+        checkHoverWords: function() {
+            const hoverWords = document.querySelectorAll('.hover-word');
+            console.log('📊 Status dos hover words:', {
+                encontradas: hoverWords.length,
+                introText: !!elements.introText,
+                isHomepage: state.isHomepage,
+                windowWidth: window.innerWidth,
+                cursorExists: !!customCursor.cursor
+            });
             
-            if (elements.hamburgerBtn) {
-                // Remover todas as classes que podem interferir
-                elements.hamburgerBtn.className = 'hamburger-menu';
-                
-                // Aplicar estilos extremos
-                elements.hamburgerBtn.style.setProperty('display', 'flex', 'important');
-                elements.hamburgerBtn.style.setProperty('visibility', 'visible', 'important');
-                elements.hamburgerBtn.style.setProperty('opacity', '1', 'important');
-                elements.hamburgerBtn.style.setProperty('pointer-events', 'auto', 'important');
-                elements.hamburgerBtn.style.setProperty('position', 'relative', 'important');
-                elements.hamburgerBtn.style.setProperty('z-index', '9999', 'important');
-                elements.hamburgerBtn.style.setProperty('background', 'red', 'important'); // Para debug
-                elements.hamburgerBtn.style.setProperty('min-width', '50px', 'important');
-                elements.hamburgerBtn.style.setProperty('min-height', '50px', 'important');
-                elements.hamburgerBtn.style.setProperty('cursor', 'pointer', 'important');
-                
-                console.log('✅ Correção extrema aplicada (com fundo vermelho para debug)');
-                
-                // Verificar novamente
-                this.checkHamburgerStatus();
+            if (hoverWords.length > 0) {
+                hoverWords.forEach((word, index) => {
+                    console.log(`  ${index + 1}. ${word.textContent} (${word.className})`);
+                });
             }
         },
         
-        // Novas funções específicas para Back to Top
-        testBackToTopClick: function() {
-            console.log('🧪 Testando click do back to top...');
-            if (elements.backToTopBtn) {
-                elements.backToTopBtn.click();
-            } else {
-                console.error('❌ Back to top button não encontrado');
-            }
-        },
-        
-        checkBackToTopStatus: function() {
-            if (elements.backToTopBtn) {
-                const style = window.getComputedStyle(elements.backToTopBtn);
-                console.log('📊 Status completo do back to top:', {
-                    element: elements.backToTopBtn,
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    transform: style.transform,
-                    pointerEvents: style.pointerEvents
-                });
+        forceHoverEffects: function() {
+            console.log('🔧 Forçando hover effects...');
+            if (elements.introText) {
+                // Limpar texto anterior
+                const text = elements.introText.textContent;
+                elements.introText.innerHTML = text;
                 
-                console.log('📊 Estado interno:', {
-                    isHomepage: state.isHomepage,
-                    currentScrollY: state.currentScrollY,
-                    hasPassedIntro: state.hasPassedIntro,
-                    hasScrolled: state.hasScrolled,
-                    isAtTop: state.isAtTop,
-                    isAtBottom: state.isAtBottom
-                });
+                // Reaplicar
+                hoverEffects.setup();
                 
-                console.log('📊 Classes do body:', Array.from(elements.body.classList));
+                setTimeout(() => {
+                    this.checkHoverWords();
+                }, 200);
             } else {
-                console.error('❌ Back to top button não encontrado');
+                console.error('❌ Intro text não encontrado');
             }
         }
     };
     
-    console.log('🔧 Para debug, use:');
-    console.log('- window.portfolioDebug.testBackToTop() - Ver estado do back to top');
-    console.log('- window.portfolioDebug.simulateHomepageScroll() - Testar na homepage');
-    console.log('- window.portfolioDebug.simulateOtherPageScroll() - Testar em outras páginas');
-    console.log('- window.portfolioDebug.testHamburgerClick() - Testar click do hamburger');
-    console.log('- window.portfolioDebug.checkHamburgerStatus() - Verificar status do hamburger');
-    console.log('- window.portfolioDebug.checkBackToTopStatus() - Verificar status do back to top');
-    console.log('- window.portfolioDebug.testElements() - Ver todos elementos');
-    console.log('- window.portfolioDebug.forceCorrections() - Forçar correções');
+    console.log('🔧 Para debug dos hover effects, use:');
+    console.log('- window.portfolioDebug.checkHoverWords() - Ver status dos hover words');
+    console.log('- window.portfolioDebug.forceHoverEffects() - Forçar reaplicação');
+    console.log('- window.portfolioDebug.testHoverEffects() - Testar configuração');
 });
 
 // ====================================
-// VERIFICAÇÕES FINAIS E FALLBACKS
+// VERIFICAÇÕES FINAIS - INCLUINDO HOVER EFFECTS
 // ====================================
 
-// Fallback para elementos tardios
+// Fallback para hover effects
 setTimeout(() => {
     if (typeof window.portfolioDebug !== 'undefined') {
-        console.log('🔄 Executando verificação tardia...');
+        console.log('🔄 Executando verificação tardia dos hover effects...');
         
-        window.portfolioDebug.debug.testElements();
+        // Verificar se estamos na homepage
+        const isHomepage = document.body.classList.contains('homepage');
+        const introText = document.querySelector('.intro-text');
         
-        // Forçar visibilidade novamente se necessário
-        if (window.innerWidth <= 1023) {
-            console.log('📱 Dispositivo mobile detectado, forçando correções...');
-            window.portfolioDebug.hamburgerManager.forceVisibility();
-            window.portfolioDebug.hamburgerManager.ensureSpans();
-            window.portfolioDebug.navigationManager.improveMobileLayout();
+        if (isHomepage && introText && window.innerWidth >= 769) {
+            const hoverWords = document.querySelectorAll('.hover-word');
+            
+            if (hoverWords.length === 0) {
+                console.log('⚠️ Hover words não aplicadas, corrigindo...');
+                window.portfolioDebug.forceHoverEffects();
+            } else {
+                console.log('✅ Hover words já aplicadas:', hoverWords.length);
+                
+                // Verificar se o cursor existe
+                if (!window.portfolioDebug.customCursor.cursor) {
+                    console.log('🔧 Cursor não existe, criando...');
+                    window.portfolioDebug.customCursor.setup();
+                }
+            }
         }
         
         // Verificação final do hamburger com correção extrema
@@ -1219,20 +1119,16 @@ setTimeout(() => {
             if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
                 console.warn('🚨 Hamburger ainda invisível! Aplicando correção EXTREMA...');
                 
-                // Correção mais agressiva possível
                 hamburger.style.setProperty('display', 'flex', 'important');
                 hamburger.style.setProperty('visibility', 'visible', 'important');
                 hamburger.style.setProperty('opacity', '1', 'important');
                 hamburger.style.setProperty('pointer-events', 'auto', 'important');
                 hamburger.style.setProperty('position', 'relative', 'important');
                 hamburger.style.setProperty('z-index', '9999', 'important');
-                hamburger.style.setProperty('background', 'rgba(255, 0, 0, 0.3)', 'important'); // Debug
                 hamburger.style.setProperty('min-width', '50px', 'important');
                 hamburger.style.setProperty('min-height', '50px', 'important');
                 hamburger.style.setProperty('cursor', 'pointer', 'important');
-                hamburger.style.setProperty('border', '2px solid red', 'important'); // Debug
                 
-                // Forçar o container pai também
                 const mobileControls = hamburger.closest('.mobile-controls');
                 if (mobileControls) {
                     mobileControls.style.setProperty('display', 'flex', 'important');
@@ -1241,30 +1137,26 @@ setTimeout(() => {
                     mobileControls.style.setProperty('pointer-events', 'auto', 'important');
                 }
                 
-                console.log('✅ Correção EXTREMA aplicada com indicadores visuais!');
+                console.log('✅ Correção EXTREMA aplicada!');
             } else {
                 console.log('✅ Hamburger está visível!');
             }
         }
         
-        // Verificação do back to top
         const backToTopBtn = document.querySelector('.back-to-top');
         if (backToTopBtn) {
             console.log('🔍 Verificação final do back to top...');
             window.portfolioDebug.checkBackToTopStatus();
         }
         
-        // Verificar se o event listener está funcionando
         if (hamburger) {
             console.log('🧪 Testando event listener do hamburger...');
             
-            // Adicionar event listener extra como backup
             hamburger.addEventListener('click', function(e) {
                 console.log('🎯 BACKUP EVENT LISTENER ATIVADO!');
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Toggle manual do menu
                 const mobileNav = document.querySelector('.mobile-nav');
                 if (mobileNav) {
                     if (mobileNav.classList.contains('active')) {
@@ -1286,7 +1178,7 @@ setTimeout(() => {
     }
 }, 2000);
 
-// Verificação após load completo
+// Verificação após load completo - INCLUINDO HOVER EFFECTS
 window.addEventListener('load', function() {
     setTimeout(() => {
         console.log('🔄 Verificação final após load completo...');
@@ -1294,11 +1186,9 @@ window.addEventListener('load', function() {
         if (window.innerWidth <= 1023 && window.portfolioDebug) {
             window.portfolioDebug.forceCorrections();
             
-            // Teste automático do hamburger
             console.log('🤖 Executando teste automático do hamburger...');
             window.portfolioDebug.checkHamburgerStatus();
             
-            // Se ainda não estiver funcionando, aplicar correção extrema
             const hamburger = document.querySelector('.hamburger-menu');
             if (hamburger) {
                 const style = window.getComputedStyle(hamburger);
@@ -1309,38 +1199,38 @@ window.addEventListener('load', function() {
             }
         }
         
-        // Configurar efeitos visuais após load completo
+        // Configurar hover effects após load completo - VERSÃO MELHORADA
         if (window.portfolioDebug) {
-            const hoverEffects = {
-                setup() {
-                    const introText = document.querySelector('.intro-text');
-                    if (!introText || window.innerWidth < 769) return;
-                    
-                    let text = introText.innerHTML;
-                    
-                    const words = {
-                        'Ellen': { emoji: '🐢', class: 'ellen' },
-                        'Brazilian': { emoji: '🧉', class: 'brazil' },
-                        'Lisbon': { emoji: '🇵🇹', class: 'portugal' },
-                        'UX': { emoji: '👩🏻‍💻', class: 'ux' }
-                    };
-                    
-                    Object.entries(words).forEach(([word, config]) => {
-                        const regex = new RegExp(`\\b${word}\\b`, 'g');
-                        text = text.replace(regex, 
-                            `<span class="hover-word ${config.class}" data-emoji="${config.emoji}">${word}</span>`
-                        );
-                    });
-                    
-                    introText.innerHTML = text;
-                    console.log('✅ Hover effects configurados após load');
-                }
-            };
+            const isHomepage = document.body.classList.contains('homepage');
+            const introText = document.querySelector('.intro-text');
             
-            hoverEffects.setup();
+            if (isHomepage && introText && window.innerWidth >= 769) {
+                console.log('🎨 Configurando hover effects após load completo...');
+                
+                // Aguardar mais um pouco para garantir que tudo carregou
+                setTimeout(() => {
+                    const hoverWords = document.querySelectorAll('.hover-word');
+                    
+                    if (hoverWords.length === 0) {
+                        console.log('🔧 Aplicando hover effects após load...');
+                        window.portfolioDebug.hoverEffects.setup();
+                        
+                        setTimeout(() => {
+                            window.portfolioDebug.customCursor.setup();
+                            window.portfolioDebug.checkHoverWords();
+                        }, 300);
+                    } else {
+                        console.log('✅ Hover effects já configurados:', hoverWords.length);
+                        
+                        // Garantir que o cursor está funcionando
+                        if (!window.portfolioDebug.customCursor.cursor) {
+                            window.portfolioDebug.customCursor.setup();
+                        }
+                    }
+                }, 500);
+            }
         }
         
-        // Teste final do back to top
         if (window.portfolioDebug && window.portfolioDebug.backToTopController) {
             console.log('🔝 Executando teste final do back to top...');
             window.portfolioDebug.checkBackToTopStatus();
@@ -1349,5 +1239,3 @@ window.addEventListener('load', function() {
         console.log('🎉 Verificação final concluída!');
     }, 1000);
 });
-
-console.log('🎉 JavaScript Portfolio carregado com sucesso!');
