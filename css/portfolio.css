@@ -823,7 +823,7 @@ nav a:hover {
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: #000000;
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.5px;
@@ -1085,9 +1085,11 @@ footer {
    ============================================ */
 
 .middle-column {
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 0 var(--page-padding) 160px;
+}
+
+.content-section2 {
+    max-width: 1000px;
 }
 
 .content-section2 h2 {
@@ -1485,6 +1487,10 @@ footer {
     
     .middle-column {
         padding: 0 var(--page-padding) 100px;
+    }
+    
+    .content-section2 {
+        max-width: none;
     }
     
     .content-section2 h2 {
