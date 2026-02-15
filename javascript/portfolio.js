@@ -133,7 +133,7 @@ themeToggle?.addEventListener('click', () => {
 
 function updateThemeIcon(theme) {
     if (themeIcon) {
-        themeIcon.textContent = theme === 'light' ? '🐝' : '🦉';
+        themeIcon.textContent = theme === 'light' ? '🌙' : '🦉';
     }
 }
 
