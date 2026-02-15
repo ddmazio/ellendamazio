@@ -9,7 +9,7 @@ const projects = [
     { name: 'Maisedu', url: 'maisedu.html' },
     { name: 'All in a Chain', url: 'chain.html' },
     { name: 'Alice in Wonderland', url: 'alice.html' },
-    { name: 'AzucrinaÃ§Ã£o', url: 'azucrinacao.html' }
+    { name: 'Azucrinação', url: 'azucrinacao.html' }
 ];
 
 // Get current project from URL
@@ -18,29 +18,17 @@ function getCurrentProjectIndex() {
     return projects.findIndex(project => project.url === currentPage);
 }
 
-// Get previous project (with loop)
+// Get previous project
 function getPreviousProject() {
     const currentIndex = getCurrentProjectIndex();
-    if (currentIndex === -1) return null;
-    
-    // If we're at the first project, loop to the last one
-    if (currentIndex === 0) {
-        return projects[projects.length - 1];
-    }
-    
+    if (currentIndex <= 0) return null;
     return projects[currentIndex - 1];
 }
 
-// Get next project (with loop)
+// Get next project
 function getNextProject() {
     const currentIndex = getCurrentProjectIndex();
-    if (currentIndex === -1) return null;
-    
-    // If we're at the last project, loop to the first one
-    if (currentIndex === projects.length - 1) {
-        return projects[0];
-    }
-    
+    if (currentIndex === -1 || currentIndex >= projects.length - 1) return null;
     return projects[currentIndex + 1];
 }
 
@@ -52,15 +40,18 @@ function updateProjectNavigation() {
     const prevProject = getPreviousProject();
     const nextProject = getNextProject();
     
-    // Always show buttons if we have projects
     if (prevButton && prevProject) {
         prevButton.href = prevProject.url;
         prevButton.style.display = 'inline-flex';
+    } else if (prevButton) {
+        prevButton.style.display = 'none';
     }
     
     if (nextButton && nextProject) {
         nextButton.href = nextProject.url;
         nextButton.style.display = 'inline-flex';
+    } else if (nextButton) {
+        nextButton.style.display = 'none';
     }
 }
 
@@ -68,6 +59,55 @@ function updateProjectNavigation() {
 if (document.querySelector('.project-navigation')) {
     updateProjectNavigation();
 }
+
+
+// ============================================
+// LANGUAGE TOGGLE FUNCTIONALITY
+// ============================================
+
+const languageToggle = document.getElementById('language-toggle');
+const languageText = document.querySelector('.language-text');
+
+// Check for saved language preference or default to Portuguese
+const currentLanguage = localStorage.getItem('language') || 'pt';
+document.documentElement.setAttribute('lang', currentLanguage);
+updateLanguage(currentLanguage);
+
+languageToggle?.addEventListener('click', () => {
+    const currentLang = document.documentElement.getAttribute('lang');
+    const newLang = currentLang === 'pt' ? 'en' : 'pt';
+    
+    document.documentElement.setAttribute('lang', newLang);
+    localStorage.setItem('language', newLang);
+    updateLanguage(newLang);
+});
+
+function updateLanguage(lang) {
+    // Update button text
+    if (languageText) {
+        languageText.textContent = lang === 'pt' ? 'EN' : 'PT';
+    }
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = translations[lang]?.[key];
+        
+        if (translation) {
+            // Check if element has data-i18n-attr to update attribute instead of text
+            const attr = element.getAttribute('data-i18n-attr');
+            if (attr) {
+                element.setAttribute(attr, translation);
+            } else {
+                element.textContent = translation;
+            }
+        }
+    });
+    
+    // Update HTML lang attribute for SEO and accessibility
+    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+}
+
 
 // ============================================
 // THEME TOGGLE FUNCTIONALITY
@@ -200,4 +240,80 @@ window.addEventListener('load', () => {
             card.style.opacity = '1';
         }
     });
+});
+
+
+// ============================================
+// CUSTOM CURSOR FUNCTIONALITY
+// ============================================
+
+// Create custom cursor element
+const cursor = document.createElement('div');
+cursor.className = 'custom-cursor';
+cursor.innerHTML = '<div class="custom-cursor-inner">view project</div>';
+document.body.appendChild(cursor);
+
+let mouseX = 0;
+let mouseY = 0;
+let cursorX = 0;
+let cursorY = 0;
+
+// Update mouse position
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+// Smooth cursor follow animation
+function animateCursor() {
+    const speed = 0.15;
+    
+    cursorX += (mouseX - cursorX) * speed;
+    cursorY += (mouseY - cursorY) * speed;
+    
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Handle project card hover (only on index page)
+if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+    const projectCardsForCursor = document.querySelectorAll('.project-card');
+    
+    projectCardsForCursor.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover-project');
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover-project');
+        });
+    });
+}
+
+// Handle link hover (all pages)
+const links = document.querySelectorAll('a, button, .nav-link, .filter-link');
+
+links.forEach(link => {
+    // Skip project cards as they have special hover
+    if (link.classList.contains('project-card')) return;
+    
+    link.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover-link');
+    });
+    
+    link.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover-link');
+    });
+});
+
+// Hide cursor when leaving window
+document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+});
+
+document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
 });
