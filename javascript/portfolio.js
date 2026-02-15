@@ -18,17 +18,29 @@ function getCurrentProjectIndex() {
     return projects.findIndex(project => project.url === currentPage);
 }
 
-// Get previous project
+// Get previous project (with loop)
 function getPreviousProject() {
     const currentIndex = getCurrentProjectIndex();
-    if (currentIndex <= 0) return null;
+    if (currentIndex === -1) return null;
+    
+    // If at first project, go to last project
+    if (currentIndex === 0) {
+        return projects[projects.length - 1];
+    }
+    
     return projects[currentIndex - 1];
 }
 
-// Get next project
+// Get next project (with loop)
 function getNextProject() {
     const currentIndex = getCurrentProjectIndex();
-    if (currentIndex === -1 || currentIndex >= projects.length - 1) return null;
+    if (currentIndex === -1) return null;
+    
+    // If at last project, go to first project
+    if (currentIndex === projects.length - 1) {
+        return projects[0];
+    }
+    
     return projects[currentIndex + 1];
 }
 
@@ -58,54 +70,6 @@ function updateProjectNavigation() {
 // Initialize navigation on page load
 if (document.querySelector('.project-navigation')) {
     updateProjectNavigation();
-}
-
-
-// ============================================
-// LANGUAGE TOGGLE FUNCTIONALITY
-// ============================================
-
-const languageToggle = document.getElementById('language-toggle');
-const languageText = document.querySelector('.language-text');
-
-// Check for saved language preference or default to Portuguese
-const currentLanguage = localStorage.getItem('language') || 'pt';
-document.documentElement.setAttribute('lang', currentLanguage);
-updateLanguage(currentLanguage);
-
-languageToggle?.addEventListener('click', () => {
-    const currentLang = document.documentElement.getAttribute('lang');
-    const newLang = currentLang === 'pt' ? 'en' : 'pt';
-    
-    document.documentElement.setAttribute('lang', newLang);
-    localStorage.setItem('language', newLang);
-    updateLanguage(newLang);
-});
-
-function updateLanguage(lang) {
-    // Update button text
-    if (languageText) {
-        languageText.textContent = lang === 'pt' ? 'EN' : 'PT';
-    }
-    
-    // Update all elements with data-i18n attribute
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const translation = translations[lang]?.[key];
-        
-        if (translation) {
-            // Check if element has data-i18n-attr to update attribute instead of text
-            const attr = element.getAttribute('data-i18n-attr');
-            if (attr) {
-                element.setAttribute(attr, translation);
-            } else {
-                element.textContent = translation;
-            }
-        }
-    });
-    
-    // Update HTML lang attribute for SEO and accessibility
-    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
 }
 
 
