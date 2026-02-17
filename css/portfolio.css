@@ -95,6 +95,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 
@@ -780,11 +781,13 @@ nav a:hover {
 
 .project-nav-link:hover {
     opacity: 1;
-    color: var(--text-color);
+    color: #e65f2e;
 }
 
 .project-main-content {
     padding-bottom: 60px;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
 .project-meta-grid {
@@ -806,25 +809,26 @@ nav a:hover {
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: #e65f2e;
 }
 
 .project-meta-item .meta-value {
     font-family: 'geist-mono';
     font-size: 12px;
     font-weight: 400;
-    color: var(--text-color);
+    color: #666666;
     line-height: 1.6;
 }
 
 .project-meta-item .meta-value a {
     color: var(--text-color);
-    text-decoration: none;
+    text-decoration: underline;    
     transition: opacity 0.3s;
 }
 
 .project-meta-item .meta-value a:hover {
     opacity: 0.6;
+    color:#e65f2e;
 }
 
 .project-section {
@@ -850,15 +854,17 @@ nav a:hover {
     font-size: 14pt;
     font-weight: 600;
     margin-bottom: 16px;
-    color:#666666;
+    color:#e65f2e;
 }
 
 .project-text {
     font-family: 'geist-mono';
-    font-size: 14pt;
+    font-size: 12pt;
     line-height: 1.7;
     margin-bottom: 20px;
     color: var(--text-color);
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .project-step {
@@ -999,7 +1005,7 @@ footer {
 }
 
 /* ============================================
-   ABOUT PAGE — NEW LAYOUT
+   ABOUT PAGE â€” NEW LAYOUT
    ============================================ */
 
 /* Page wrapper */
@@ -1016,7 +1022,7 @@ footer {
     margin-bottom: 80px;
 }
 
-/* ── Left column ── */
+/* â”€â”€ Left column â”€â”€ */
 .about-heading {
     font-family: 'tiempos';
     font-size: 28px;
@@ -1060,7 +1066,7 @@ footer {
 }
 
 .about-list li::before {
-    content: '• ';
+    content: 'â€¢ ';
 }
 
 .about-currently {
@@ -1075,7 +1081,7 @@ footer {
     margin-top: 20px;
 }
 
-/* ── Right column ── */
+/* â”€â”€ Right column â”€â”€ */
 .about-right {
     padding-top: 8px;
     display: flex;
@@ -1141,7 +1147,7 @@ footer {
     gap: 0;
 }
 
-/* ── Photo strip ── */
+/* â”€â”€ Photo strip â”€â”€ */
 .about-photo-strip {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
