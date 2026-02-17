@@ -1150,7 +1150,7 @@ footer {
 
 .info-date {
     font-family: 'geist-mono';
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.6;
     color: var(--text-muted);
     white-space: nowrap;
