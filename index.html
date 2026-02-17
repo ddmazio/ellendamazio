@@ -20,8 +20,8 @@
             <meta property="og:image:alt" content="Portfolio Ellen Damazio - Design e UX">
 
             <!-- Favicon -->
-            <link rel="icon" type="image/png" sizes="32x32" href="img/profile.jpeg"> 
-            <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+            <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
                 
             <!-- Stylesheet -->
             <link rel="stylesheet" href="css/portfolio.css">
@@ -38,18 +38,34 @@
                     <ul>
                         <a href="index.html" class="nav-link">home</a>
                         <a href="about.html" class="nav-link">about</a>
-                        <!-- <a href="dump.html" class="nav-link">dump</a> -->
                         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                            <span class="theme-icon">🐝</span>
+                            <span class="theme-icon">🦉</span>
                         </button>
                     </ul>
                 </nav>
+                <div class="header-right">
+                    <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon-mobile">🦉</span>
+                    </button>
+                    <button class="hamburger" id="hamburger" aria-label="Open menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </header>
+
+            <!-- Mobile Nav Overlay -->
+            <div class="nav-overlay" id="nav-overlay">
+                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+                <a href="index.html">home</a>
+                <a href="about.html">about</a>
+            </div>
 
             <!-- Hero Section -->
             <section class="hero-section">
                 <h1 class="hero-title">
-                    Another <span class="strikethrough hover-brazilian" data-emoji="🧉">brazilian</span> UX/UI designer based in <span class="strikethrough hover-lisbon" data-emoji="🇵🇹">Lisbon (PT)</span> who loves <span class="hover-interactive" data-emoji="👩🏻‍💻">interactive design</span>, <span class="hover-research" data-emoji="🐢">turtles</span>, <span class="hover-editorial" data-emoji="📚">editorial design</span> and <span class="hover-research" data-emoji="🫶🏻">family</span>.
+                    Ellen is a communication designer with a growing focus on UX/UI, creating thoughtful digital experiences grounded in research, clarity and human-centered thinking.
                 </h1>
             </section>
 
@@ -67,83 +83,111 @@
 
         <!-- Projects Section -->
         <section class="projects-section">
-            <div class="projects-grid">
-                <!-- Row 1: Large + Small + Small -->
-                <a href="ting.html" class="project-card large" data-category="uiux">
-                    <img src="projects/ting/Scene-9.jpg" alt="Ting - Web Design Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Ting</h3>
-                        <p class="project-tags">UI/UX</p>
-                    </div>
-                </a>
+            <div class="projects-grid" id="projects-grid">
 
-                <!-- <a href="paranoia.html" class="project-card small" data-category="editorial">
-                    <img src="projects/paranoia/1.JPG" alt="Paranoia - Editorial Design Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Paranoia</h3>
-                        <p class="project-tags">editorial</p>
-                    </div>
-                </a> -->
+                <div class="projects-col col-left">
+                    <a href="ting.html" class="project-card" data-category="uiux">
+                        <div class="project-image-wrap">
+                            <img src="projects/ting/Scene-9.jpg" alt="Ting - Web Design Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">UI/UX · 2025</p>
+                            <h3>Ting</h3>
+                            <p class="project-desc">A wearable-app ecosystem that translates physiological signals into haptic feedback for real-world connection.</p>
+                        </div>
+                    </a>
 
-                <a href="atob.html" class="project-card small" data-category="editorial">
-                    <img src="projects/atob/10 - cópia.png" alt="A to B - Editorial Design Project" class="project-image">
-                    <div class="project-info">
-                        <h3>A to B</h3>
-                        <p class="project-tags">editorial</p>
+                    <div class="project-card coming-soon-card" data-category="uiux">
+                        <div class="project-image-wrap">
+                            <img src="projects/fluid/cover.jpg" alt="FLUID.ai - Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">UI/UX · 2025</p>
+                            <h3>FLUID.ai</h3>
+                            <p class="project-desc">Coming soon.</p>
+                        </div>
                     </div>
-                </a>
 
-                <!-- Row 2: Small + Large + Small -->
-                <a href="maisedu.html" class="project-card small" data-category="branding">
-                    <img src="projects/maisedu/tote.jpg" alt="Maisedu - Branding Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Maisedu</h3>
-                        <p class="project-tags">branding</p>
-                    </div>
-                </a>
+                    <a href="azucrinacao.html" class="project-card" data-category="uiux branding editorial">
+                        <div class="project-image-wrap">
+                            <img src="projects/azucrinacao/padrao2.png" alt="Azucrinação - Branding, Web and Editorial Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">UI/UX, branding, editorial · 2025</p>
+                            <h3>Azucrinação</h3>
+                            <p class="project-desc">A limited-edition music anthology honoring Brazil's artistic resistance under dictatorship through design.</p>
+                        </div>
+                    </a>
 
-                <a href="chain.html" class="project-card small" data-category="motion">
-                    <img src="projects/chain/frame4.png" alt="After Hours - Motion Design Project" class="project-image">
-                    <div class="project-info">
-                        <h3>All in a Chain</h3>
-                        <p class="project-tags">motion</p>
-                    </div>
-                </a>
+                    <a href="chain.html" class="project-card" data-category="motion">
+                        <div class="project-image-wrap">
+                            <img src="projects/chain/frame4.png" alt="After Hours - Motion Design Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">motion · 2023</p>
+                            <h3>All in a Chain</h3>
+                            <p class="project-desc">Reimagined opening credits for Scorsese's After Hours through motion design and typographic chaos.</p>
+                        </div>
+                    </a>
 
-                <a href="alice.html" class="project-card large" data-category="editorial">
-                    <img src="projects/alice/comprimido/cover.jpg" alt="Alice in Wonderland - Editorial Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Alice in Wonderland</h3>
-                        <p class="project-tags">editorial</p>
-                    </div>
-                </a>
+                    <!-- <div class="project-card coming-soon-card" data-category="editorial">
+                        <div class="project-image-wrap">
+                            <img src="projects/paranoia/cover.jpg" alt="Paranoia - Editorial Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">editorial · 2025</p>
+                            <h3>Paranoia</h3>
+                            <p class="project-desc">Coming soon.</p>
+                        </div>
+                    </div> -->
+                </div>
 
-                <a href="azucrinacao.html" class="project-card small" data-category="uiux branding editorial">
-                    <img src="projects/azucrinacao/padrao2.png" alt="AzucrinaÃ§Ã£o - Branding, Web and Editorial Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Azucrinação</h3>
-                        <p class="project-tags">UI/UX, branding, editorial</p>
-                    </div>
-                </a>
+                <div class="projects-col col-right">
+                    <a href="alice.html" class="project-card" data-category="editorial">
+                        <div class="project-image-wrap">
+                            <img src="projects/alice/comprimido/cover.jpg" alt="Alice in Wonderland - Editorial Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">editorial · 2025</p>
+                            <h3>Alice in Wonderland</h3>
+                            <p class="project-desc">An editorial reinterpretation of Alice using typography as an active, disruptive visual element.</p>
+                        </div>
+                    </a>
 
-                <!-- Row 3: Large + Small + Small 
-                <a href="blind.html" class="project-card large" data-category="web">
-                    <img src="projects/blind/" alt="Blind Spot - Web Design Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Blind Spot</h3>
-                        <p class="project-tags">web</p>
-                    </div>
-                </a>
+                    <a href="maisedu.html" class="project-card" data-category="branding">
+                        <div class="project-image-wrap">
+                            <img src="projects/maisedu/tote.jpg" alt="Maisedu - Branding Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">branding · 2025</p>
+                            <h3>Maisedu</h3>
+                            <p class="project-desc">Rebranding for a nonprofit transforming education in Brazil's public school system.</p>
+                        </div>
+                    </a>
 
-                <a href="unprompt.html" class="project-card small" data-category="branding">
-                    <img src="img/projects/unprompt.jpg" alt="Unprompt - Branding Project" class="project-image">
-                    <div class="project-info">
-                        <h3>Unprompt</h3>
-                        <p class="project-tags">branding</p>
-                    </div>
-                </a> -->
+                    <a href="atob.html" class="project-card" data-category="editorial">
+                        <div class="project-image-wrap">
+                            <img src="projects/atob/10 - cópia.png" alt="A to B - Editorial Design Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">editorial · 2023</p>
+                            <h3>A to B</h3>
+                            <p class="project-desc">An editorial piece documenting the wayfinding design legacy of Margaret Calvert and Jock Kinneir.</p>
+                        </div>
+                    </a>
 
-                
+                    <!--<div class="project-card coming-soon-card" data-category="uiux">
+                        <div class="project-image-wrap">
+                            <img src="projects/blindspot/cover.jpg" alt="Blind Spot - Project" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <p class="project-meta">UI/UX · 2025</p>
+                            <h3>Blind Spot</h3>
+                            <p class="project-desc">Coming soon.</p>
+                        </div>
+                    </div> -->
+                </div>
+
             </div>
         </section>
 
