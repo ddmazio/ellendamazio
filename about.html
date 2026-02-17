@@ -3,26 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About me</title>
+        <title>About</title>
         <meta name="description" content="Brazilian Communication Design student based in Lisbon, passionate about creating meaningful design solutions.">
         <meta name="author" content="Ellen Damazio">
-        
+
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-        
-        <!-- Stylesheet -->
+
+        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/portfolio.css">
     </head>
-    
-    <body>
-        <!-- Header -->
+
+    <body class="about-page">
+
+        <!-- ── HEADER ───────────────────────────────────────────── -->
         <header>
             <a href="index.html" class="logo">ellen damazio</a>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
+                    <a href="index.html" class="nav-link">work</a>
                     <a href="about.html" class="nav-link">about</a>
+                    <!-- <a href="dump.html" class="nav-link">dump</a> -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                         <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
                     </button>
@@ -42,109 +44,155 @@
 
         <!-- Mobile Nav Overlay -->
         <div class="nav-overlay" id="nav-overlay">
-                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
             <a href="about.html">about</a>
         </div>
 
-        <!-- About Content -->
-        <main class="about-main-clean">
-            <div class="about-container-clean">
-                <div class="about-content-wrapper">
-                    <div class="left-column">
-                        <h1>Hi, I'm Ellen Damazio.</h1>
-                        
-                        <p>After trying out different career paths and fields of study, I found my sweet spot in Communication Design – a space where my love for design, art, and tech all come together. It's where I can truly express my creativity while diving into the technical side of things, making it the perfect fit for me.</p>
-                        
-                        <p>My journey has been all over the place, but in the best way possible. Along the way, I co-founded an NGO that helped young Brazilians in public schools discover their potential and grab new opportunities. This experience really showed me how powerful design can be in creating positive change and making a real difference. Through my work, I'm always blending design, art, and technology to come up with fresh, impactful solutions.</p>
-                        
-                        <p>Currently, I'm volunteering at <a href="https://www.instagram.com/vitalisprojeto/" class="vitalis-link" target="_blank" rel="noopener noreferrer">Vitalis Project</a> and always looking for new projects.</p>
+        <!-- ── MAIN CONTENT ── -->
+        <main class="about-main">
+
+            <!-- TWO-COLUMN GRID -->
+            <div class="about-grid">
+
+                <!-- LEFT COLUMN -->
+                <div class="about-left">
+                    <h1 class="about-heading">Hi there, I'm Ellen.</h1>
+
+                    <p class="about-body">
+                        My journey has been a mix of scrappy beginnings, big learning moments, and making
+                        the most out of small opportunities.
+                    </p>
+
+                    <p class="about-body">
+                        I'm a multidisciplinary designer with a love for prototyping, researching and
+                        visual craft. I study communication design at <a href="https://www.belasartes.ulisboa.pt/" target="_blank" rel="noopener noreferrer" class="about-link">FBAUL</a>.
+                        I'm currently volunteering as design &amp; marketing coordinator at <a href="https://www.instagram.com/vitalisprojeto/" target="_blank" rel="noopener noreferrer" class="about-link">Vitalis</a>.
+                    </p>
+
+                    <p class="about-body outside-label">
+                        Outside of design I'm:
+                    </p>
+                    <ul class="about-list">
+                        <li>Watching movies and series</li>
+                        <li>Trying out new recipes</li>
+                        <li>Building houses in the Sims 4</li>
+                        <li>In pursuit of best tune!</li>
+                    </ul>
+
+                    <div class="about-currently">
+                        <p class="about-body">What I'm watching: Full Potential, The Rookie, Outlander</p>
+                        <p class="about-body">What I'm listening lately: Noah Kahan, Leon Thomas, Mac Miller</p>
+                        <p class="about-body">What I'm learning: AI, Marketing</p>
                     </div>
+
+                    <p class="about-body about-contact">
+                        Say hello at ellendamazio[at]edu.ulisboa.edu or via <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer" class="about-link">LinkedIn</a>.
+                    </p>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="about-right">
+
+                    <!-- Experience -->
+                    <div class="info-block">
+                        <h2 class="info-section-title">Experience</h2>
+
+                        <div class="info-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Design &amp; Marketing Coordinator</span>
+                                <span class="info-place">Vitalis Projeto</span>
+                            </div>
+                            <span class="info-date">MAR 2025 – present</span>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Personal Growth & Healthy Habits Ambassador</span>
+                                <span class="info-place">Anna's World</span>
+                            </div>
+                            <span class="info-date">JAN 2025 – present</span>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Freelance Designer</span>
+                                <span class="info-place">Independent</span>
+                            </div>
+                            <span class="info-date">2025 - present</span>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="info-block">
+                        <h2 class="info-section-title">Education</h2>
+
+                        <div class="info-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Faculty of Fine Arts of the University of Lisbon /</span>
+                                <span class="info-place">B.A. Communication Design</span>
+                            </div>
+                            <span class="info-date">2023–2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Prizes & Recognition
+                    <div class="info-block">
+                        <h2 class="info-section-title">Prizes &amp; Recognition</h2>
+
+                        <div class="info-row prize-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Brasil Design Award: Graphic Design</span>
+                            </div>
+                            <span class="info-date">2026</span>
+                        </div>
+
+                        <div class="info-row prize-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Young Ones</span>
+                            </div>
+                            <span class="info-date">2026</span>
+                        </div>
+
+                        <div class="info-row prize-row">
+                            <div class="info-row-left">
+                                <span class="info-role">Latin American Design Awards: Branding</span>
+                            </div>
+                            <span class="info-date">2026</span>
+                        </div>
+                    </div> -->
+
                 </div>
             </div>
 
-            <!-- Fun Facts Gallery -->
-            <div class="full-width-gallery">
-                <div class="gallery-container">
-                    <h2>Fun Facts!</h2>
-                    <p>Here are some moments that shaped who I am today. Each photo tells a different part of my journey!</p>
-                    
-                    <div class="photo-gallery-grid">
-                        <div class="photo-item">
-                            <div class="photo-wrapper">
-                                <img src="img/radio.jpeg" alt="Ellen at radio station"/>
-                            </div>
-                            <div class="photo-text">
-                                <h3>Being raised on a radio station!</h3>
-                                <p>My father has worked as a sound technician my entire life, and obviously I couldn't help but have memories of the radio station where he worked for 15 years.</p>
-                                <span class="photo-period">2007-2022</span>
-                            </div>
-                        </div>
-
-                        <div class="photo-item">
-                            <div class="photo-wrapper">
-                                <img src="img/amigos.jpg" alt="Ellen with friends"/>
-                            </div>
-                            <div class="photo-text">
-                                <h3>Catch Me with My Crew</h3>
-                                <p>Nothing makes me happier than laughter at the dinner table or spontaneous adventures with friends. I live for those little moments with the people I love most.</p>
-                                <span class="photo-period">Always</span>
-                            </div>
-                        </div>
-
-                        <div class="photo-item">
-                            <div class="photo-wrapper">
-                                <img src="img/jmj.jpg" alt="Ellen volunteering"/>
-                            </div>
-                            <div class="photo-text">
-                                <h3>Always volunteering!</h3>
-                                <p>I've been volunteering since I was 13 – it all started in Catholic youth groups, and somehow I never stopped! At the moment, I'm part of Vitalis, a project focused on real impact and community care.</p>
-                                <span class="photo-period">2014-Present</span>
-                            </div>
-                        </div>
-
-                        <div class="photo-item">
-                            <div class="photo-wrapper">
-                                <img src="img/osorio.jpg" alt="Ellen with family"/>
-                            </div>
-                            <div class="photo-text">
-                                <h3>My Anchor</h3>
-                                <p>My family is my safe place and biggest inspiration. Being with them reminds me of who I am, where I come from, and what truly matters.</p>
-                                <span class="photo-period">Always</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- PHOTO STRIP -->
+            <div class="about-photo-strip">
+                <div class="photo-strip-item">
+                    <img src="img/radio.jpeg" alt="Ellen at radio station">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="img/amigos.jpg" alt="Ellen with friends">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="img/jmj.jpg" alt="Ellen volunteering">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="img/osorio.jpg" alt="Ellen with family">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="img/profile.jpeg" alt="Ellen">
                 </div>
             </div>
 
-            <!-- Spotify Section -->
-            <div class="middle-column">
-                <div class="content-section2">
-                    <h2>Soundtracks of my life</h2>
-                    
-                    <div class="spotify-playlist">
-                        <iframe 
-                            style="border-radius:12px" 
-                            src="https://open.spotify.com/embed/playlist/4g7RHSkDFrc2dRCCMz70oj?utm_source=generator&theme=0" 
-                            width="100%" 
-                            height="352" 
-                            frameBorder="0" 
-                            allowfullscreen="" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                            loading="lazy"
-                            title="Ellen's Spotify Playlist">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
         </main>
 
-        <!-- Footer -->
+        <!-- ── FOOTER ────────────────────────────────────────────── -->
         <footer>
             <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
             <div class="footer-links">
                 <a href="https://drive.google.com/file/d/18Fo68AHg3O4nV3g6ltN6B8abJLGtkzqb/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
+                <!-- <a href="https://murmurinho.substack.com/" target="_blank" rel="noopener noreferrer">substack</a> -->
             </div>
             <div class="copyright">© 2026</div>
         </footer>
