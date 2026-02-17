@@ -1,4 +1,22 @@
 // ============================================
+// STICKY HEADER
+// ============================================
+
+const siteHeader = document.querySelector('header');
+
+function updateHeader() {
+    if (window.scrollY > 10) {
+        siteHeader?.classList.add('scrolled');
+    } else {
+        siteHeader?.classList.remove('scrolled');
+    }
+}
+
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
+
+// ============================================
 // HAMBURGER MENU
 // ============================================
 
@@ -11,11 +29,13 @@ if (hamburger && navOverlay) {
     function closeMenu() {
         navOverlay.classList.remove('open');
         document.body.style.overflow = '';
+        if (typeof updateBttPosition === 'function') updateBttPosition();
     }
 
     hamburger.addEventListener('click', () => {
         navOverlay.classList.add('open');
         document.body.style.overflow = 'hidden';
+        bttBtn.classList.remove('visible');
     });
 
     navClose?.addEventListener('click', closeMenu);
@@ -163,6 +183,86 @@ window.addEventListener('load', () => {
         const img = card.querySelector('.project-image');
         if (img && img.complete) card.style.opacity = '1';
     });
+});
+
+
+// ============================================
+// PHOTO STRIP NAVIGATION (about page)
+// ============================================
+
+const photoStrip = document.getElementById('photo-strip');
+const stripPrev  = document.getElementById('strip-prev');
+const stripNext  = document.getElementById('strip-next');
+
+if (photoStrip && stripPrev && stripNext) {
+    // Scroll by the width of one item
+    function getScrollAmount() {
+        const firstItem = photoStrip.querySelector('.photo-strip-item');
+        return firstItem ? firstItem.offsetWidth : photoStrip.offsetWidth * 0.72;
+    }
+
+    stripPrev.addEventListener('click', () => {
+        photoStrip.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+
+    stripNext.addEventListener('click', () => {
+        photoStrip.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+
+    // Show/hide arrows based on scroll position
+    function updateArrowVisibility() {
+        const atStart = photoStrip.scrollLeft <= 4;
+        const atEnd   = photoStrip.scrollLeft + photoStrip.offsetWidth >= photoStrip.scrollWidth - 4;
+        stripPrev.style.opacity = atStart ? '0.25' : '0.85';
+        stripNext.style.opacity = atEnd   ? '0.25' : '0.85';
+    }
+
+    photoStrip.addEventListener('scroll', updateArrowVisibility, { passive: true });
+    // Run once on load
+    updateArrowVisibility();
+}
+
+
+// ============================================
+// BACK TO TOP
+// ============================================
+
+const bttBtn = document.createElement('button');
+bttBtn.className = 'back-to-top';
+bttBtn.setAttribute('aria-label', 'Back to top');
+bttBtn.innerHTML = '<span class="btt-arrow">↑</span><span>back to top</span>';
+document.body.appendChild(bttBtn);
+
+const bttFooter = document.querySelector('footer');
+const BTT_DEFAULT_BOTTOM = 36;
+const BTT_GAP = 16;
+
+function updateBttPosition() {
+    if (window.scrollY > 400) {
+        bttBtn.classList.add('visible');
+    } else {
+        bttBtn.classList.remove('visible');
+    }
+
+    if (bttFooter) {
+        const footerTop = bttFooter.getBoundingClientRect().top;
+        const viewportH  = window.innerHeight;
+        const overlap    = viewportH - footerTop;
+
+        if (overlap > 0) {
+            bttBtn.style.bottom = (overlap + BTT_GAP) + 'px';
+        } else {
+            bttBtn.style.bottom = BTT_DEFAULT_BOTTOM + 'px';
+        }
+    }
+}
+
+window.addEventListener('scroll', updateBttPosition, { passive: true });
+window.addEventListener('resize', updateBttPosition, { passive: true });
+updateBttPosition();
+
+bttBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
