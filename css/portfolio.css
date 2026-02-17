@@ -245,31 +245,36 @@ nav a:hover {
    THEME TOGGLE BUTTON
    ============================================ */
 
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes spin-fast {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 .theme-toggle {
     background: none;
     border: none;
-    color: var(--text-color);
     cursor: pointer;
-    padding: 6px;
-    font-size: 24px;
-    transition: opacity 0.3s, transform 0.2s;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.theme-toggle:hover {
-    opacity: 0.7;
-    transform: scale(1.1);
+.theme-icon-img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    animation: spin-slow 8s linear infinite;
+    transition: filter 0.3s;
 }
 
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-.theme-icon {
-    display: inline-block;
-    transition: transform 0.3s ease;
+.theme-icon-img.spinning-fast {
+    animation: spin-fast 0.4s linear 3;
 }
 
 

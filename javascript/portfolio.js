@@ -68,30 +68,31 @@ if (document.querySelector('.project-navigation')) {
 
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-const themeIcon = document.querySelector('.theme-icon');
-const themeIconMobile = document.querySelector('.theme-icon-mobile');
 const htmlElement = document.documentElement;
 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 htmlElement.setAttribute('data-theme', savedTheme);
-updateThemeIcon(savedTheme);
 
-function toggleTheme() {
+function spinFast(btn) {
+    if (!btn) return;
+    const img = btn.querySelector('.theme-icon-img');
+    if (!img) return;
+    img.classList.add('spinning-fast');
+    img.addEventListener('animationend', () => {
+        img.classList.remove('spinning-fast');
+    }, { once: true });
+}
+
+function toggleTheme(btn) {
     const current = htmlElement.getAttribute('data-theme');
     const newTheme = current === 'light' ? 'dark' : 'light';
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
+    spinFast(btn);
 }
 
-themeToggle?.addEventListener('click', toggleTheme);
-themeToggleMobile?.addEventListener('click', toggleTheme);
-
-function updateThemeIcon(theme) {
-    const emoji = theme === 'light' ? '🦉' : '🐝';
-    if (themeIcon) themeIcon.textContent = emoji;
-    if (themeIconMobile) themeIconMobile.textContent = emoji;
-}
+themeToggle?.addEventListener('click', () => toggleTheme(themeToggle));
+themeToggleMobile?.addEventListener('click', () => toggleTheme(themeToggleMobile));
 
 
 // ============================================
