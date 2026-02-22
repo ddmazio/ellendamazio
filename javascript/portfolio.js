@@ -11,7 +11,6 @@ function updateHeader() {
         siteHeader?.classList.remove('scrolled');
     }
 }
-
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
@@ -20,7 +19,7 @@ updateHeader();
 // HAMBURGER MENU
 // ============================================
 
-const hamburger = document.getElementById('hamburger');
+const hamburger  = document.getElementById('hamburger');
 const navOverlay = document.getElementById('nav-overlay');
 
 if (hamburger && navOverlay) {
@@ -39,10 +38,7 @@ if (hamburger && navOverlay) {
     });
 
     navClose?.addEventListener('click', closeMenu);
-
-    navOverlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+    navOverlay.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
 }
 
 
@@ -51,16 +47,16 @@ if (hamburger && navOverlay) {
 // ============================================
 
 const projects = [
-    { name: 'Ting', url: 'ting.html' },
+    { name: 'Ting',                url: 'ting.html' },
     { name: 'Alice in Wonderland', url: 'alice.html' },
-    { name: 'Azucrinacao', url: 'azucrinacao.html' },
-    { name: 'Maisedu', url: 'maisedu.html' },
-    { name: 'A to B', url: 'atob.html' },
-    { name: 'All in a Chain', url: 'chain.html' }
+    { name: 'Azucrinação',         url: 'azucrinacao.html' },
+    { name: 'Maisedu',             url: 'maisedu.html' },
+    { name: 'A to B',              url: 'atob.html' },
+    { name: 'All in a Chain',      url: 'chain.html' }
 ];
 
 function getCurrentProjectIndex() {
-    const currentPage = window.location.pathname.split('/').pop();
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     return projects.findIndex(p => p.url === currentPage);
 }
 
@@ -70,11 +66,19 @@ function updateProjectNavigation() {
     const currentIndex = getCurrentProjectIndex();
     if (currentIndex === -1) return;
 
-    const prevProject = projects[currentIndex === 0 ? projects.length - 1 : currentIndex - 1];
-    const nextProject = projects[currentIndex === projects.length - 1 ? 0 : currentIndex + 1];
+    const prev = projects[currentIndex === 0 ? projects.length - 1 : currentIndex - 1];
+    const next = projects[currentIndex === projects.length - 1 ? 0 : currentIndex + 1];
 
-    if (prevButton && prevProject) prevButton.href = prevProject.url;
-    if (nextButton && nextProject) nextButton.href = nextProject.url;
+    if (prevButton && prev) {
+        prevButton.href = prev.url;
+        const lbl = prevButton.querySelector('.nav-project-name');
+        if (lbl) lbl.textContent = prev.name;
+    }
+    if (nextButton && next) {
+        nextButton.href = next.url;
+        const lbl = nextButton.querySelector('.nav-project-name');
+        if (lbl) lbl.textContent = next.name;
+    }
 }
 
 if (document.querySelector('.project-navigation')) {
@@ -86,9 +90,9 @@ if (document.querySelector('.project-navigation')) {
 // THEME TOGGLE
 // ============================================
 
-const themeToggle = document.getElementById('theme-toggle');
+const themeToggle       = document.getElementById('theme-toggle');
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-const htmlElement = document.documentElement;
+const htmlElement       = document.documentElement;
 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 htmlElement.setAttribute('data-theme', savedTheme);
@@ -111,22 +115,21 @@ function toggleTheme(btn) {
     spinFast(btn);
 }
 
-themeToggle?.addEventListener('click', () => toggleTheme(themeToggle));
+themeToggle?.addEventListener('click',       () => toggleTheme(themeToggle));
 themeToggleMobile?.addEventListener('click', () => toggleTheme(themeToggleMobile));
 
 
 // ============================================
-// FILTER FUNCTIONALITY
+// FILTER
 // ============================================
 
-const filterLinks = document.querySelectorAll('.filter-link');
+const filterLinks  = document.querySelectorAll('.filter-link');
 const projectCards = document.querySelectorAll('.project-card');
 const projectsGrid = document.getElementById('projects-grid');
 
 filterLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-
         filterLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
@@ -134,15 +137,23 @@ filterLinks.forEach(link => {
 
         if (filterValue === 'all') {
             projectsGrid.classList.remove('is-filtered');
-            projectCards.forEach(card => card.classList.remove('hidden'));
+            projectCards.forEach(card => {
+                card.classList.remove('hidden', 'fade-out');
+                card.classList.add('fade-in');
+            });
         } else {
             projectsGrid.classList.add('is-filtered');
             projectCards.forEach(card => {
-                const categories = card.getAttribute('data-category').split(' ');
+                const categories = (card.getAttribute('data-category') || '').split(' ');
                 if (categories.includes(filterValue)) {
-                    card.classList.remove('hidden');
+                    card.classList.remove('hidden', 'fade-out');
+                    card.classList.add('fade-in');
                 } else {
-                    card.classList.add('hidden');
+                    card.classList.add('fade-out');
+                    setTimeout(() => {
+                        card.classList.add('hidden');
+                        card.classList.remove('fade-out');
+                    }, 300);
                 }
             });
         }
@@ -156,11 +167,11 @@ filterLinks.forEach(link => {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
 
@@ -170,24 +181,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 
 projectCards.forEach(card => {
+    // Coming-soon cards: always visible, no fade needed
+    if (card.classList.contains('coming-soon-card')) {
+        card.style.opacity = '1';
+        return;
+    }
     card.style.opacity = '0';
     card.style.transition = 'opacity 0.5s ease';
     const img = card.querySelector('.project-image');
     if (img) {
-        img.addEventListener('load', () => { card.style.opacity = '1'; });
+        if (img.complete) {
+            card.style.opacity = '1';
+        } else {
+            img.addEventListener('load',  () => { card.style.opacity = '1'; });
+            img.addEventListener('error', () => { card.style.opacity = '1'; });
+        }
     }
-});
-
-window.addEventListener('load', () => {
-    projectCards.forEach(card => {
-        const img = card.querySelector('.project-image');
-        if (img && img.complete) card.style.opacity = '1';
-    });
 });
 
 
 // ============================================
-// PHOTO STRIP NAVIGATION (about page)
+// PHOTO STRIP (about page)
 // ============================================
 
 const photoStrip = document.getElementById('photo-strip');
@@ -195,30 +209,21 @@ const stripPrev  = document.getElementById('strip-prev');
 const stripNext  = document.getElementById('strip-next');
 
 if (photoStrip && stripPrev && stripNext) {
-    // Scroll by the width of one item
     function getScrollAmount() {
         const firstItem = photoStrip.querySelector('.photo-strip-item');
         return firstItem ? firstItem.offsetWidth : photoStrip.offsetWidth * 0.72;
     }
 
-    stripPrev.addEventListener('click', () => {
-        photoStrip.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-    });
+    stripPrev.addEventListener('click', () => photoStrip.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }));
+    stripNext.addEventListener('click', () => photoStrip.scrollBy({ left:  getScrollAmount(), behavior: 'smooth' }));
 
-    stripNext.addEventListener('click', () => {
-        photoStrip.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-    });
-
-    // Show/hide arrows based on scroll position
     function updateArrowVisibility() {
         const atStart = photoStrip.scrollLeft <= 4;
         const atEnd   = photoStrip.scrollLeft + photoStrip.offsetWidth >= photoStrip.scrollWidth - 4;
         stripPrev.style.opacity = atStart ? '0.25' : '0.85';
         stripNext.style.opacity = atEnd   ? '0.25' : '0.85';
     }
-
     photoStrip.addEventListener('scroll', updateArrowVisibility, { passive: true });
-    // Run once on load
     updateArrowVisibility();
 }
 
@@ -243,31 +248,48 @@ function updateBttPosition() {
     } else {
         bttBtn.classList.remove('visible');
     }
-
     if (bttFooter) {
         const footerTop = bttFooter.getBoundingClientRect().top;
-        const viewportH  = window.innerHeight;
-        const overlap    = viewportH - footerTop;
-
-        if (overlap > 0) {
-            bttBtn.style.bottom = (overlap + BTT_GAP) + 'px';
-        } else {
-            bttBtn.style.bottom = BTT_DEFAULT_BOTTOM + 'px';
-        }
+        const overlap   = window.innerHeight - footerTop;
+        bttBtn.style.bottom = (overlap > 0 ? overlap + BTT_GAP : BTT_DEFAULT_BOTTOM) + 'px';
     }
 }
-
 window.addEventListener('scroll', updateBttPosition, { passive: true });
 window.addEventListener('resize', updateBttPosition, { passive: true });
 updateBttPosition();
-
-bttBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+bttBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 
 // ============================================
-// CUSTOM CURSOR
+// SCROLL PROGRESS BAR (project pages only)
+// ============================================
+
+if (document.querySelector('.project-content') || document.querySelector('.project-details')) {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    document.body.appendChild(bar);
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? Math.min(window.scrollY / h * 100, 100) : 0) + '%';
+    }, { passive: true });
+}
+
+
+// ============================================
+// ACTIVE NAV LINK
+// ============================================
+
+(function () {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (href.split('/').pop().split('#')[0] === page) link.classList.add('active');
+    });
+})();
+
+
+// ============================================
+// CUSTOM CURSOR — original logic, no pathname guard
 // ============================================
 
 const cursor = document.createElement('div');
@@ -287,32 +309,40 @@ function animateCursor() {
     cursorX += (mouseX - cursorX) * speed;
     cursorY += (mouseY - cursorY) * speed;
     cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
+    cursor.style.top  = cursorY + 'px';
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-// Project card hover
-if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
-    const cursorInner = cursor.querySelector('.custom-cursor-inner');
+// Project card hover — attach to image-wrap for coming-soon (pointer-events:none on card)
+const cursorInner = cursor.querySelector('.custom-cursor-inner');
 
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            if (card.classList.contains('coming-soon-card')) {
-                cursorInner.textContent = 'coming soon';
-                cursor.classList.add('hover-coming-soon');
-            } else {
-                cursorInner.textContent = 'view project';
-                cursor.classList.add('hover-project');
-            }
-        });
-        card.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover-project', 'hover-coming-soon');
-        });
+document.querySelectorAll('.project-card').forEach(card => {
+    const isComingSoon = card.classList.contains('coming-soon-card');
+
+    // For coming-soon: attach to inner image-wrap (which has pointer-events: all)
+    // For regular cards: attach to the card itself
+    const target = isComingSoon
+        ? card.querySelector('.project-image-wrap')
+        : card;
+
+    if (!target) return;
+
+    target.addEventListener('mouseenter', () => {
+        if (isComingSoon) {
+            cursorInner.textContent = 'coming soon';
+            cursor.classList.add('hover-coming-soon');
+        } else {
+            cursorInner.textContent = 'view project';
+            cursor.classList.add('hover-project');
+        }
     });
-}
+    target.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover-project', 'hover-coming-soon');
+    });
+});
 
-// Link hover
+// Links and buttons
 document.querySelectorAll('a, button').forEach(el => {
     if (el.classList.contains('project-card')) return;
     el.addEventListener('mouseenter', () => cursor.classList.add('hover-link'));
