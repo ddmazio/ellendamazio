@@ -1301,7 +1301,7 @@ footer {
 
 .about-photo-strip {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
     width: 100%;
 }
@@ -1318,10 +1318,6 @@ footer {
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
-}
-
-.photo-strip-item:hover img {
-    transform: scale(1.04);
 }
 
 /* Active nav link on about page */
