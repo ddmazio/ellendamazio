@@ -1,48 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ting</title>
-        <meta name="description" content="Ting UX Design Project - Ellen Damazio Portfolio">
+        <title>Ting — Ellen Damazio</title>
+        <meta name="description" content="Ting — a wearable-app ecosystem that translates physiological signals into haptic feedback for real-world connection. UX Research &amp; Interaction Design case study.">
         <meta name="author" content="Ellen Damazio">
-        
+
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-            
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/portfolio.css">
-    
+
         <!-- Open Graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="Ting — Ellen Damazio">
-        <meta property="og:description" content="A wearable-app ecosystem that translates physiological signals into haptic feedback for real-world connection. UX/UI case study.">
-        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/ting/Scene-9.jpg">
+        <meta property="og:description" content="A wearable-app ecosystem that translates physiological signals into haptic feedback for real-world connection.">
+        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/ting/Scene-8.png">
         <meta property="og:site_name" content="Ellen Damazio Portfolio">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Ting — Ellen Damazio">
+        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/ting/Scene-8.png">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="css/portfolio.css">
     </head>
 
     <body>
         <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
@@ -51,323 +56,409 @@
         <div class="nav-overlay" id="nav-overlay">
             <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- Project Hero Image -->
-        <!-- 
-            TODO HERO: substituir Scene-9.png por uma imagem AI do wearable em contexto —
-            pessoa numa situação social (café, evento noturno), dispositivo visível na coluna,
-            fundo com iluminação quente. Gradiente do projeto presente no ambiente.
-        -->
-        <section class="project-hero">
-            <img src="projects/ting/Scene-9.png" alt="Ting Project" class="hero-image">
-        </section>
-
-        <!-- Project Content with Fixed Sidebar -->
+        <!-- Project Content -->
         <section class="project-content">
             <div class="project-container">
 
-                <!-- Fixed Sidebar (Left) -->
+                <!-- Sidebar -->
                 <aside class="project-sidebar">
-                    <h1 class="project-sidebar-title">Ting</h1>
+                    <a href="index.html" class="sidebar-back">← back</a>
                     <nav class="project-nav">
-                        <a href="#overview" class="project-nav-link">Overview</a>
-                        <a href="#problem" class="project-nav-link">Problem</a>
-                        <a href="#goal" class="project-nav-link">Goal</a>
-                        <a href="#design-process" class="project-nav-link">Design Process</a>
-                        <a href="#takeaways" class="project-nav-link">Takeaways</a>
+                        <a href="#overview"   class="project-nav-link">Overview</a>
+                        <a href="#problem"    class="project-nav-link">Problem</a>
+                        <a href="#research"   class="project-nav-link">Research</a>
+                        <a href="#solution"   class="project-nav-link">Solution</a>
+                        <a href="#process"    class="project-nav-link">Design Process</a>
+                        <a href="#outcomes"   class="project-nav-link">Key Outcomes</a>
+                        <a href="#takeaways"  class="project-nav-link">Takeaways</a>
                     </nav>
                 </aside>
 
-                <!-- Scrollable Content (Right) -->
+                <!-- Main Content -->
                 <main class="project-main-content">
+                    <p class="project-page-label">Interaction Design · 2025</p>
+                    <h1 class="project-page-title">Ting</h1>
 
-                    <!-- Meta Information -->
-                    <div class="project-meta-grid">
+                    <img src="projects/ting/Scene-8.png" alt="Ting — wearable for real-world connection" class="project-cover-image">
+
+                    <div class="project-meta-grid project-meta-grid--4">
                         <div class="project-meta-item">
-                            <span class="meta-label">TEAM</span>
-                            <span class="meta-value">Marta Caeiro<br>Salete Correia<br>Sofia Cal&#250;<br>Teresa Soares</span>
+                            <span class="meta-label">Role</span>
+                            <span class="meta-value">Research<br>App prototyping<br>Interaction architecture<br>UI design</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">SKILLS</span>
-                            <span class="meta-value">UX/UI<br>Figma</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">TIMELINE</span>
+                            <span class="meta-label">Timeline</span>
                             <span class="meta-value">Spring 2025</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">PROTOTYPE</span>
-                            <span class="meta-value"><a href="https://www.figma.com/proto/ihBizkLVVJZ9VWdBaX1Xyq/Ting-%7C-B1---DI-24-25?page-id=618%3A262&node-id=724-1158&viewport=1074%2C-642%2C0.06&t=o5GOlwDoFpAtM96G-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=876%3A1627&show-proto-sidebar=1" target="_blank">Visit the prototype!</a></span>
+                            <span class="meta-label">Credits</span>
+                            <span class="meta-value">Ellen Damazio<br>Marta Caeiro<br>Salete Correia<br>Sofia Calú<br>Teresa Soares</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">RESEARCH</span>
-                            <span class="meta-value"><a href="https://drive.google.com/file/d/1yeIxO4_Ygj3WolYqkjagChqNZqSKminI/view?usp=sharing" target="_blank">Read the article here!</a></span>
+                            <span class="meta-label">Skills</span>
+                            <span class="meta-value">Figma<br>After Effects<br>Survey Design<br>User Testing</span>
                         </div>
                     </div>
 
-                    <!-- Overview -->
+                    <div class="project-links">
+                        <a href="https://www.figma.com/proto/ihBizkLVVJZ9VWdBaX1Xyq/Ting-%7C-B1---DI-24-25?page-id=618%3A262&node-id=724-1158&scaling=scale-down&content-scaling=fixed&starting-point-node-id=876%3A1627" target="_blank" rel="noopener noreferrer" class="project-link">View Prototype ↗</a>
+                        <a href="https://drive.google.com/file/d/1yeIxO4_Ygj3WolYqkjagChqNZqSKminI/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">Read Paper ↗</a>
+                    </div>
+
+                    <!-- ── OVERVIEW ──────────────────────────────────── -->
                     <section id="overview" class="project-section">
                         <h2 class="project-subtitle">Overview</h2>
                         <p class="project-text">
-                            Ting is a hybrid wearable-app ecosystem designed to restore the intimacy of real-world encounters by translating physiological signals into haptic feedback. Worn on the upper spine, near the vagus nerve, the device vibrates subtly upon proximity to emotionally compatible users, as determined by biometric data processed by an adaptive AI. There are no swipes, no profiles, no images. The body becomes the interface.
-                    <div class="process-callout">
-                        <span class="process-callout-label">Key outcomes</span>
-                        <p>93 survey participants · 57% cited artificial interactions as reason for app abandonment · Prototype validated as "fluid, intuitive, and more human" by test participants aged 18–25.</p>
-                    </div>
+                            Ting is a hybrid wearable-app ecosystem designed to restore the intimacy of real-world encounters. Worn on the upper spine — near the vagus nerve — the device vibrates subtly when in proximity to an emotionally compatible user, as determined by physiological signals processed by an adaptive AI. There are no swipes, no profiles, no images. The body becomes the interface.
+                        </p>
+                        <p class="project-text">
+                            The project was developed for the Interaction Design course at FBAUL, grounded in Polyvagal Theory, affective computing, and a mixed-methods research phase with 93 participants. It proposes a paradigm shift: from performative digital socialisation toward presence, embodiment, and emotional resonance.
                         </p>
 
-                        <!-- 
-                            TODO OVERVIEW: composição com 3-4 ecrãs do app side by side —
-                            splash screen, onboarding/questionário, searching, match notification.
-                            Usar mockup de iPhone com fundo escuro para contrastar com o gradiente do app.
-                            Formato: project-images-row (2 colunas) ou project-full-image (largura total).
-                            Exemplo: <img src="projects/ting/screens-overview.png" alt="Ting app screens overview" class="project-full-image">
-                        -->
+                        <div class="process-callout">
+                            <span class="process-callout-label">In one sentence</span>
+                            <p>Not another app — a new social language. Presence over performance. The body senses it first.</p>
+                        </div>
+
+                        <img src="projects/ting/v4-pessoa.png" alt="Ting wearable worn at a dinner — device visible on upper spine" class="project-full-image">
+
+                        <img src="projects/ting/sequence2.png" alt="Ting app — full screen sequence: splash, onboarding, match, interaction summary, searching, tracking" class="project-full-image">
                     </section>
 
-                    <!-- Problem -->
+                    <!-- ── PROBLEM ────────────────────────────────────── -->
                     <section id="problem" class="project-section">
                         <h2 class="project-subtitle">The Problem</h2>
                         <p class="project-text">
-                            Despite being the most digitally connected generation in history, Gen Z is also the loneliest. According to Cigna (2020), 79% of Gen Z respondents report frequent feelings of loneliness, and 58% claim their social needs remain unmet. McKinsey (2023) corroborates this paradox, linking high digital connectivity to increased anxiety, poor emotional regulation, and a growing sense of inadequacy in face-to-face contexts.
-                        </p>
-                        <p class="project-text">
-                            The reliance on visual-first dating apps compounds the problem: swipe mechanics, curated profiles, and image-based judgment reinforce performance anxiety and social fatigue. The challenge was to design a solution that enables users to initiate real-world connection without the pressure of self-presentation, fostering encounters that feel physiologically safe before a word is spoken.
+                            Despite being the most digitally connected generation in history, Gen Z is paradoxically the loneliest. Raised in an environment of constant online presence, these individuals navigate relationships through screens, algorithms, and curated personas — yet often fail to experience authentic human closeness. The ease of swiping has replaced the challenge of real-life engagement.
                         </p>
 
-                        <!-- 
-                            TODO PROBLEM: comparação visual before/after —
-                            lado esquerdo: screenshot de uma app como Tinder (swipe, foto, perfil)
-                            lado direito: ecrã do Ting (sem foto, sem swipe, só o gradiente e "Searching...")
-                            Mostra o contraste de filosofia de forma visual e imediata.
-                            Formato: project-images-row (2 colunas)
-                            Exemplo: <div class="project-images-row">
-                                        <img src="projects/ting/before-dating-app.png" ...>
-                                        <img src="projects/ting/after-ting.png" ...>
-                                     </div>
-                        -->
+                        <div class="fluid-insight-cards">
+                            <div class="fluid-insight-card fluid-insight-card--critical">
+                                <span class="fluid-insight-card__icon" style="font-size:18px;">79%</span>
+                                <h3 class="fluid-insight-card__title">Feel lonely frequently</h3>
+                                <p class="fluid-insight-card__text">Gen Z respondents report frequent feelings of loneliness, the highest rate of any generation. <em>Cigna, 2020.</em></p>
+                            </div>
+                            <div class="fluid-insight-card fluid-insight-card--elevated">
+                                <span class="fluid-insight-card__icon" style="font-size:18px;">58%</span>
+                                <h3 class="fluid-insight-card__title">Social needs unmet</h3>
+                                <p class="fluid-insight-card__text">More than half have unmet social needs despite being always online. <em>McKinsey, 2023.</em></p>
+                            </div>
+                            <div class="fluid-insight-card fluid-insight-card--stable">
+                                <span class="fluid-insight-card__icon" style="font-size:18px;">57%</span>
+                                <h3 class="fluid-insight-card__title">Abandon social apps</h3>
+                                <p class="fluid-insight-card__text">Abandon dating or friendship apps because interactions feel artificial or forced. <em>Survey, 2025.</em></p>
+                            </div>
+                        </div>
+
+                        <p class="project-text">
+                            Social apps promise connection but deliver performance, comparison, and overload. The psychological cost is high: increased anxiety, poor emotional regulation, and a growing sense of inadequacy. The problem isn't lack of technology — it's the absence of a safe emotional space to connect.
+                        </p>
                     </section>
 
-                    <!-- Goal -->
-                    <section id="goal" class="project-section">
-                        <h2 class="project-subtitle">The Goal</h2>
-                        <p class="project-text">
-                            To design an embodied interaction tool that allows users to identify emotionally compatible people nearby without screen mediation. Rather than replacing intuition with algorithms, Ting uses bio-data to validate what the body already senses, creating the conditions for spontaneous, low-pressure, real-world connection.
-                        </p>
+                    <!-- ── RESEARCH ───────────────────────────────────── -->
+                    <section id="research" class="project-section project-major-section">
+                        <h2 class="project-section-title">RESEARCH</h2>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Theoretical Foundations</h3>
+                            <p class="project-text">
+                                The project is grounded in two pillars: affective neuroscience and a critical analysis of how technology shapes human relationships. The central theoretical framework is Polyvagal Theory, proposed by neuroscientist Stephen Porges (1995), which explains how the vagus nerve regulates emotional states and social engagement through physiological feedback loops.
+                            </p>
+                            <p class="project-text">
+                                The theory posits that our nervous system constantly scans the environment for cues of safety. When such cues are detected — including soft vocal tones, eye contact, or gentle vibrations — the ventral vagal complex is activated, enabling social openness and reducing defensive responses like anxiety and withdrawal. Ting uses this mechanism intentionally: worn on the upper spine, the device activates this social system through subtle vibration, before a word is spoken.
+                            </p>
+
+                            <div class="fluid-principles">
+                                <div class="fluid-principle">
+                                    <span class="fluid-principle__icon">◎</span>
+                                    <h3 class="fluid-principle__title">Polyvagal Theory</h3>
+                                    <p class="fluid-principle__text">Stephen Porges (1995) — the vagus nerve as regulator of emotional safety and social engagement. Gentle vibration activates the ventral vagal complex, creating conditions for openness.</p>
+                                </div>
+                                <div class="fluid-principle">
+                                    <span class="fluid-principle__icon">⊙</span>
+                                    <h3 class="fluid-principle__title">Affective Computing</h3>
+                                    <p class="fluid-principle__text">Rosalind Picard (1997) — computation that relates to, arises from, or deliberately influences emotion. The backbone of how Ting reads and responds to physiological states.</p>
+                                </div>
+                                <div class="fluid-principle">
+                                    <span class="fluid-principle__icon">◈</span>
+                                    <h3 class="fluid-principle__title">Need to Belong</h3>
+                                    <p class="fluid-principle__text">Baumeister &amp; Leary (1995) — belonging as a fundamental human motivation. Social relationships reduce mortality risk and improve quality of life (Holt-Lunstad, 2012).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">User Research — Survey</h3>
+                            <p class="project-text">
+                                To ground the project in real user needs, we conducted a mixed-methods survey with 93 participants, mostly aged 18 to 25, of whom 83% identified as students or student-workers. A significant majority reported experiencing social anxiety — particularly when initiating in-person interactions — yet clear interest in deeper, value-driven, real-world connections.
+                            </p>
+                            <p class="project-text">
+                                Two findings shaped the direction of the project: 46% of respondents reported difficulty starting and maintaining conversations, and 41% struggled to build meaningful long-term connections. At the same time, 51% identified deep friendship as the type of connection they most sought — not casual encounters or romantic matches. These numbers pointed to a gap that existing platforms weren't filling: the need for low-pressure, authentic initiation.
+                            </p>
+                        </div>
+
+                        <div class="ting-charts-pair">
+
+                            <div class="ting-chart">
+                                <span class="ting-chart__caption">What do you find most difficult when trying to socialise? (n=93, multiple choice)</span>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Start &amp; maintain a conversation</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:44%"></div></div>
+                                    <span class="ting-chart__pct">44%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Find people with similar interests</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:40%;opacity:.82"></div></div>
+                                    <span class="ting-chart__pct">40%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Build meaningful connections</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:40%;opacity:.82"></div></div>
+                                    <span class="ting-chart__pct">40%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Know how to act / what to say</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:37%;opacity:.66"></div></div>
+                                    <span class="ting-chart__pct">37%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Handle anxiety in interactions</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:19%;opacity:.50"></div></div>
+                                    <span class="ting-chart__pct">19%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">Lack of connection / inclusion</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill" style="width:15%;opacity:.38"></div></div>
+                                    <span class="ting-chart__pct">15%</span>
+                                </div>
+                                <div class="ting-chart__row">
+                                    <span class="ting-chart__label">No difficulty</span>
+                                    <div class="ting-chart__track"><div class="ting-chart__fill ting-chart__fill--muted" style="width:14%"></div></div>
+                                    <span class="ting-chart__pct ting-chart__pct--muted">14%</span>
+                                </div>
+                            </div>
+
+                            <div class="ting-chart">
+                                <span class="ting-chart__caption">Why do you give up on friendship or dating apps? (n=93, multiple choice)</span>
+                                <div class="ting-donut">
+                                    <svg viewBox="0 0 220 220" class="ting-donut__svg" xmlns="http://www.w3.org/2000/svg" aria-label="Donut chart: reasons for abandoning social apps">
+                                        <path d="M 110,20 A 90,90 0 1,1 97,199 L 102.5,161.4 A 52,52 0 1,0 110,58 Z" fill="#597AE7"/>
+                                        <path d="M 97,199 A 90,90 0 0,1 22.1,129.5 L 59.2,121.3 A 52,52 0 0,0 102.5,161.4 Z" fill="#CF6B3C"/>
+                                        <path d="M 22.1,129.5 A 90,90 0 0,1 45.1,47.6 L 72.5,73.9 A 52,52 0 0,0 59.2,121.3 Z" fill="#9BA8C5"/>
+                                        <path d="M 45.1,47.6 A 90,90 0 0,1 110,20 L 110,58 A 52,52 0 0,0 72.5,73.9 Z" fill="#C8CEDB"/>
+                                        <circle cx="110" cy="110" r="50" fill="var(--bg-color)"/>
+                                        <text x="110" y="106" text-anchor="middle" font-family="geist-mono, monospace" font-size="24" fill="#2E4150">57%</text>
+                                        <text x="110" y="121" text-anchor="middle" font-family="geist-mono, monospace" font-size="8" letter-spacing="1.8" fill="#838E98">ARTIFICIAL</text>
+                                    </svg>
+                                    <div class="ting-donut__legend">
+                                        <div class="ting-legend-item">
+                                            <span class="ting-legend__dot" style="background:#597AE7"></span>
+                                            <div>
+                                                <span class="ting-legend__pct">57%</span>
+                                                <span class="ting-legend__label">Artificial or forced interactions</span>
+                                            </div>
+                                        </div>
+                                        <div class="ting-legend-item">
+                                            <span class="ting-legend__dot" style="background:#CF6B3C"></span>
+                                            <div>
+                                                <span class="ting-legend__pct">21%</span>
+                                                <span class="ting-legend__label">Distrust of people's loyalty</span>
+                                            </div>
+                                        </div>
+                                        <div class="ting-legend-item">
+                                            <span class="ting-legend__dot" style="background:#9BA8C5"></span>
+                                            <div>
+                                                <span class="ting-legend__pct">17%</span>
+                                                <span class="ting-legend__label">Difficulty maintaining real conversations</span>
+                                            </div>
+                                        </div>
+                                        <div class="ting-legend-item">
+                                            <span class="ting-legend__dot" style="background:#C8CEDB"></span>
+                                            <div>
+                                                <span class="ting-legend__pct">14%</span>
+                                                <span class="ting-legend__label">Lack of data security &amp; privacy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /.ting-charts-pair -->
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Benchmarking</h3>
+                            <p class="project-text">
+                                Ting was designed in dialogue with a range of existing tools — each revealing a gap the project aimed to fill. Bond Touch and Neosensory Buzz use vibration to simulate presence, but assume pre-existing relationships. Replika AI and Limitless Pendant advance affective computing but remain screen-bound and productivity-driven. Traditional dating apps — Tinder, Hinge, Bumble BFF — rely on swipe mechanics and visual-first judgment: exactly the dynamics Ting was designed to escape. Life360's spatial interaction model informed the Match Tracking feature, but its focus on existing groups left the space for new connection open.
+                            </p>
+                            <p class="project-text">
+                                The gap was clear: no existing tool combined embodied interaction, emotional AI, and real-world social initiation — without a visual interface.
+                            </p>
+
+                            <img src="projects/ting/moodboard.png" alt="Benchmarking moodboard — HiPee wearable, Mindate, Say Hi, Camber, competitive landscape" class="project-full-image">
+                        </div>
                     </section>
 
-                    <!-- Design Process -->
-                    <section id="design-process" class="project-section project-major-section">
+                    <!-- ── SOLUTION ───────────────────────────────────── -->
+                    <section id="solution" class="project-section project-major-section">
+                        <h2 class="project-section-title">SOLUTION</h2>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">How it works</h3>
+                            <p class="project-text">
+                                Ting is a hybrid system composed of two elements: a small wearable device placed on the upper spine, and a complementary mobile app. The wearable acts as a real-time emotional radar; the app functions as a private affective log — not a social feed.
+                            </p>
+                            <p class="project-text">
+                                After account creation, the user completes a brief personality questionnaire to train their personal AI. The wearable then collects biometric data in real time and compares affective profiles when another Ting user is nearby. If compatibility is detected, both devices vibrate gently — discreet enough not to demand action, but distinct enough to spark curiosity. A pop-up then appears in the app, inviting the user to decide whether to meet.
+                            </p>
+                            <p class="project-text">
+                                If accepted, the app opens a map view showing the other user's approximate location, allowing a spontaneous, real-world encounter. If declined, life continues. No obligation, no notification history, no digital footprint of the interaction.
+                            </p>
+
+                            <div class="process-callout">
+                                <span class="process-callout-label">Design principle</span>
+                                <p>Low input, high resonance. The app is a reflection tool; the wearable is the social radar. The most important interaction is the one the screen doesn't mediate.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Visual Identity</h3>
+                            <p class="project-text">
+                                The name Ting captures that first moment — the soft vibration, the almost imperceptible cue that something meaningful is near. It doesn't explain. It signals.
+                            </p>
+                            <p class="project-text">
+                                The brand gradient moves from deep blue through lilac, coral, and soft orange to warm yellow. The colour system is drawn from emotional thermography and the structure of Paul Ekman's Atlas of Emotions. Blue evokes regulation and calm; orange and coral suggest emotional activation; yellow signals openness and curiosity. Together, they reflect the full spectrum of what the body might feel when real connection is near.
+                            </p>
+                        </div>
+
+                        <img src="projects/ting/visual.png" alt="Ting visual identity: the body senses it first" class="project-full-image">
+                    </section>
+
+                    <!-- ── DESIGN PROCESS ─────────────────────────────── -->
+                    <section id="process" class="project-section project-major-section">
                         <h2 class="project-section-title">DESIGN PROCESS</h2>
 
-                        <!-- Research -->
                         <div class="project-step">
-                            <h3 class="project-subtitle">Research and Project Definition</h3>
+                            <h3 class="project-subtitle">Personas</h3>
                             <p class="project-text">
-                                The first phase combined quantitative and qualitative methods to map the social and emotional barriers Gen Z faces when building in-person connections. We surveyed 93 participants, mostly aged 18 to 25, and reviewed literature spanning affective computing, neurodesign, and attachment theory.
-                            </p>
-                            <p class="project-text">
-                                Three findings shaped the direction of the project:
-                            </p>
-                            <ul class="about-list" style="margin-bottom: 20px; font-size: 12pt;">
-                                <li><strong><u>The Loneliness Paradox:</u></strong> 79% of Gen Z respondents report frequent loneliness (Cigna, 2020), yet connectivity has never been higher. The problem is not access &#8212; it is the quality and emotional texture of connection.</li>
-                                <li><strong><u>Rejection of Forced Interaction:</u></strong> 57% of survey participants abandon social apps because interactions feel artificial or forced. There is clear demand for organic, lower-stakes ways to meet people.</li>
-                                <li><strong><u>Safety in Physiology:</u></strong> Drawing on Polyvagal Theory (Porges, 1995), we established that the nervous system constantly scans the environment for cues of safety. When those cues are detected &#8212; including soft touch or gentle vibration &#8212; the ventral vagal complex is activated, enabling social openness and reducing defensive responses. This became the theoretical backbone of Ting.</li>
-                            </ul>
-                            <p class="project-text">
-                                Competitive benchmarking confirmed a gap in the market. Products like Bond Touch and Neosensory Buzz use vibration to simulate presence, but assume pre-existing relationships. Replika AI and Limitless Pendant advance affective computing, but remain screen-bound and productivity-driven. Traditional dating apps (Tinder, Hinge, Bumble) rely on visual gamification &#8212; precisely the dynamics Ting was designed to escape. Life360's spatial interaction model informed our approach to the match tracking feature, but its focus on existing groups left the space for new connection entirely open.
+                                From the survey data, three user profiles emerged that shaped every UX decision: introverted young adults seeking non-verbal social cues; users balancing emotional vulnerability with self-protection; and people who crave genuine connection but need time and subtlety to build it. All three share the same core need — a way to initiate connection that doesn't begin with performance.
                             </p>
 
-                            <!-- 
-                                TODO RESEARCH: affinity map ou clustering dos insights da pesquisa —
-                                post-its agrupados por tema (solidão, ansiedade, interação forçada, segurança).
-                                Pode ser exportado do Figma como imagem.
-                                Formato: project-full-image
-                                Exemplo: <img src="projects/ting/affinity-map.png" alt="Affinity map research insights" class="project-full-image">
-                            -->
-
-                            <!-- 
-                                TODO RESEARCH: user journey map —
-                                mostrando os pontos de fricção de uma app atual vs. o fluxo do Ting.
-                                Exportar do Figma, fundo escuro para consistência visual.
-                                Formato: project-full-image
-                                Exemplo: <img src="projects/ting/journey-map.png" alt="User journey map" class="project-full-image">
-                            -->
+                            <img src="projects/ting/personas.png" alt="Ting user personas: Daniel Kim and Maya Ferreira" class="project-full-image">
                         </div>
 
-                        <!-- Research charts right after the research findings -->
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Interaction model &amp; UX flow</h3>
+                            <p class="project-text">
+                                The interaction model is intentionally minimalist. The app serves three functions only: reviewing emotional "highlight" moments from past interactions; adjusting preferences and boundary settings; and viewing a map-style history of meaningful encounters. The interface avoids all the dynamics of traditional social apps — no feeds, no messages, no photos.
+                            </p>
+                            <p class="project-text">
+                                The full flow runs: account creation → onboarding questionnaire (AI calibration) → wearable searching for nearby users → vibration signal → in-app match notification → optional map view → physical encounter → Interaction Summary with Ting Score. Post-interaction prompts — such as "What kind of energy are you bringing today?" — support emotional self-awareness and refine the AI model over time.
+                            </p>
+
+                            <img src="projects/ting/user-flow.png" alt="Ting user journey map — actions, feelings and opportunities" class="project-full-image">
+                        </div>
+
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Prototyping &amp; User Testing</h3>
+                            <p class="project-text">
+                                The final phase brought Ting to high fidelity: detailed UI mockups for the mobile app and physical prototyping of the wearable device. An informal testing session with participants aged 18 to 25 assessed onboarding flow, interface intuitiveness, and emotional response to a simulated match event using a gentle vibration.
+                            </p>
+                            <p class="project-text">
+                                Feedback was overwhelmingly positive. The absence of swipes, profile images, and flashy buttons was consistently noted as calming and different. Participants described the experience as fluid, intuitive, and more human. Several described the concept as "natural" and "something I would want to try." The main refinement needed: the meaning of the vibration should be made very clear early in onboarding to avoid confusion about what a match signal means.
+                            </p>
+                        </div>
+
+                        <!-- iPhone-15 + v2 packaging — side by side -->
                         <div class="project-images-row">
-                            <img src="projects/ting/grafico-1.png" alt="Survey: how much do relationships impact your life" class="project-image">
-                            <img src="projects/ting/grafico-2.png" alt="Survey: comfortable interaction types" class="project-image">
+                            <img src="projects/ting/iPhone-15.png" alt="Ting app screens — iPhone 15 Pro mockup" class="project-image">
+                            <img src="projects/ting/v2.png" alt="Ting wearable packaging — box open with device" class="project-image">
                         </div>
 
-                        <!-- Development -->
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Development and Representation</h3>
-                            <p class="project-text">
-                                This phase focused on translating research into a coherent interaction grammar. The wearable was positioned at the upper spine to align with the vagus nerve, grounding the core concept physically: the body senses it first.
-                            </p>
-                            <p class="project-text">
-                                On the hardware side, Ting uses photoplethysmography (PPG) for heart rate monitoring, thermal sensors for skin temperature, and an IMU (accelerometer and gyroscope) to assess posture and tension. These inputs feed a local AI model that builds an individualized emotional profile, refined weekly through user feedback. Bluetooth Low Energy (BLE) with a 10-meter range enables discreet detection of nearby users, with all data anonymized and stored locally to protect privacy.
-                            </p>
-                            <p class="project-text">
-                                The visual identity was built around Paul Ekman's Atlas of Emotions, using a gradient from deep blue (calm and regulation) through coral and orange (emotional activation) to warm yellow (openness and curiosity). The color system is not decorative &#8212; it reflects the physiological states the device is designed to navigate.
-                            </p>
-
-                            <!-- 
-                                TODO DEVELOPMENT: moodboard —
-                                referências visuais do projeto: Atlas of Emotions, termografia emocional,
-                                texturas de toque, paleta de cores com os estados mapeados.
-                                Pode ser montado no Figma e exportado como imagem.
-                                Formato: project-full-image
-                                Exemplo: <img src="projects/ting/moodboard.png" alt="Ting moodboard and visual references" class="project-full-image">
-                            -->
-
-                            <!-- 
-                                TODO DEVELOPMENT: sistema de cores e tipografia —
-                                grid com os 3 estados emocionais (azul/coral/amarelo) + tipografia usada.
-                                Pequeno, pode ir lado a lado com o moodboard.
-                                Formato: project-images-row
-                                Exemplo: <img src="projects/ting/color-system.png" alt="Ting color system" class="project-image">
-                            -->
-                        </div>
-
-                        <!-- Visual identity banner right after the visual identity paragraph -->
-                        <img src="projects/ting/visual.png" alt="Ting visual identity: the body senses it first" class="project-full-image">
-
-                        <div class="project-step">
-                            <p class="project-text">
-                                The interaction model was defined as deliberately minimal: the app functions as a private reflective log and match history, while the wearable operates as the real-time social radar. The design principle was low input, high resonance.
-                            </p>
-                            <p class="project-text">
-                                Key outcomes from this phase included the definition of a haptic language &#8212; a vibration pattern discreet enough not to demand action, but distinct enough to spark curiosity &#8212; and an onboarding flow where users train their personal AI with behavioral data to ensure compatibility matching remains accurate and personal over time.
-                            </p>
-
-                            <!-- 
-                                TODO INTERACTION MODEL: wireframes early stage —
-                                2-3 wireframes a baixa fidelidade mostrando a estrutura inicial do fluxo.
-                                Mostra o processo de pensar antes do resultado final.
-                                Formato: project-images-row (2 colunas)
-                                Exemplo: <div class="project-images-row">
-                                            <img src="projects/ting/wireframe-1.png" ...>
-                                            <img src="projects/ting/wireframe-2.png" ...>
-                                         </div>
-                            -->
-                        </div>
-
-                        <!-- Key Outcomes: Development -->
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Key Outcomes</h3>
-                            <ul class="about-list" style="margin-bottom: 20px; font-size: 12pt;">
-                                <li><strong><u>Haptic Language Definition:</u></strong> A vibration pattern designed to be discreet enough not to demand action, but distinct enough to spark curiosity &#8212; functioning as a whisper rather than a notification.</li>
-                                <li><strong><u>Emotional AI Calibration:</u></strong> An onboarding flow where users train their personal AI model with behavioral data, ensuring compatibility matching remains personal and accurate over time.</li>
-                                <li><strong><u>Visual System:</u></strong> A UI designed to avoid overstimulation, using soft color palettes and gradients calibrated to evoke regulation and calm rather than urgency.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Figma workspace after the development phase -->
-                        <img src="projects/ting/work.jpeg" alt="Figma design process" class="project-full-image">
-
-                        <!-- Prototyping -->
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Prototyping and Validation</h3>
-                            <p class="project-text">
-                                The final phase brought the Ting ecosystem to high fidelity: detailed UI mockups for the mobile application and 3D visualizations of the wearable device. An informal testing session with participants aged 18 to 25 assessed onboarding flow, interface intuitiveness, and emotional response to a simulated match event.
-                            </p>
-                            <p class="project-text">
-                                Feedback validated the core hypothesis. The absence of profile images and swipe mechanics significantly reduced reported performance anxiety. Participants described the interface as fluid, intuitive, and more human. The minimalist layout and color palette were noted as calming and distinctly different from conventional apps. Several participants described the concept as natural and something they would actually want to try.
-                            </p>
-                            <p class="project-text">
-                                The Match Tracking feature, inspired by Life360's spatial logic, was refined to allow users to move from a haptic signal to a spontaneous in-person meeting within a structure that felt safe and in their control. Post-interaction prompts &#8212; such as &#8220;What kind of energy are you bringing today?&#8221; &#8212; were introduced to support emotional self-awareness and help users engage more intentionally over time.
-                            </p>
-
-                            <!-- 
-                                TODO PROTOTYPING: composição com múltiplos ecrãs do fluxo completo —
-                                onboarding → questionário → searching → match → match tracking → interaction summary.
-                                Idealmente 6 ecrãs em linha ou grid, com iPhone frame.
-                                Este é o equivalente ao "screens overview" dos portfolios de referência.
-                                Formato: project-full-image (largura total para impacto máximo)
-                                Exemplo: <img src="projects/ting/all-screens.png" alt="Ting full app flow" class="project-full-image">
-                            -->
-
-                            <!-- 
-                                TODO PROTOTYPING: wearable em contexto (gerado com IA) —
-                                dispositivo no corpo numa situação social real (dois pessoas num café,
-                                ambas com o dispositivo visível na coluna, um momento de conexão subtil).
-                                Gradiente do projeto presente na iluminação da cena.
-                                Prompt sugerido para Midjourney:
-                                "two people in a coffee shop, small minimalist wearable device on upper spine,
-                                subtle warm glow from device, blue to warm yellow ambient lighting,
-                                candid editorial photography, intimate social moment, shallow depth of field"
-                                Formato: project-full-image
-                                Exemplo: <img src="projects/ting/wearable-context.jpg" alt="Ting wearable in use" class="project-full-image">
-                            -->
-                        </div>
-
-                        <!-- Key Outcomes: Prototyping -->
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Key Outcomes</h3>
-                            <ul class="about-list" style="margin-bottom: 20px; font-size: 12pt;">
-                                <li><strong><u>User Validation:</u></strong> Participants described the interface as fluid, intuitive, and more human &#8212; with particular praise for the absence of visual judgment mechanics.</li>
-                                <li><strong><u>Reflective UX:</u></strong> Post-interaction prompts such as &#8220;What kind of energy are you bringing today?&#8221; supported emotional self-awareness and helped users engage more intentionally.</li>
-                                <li><strong><u>Physical-Digital Bridge:</u></strong> The prototype successfully demonstrated a seamless transition from physical sensation (haptic vibration) to digital confirmation (app) and back to a physical meeting, closing the loop between body and interface.</li>
-                            </ul>
-                        </div>
-
-                        <!-- App mockup -->
-                        <img src="projects/ting/iPhone-15.png" alt="Ting app mockup" class="project-full-image">
-
-                        <!-- 
-                            TODO AFTER IPHONE MOCKUP: wearable produto isolado (gerado com IA) —
-                            o dispositivo sozinho, fundo com o gradiente azul/laranja do projeto,
-                            iluminação de produto clean, vista frontal e de lado.
-                            Prompt sugerido para Midjourney ou Adobe Firefly:
-                            "minimalist wearable spine device, product photography, gradient background
-                            deep blue to warm orange, clean studio lighting, soft shadows, front and side view"
-                            Formato: project-images-row (2 colunas: frente e lado)
-                            Exemplo: <div class="project-images-row">
-                                        <img src="projects/ting/wearable-front.jpg" ...>
-                                        <img src="projects/ting/wearable-side.jpg" ...>
-                                     </div>
-                        -->
-
-                        <!-- Prototype gif -->
-                        <img src="projects/ting/ting.gif" alt="Ting prototype walkthrough" class="project-full-image">
+                        <!-- Wearable in context -->
+                        <img src="projects/ting/v4-pessoa.png" alt="Ting wearable worn at a dinner — device visible on upper spine" class="project-full-image">
 
                     </section>
 
-                    <!-- Video Showcase -->
+                    <!-- ── KEY OUTCOMES ───────────────────────────────── -->
+                    <section id="outcomes" class="project-section project-major-section">
+                        <h2 class="project-section-title">KEY OUTCOMES</h2>
+
+                        <div class="fluid-principles">
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◐</span>
+                                <h3 class="fluid-principle__title">Embodied interaction</h3>
+                                <p class="fluid-principle__text">Successfully designed a haptic language — a vibration pattern discreet enough not to demand action, but distinct enough to spark curiosity. The body acts as the first interface, before the screen is involved.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">⊙</span>
+                                <h3 class="fluid-principle__title">Validated by users</h3>
+                                <p class="fluid-principle__text">Participants aged 18–25 described the interface as fluid, intuitive, and more human. The absence of visual judgment mechanics — no photos, no swipes — was the most consistently praised design decision.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◈</span>
+                                <h3 class="fluid-principle__title">Emotional AI calibration</h3>
+                                <p class="fluid-principle__text">An onboarding and weekly feedback system allows the personal AI model to learn each user's emotional profile over time — ensuring compatibility matching becomes more accurate and personal, not more generic.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◎</span>
+                                <h3 class="fluid-principle__title">Physical-digital loop</h3>
+                                <p class="fluid-principle__text">The prototype demonstrated a complete loop: haptic signal (wearable) → digital confirmation (app) → physical meeting (real world). The technology initiates and then steps back, letting the human connection take over.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◑</span>
+                                <h3 class="fluid-principle__title">Reflective UX</h3>
+                                <p class="fluid-principle__text">Post-interaction prompts — "What kind of energy are you bringing today?" — supported emotional self-awareness and gave users a framework for intentional engagement, not just passive matching.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◉</span>
+                                <h3 class="fluid-principle__title">Research-grounded</h3>
+                                <p class="fluid-principle__text">93 survey participants. 57% abandoned social apps for artificial interactions. 51% seek deep friendship, not casual matches. Every design decision was traceable back to a specific user insight or theoretical reference.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── VIDEO ──────────────────────────────────────── -->
                     <div class="video-showcase">
                         <h2 class="project-subtitle">Project Video</h2>
                         <div class="video-link-container">
                             <a href="https://youtu.be/ObY7lk0Vo5A" target="_blank" rel="noopener noreferrer" class="video-link">
                                 <div class="video-thumbnail">
-                                    <img src="projects/ting/Scene-9.jpg" alt="Ting Project Video Thumbnail">
+                                    <img src="projects/ting/Scene-8.png" alt="Ting — project video thumbnail">
                                     <div class="play-button">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M8 5v14l11-7z"/>
                                         </svg>
                                     </div>
                                 </div>
-                                <p class="video-description">Watch on YouTube!</p>
+                                <p class="video-description">Watch on YouTube</p>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Takeaways -->
+                    <!-- ── TAKEAWAYS ───────────────────────────────────── -->
                     <section id="takeaways" class="project-section project-major-section">
                         <h2 class="project-section-title">TAKEAWAYS</h2>
+
                         <p class="project-text">
-                            Ting pushed me into territory I hadn't expected: designing not for engagement, but for absence. The most important interaction in this system is the one the app doesn't mediate.
+                            Ting pushed me into territory I hadn't expected: designing not for engagement, but for its absence. The most important interaction in this system is the one the app doesn't mediate. That required a fundamental inversion of how UX is usually framed — instead of asking how to keep users in the interface, we asked how to get them out of it as quickly as possible.
                         </p>
                         <p class="project-text">
-                            Applying Polyvagal Theory to UX design taught me that the body is an interface in its own right, and that the most effective design sometimes means stepping back entirely to let human connection come forward. It also demanded a rigorous ethical balance: collecting sensitive physiological data while building an experience that feels protective rather than extractive.
+                            Applying Polyvagal Theory to UX design taught me that the body is an interface in its own right. The most effective design sometimes means stepping back entirely and letting human connection come forward. It also demanded a rigorous ethical balance: collecting sensitive physiological data while building an experience that feels protective, not extractive. All data stored locally, all AI models personal and non-transferable — these weren't afterthoughts, they were design decisions.
                         </p>
                         <p class="project-text">
-                            This project changed how I think about the role of technology in social contexts. The question stopped being how to make connections faster, and became how to make them safer. That shift in perspective is something I carry into every UX problem I approach now.
+                            This project changed how I think about the role of technology in social contexts. The question stopped being how to make connections faster, and became how to make them safer. That shift in perspective is something I carry into every interaction design problem I approach now.
                         </p>
+
+                        <div class="process-callout">
+                            <span class="process-callout-label">What I would do differently</span>
+                            <p>Conduct structured usability testing — not just informal sessions — with a protocol focused specifically on the meaning and readability of the haptic language. The vibration is Ting's most critical design element, and it deserves dedicated testing beyond the onboarding flow. I would also explore accessibility from the start: what does Ting mean for users who experience touch or vibration differently?</p>
+                        </div>
                     </section>
 
                 </main>
@@ -401,11 +492,12 @@
         <footer>
             <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
             </div>
             <div class="copyright">&#169; 2026</div>
         </footer>
+
 
         <!-- JavaScript -->
         <script src="javascript/portfolio.js"></script>

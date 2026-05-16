@@ -1,147 +1,130 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Azucrinação</title>
-        <meta name="description" content="Project details - Ellen Damazio Portfolio">
+        <meta name="description" content="A limited-edition music anthology honouring Brazil's artistic resistance under dictatorship through design.">
         <meta name="author" content="Ellen Damazio">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-            
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/portfolio.css">
-    
-        <!-- Open Graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="Azucrinação — Ellen Damazio">
         <meta property="og:description" content="A limited-edition music anthology honouring Brazil's artistic resistance under dictatorship through design.">
         <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/azucrinacao/padrao6.png">
         <meta property="og:site_name" content="Ellen Damazio Portfolio">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Azucrinação — Ellen Damazio">
+        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/azucrinacao/padrao6.png">
+        <link rel="stylesheet" href="css/portfolio.css">
     </head>
 
-    <body>
+    <body class="is-editorial">
         <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
 
         <!-- Mobile Nav Overlay -->
         <div class="nav-overlay" id="nav-overlay">
-                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- Project Hero Image -->
+        <!-- Hero -->
         <section class="project-hero">
             <img src="projects/azucrinacao/padrao6.png" alt="Azucrinação" class="hero-image">
         </section>
 
-        <!-- Project Details Section -->
-        <section class="project-details">
-            <div class="details-container">
-                <h1 class="project-title">Azucrinação</h1>
+        <!-- Content -->
+        <section class="project-content">
+            <div class="editorial-main">
 
-                <div class="details-meta">
-                    <div class="info-item">
-                        <span class="info-label">TIMELINE</span>
-                        <span class="info-value">Spring 2025</span>
+                <p class="project-page-label">Editorial Design · Branding · Spring 2025</p>
+                <h1 class="project-page-title">Azucrinação</h1>
+
+                <div class="project-meta-grid project-meta-grid--4">
+                    <div class="project-meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">Spring 2025</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">TEAM</span>
-                        <span class="info-value">Jorgina Silva, Sofia Calú, Teresa Soares</span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">Research<br>Editorial Design<br>Sticker Album</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">SCOPE</span>
-                        <span class="info-value">Branding, UX/UI, Editorial</span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Credits</span>
+                        <span class="meta-value">Jorgina Silva<br>Sofia Calú<br>Teresa Soares</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">WEBSITE</span>
-                        <span class="info-value"><a href="https://azucrinacao.framer.website/" target="_blank" rel="noopener noreferrer">Visit the website</a></span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Skills</span>
+                        <span class="meta-value">Editorial Design<br>Branding<br>Identity</span>
                     </div>
                 </div>
 
-                <div class="project-description">
-                    <p>Azucrinação started as a research project and became something more personal. As a Brazilian designer, I grew up hearing MPB without ever fully understanding what those songs were carrying, the metaphors, the irony, the coded defiance of artists pushing back against Brazil's military dictatorship (1970–1985). This project made me listen differently.</p>
-                    <p>The concept was a limited-edition collector's box: two curated vinyls and a World Cup-inspired sticker album weaving lyrics, stories, and emotions into a tactile archive. The format was deliberate. Analog, physical, playful. Because resistance that survived through culture deserves to be held, not just scrolled past.</p>
-                    <p>The hardest part wasn't the research. It was finding a visual language that honored the weight of that history without aestheticizing it. The identity needed to feel unmistakably Brazilian, rooted in the rawness of post-punk and the warmth of MPB, without turning dictatorship into a design trend. Every color choice, every typographic decision had to earn its place.</p>
-                    <p>What this project taught me is that design can be a form of cultural memory, not by documenting the past, but by making people feel close enough to it that it stops feeling like history.</p>
-                    <div class="process-callout">
-                        <span class="process-callout-label">Process &amp; decisions</span>
-                        <p>The identity went through four rounds of iteration. The first two leaned too heavily into tropicalism — vibrant, playful, and completely wrong. The resistance era we were referencing was raw, underground, and dangerous. The visual language needed to hold that weight. We stripped back and rebuilt from a post-punk and fanzine aesthetic, then layered warmth back in carefully through texture.</p>
-                        <p>The sticker album format was chosen specifically because it recontextualises something associated with childhood and sport into a vehicle for political memory — the dissonance is intentional and essential to the concept.</p>
-                    </div>
+                <div class="editorial-body">
+                    <p class="project-text">Azucrinação started as a research project and became something more personal. As a Brazilian designer, I grew up hearing MPB without ever fully understanding what those songs were carrying, the metaphors, the irony, the coded defiance of artists pushing back against Brazil's military dictatorship (1970–1985). This project made me listen differently.</p>
+                    <p class="project-text">The concept was a limited-edition collector's box: two curated vinyls and a World Cup-inspired sticker album weaving lyrics, stories, and emotions into a tactile archive. The format was deliberate. Analog, physical, playful. Because resistance that survived through culture deserves to be held, not just scrolled past.</p>
+                    <p class="project-text">The hardest part wasn't the research. It was finding a visual language that honored the weight of that history without aestheticizing it. The identity needed to feel unmistakably Brazilian, rooted in the rawness of post-punk and the warmth of MPB, without turning dictatorship into a design trend. Every color choice, every typographic decision had to earn its place.</p>
+                    <p class="project-text">What this project taught me is that design can be a form of cultural memory, not by documenting the past, but by making people feel close enough to it that it stops feeling like history.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Project Images Gallery -->
+        <!-- Gallery -->
         <section class="project-gallery">
             <div class="gallery-grid">
-                <img src="projects/azucrinacao/album.gif" alt="Azucrinação - Album Animation" class="gallery-image large">
-                <img src="projects/azucrinacao/capavinil4.jpg" alt="Azucrinação - Vinyl Cover" class="gallery-image">
-                <img src="projects/azucrinacao/vinil2.jpg" alt="Azucrinação - Vinyl Detail" class="gallery-image">
-                <img src="projects/azucrinacao/gif-azu.gif" alt="Azucrinação - Animation" class="gallery-image large">
+                <img src="projects/azucrinacao/album.gif" alt="Azucrinação — album animation" class="gallery-image large">
+                <img src="projects/azucrinacao/capavinil4.jpg" alt="Azucrinação — vinyl cover" class="gallery-image">
+                <img src="projects/azucrinacao/vinil2.jpg" alt="Azucrinação — vinyl detail" class="gallery-image">
             </div>
         </section>
 
         <!-- Project Navigation -->
         <section class="project-navigation">
             <div class="nav-left">
-                <a href="index.html" class="nav-button back">
-                    <span class="arrow">←</span>
-                    <span>Back to Portfolio</span>
-                </a>
+                <a href="index.html" class="nav-button back"><span class="arrow">&#8592;</span><span>Back to Portfolio</span></a>
             </div>
             <div class="nav-center">
-                <a href="#" class="nav-button previous">
-                    <span class="arrow">&#8592;</span>
-                    <span>Previous</span>
-                    <span class="nav-project-name"></span>
-                </a>
-                <a href="#" class="nav-button next">
-                    <span>Next</span>
-                    <span class="nav-project-name"></span>
-                    <span class="arrow">&#8594;</span>
-                </a>
+                <a href="#" class="nav-button previous"><span class="arrow">&#8592;</span><span>Previous</span></a>
+                <a href="#" class="nav-button next"><span>Next</span><span class="arrow">&#8594;</span></a>
             </div>
             <div class="nav-right"></div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
+            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="mailto:ellensdamazio@gmail.com">email</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <!-- <a href="https://murmurinho.substack.com/" target="_blank" rel="noopener noreferrer">substack</a> -->
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
             </div>
-            <div class="copyright">© 2026</div>
         </footer>
 
-        <!-- JavaScript -->
         <script src="javascript/portfolio.js"></script>
     </body>
 </html>

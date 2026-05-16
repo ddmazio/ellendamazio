@@ -1,141 +1,129 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Alice in Wonderland</title>
-        <meta name="description" content="Project details - Ellen Damazio Portfolio">
+        <meta name="description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
         <meta name="author" content="Ellen Damazio">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-            
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/portfolio.css">
-    
-        <!-- Open Graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="Alice in Wonderland — Ellen Damazio">
         <meta property="og:description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
         <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/alice/comprimido/alice2.gif">
         <meta property="og:site_name" content="Ellen Damazio Portfolio">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Alice in Wonderland — Ellen Damazio">
+        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/alice/comprimido/alice2.gif">
+        <link rel="stylesheet" href="css/portfolio.css">
     </head>
 
-    <body>
+    <body class="is-editorial">
         <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
 
         <!-- Mobile Nav Overlay -->
         <div class="nav-overlay" id="nav-overlay">
-                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- Project Hero Image -->
+        <!-- Hero -->
         <section class="project-hero">
             <img src="projects/alice/comprimido/alice2.gif" alt="Alice in Wonderland" class="hero-image">
         </section>
 
-        <!-- Project Details Section -->
-        <section class="project-details">
-            <div class="details-container">
-                <h1 class="project-title">Alice in Wonderland: A Reinterpretation</h1>
+        <!-- Content -->
+        <section class="project-content">
+            <div class="editorial-main">
 
-                <div class="details-meta">
-                    <div class="info-item">
-                        <span class="info-label">TIMELINE</span>
-                        <span class="info-value">Fall 2025</span>
+                <p class="project-page-label">Editorial Design · Fall 2025</p>
+                <h1 class="project-page-title">Alice in Wonderland: A Reinterpretation</h1>
+
+                <div class="project-meta-grid project-meta-grid--4">
+                    <div class="project-meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">Fall 2025</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">SCOPE</span>
-                        <span class="info-value">Editorial Design</span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Team</span>
+                        <span class="meta-value">Solo</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">SKILLS</span>
-                        <span class="info-value">Editorial Design</span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Skills</span>
+                        <span class="meta-value">InDesign<br>Bookbinding<br>Editorial Design</span>
                     </div>
-                    
                 </div>
 
-                <div class="project-description">
-                    <p>I've always loved Alice — the film, the cartoon, the chaos of it all. So when we were given the freedom to reinterpret any book, I didn't hesitate. The challenge I set for myself was different though: take a story we associate with bright colors and whimsical illustrations, and find something more solid underneath. Less playful on the surface, but stranger in a way that feels truer to what the story actually is.</p>
-                    <p>The edition I chose was an annotated one, which added a layer of complexity. The annotations needed to coexist with the narrative without competing with it — something the reader could choose to engage with or ignore entirely, without losing the thread of the story. That tension between main text and commentary shaped almost every layout decision.</p>
-                    <p>Typography became the primary visual tool. Rather than illustrating Wonderland, I let the type perform it: shifts in scale, cuts, and misalignments that echo Alice's constant sense of displacement. The bookbinding was done in French link stitch, a deliberate choice that adds a quiet handmade quality to an otherwise unsettling object.</p>
-                    <p>The result is an editorial piece that doesn't look like a children's book. Because it never really was one.</p>
+                <div class="editorial-body">
+                    <p class="project-text">I've always loved Alice, the film, the cartoon, the chaos of it all. So when we were given the freedom to reinterpret any book, I didn't hesitate. The challenge I set for myself was different though: take a story we associate with bright colors and whimsical illustrations, and find something more solid underneath. Less playful on the surface, but stranger in a way that feels truer to what the story actually is.</p>
+                    <p class="project-text">The edition I chose was an annotated one, which added a layer of complexity. The annotations needed to coexist with the narrative without competing with it, something the reader could choose to engage with or ignore entirely, without losing the thread of the story. That tension between main text and commentary shaped almost every layout decision.</p>
+                    <p class="project-text">Typography became the primary visual tool. Rather than illustrating Wonderland, I let the type perform it: shifts in scale, cuts, and misalignments that echo Alice's constant sense of displacement. The bookbinding was done in French link stitch, a deliberate choice that adds a quiet handmade quality to an otherwise unsettling object.</p>
+                    <p class="project-text">The result is an editorial piece that doesn't look like a children's book. Because it never really was one.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Project Images Gallery -->
+        <!-- Gallery -->
         <section class="project-gallery">
             <div class="gallery-grid">
-                <img src="projects/alice/comprimido/inside1.jpg" alt="Alice in Wonderland - Image 1" class="gallery-image large">
-                <img src="projects/alice/comprimido/inside2.jpg" alt="Alice in Wonderland - Image 2" class="gallery-image">
-                <img src="projects/alice/comprimido/inside3.jpg" alt="Alice in Wonderland - Image 3" class="gallery-image">
-                <img src="projects/alice/comprimido/inside4.jpg" alt="Alice in Wonderland - Image 1" class="gallery-image large">
-                <img src="projects/alice/comprimido/inside5.jpg" alt="Alice in Wonderland - Image 2" class="gallery-image">
-                <img src="projects/alice/comprimido/inside6.jpg" alt="Alice in Wonderland - Image 3" class="gallery-image">
+                <img src="projects/alice/comprimido/alice1.jpg" alt="Alice in Wonderland" class="gallery-image large">
+                <img src="projects/alice/comprimido/alice2.jpg" alt="Alice in Wonderland" class="gallery-image">
+                <img src="projects/alice/comprimido/alice9.jpg" alt="Alice in Wonderland" class="gallery-image">
+                <img src="projects/alice/comprimido/alice5.jpg" alt="Alice in Wonderland" class="gallery-image large">
+                <img src="projects/alice/comprimido/alice8.jpg" alt="Alice in Wonderland" class="gallery-image">
+                <img src="projects/alice/comprimido/alice3.jpg" alt="Alice in Wonderland" class="gallery-image">
             </div>
         </section>
 
         <!-- Project Navigation -->
         <section class="project-navigation">
             <div class="nav-left">
-                <a href="index.html" class="nav-button back">
-                    <span class="arrow">←</span>
-                    <span>Back to Portfolio</span>
-                </a>
+                <a href="index.html" class="nav-button back"><span class="arrow">&#8592;</span><span>Back to Portfolio</span></a>
             </div>
             <div class="nav-center">
-                <a href="#" class="nav-button previous">
-                    <span class="arrow">&#8592;</span>
-                    <span>Previous</span>
-                    <span class="nav-project-name"></span>
-                </a>
-                <a href="#" class="nav-button next">
-                    <span>Next</span>
-                    <span class="nav-project-name"></span>
-                    <span class="arrow">&#8594;</span>
-                </a>
+                <a href="#" class="nav-button previous"><span class="arrow">&#8592;</span><span>Previous</span></a>
+                <a href="#" class="nav-button next"><span>Next</span><span class="arrow">&#8594;</span></a>
             </div>
             <div class="nav-right"></div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
+            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="mailto:ellensdamazio@gmail.com">email</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <!-- <a href="https://murmurinho.substack.com/" target="_blank" rel="noopener noreferrer">substack</a> -->
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
             </div>
-            <div class="copyright">© 2026</div>
         </footer>
 
-        <!-- JavaScript -->
         <script src="javascript/portfolio.js"></script>
     </body>
 </html>

@@ -1,287 +1,560 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FLUID.ai</title>
-        <meta name="description" content="Ting UX Design Project - Ellen Damazio Portfolio">
+        <title>FLUID.ai — Ellen Damazio</title>
+        <meta name="description" content="FLUID.ai — an affective computing system that translates the emotional states of non-verbal autistic users into multimodal sensory responses for caregivers.">
         <meta name="author" content="Ellen Damazio">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-            
-        <!-- Stylesheet -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="FLUID.ai — Ellen Damazio">
+        <meta property="og:description" content="An affective computing system that translates the emotional states of non-verbal autistic users into multimodal sensory responses — for them and for their caregivers.">
+        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/fluid/cover.jpg">
+        <meta property="og:site_name" content="Ellen Damazio Portfolio">
         <link rel="stylesheet" href="css/portfolio.css">
     </head>
-
     <body>
-        <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
 
-        <!-- Mobile Nav Overlay -->
         <div class="nav-overlay" id="nav-overlay">
-                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- Project Hero Image -->
-        <section class="project-hero">
-            <img src="projects/ting/Scene-9.png" alt="Ting Project" class="hero-image">
-        </section>
-
-        <!-- Project Content with Fixed Sidebar -->
         <section class="project-content">
             <div class="project-container">
-                <!-- Fixed Sidebar (Left) -->
+
                 <aside class="project-sidebar">
-                    <h1 class="project-sidebar-title">FLUID.ai</h1>
-                    
+                    <a href="index.html" class="sidebar-back">← back</a>
                     <nav class="project-nav">
-                        <a href="#problem" class="project-nav-link">Problem</a>
-                        <a href="#goal" class="project-nav-link">Goal</a>
-                        <a href="#design-process" class="project-nav-link">Design Process</a>
-                        <a href="#takeaways" class="project-nav-link">Takeaways</a>
+                        <a href="#overview"    class="project-nav-link">Overview</a>
+                        <a href="#problem"     class="project-nav-link">Problem</a>
+                        <a href="#research"    class="project-nav-link">Research</a>
+                        <a href="#principles"  class="project-nav-link">Design Principles</a>
+                        <a href="#system"      class="project-nav-link">The System</a>
+                        <a href="#colors"      class="project-nav-link">Emotional Colours</a>
+                        <a href="#process"     class="project-nav-link">Process</a>
+                        <a href="#reflections" class="project-nav-link">Reflections</a>
                     </nav>
                 </aside>
 
-                <!-- Scrollable Content (Right) -->
                 <main class="project-main-content">
-                    <!-- Meta Information at top -->
-                    <div class="project-meta-grid">
+                    <p class="project-page-label">Interaction Design · Speculative · 2025</p>
+                    <h1 class="project-page-title">FLUID.ai</h1>
+                    <p class="project-page-subtitle">When words aren't available, the body still speaks.</p>
+
+                    <video autoplay loop muted playsinline class="project-cover-image">
+                        <source src="projects/fluid/fluid-cover.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="project-meta-grid project-meta-grid--4">
                         <div class="project-meta-item">
-                            <span class="meta-label">SKILLS</span>
-                            <span class="meta-value">UX/UI<br>Figma<br>Artificial Intellegence</span>
+                            <span class="meta-label">Role</span>
+                            <span class="meta-value">Lead Designer &amp; Researcher<br>Concept &amp; System Design<br>Interaction Architecture</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">TIMELINE</span>
+                            <span class="meta-label">Timeline</span>
                             <span class="meta-value">Fall 2025</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">PROTOTYPE</span>
-                            <span class="meta-value"><a href="https://www.figma.com/proto/ihBizkLVVJZ9VWdBaX1Xyq/Ting-%7C-B1---DI-24-25?page-id=618%3A262&node-id=724-1158&viewport=1074%2C-642%2C0.06&t=o5GOlwDoFpAtM96G-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=876%3A1627&show-proto-sidebar=1" target="_blank">Visit the prototype!</a></span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">RESEARCH</span>
-                            <span class="meta-value"><a href="https://drive.google.com/file/d/1yeIxO4_Ygj3WolYqkjagChqNZqSKminI/view?usp=sharing" target="_blank">Read the article here!</a></span>
+                            <span class="meta-label">Skills</span>
+                            <span class="meta-value">Figma<br>Ethnographic Research<br>Affinity Mapping<br>Speculative Design</span>
                         </div>
                     </div>
 
-                    <!-- Overview Section -->
+                    <div class="project-links">
+                        <a href="https://www.figma.com/proto/EAA1UmciVYhiLeZNImmQIs/Case-study-FLUID.ai?page-id=93%3A141&node-id=93-156&scaling=scale-down-width&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="project-link">Read Case Study ↗</a>
+                    </div>
+
+
+                    <!-- ── OVERVIEW ──────────────────────────────────── -->
                     <section id="overview" class="project-section">
-                        <h2 class="project-subtitle">The overview</h2>
+                        <h2 class="project-subtitle">Overview</h2>
                         <p class="project-text">
-                            Ting is a hybrid wearable-app ecosystem designed to restore the intimacy of real-world encounters by translating physiological signals 
-                            into haptic feedback. By monitoring biomarkers like heart rate and skin temperature, the device vibrates subtly upon proximity to emotionally 
-                            compatible users, transforming the body into a relational interface that prioritizes physical presence over digital performance.
+                            FLUID.ai is an affective computing system designed to bridge the communication gap between non-verbal autistic individuals and their caregivers. Grounded in Picard's (1997) definition of affective computing as computation that relates to, arises from, or deliberately influences emotions, the project departs from a central premise: internal emotional states often remain invisible. As Barrett (2017) argues, emotions have no universal expressions. They are constructed in highly contextual ways.
                         </p>
+                        <p class="project-text">
+                            The system consists of two connected objects: a lava lamp-inspired ambient device placed in the patient's room, and a companion watch for the caregiver. As the patient's emotional and physiological state shifts, the lamp responds in real time through colour, light movement, and sound. The watch mirrors these changes through colour and haptic vibration, keeping the caregiver informed without requiring constant visual monitoring.
+                        </p>
+                        <p class="project-text">
+                            A sensitive mediator between a non-verbal autistic person and their caregiver. Translating what the body communicates but cannot say.
+                        </p>
+
+                        <!--
+                            Node 2801:355 "menino2 1" — boy on bed, lamp glowing orange beside him.
+                            Export from Figma: select node → right-click → Copy as PNG (2x) → save as projects/fluid/menino2.png
+                        -->
+                        <img src="projects/fluid/menino2.png" alt="Boy sitting on bed with FLUID.ai lamp glowing beside him" class="project-full-image">
                     </section>
 
-                    <!-- Problem Section -->
+
+                    <!-- ── THE PROBLEM ─────────────────────────────── -->
                     <section id="problem" class="project-section">
-                        <h2 class="project-subtitle">The problem</h2>
+                        <h2 class="project-subtitle">The Problem</h2>
                         <p class="project-text">
-                            Gen Z faces a paralyzing pressure to perform. The reliance on visual-first dating apps exacerbates body image issues and social fatigue, creating a barrier to entry for face-to-face connection. The challenge was to create a solution that enables users to bypass the anxiety of 'breaking the ice' and the superficiality of profile curation, fostering connections that feel safe and physiologically aligned before a word is even spoken.
+                            Non-verbal autistic individuals often express emotions through atypical signals: subtle movements, changes in posture, sounds, or shifts in breathing rhythm that are difficult to read, even for those who know them intimately. For caregivers, recognising distress, pain, or anxiety becomes a process of constant interpretation, carried out under pressure, with little external support.
                         </p>
-                    </section>
-
-                    <!-- Goal Section -->
-                    <section id="goal" class="project-section">
-                        <h2 class="project-subtitle">The goal</h2>
                         <p class="project-text">
-                            The goal was to design an embodied interaction tool that allows users to identify emotionally compatible people nearby without screen mediation. It aimed to validate the user's internal feelings through bio-data, creating a 'safe container' for spontaneous, real-world interactions grounded in intuition.
+                            This asymmetry creates a cycle of frustration on both sides: the person who cannot express themselves clearly, and the caregiver who cannot understand clearly. Over time, this erodes the quality of the relationship and places enormous emotional weight on those who provide care.
                         </p>
+
+                        <div class="fluid-insight-cards">
+                            <div class="fluid-insight-card fluid-insight-card--critical">
+                                <span class="fluid-insight-card__icon">●</span>
+                                <h3 class="fluid-insight-card__title">Invisible signals</h3>
+                                <p class="fluid-insight-card__text">Emotional states of non-verbal autistic individuals are expressed through atypical, subtle cues, often unreadable to anyone outside the immediate care circle.</p>
+                            </div>
+                            <div class="fluid-insight-card fluid-insight-card--elevated">
+                                <span class="fluid-insight-card__icon">●</span>
+                                <h3 class="fluid-insight-card__title">Interpretive overload</h3>
+                                <p class="fluid-insight-card__text">Caregivers carry the full cognitive and emotional weight of reading these signals, with no tools to support them, generating anxiety, fatigue, and isolation of responsibility.</p>
+                            </div>
+                            <div class="fluid-insight-card fluid-insight-card--stable">
+                                <span class="fluid-insight-card__icon">●</span>
+                                <h3 class="fluid-insight-card__title">Tacit knowledge</h3>
+                                <p class="fluid-insight-card__text">Understanding often belongs only to those who have spent years with the person, making it impossible to share care without losing critical interpretive context.</p>
+                            </div>
+                        </div>
                     </section>
 
-                    <img src="projects/ting/iPhone-15.png" alt="Prototype" class="project-full-image">
 
+                    <!-- ── RESEARCH ────────────────────────────────── -->
+                    <section id="research" class="project-section project-major-section">
+                        <h2 class="project-section-title">RESEARCH</h2>
 
-                    <!-- Design Process Section -->
-                    <section id="design-process" class="project-section project-major-section">
-                        <h2 class="project-section-title">DESIGN PROCESS</h2>
-                        
                         <div class="project-step">
-                            <h3 class="project-subtitle">Research and Project Definition</h3>
+                            <h3 class="project-subtitle">Ethnographic Interviews</h3>
                             <p class="project-text">
-                                The first phase gathered extensive quantitative and qualitative data to understand the social barriers Gen Z faces. We conducted surveys with 93 participants and reviewed literature on affective computing and neurodesign. The focus was on understanding the gap between digital connection and emotional satisfaction.
+                                To ground the project in lived experience, I conducted two ethnographic interviews with people who interact daily with non-verbal users: a pedagogy student who accompanies a nine-year-old child with cerebral palsy at school, and the sister of a non-verbal autistic adult. Both interviews focused on daily communication patterns, moments of uncertainty, and the emotional cost of interpretive ambiguity.
                             </p>
-                            <p class="project-text">
-                                Benchmarking revealed that existing tools either gamified attraction (Tinder, Bumble) or focused solely on productivity/safety (Life360), leaving a gap for embodied social tools.
-                            </p>
+
+                            <!--
+                                ↳ IMAGE: Research affinity map
+                                FigJam export showing clustered post-its from interview analysis.
+                                Two main columns: patient experience / caregiver experience.
+                                Highlight clusters: "the guess", "tacit knowledge", "ambiguous moments".
+                                Export from FigJam at 2x. File: projects/fluid/affinity-map.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: affinity map from FigJam · two columns: patient / caregiver · clustered post-its · highlight "the guess" and "tacit knowledge"</span>
+                            </div>
                         </div>
 
                         <div class="project-step">
-                            <h3 class="project-subtitle">Key Insights:</h3>
+                            <h3 class="project-subtitle">What they told me</h3>
 
-                            <ul>
-                                <p class="project-text">
-                                    The Loneliness Paradox: According to Cigna (2020), 79% of Gen Z respondents report frequent feelings of loneliness, and 58% claim their social needs remain unmet despite high connectivity;
-                                </p>
+                            <div class="fluid-quote">
+                                <span class="fluid-quote__mark">"</span>
+                                <p class="fluid-quote__text">Even after a year and a half of being with him every day, many signals still depend on contextual interpretation. Before, I was just guessing.</p>
+                                <span class="fluid-quote__source">— pedagogy student, accompanying a 9-year-old with cerebral palsy</span>
+                            </div>
 
-                                <p class="project-text">
-                                    Rejection of Forced Interaction: 57% of users give up on social apps because interactions feel 'artificial or forced,' highlighting a desire for organic connection;
-                                </p>
+                            <div class="fluid-quote">
+                                <span class="fluid-quote__mark">"</span>
+                                <p class="fluid-quote__text">Recognising emotions requires intense attention to the body: rhythms, sounds, shifts in posture. And even then, sometimes the meaning stays uncertain.</p>
+                                <span class="fluid-quote__source">— sister of a non-verbal autistic adult</span>
+                            </div>
 
-                                <p class="project-text">
-                                    Safety in Physiology: According to Polyvagal Theory (Porges), the body detects safety through subtle physical cues; enabling the 'ventral vagal complex' is essential for reducing social defense mechanisms.
-                                </p>
-                            </ul>
-                        </div>
-
-                        <!-- Images -->
-                        <div class="project-images-row">
-                            <img src="projects/ting/grafico-1.png" alt="Ting Image 1" class="project-image">
-                            <img src="projects/ting/grafico-2.png" alt="Ting Image 2" class="project-image">
-                        </div>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Development and Representation</h3>
                             <p class="project-text">
-                                Building on the research, this phase focused on developing the 'grammar' of the device. We decided to position the wearable on the upper spine to align with the vagus nerve, reinforcing the concept that 'the body senses it first.' We created a visual identity based on Paul Ekman's Atlas of Emotions, using a gradient of Blue (calm), Orange (activation), and Yellow (openness) to represent emotional states without using words. The interaction model was defined to be minimalist: the app acts only as a reflective log, while the wearable handles the real-time social 'radar.'
+                                Both described moments where they knew something was wrong but could not identify whether it was pain, hunger, sensory overload, or sadness. This uncertainty generates anxiety and frustration, because the response depends on reading signals that are often invisible to anyone else. They also noted that only people with long-term proximity know how to interpret certain cues, which isolates the responsibility of care and makes it impossible to share that knowledge with others.
                             </p>
                         </div>
 
-                        <img src="projects/ting/visual.png" alt="Process 2" class="project-full-image">
-
                         <div class="project-step">
-                            <h3 class="project-subtitle">Key Outcomes:</h3>
-                            <ul>
-                                <p class="project-text">
-                                    Haptic Language Definition: We designed a specific vibration pattern â€” discreet enough not to demand action, but distinct enough to spark curiosity â€” acting as a 'whisper' rather than a notification;
-                                </p>
-
-                                <p class="project-text">
-                                    Emotional AI Calibration: Defined the onboarding flow where users train their personal AI with behavioral data to ensure accurate compatibility matching;
-                                </p>
-
-                                <p class="project-text">
-                                    Visual System: Developed a UI that avoids overstimulation, using soft color palettes and gradients to evoke regulation and calm rather than urgency.
-                                </p>
-                            </ul>
+                            <h3 class="project-subtitle">Key Insights</h3>
+                            <p class="project-text"><strong>Empathy is not about recognising emotions.</strong> It is about creating conditions for the human to exist fully within the technology. The AI's role is not to replace human care, but to reduce the caregiver's emotional load and make their knowledge shareable.</p>
+                            <p class="project-text"><strong>The biggest challenge is not identification, but intervention:</strong> deciding how, when, and how far the technology should act without overstepping. FLUID.ai knows its limits and escalates to human intervention when needed.</p>
+                            <p class="project-text"><strong>Multimodality is essential.</strong> Combining visual, haptic, and sonic stimuli creates a more gradual and less invasive reading of emotional states, respecting different sensory sensitivities.</p>
+                            <p class="project-text"><strong>Colour and rhythm are language, not decoration.</strong> Chromatic codes linked to emotional states are not labels but a translation system between two different emotional worlds.</p>
                         </div>
-
-                        <img src="projects/ting/work.jpeg" alt="Prototype" class="project-full-image">
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Prototyping and Validation</h3>
-                            <p class="project-text">
-                                Significant advancements in the final phase brought the Ting ecosystem to life. We developed high-fidelity mockups of the mobile application and 3D visualizations of the wearable device. Feedback highlighted that the absence of swiping and images relieved performance anxiety, validating the core hypothesis. We also refined the 'Match Tracking' feature, inspired by location safety tools, to allow users to meet spontaneously but safely once a haptic match was established.
-                            </p>
-                        </div>
-
-                        <img src="projects/ting/ting.gif" alt="Prototype" class="project-full-image">
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Key Outcomes:</h3>
-                            
-                            <ul>
-                                <p class="project-text">
-                                    User Validation: Feedback confirmed the interface felt 'fluid, intuitive, and more human,' with users specifically praising the absence of swipes;
-                                </p>
-
-                                <p class="project-text">
-                                    Reflective UX: The introduction of post-interaction reflection questions (e.g., "What kind of energy are you bringing?") helped users better understand their own emotional states;
-                                </p>
-
-                                <p class="project-text">
-                                    Physical-Digital Bridge: The prototype successfully demonstrated how a physical sensation (vibration) could seamlessly transition into a digital confirmation (app) and back to a physical meeting.                        
-                                </p>
-                        
-                            </ul>
-                        </div>
-
                     </section>
 
-                    <!-- Video Showcase -->
-                    <div class="video-showcase">
-                        <h2>Project Video</h2>
-                        <div class="video-link-container">
-                            <a href="https://youtu.be/ObY7lk0Vo5A" target="_blank" rel="noopener noreferrer" class="video-link">
-                                <div class="video-thumbnail">
-                                    <img src="projects/ting/Scene-9.jpg" alt="Ting Project Video Thumbnail">
-                                    <div class="play-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </div>
+
+                    <!-- ── DESIGN PRINCIPLES ───────────────────────── -->
+                    <section id="principles" class="project-section">
+                        <h2 class="project-subtitle">Design Principles</h2>
+                        <p class="project-text">Three commitments shaped every decision, from the choice of object to the colour system to the escalation logic.</p>
+
+                        <div class="fluid-principles">
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">⊙</span>
+                                <h3 class="fluid-principle__title">Mediation, not replacement</h3>
+                                <p class="fluid-principle__text">AI acts as a sensitive bridge between the patient and their care ecosystem, not as an autonomous agent. Human care remains indispensable; technology reduces its burden.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◑</span>
+                                <h3 class="fluid-principle__title">Non-intrusiveness</h3>
+                                <p class="fluid-principle__text">Every form of feedback, light, vibration, sound, is designed to be gradual and ambient. The system does not demand attention; it offers information to those who seek it.</p>
+                            </div>
+                            <div class="fluid-principle">
+                                <span class="fluid-principle__icon">◈</span>
+                                <h3 class="fluid-principle__title">Designing for vulnerability</h3>
+                                <p class="fluid-principle__text">Every interaction must respect autonomy, privacy, and dignity, especially when the user cannot communicate verbally. Empathy in design is an ethical posture, not an aesthetic attribute.</p>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- ── THE SYSTEM ──────────────────────────────── -->
+                    <section id="system" class="project-section project-major-section">
+                        <h2 class="project-section-title">THE SYSTEM</h2>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Two connected objects</h3>
+                            <p class="project-text">
+                                The choice of a lava lamp as the primary interface was not aesthetic — it was conceptual. The slow, organic, repetitive movement of the lamp's internal fluid creates a visual metaphor for emotional states: expansion and retraction, calm and agitation, flow and stillness. This behaviour communicates without requiring complex interpretation, making it legible even to someone with limited verbal comprehension.
+                            </p>
+                            <p class="project-text">
+                                The lamp is grounded in Anna Vallgårda's (2013) understanding of computational artefacts: objects that take form through the relationship between physical form, temporal form, and interactive gestures. FLUID.ai is not just a functional tool. It is an emotional mediator that creates conditions of safety, calm, and mutual understanding.
+                            </p>
+
+                            <!--
+                                ↳ IMAGE LEFT: FLUID.ai lamp — product render
+                                Soft rounded form, slightly glowing amber or white light.
+                                Clean background (dark or very light grey).
+                                Already exists in some form (AI-generated). File: projects/fluid/lamp.png
+
+                                ↳ IMAGE RIGHT: FLUID watch — product render
+                                Watch face showing an amber/orange screen state.
+                                Same lighting style as the lamp render.
+                                File: projects/fluid/relogio2.png
+                            -->
+                            <div class="project-images-row">
+                                <img src="projects/fluid/lamp.png" alt="FLUID.ai ambient lamp — orange state, anxiety detected" class="project-image">
+                                <img src="projects/fluid/relogio2.png" alt="Caregiver checking the FLUID watch — orange alert state" class="project-image">
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Multimodal interaction</h3>
+                            <p class="project-text">
+                                The system communicates across three sensory channels simultaneously, calibrated to different sensory tolerances and contexts of use.
+                            </p>
+
+                            <div class="fluid-insight-cards">
+                                <div class="fluid-insight-card fluid-insight-card--critical">
+                                    <span class="fluid-insight-card__icon">◐</span>
+                                    <h3 class="fluid-insight-card__title">Luminous</h3>
+                                    <p class="fluid-insight-card__text">Colour and light movement translate emotional state. A slow, organic flow for calm; faster, more saturated colour for distress. The lamp becomes the emotional atmosphere of the room.</p>
                                 </div>
-                                <p class="video-description">Watch on YouTube!</p>
-                            </a>
-                        </div>
-                    </div>
+                                <div class="fluid-insight-card fluid-insight-card--elevated">
+                                    <span class="fluid-insight-card__icon">◎</span>
+                                    <h3 class="fluid-insight-card__title">Haptic</h3>
+                                    <p class="fluid-insight-card__text">The watch vibrates to alert the caregiver and mirrors the lamp's colour on its screen. Vibration as interface is intimate and discreet: it delivers information without breaking the relational moment.</p>
+                                </div>
+                                <div class="fluid-insight-card fluid-insight-card--stable">
+                                    <span class="fluid-insight-card__icon">◉</span>
+                                    <h3 class="fluid-insight-card__title">Sonic</h3>
+                                    <p class="fluid-insight-card__text">The lamp plays calming music and delivers AI voice guidance during self-regulation moments: a non-visual, non-textual channel for the patient who cannot process screens.</p>
+                                </div>
+                            </div>
 
-                    <!-- Takeaways Section -->
-                    <section id="takeaways" class="project-section project-major-section">
-                        <h2 class="project-section-title">TAKEAWAYS</h2>
-                        <p class="project-text">
-                            This project allowed me to delve deeply into Neuroresponsive Interaction Design, challenging the status quo of screen-centric socialization. By applying the Polyvagal Theory (Porges) to UX, I learned that the most powerful interface is often the human body itself.
-                        </p>
-                        <p class="project-text">
-                            The process highlighted the importance of 'Design for Absence' â€” creating technology that steps back to let human connection come forward. It demanded a rigorous balance between collecting sensitive physiological data and designing an experience that feels protective rather than invasive.
-                        </p>
-                        <p class="project-text">
-                            Through Ting, I understood that the future of social tech isn't about faster connections, but safer ones. It transformed my perspective on how we can use AI not to replace human intimacy, but to tune us back into the frequencies of real-world resonance.
-                        </p>
+                            <!--
+                                ↳ IMAGE: Multimodal interaction diagram
+                                Three channels shown simultaneously responding to an emotional event.
+                                Structure: patient icon in centre → lamp (colour) on left → watch (haptic) on right → sound wave below.
+                                Use brand accent (#597AE7) for connections, amber/orange for the emotional trigger.
+                                Clean Figma export, dark background. File: projects/fluid/multimodal-diagram.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: multimodal diagram · patient → lamp (light/colour) + watch (haptic) + sound · dark background · Figma export</span>
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Escalation logic</h3>
+                            <p class="project-text">
+                                One of the core principles of FLUID.ai is knowing its own limits. The system follows a clear escalation model: it first attempts autonomous self-regulation through sound and colour; if the patient does not improve, it alerts the caregiver; if the caregiver cannot resolve the situation, it contacts emergency services. At every step, human agency is preserved.
+                            </p>
+
+                            <!--
+                                ↳ IMAGE: Wireflow / decision tree
+                                The escalation logic shown as a clean decision tree with three branches:
+                                  Detect → Self-regulate → Patient improves? Yes/No
+                                  No → Alert caregiver → Caregiver resolves? Yes/No
+                                  No → Emergency services
+                                Already built in the Figma case study. Export cleanly with white background
+                                or dark background consistent with the page. File: projects/fluid/wireflow.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: escalation decision tree · Detect → Self-regulate → Alert caregiver → Emergency · clean Figma export</span>
+                            </div>
+                        </div>
                     </section>
+
+
+                    <!-- ── EMOTIONAL COLOUR SYSTEM ─────────────────── -->
+                    <section id="colors" class="project-section">
+                        <h2 class="project-subtitle">Emotional Colour System</h2>
+                        <p class="project-text">
+                            The colour system was built at the intersection of two references: Plutchik's Wheel of Emotion, which maps the intensity and variation of emotional states, and Eva Heller's psychology of colour, which links specific hues to felt sensations and affective associations. Rather than reproducing rigid colour schemes, the system is softer and more situated: each colour, or transition between colours, expresses not just an emotional state, but its intensity, urgency, and need for intervention.
+                        </p>
+                        <p class="project-text">
+                            Colour becomes a translation system between two emotional worlds: the patient who cannot speak, and the caregiver who needs to understand. It is language, not decoration.
+                        </p>
+
+                        <div class="fluid-color-system">
+                            <div class="fluid-color-block fluid-color-block--critical">
+                                <span class="fluid-color-block__dot"></span>
+                                <h4 class="fluid-color-block__label">Red — Distress</h4>
+                                <p class="fluid-color-block__desc">Pain, intense agitation, or crisis. High urgency. The lamp shifts to saturated red; the watch vibrates and alerts the caregiver immediately.</p>
+                            </div>
+                            <div class="fluid-color-block fluid-color-block--elevated">
+                                <span class="fluid-color-block__dot"></span>
+                                <h4 class="fluid-color-block__label">Orange — Anxiety</h4>
+                                <p class="fluid-color-block__desc">Emotional activation, stress, or discomfort. The lamp turns orange; the watch mirrors the colour. Self-regulation begins: calming sounds and light patterns.</p>
+                            </div>
+                            <div class="fluid-color-block fluid-color-block--stable">
+                                <span class="fluid-color-block__dot"></span>
+                                <h4 class="fluid-color-block__label">Yellow — Improving</h4>
+                                <p class="fluid-color-block__desc">Emotional state shifting toward calm. The lamp transitions from orange to yellow; the watch notifies the caregiver that the patient is getting better.</p>
+                            </div>
+                        </div>
+
+                        <div class="fluid-color-system" style="margin-top: 16px;">
+                            <div class="fluid-color-block" style="background-color:rgba(52,152,219,0.08);border:1px solid rgba(52,152,219,0.2);">
+                                <span class="fluid-color-block__dot" style="background-color:#3498db;"></span>
+                                <h4 class="fluid-color-block__label">Blue — Sadness</h4>
+                                <p class="fluid-color-block__desc">Low emotional state, withdrawal, or grief. Slow, cool light movement. System shifts to softer audio stimuli.</p>
+                            </div>
+                            <div class="fluid-color-block" style="background-color:rgba(200,200,200,0.06);border:1px solid rgba(200,200,200,0.25);">
+                                <span class="fluid-color-block__dot" style="background-color:#c8c8c8;"></span>
+                                <h4 class="fluid-color-block__label">White — Neutral</h4>
+                                <p class="fluid-color-block__desc">Stable state or initial connection. Soft white glow, slow movement. The system is active and monitoring, but no intervention needed.</p>
+                            </div>
+                            <div class="fluid-color-block" style="background-color:rgba(241,196,15,0.08);border:1px solid rgba(241,196,15,0.2);">
+                                <span class="fluid-color-block__dot" style="background-color:#f1c40f;"></span>
+                                <h4 class="fluid-color-block__label">Gold — Joy</h4>
+                                <p class="fluid-color-block__desc">Positive emotional state. Warm, bright light with gentle movement. The system reflects the patient's wellbeing back into the room.</p>
+                            </div>
+                        </div>
+
+                        <!--
+                            Lamp states in context — shows the same lamp in different emotional states.
+                            Left: Node 2801:352 "vermelho 1" (red = distress)
+                            Right: Node 2801:353 "branco 1" (white = neutral)
+                            Export each: select node → Copy as PNG (2x)
+                            Save as: projects/fluid/lamp-red.png and projects/fluid/lamp-white.png
+                        -->
+                        <div class="project-images-row" style="margin-top: 32px;">
+                            <img src="projects/fluid/lamp-red.png" alt="FLUID.ai lamp in red state — distress detected" class="project-image">
+                            <img src="projects/fluid/lamp-white.png" alt="FLUID.ai lamp in white state — neutral, calm" class="project-image">
+                        </div>
+
+                        <!--
+                            ↳ IMAGE: Full colour system diagram (from Figma case study)
+                            Export from: Case study file EAA1UmciVYhiLeZNImmQIs → Design System frame
+                            Select the colour mapping grid → Export at 2x → projects/fluid/color-system.png
+                        -->
+                        <div class="img-placeholder">
+                            <span class="img-placeholder__label">↳ IMAGE: colour system diagram · export "Design System" frame from Figma case study · 2x · projects/fluid/color-system.png</span>
+                        </div>
+                    </section>
+
+
+                    <!-- ── PROCESS ─────────────────────────────────── -->
+                    <section id="process" class="project-section project-major-section">
+                        <h2 class="project-section-title">PROCESS</h2>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Choosing the object</h3>
+                            <p class="project-text">
+                                The decision to build around a lamp, specifically a lava lamp, came from a question the research kept returning to: what physical object could carry emotional meaning without demanding interpretation? The lava lamp's internal movement, fluid rising and falling in slow, continuous cycles, offered a ready-made visual vocabulary for emotional rhythm. Heating and expansion became metaphors for distress; cooling and retraction for calm.
+                            </p>
+                            <p class="project-text">
+                                The form was then refined: rather than a traditional triangular lava lamp, the object needed softer edges and space for a speaker, through which the AI communicates with the patient via voice and sound. Several sketches explored this balance between the lamp's organic form and the functional requirements of speaker placement.
+                            </p>
+
+                            <!--
+                                Node 2801:354 "lamp 1" — lamp in warm domestic bedroom setting, landscape.
+                                Export: select node → Copy as PNG (2x) → save as projects/fluid/lamp-context.png
+                            -->
+                            <img src="projects/fluid/lamp-context.png" alt="FLUID.ai lamp in a domestic bedroom setting" class="project-full-image">
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Wireflow and user flow</h3>
+                            <p class="project-text">
+                                The interaction model was mapped through two parallel documents: the conceptual wireflow (the system's decision logic, from emotional detection to escalation) and the user flow (the lived experience of both the patient and the caregiver across an emotional episode). These became the backbone of the interface design. Every screen, every vibration pattern, every colour transition was derived from them.
+                            </p>
+
+                            <!--
+                                ↳ IMAGE: Wireflow diagram
+                                Clean Figma export of the decision tree already built in the case study.
+                                Show the full flow from detection to resolution, with branch points clearly labelled.
+                                File: projects/fluid/wireflow.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: wireflow decision tree · full flow from detection to resolution · already built in Figma case study · clean export</span>
+                            </div>
+
+                            <!--
+                                ↳ IMAGE: Dual-path user flow
+                                Two parallel swim lanes: patient (top) and caregiver (bottom).
+                                Show how their experiences interlock across an emotional episode.
+                                Icons for emotions/contact points. File: projects/fluid/user-flow.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: dual-path user flow · swim lanes: patient (top) + caregiver (bottom) · show interlocking experiences across one episode</span>
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Design system</h3>
+                            <p class="project-text">
+                                The interface system uses General Sans across all touchpoints, a rational, clean typeface that contrasts with the organic emotionality of the lamp's physical form. The design system maps emotional states to colour values, icon sets, and haptic patterns, creating a consistent visual language across the lamp interface, the watch display, and the onboarding flow.
+                            </p>
+
+                            <!--
+                                ↳ IMAGE: Design system overview
+                                A single-frame Figma export showing:
+                                  typography (General Sans weights) · colour palette (6 emotional states) ·
+                                  icon set · haptic pattern legend
+                                Dark or light background, clean grid layout. File: projects/fluid/design-system.png
+                            -->
+                            <div class="img-placeholder">
+                                <span class="img-placeholder__label">↳ IMAGE: design system · typography (General Sans) + colour palette (6 states) + icon set + haptic patterns · single Figma frame export</span>
+                            </div>
+                        </div>
+
+                        <div class="process-callout">
+                            <span class="process-callout-label">Key decision</span>
+                            <p>The lamp's movement, not just its colour, carries emotional meaning. A fast, irregular movement signals distress before colour even registers consciously. This temporal dimension, inspired by Vallgårda's framework of interactive artefacts, was central to making the object feel alive rather than simply informative.</p>
+                        </div>
+
+                        <!--
+                            ↳ IMAGE: Storyboard — emotional episode in full
+                            A sequence of 4 to 6 frames showing a complete episode:
+                              Frame 1: mother and son, neutral state, lamp glowing white
+                              Frame 2: son showing signs of distress, lamp shifting to orange
+                              Frame 3: AI self-regulating with sound and light
+                              Frame 4: mother checking watch, colour mirrored
+                              Frame 5: mother entering the room
+                              Frame 6: son calmer, lamp returning to yellow/white
+                            AI-generated images already exist from the case study (Sora). Use those.
+                            File: projects/fluid/storyboard.jpg (or composite of frames)
+                        -->
+                        <!--
+                            Node 2801:355 "menino2 1" — boy on bed with lamp.
+                            Second use — this one shows the product in the user's space.
+                            Also: export the full storyboard section from the Figma case study
+                            file (EAA1UmciVYhiLeZNImmQIs) → "STORYBOARD" frame → Export 2x → projects/fluid/storyboard.jpg
+                        -->
+                        <img src="projects/fluid/menino2.png" alt="FLUID.ai in use — boy and lamp in bedroom" class="project-full-image">
+                        <!--
+                            ↳ ADDITIONAL: If you export the full storyboard strip from the case study,
+                            replace the img above with: <img src="projects/fluid/storyboard.jpg" ... >
+                        -->
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Interface screens</h3>
+                            <p class="project-text">
+                                The onboarding flow connects the caregiver's watch to the FLUID.ai lamp, establishes the patient's profile, and calibrates the emotional sensitivity thresholds. The watch interface uses the same fluid graphic language as the lamp, with colour as the primary information layer and vibration as the secondary alert.
+                            </p>
+
+                            <!--
+                                ↳ IMAGE LEFT: FLUID watch GUI
+                                Watch interface screens showing: pairing screen · active monitoring state ·
+                                orange alert state with vibration indicator.
+                                Export from Figma with watch bezel mockup. File: projects/fluid/gui-watch.png
+
+                                ↳ IMAGE RIGHT: App onboarding flow
+                                Mobile screens: login/sync · patient profile setup · sensitivity calibration.
+                                Dark background consistent with the system aesthetic.
+                                File: projects/fluid/gui-onboarding.png
+                            -->
+                            <div class="project-images-row">
+                                <div class="img-placeholder" style="min-height: 340px;">
+                                    <span class="img-placeholder__label">↳ IMAGE: FLUID watch GUI · pairing · monitoring · orange alert · Figma export with bezel mockup</span>
+                                </div>
+                                <div class="img-placeholder" style="min-height: 340px;">
+                                    <span class="img-placeholder__label">↳ IMAGE: app onboarding · login/sync · patient profile · sensitivity calibration · dark background · Figma screens</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- ── REFLECTIONS ─────────────────────────────── -->
+                    <section id="reflections" class="project-section project-major-section">
+                        <h2 class="project-section-title">REFLECTIONS</h2>
+
+                        <p class="project-text">
+                            FLUID.ai clarified something I had only intuited before: designing for vulnerability is, inevitably, an ethical act. Every decision, which colour represents anxiety, how long the system waits before alerting the caregiver, what the lamp does when it doesn't know what's wrong, carries a moral weight that aesthetic choices alone cannot resolve.
+                        </p>
+                        <p class="project-text">
+                            The project also deepened my understanding of what affective computing actually demands. It is not about making technology emotional. It is about making technology aware of emotion without flattening it. Emotions, as Barrett (2017) argues, are not universal expressions waiting to be decoded. They are constructed, contextual, and relational. A system that forgets this will misread more than it reads.
+                        </p>
+                        <p class="project-text">
+                            One of the most important outcomes was the recognition of FLUID.ai's own limits. The system is designed to know when it is out of its depth, and to hand control back to the humans who carry the care. That humility is not a weakness. It is the most responsible thing the technology can do.
+                        </p>
+
+                        <div class="process-callout">
+                            <span class="process-callout-label">What I would do differently</span>
+                            <p>Test the colour and movement system directly with non-verbal autistic users and their caregivers, under real conditions, not just in research contexts. The interpretive gap between design intention and lived experience can only be closed by being in the room. I would also explore how the system learns and adapts over time, rather than operating on fixed emotional mappings.</p>
+                        </div>
+                    </section>
+
                 </main>
             </div>
         </section>
 
-        <!-- Project Navigation -->
         <section class="project-navigation">
             <div class="nav-left">
                 <a href="index.html" class="nav-button back">
-                    <span class="arrow">←</span>
+                    <span class="arrow">&#8592;</span>
                     <span>Back to Portfolio</span>
                 </a>
             </div>
             <div class="nav-center">
                 <a href="#" class="nav-button previous">
-                    <span class="arrow">←</span>
-                    <span>Previous Project</span>
+                    <span class="arrow">&#8592;</span>
+                    <span>Previous</span>
                 </a>
                 <a href="#" class="nav-button next">
-                    <span>Next Project</span>
-                    <span class="arrow">→</span>
+                    <span>Next</span>
+                    <span class="arrow">&#8594;</span>
                 </a>
             </div>
             <div class="nav-right"></div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <!-- <a href="https://murmurinho.substack.com/" target="_blank" rel="noopener noreferrer">substack</a> -->
             </div>
-            <div class="copyright">© 2026</div>
+            <div class="copyright">&#169; 2026</div>
         </footer>
 
-        <!-- JavaScript -->
+
         <script src="javascript/portfolio.js"></script>
     </body>
 </html>

@@ -4,45 +4,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About — Ellen Damazio</title>
-        <meta name="description" content="Ellen Damazio is a Brazilian Communication Designer based in Lisbon, with a growing focus on UX/UI, branding, and research-driven design.">
+        <meta name="description" content="Ellen Damazio is a Brazilian interaction designer and researcher based in Lisbon.">
         <meta name="author" content="Ellen Damazio">
-
-        <!-- Open Graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="About — Ellen Damazio">
-        <meta property="og:description" content="Brazilian Communication Designer based in Lisbon. UX/UI, branding, and editorial design.">
+        <meta property="og:description" content="Brazilian interaction designer based in Lisbon. UX research, affective computing, and human-centred systems.">
         <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/img/og-image.jpg">
-
-        <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-
-        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/portfolio.css">
     </head>
 
     <body class="about-page">
 
-        <!-- HEADER -->
+        <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link active">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
@@ -51,185 +45,90 @@
         <div class="nav-overlay" id="nav-overlay">
             <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- MAIN CONTENT -->
+        <!-- MAIN — single viewport, zero vertical scroll -->
         <main class="about-main">
 
-            <!-- TWO-COLUMN GRID -->
-            <div class="about-grid">
+            <div class="about-layout">
 
-                <!-- LEFT COLUMN -->
-                <div class="about-left">
-                    <h1 class="about-heading">Hi there, I'm Ellen.</h1>
+                <!-- Row 1, Col 1 — bio label -->
+                <div class="about-label-cell">Hi there,<br>I'm Ellen.</div>
 
+                <!-- Row 1, Col 2 — bio content -->
+                <div class="about-content-cell">
                     <p class="about-body">
-                        My journey has been a mix of scrappy beginnings, big learning moments, and making
-                        the most out of small opportunities.
+                        My journey has been shaped by curiosity, constant learning, and making the most out of small opportunities. I'm a multidisciplinary designer finishing my Communication Design degree at <a href="https://www.belasartes.ulisboa.pt/" target="_blank" rel="noopener noreferrer" class="about-link">FBAUL</a>, with a strong interest in prototyping, research, visual craft, and the intersection between design and emerging technologies.
                     </p>
-
                     <p class="about-body">
-                        I'm a multidisciplinary designer with a love for prototyping, researching and
-                        visual craft. I study communication design at <a href="https://www.belasartes.ulisboa.pt/" target="_blank" rel="noopener noreferrer" class="about-link">FBAUL</a>.
-                        I'm currently volunteering as design &amp; marketing coordinator at <a href="https://www.instagram.com/vitalisprojeto/" target="_blank" rel="noopener noreferrer" class="about-link">Vitalis</a>.
+                        I'm fascinated by how different disciplines connect and influence the way we create experiences, systems, and stories. I'm always looking for ways to combine strategy, aesthetics, and human-centered thinking into meaningful work.
                     </p>
+                    <p class="about-body">
+                        Right now I'm focused on expanding my practice through freelance projects, research, and collaborations with people who are deeply passionate about what they do.
+                    </p>
+                    <p class="about-body">
+                        Always feel free to reach out with cool project ideas (or for coffee) ☺
+                    </p>
+                    <div class="about-links-row">
+                        <a href="mailto:ellensdamazio@gmail.com" class="about-ext-link">Mail</a>
+                        <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer" class="about-ext-link">LinkedIn</a>
+                    </div>
+                </div>
 
-                    <p class="about-body outside-label">
-                        Outside of design I'm:
-                    </p>
+                <!-- Row 2, Col 1 — beyond label -->
+                <div class="about-label-cell">&amp; Beyond</div>
+
+                <!-- Row 2, Col 2 — beyond content -->
+                <div class="about-content-cell">
+                    <p class="about-body">Outside of design I'm:</p>
                     <ul class="about-list">
                         <li>Watching movies and series</li>
                         <li>Trying out new recipes</li>
                         <li>Building houses in the Sims 4</li>
-                        <li>In pursuit of the best tunes!</li>
+                        <li>In pursuit of best tune!</li>
                     </ul>
-
                     <div class="about-currently">
-                        <p class="about-body">What I'm watching: High Potential, The Rookie, Outlander</p>
-                        <p class="about-body">What I'm listening lately: Noah Kahan, Leon Thomas, Mac Miller</p>
-                        <p class="about-body">What I'm learning: AI, Marketing</p>
-                    </div>
-
-                    <!-- TOOLS SECTION — added for UX/UI credibility -->
-                    <div class="about-tools">
-                        <span class="about-tools-label">Tools &amp; skills</span>
-                        <ul class="about-tools-list">
-                            <li>Figma</li>
-                            <li>Prototyping</li>
-                            <li>User Research</li>
-                            <li>Usability Testing</li>
-                            <li>Adobe Illustrator</li>
-                            <li>Adobe Photoshop</li>
-                            <li>Adobe InDesign</li>
-                            <li>After Effects</li>
-                            <li>HTML &amp; CSS</li>
-                            <li>Framer</li>
-                        </ul>
-                    </div>
-
-                    <!-- FIXED: unified email to ellensdamazio@gmail.com -->
-                    <p class="about-body about-contact">
-                        Say hello at <a href="mailto:ellensdamazio@gmail.com" class="about-link">ellensdamazio@gmail.com</a> or via <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer" class="about-link">LinkedIn</a>.
-                    </p>
-                </div>
-
-                <!-- RIGHT COLUMN -->
-                <div class="about-right">
-
-                    <!-- Experience -->
-                    <div class="info-block">
-                        <h2 class="info-section-title">Experience</h2>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Design &amp; Marketing Coordinator</span>
-                                <span class="info-place">Vitalis Projeto</span>
-                            </div>
-                            <span class="info-date">MAR 2025 – present</span>
-                        </div>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Personal Growth &amp; Healthy Habits Ambassador</span>
-                                <span class="info-place">Anna's World</span>
-                            </div>
-                            <span class="info-date">JAN 2025 – present</span>
-                        </div>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Freelance Designer</span>
-                                <span class="info-place">Independent</span>
-                            </div>
-                            <span class="info-date">2025 – present</span>
-                        </div>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Co-founder &amp; CMO</span>
-                                <span class="info-place">Maisedu</span>
-                            </div>
-                            <span class="info-date">2023 – 2025</span>
-                        </div>
-                    </div>
-
-                    <!-- Education -->
-                    <div class="info-block">
-                        <h2 class="info-section-title">Education</h2>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Faculty of Fine Arts, University of Lisbon</span>
-                                <span class="info-place">B.A. Communication Design</span>
-                            </div>
-                            <span class="info-date">2023–2026</span>
-                        </div>
-                    </div>
-
-                    <!-- Recognition (optional — add if applicable) -->
-                    <div class="info-block">
-                        <h2 class="info-section-title">Languages</h2>
-
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Portuguese</span>
-                                <span class="info-place">Native</span>
-                            </div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">English</span>
-                                <span class="info-place">Fluent</span>
-                            </div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-row-left">
-                                <span class="info-role">Spanish</span>
-                                <span class="info-place">Intermediate</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- PHOTO STRIP -->
-            <div class="photo-strip-wrapper">
-                <button class="strip-arrow strip-arrow-prev" id="strip-prev" aria-label="Previous photo">&#8592;</button>
-                <div class="about-photo-strip" id="photo-strip">
-                    <div class="photo-strip-item">
-                        <img src="img/ceramica.JPG" alt="Ellen at ceramics">
-                    </div>
-                    <div class="photo-strip-item">
-                        <img src="img/riso.jpg" alt="Ellen volunteering">
-                    </div>
-                    <div class="photo-strip-item">
-                        <img src="img/jmj.jpg" alt="Ellen with friends">
-                    </div>
-                    <!-- <div class="photo-strip-item">
-                        <img src="img/" alt="Ellen with family"> 
-                    </div> -->
-                    <div class="photo-strip-item">
-                        <img src="img/obidos.JPG" alt="Ellen in Óbidos">
+                        <p class="about-body"><em>What I'm watching:</em> Full Potential, The Rookie, Outlander</p>
+                        <p class="about-body"><em>What I'm listening lately:</em> Noah Kahan, Leon Thomas, Mac Miller</p>
+                        <p class="about-body"><em>What I'm learning:</em> AI, Marketing</p>
                     </div>
                 </div>
-                <button class="strip-arrow strip-arrow-next" id="strip-next" aria-label="Next photo">&#8594;</button>
+
+                <!-- Col 3, Rows 1–2 — photo gallery (only element that scrolls) -->
+                <div class="about-photos-col" id="about-photos-col">
+                    <div class="about-photo-track" id="about-photo-track">
+                        <div class="about-photo-slide">
+                            <img src="img/ceramica.JPG" alt="Ellen at ceramics" draggable="false">
+                        </div>
+                        <div class="about-photo-slide">
+                            <img src="img/jmj.jpg" alt="Ellen with friends" draggable="false">
+                        </div>
+                        <div class="about-photo-slide">
+                            <img src="img/riso.jpg" alt="Ellen volunteering" draggable="false">
+                        </div>
+                        <div class="about-photo-slide">
+                            <img src="img/obidos.JPG" alt="Ellen in Óbidos" draggable="false">
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </main>
 
-        <!-- FOOTER -->
+        <!-- Footer -->
         <footer>
-            <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
+            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="mailto:ellensdamazio@gmail.com">email</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
             </div>
-            <div class="copyright">© 2026</div>
         </footer>
 
-        <!-- JavaScript -->
         <script src="javascript/portfolio.js"></script>
     </body>
 </html>

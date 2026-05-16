@@ -1,142 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>All in a Chain</title>
-        <meta name="description" content="Project details - Ellen Damazio Portfolio">
+        <meta name="description" content="Reimagined opening credits for Scorsese's After Hours through motion design and typographic chaos.">
         <meta name="author" content="Ellen Damazio">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg"> 
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-            
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/portfolio.css">
-    
-        <!-- Open Graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="All in a Chain — Ellen Damazio">
         <meta property="og:description" content="Reimagined opening credits for Scorsese's After Hours through motion design and typographic chaos.">
         <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/chain/frame4.png">
         <meta property="og:site_name" content="Ellen Damazio Portfolio">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="All in a Chain — Ellen Damazio">
+        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/chain/frame4.png">
+        <link rel="stylesheet" href="css/portfolio.css">
     </head>
 
-    <body>
+    <body class="is-editorial">
         <!-- Header -->
         <header>
-            <a href="index.html" class="logo">ellen damazio</a>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
             <nav>
                 <ul>
-                    <a href="index.html#projects-grid" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                    </button>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
                 </ul>
             </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
             <div class="header-right">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <img src="img/icon.svg" class="theme-icon-img" alt="theme toggle">
-                </button>
                 <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </header>
 
         <!-- Mobile Nav Overlay -->
         <div class="nav-overlay" id="nav-overlay">
-                <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
+            <!-- <a href="#">fun</a> -->
             <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
 
-        <!-- Project Hero Image -->
+        <!-- Hero -->
         <section class="project-hero">
             <img src="projects/chain/frame4.png" alt="All in a Chain" class="hero-image">
         </section>
 
-        <!-- Project Details Section -->
-        <section class="project-details">
-            <div class="details-container">
-                <h1 class="project-title">What if opening credits weren't just an introduction, but an emotional prologue?</h1>
+        <!-- Content -->
+        <section class="project-content">
+            <div class="editorial-main">
 
-                <div class="details-meta">
-                    <div class="info-item">
-                        <span class="info-label">TIMELINE</span>
-                        <span class="info-value">Spring 2024</span>
+                <p class="project-page-label">Motion Design · Spring 2024</p>
+                <h1 class="project-page-title">What if opening credits weren't just an introduction, but an emotional prologue?</h1>
+
+                <div class="project-meta-grid project-meta-grid--4">
+                    <div class="project-meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">Spring 2024</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">TEAM</span>
-                        <span class="info-value">Maria do Carmo Almeida, Maria Silva </span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">Motion editing</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">SCOPE</span>
-                        <span class="info-value">Motion</span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Credits</span>
+                        <span class="meta-value">Maria do Carmo Almeida<br>Maria Silva</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">WATCH</span>
-                        <span class="info-value"><a href="https://youtu.be/r5HgRTAfFhs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></span>
+                    <div class="project-meta-item">
+                        <span class="meta-label">Skills</span>
+                        <span class="meta-value">After Effects<br>Motion Design</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://youtu.be/r5HgRTAfFhs" target="_blank" rel="noopener noreferrer" class="project-link">Watch ↗</a>
                     </div>
                 </div>
 
-                <div class="project-description">
-                    <p>All in a Chain is an answer to that. Working with After Hours (Scorsese, 1985), our challenge was to translate Paul Hackett's chaotic, anxiety-ridden world into graphic motion language — without relying on a single frame of actual footage.</p>
-                    <p>The solution was to turn key narrative objects — a $20 bill, a cardboard sculpture — into animated protagonists. A red LED line acts as a through-line, mapping the character's impulsive choices and tracing the routes of the women who cross and reshape his path.</p>
-                    <p>Visually, we worked with the tension between escapism and exhaustion: typography inspired by the 1930s, the visual noise of 1980s Manhattan, neon lights, subway systems, the dead of night. Sound design reinforces the rhythm of the sequence, making each cut a deliberate narrative decision.</p>
-                    <p>The project taught me that motion design is, above all, editing — deciding what to show, when, and for how long, so that form carries the same weight as content.</p>
-
+                <div class="editorial-body">
+                    <p class="project-text">All in a Chain is an answer to that. Working with <em>After Hours</em> (Scorsese, 1985), our challenge was to translate Paul Hackett's chaotic, anxiety-ridden world into graphic motion language, without relying on a single frame of actual footage.</p>
+                    <p class="project-text">The solution was to turn key narrative objects, a $20 bill and a cardboard sculpture, into animated protagonists. A red LED line acts as a through-line, mapping the character's impulsive choices and tracing the routes of the women who cross and reshape his path.</p>
+                    <p class="project-text">Visually, we worked with the tension between escapism and exhaustion: typography inspired by the 1930s, the visual noise of 1980s Manhattan, neon lights, subway systems, the dead of night. Sound design reinforces the rhythm of the sequence, making each cut a deliberate narrative decision.</p>
+                    <p class="project-text">The project taught me that motion design is, above all, editing — deciding what to show, when, and for how long, so that form carries the same weight as content.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Project Images Gallery -->
+        <!-- Gallery -->
         <section class="project-gallery">
             <div class="gallery-grid">
-                <img src="projects/chain/frame1.png" alt="All in a Chain - Image 1" class="gallery-image large">
-                <img src="projects/chain/frame2.png" alt="All in a Chain - Image 2" class="gallery-image large">
-                <img src="projects/chain/frame3.png" alt="All in a Chain - Image 3" class="gallery-image large">
+                <img src="projects/chain/frame1.png" alt="All in a Chain" class="gallery-image large">
+                <img src="projects/chain/frame2.png" alt="All in a Chain" class="gallery-image large">
+                <img src="projects/chain/frame3.png" alt="All in a Chain" class="gallery-image large">
             </div>
         </section>
 
         <!-- Project Navigation -->
         <section class="project-navigation">
             <div class="nav-left">
-                <a href="index.html" class="nav-button back">
-                    <span class="arrow">←</span>
-                    <span>Back to Portfolio</span>
-                </a>
+                <a href="index.html" class="nav-button back"><span class="arrow">&#8592;</span><span>Back to Portfolio</span></a>
             </div>
             <div class="nav-center">
-                <a href="#" class="nav-button previous">
-                    <span class="arrow">&#8592;</span>
-                    <span>Previous</span>
-                    <span class="nav-project-name"></span>
-                </a>
-                <a href="#" class="nav-button next">
-                    <span>Next</span>
-                    <span class="nav-project-name"></span>
-                    <span class="arrow">&#8594;</span>
-                </a>
+                <a href="#" class="nav-button previous"><span class="arrow">&#8592;</span><span>Previous</span></a>
+                <a href="#" class="nav-button next"><span>Next</span><span class="arrow">&#8594;</span></a>
             </div>
             <div class="nav-right"></div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <a href="mailto:ellensdamazio@gmail.com" class="footer-cta">talk to me</a>
+            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
             <div class="footer-links">
-                <a href="https://drive.google.com/file/d/1LCQUcxsdl73-vd1WDZl_1Y5CD6VjIdXL/view?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                <a href="mailto:ellensdamazio@gmail.com">email</a>
                 <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <!-- <a href="https://murmurinho.substack.com/" target="_blank" rel="noopener noreferrer">substack</a> -->
+                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
             </div>
-            <div class="copyright">© 2026</div>
         </footer>
 
-        <!-- JavaScript -->
         <script src="javascript/portfolio.js"></script>
     </body>
 </html>
