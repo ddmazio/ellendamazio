@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blind Spot</title>
+        <title>Blind Spot — Ellen Damazio</title>
         <meta name="description" content="Blind Spot — a critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience.">
         <meta name="author" content="Ellen Damazio">
         <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Blind Spot — Ellen Damazio">
-        <meta property="og:description" content="A critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience built in Framer.">
+        <meta property="og:description" content="A critical design website translating 12 concepts from Shoshana Zuboff's The Age of Surveillance Capitalism into an interactive digital experience built in Framer.">
         <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/blindspot/cover.jpg">
         <meta property="og:site_name" content="Ellen Damazio Portfolio">
         <meta name="twitter:card" content="summary_large_image">
@@ -20,6 +20,7 @@
     </head>
 
     <body>
+
         <!-- Header -->
         <header>
             <div class="logo-group">
@@ -29,9 +30,16 @@
             <nav>
                 <ul>
                     <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
-                    <!-- <li><a href="#" class="nav-link">fun</a></li> -->
+                    <li><a href="#" class="nav-link">fun</a></li>
                     <li><a href="about.html" class="nav-link">about</a></li>
                     <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
+                    <li>
+                        <button class="search-toggle" id="search-toggle" aria-label="Search">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </button>
+                    </li>
                 </ul>
             </nav>
             <div class="header-end">
@@ -48,7 +56,7 @@
         <div class="nav-overlay" id="nav-overlay">
             <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
             <a href="index.html#projects-grid">work</a>
-            <!-- <a href="#">fun</a> -->
+            <a href="#">fun</a>
             <a href="about.html">about</a>
             <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
         </div>
@@ -61,19 +69,21 @@
                 <aside class="project-sidebar">
                     <a href="index.html" class="sidebar-back">← back</a>
                     <nav class="project-nav">
-                        <a href="#overview"     class="project-nav-link">Overview</a>
-                        <a href="#book"         class="project-nav-link">The Book</a>
-                        <a href="#interaction"  class="project-nav-link">The Interaction</a>
-                        <a href="#contribution" class="project-nav-link">My Contribution</a>
-                        <a href="#reflections"  class="project-nav-link">Reflections</a>
+                        <a href="#context"     class="project-nav-link">The Brief</a>
+                        <a href="#concept"     class="project-nav-link">The Argument</a>
+                        <a href="#interaction" class="project-nav-link">The Interaction</a>
+                        <a href="#build"       class="project-nav-link">The Build</a>
+                        <a href="#reflections" class="project-nav-link">Reflections</a>
                     </nav>
                 </aside>
 
                 <!-- Main Content -->
                 <main class="project-main-content">
 
-                    <p class="project-page-label">Web Design · Critical Design · 2025</p>
+                    <p class="project-page-label">Communication Design III · Critical Design · FBAUL · 2024</p>
                     <h1 class="project-page-title">Blind Spot</h1>
+
+                    <p class="bs-hook">The brief said: make a list.<br>We made a list that watches you back.</p>
 
                     <video autoplay loop muted playsinline class="project-cover-image">
                         <source src="projects/blindspot/header.mp4" type="video/mp4">
@@ -81,20 +91,20 @@
 
                     <div class="project-meta-grid project-meta-grid--4">
                         <div class="project-meta-item">
-                            <span class="meta-label">Role</span>
+                            <span class="meta-label">My Role</span>
                             <span class="meta-value">Website development</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="meta-label">Timeline</span>
-                            <span class="meta-value">2024/25</span>
+                            <span class="meta-value">3 weeks · Dec 2024</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="meta-label">Credits</span>
                             <span class="meta-value">Maria do Carmo Almeida<br>Marta Caeiro<br>Teresa Soares</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="meta-label">Skills</span>
-                            <span class="meta-value">Framer<br>Figma<br>Critical Design</span>
+                            <span class="meta-label">Tools</span>
+                            <span class="meta-value">Framer · React<br>Figma</span>
                         </div>
                     </div>
 
@@ -103,88 +113,142 @@
                     </div>
 
 
-                    <!-- ── OVERVIEW ── -->
-                    <section id="overview" class="project-section">
-                        <h2 class="project-subtitle">Overview</h2>
-                        <p class="project-text">In the age of surveillance capitalism, the most valuable data grows in the shadows. Blind Spot is a critical design website that translates 12 concepts from Shoshana Zuboff's <em>The Age of Surveillance Capitalism</em> (2018) into a digital experience — making visible what was designed to be invisible: the system of extraction, prediction, and behavioural control that underpins the internet we use every day.</p>
-                        <p class="project-text">The visual identity departs from absence: black background, red typography, maximum contrast. The site was built in Framer, with a navigation architecture designed to mirror the argument of the book itself.</p>
+                    <!-- ── THE BRIEF ── -->
+                    <section id="context" class="project-section">
+                        <h2 class="project-subtitle">The Brief</h2>
+
+                        <p class="project-text">In December 2024, our Communication Design III course gave us three weeks and a deceptively open brief: take an existing work as your foundation, extract a list or enumeration from it, and translate it into a webpage. The theme was truth, post-truth, and the blurring of reality in the post-digital age.</p>
+
+                        <p class="project-text">Most groups reached for the obvious references. We chose Shoshana Zuboff's <em>The Age of Surveillance Capitalism</em> — a 700-page academic book about how the digital economy extracts, predicts, and sells human behaviour. Not the obvious choice for a three-week student project. But Zuboff's book does something specific that made it the right one.</p>
+
                         <div class="process-callout">
-                            <span class="process-callout-label">In one sentence</span>
-                            <p>A website that makes you perform the same act of unknowing it documents — revealing hidden meaning only when you decide to look.</p>
+                            <span class="process-callout-label">Why Zuboff</span>
+                            <p>The book names 12 mechanisms through which surveillance capitalism operates — from <em>Behavioral Surplus</em> to <em>Big Other</em>. Then it argues that most people have never heard these names. The system depends on that ignorance. That gap between what exists and what's known became our design problem.</p>
                         </div>
-                        <img src="projects/blindspot/animation.gif" alt="Blind Spot — site interaction recording" class="project-full-image">
                     </section>
 
-                    <!-- ── THE BOOK ── -->
-                    <section id="book" class="project-section project-major-section">
-                        <h2 class="project-section-title">The Book</h2>
+
+                    <!-- ── THE ARGUMENT ── -->
+                    <section id="concept" class="project-section project-major-section">
+                        <h2 class="project-section-title">The Argument</h2>
+
                         <div class="project-step">
-                            <h3 class="project-subtitle">Shoshana Zuboff, 2018</h3>
-                            <p class="project-text"><em>The Age of Surveillance Capitalism</em> is Zuboff's account of how the digital economy transformed human experience into raw material — a commodity to be predicted, packaged, and sold. The book names 12 core mechanisms through which this system operates: from <em>Behavioral Surplus</em> to <em>Big Other</em>.</p>
-                            <p class="project-text">These are not abstract concepts. They describe the infrastructure behind every search, every click, every moment of hesitation recorded on a screen. Zuboff's argument is that most people have never been told the names for what is happening to them — and that naming is the first step toward resistance.</p>
+                            <h3 class="project-subtitle">Making the invisible visible</h3>
+                            <p class="project-text">Most websites about surveillance capitalism tell you what it is. We wanted to make you feel it.</p>
+                            <p class="project-text">Zuboff's 12 concepts aren't abstractions. <em>Behavioral Surplus. Surveillance Assets. Prediction Products.</em> These are names for things already happening to you every time you open a browser. The book's argument is that naming them is the first step toward resistance — and that most users have been systematically kept from knowing the names.</p>
+                            <p class="project-text">So the design question became: how do you build a website whose form makes the same argument as its content?</p>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">The form is the argument</h3>
+                            <p class="project-text">We structured the site as an enumeration of the 12 concepts — exactly as Zuboff presents them, in order, each one building on the last. The visual identity departs from absence: black background, red typography, maximum contrast. A palette that signals warning before a single word is read.</p>
+                            <p class="project-text">But the visual identity alone wasn't enough. The argument needed to live in the interaction itself.</p>
+
+                            <img src="projects/blindspot/animation.gif" alt="Blind Spot — site interaction recording" class="project-full-image">
                         </div>
                     </section>
+
 
                     <!-- ── THE INTERACTION ── -->
                     <section id="interaction" class="project-section project-major-section">
                         <h2 class="project-section-title">The Interaction</h2>
-                        <div class="project-step">
-                            <h3 class="project-subtitle">To see without being seen.</h3>
-                            <p class="project-text">The central interaction decision mirrors the argument of the book. The titles of the 12 concepts are visible from the start — in red, against black — but their meaning and Zuboff's excerpts only appear when the user hovers over them.</p>
-                            <p class="project-text">The content exists. It is visible. But it remains opaque until someone decides to look — exactly like the data extraction mechanisms the site documents.</p>
-                            <div class="blindspot">
-                                <img src="projects/blindspot/hidden.jpg" alt="blindspot" draggable="false">
-                            </div>
-                            
-                            <div class="blindspot">
-                             <img src="projects/blindspot/revealed.jpg" alt="blindspot" draggable="false">
-                            </div>
 
-                        </div>
                         <div class="project-step">
-                            <h3 class="project-subtitle">The internal debate</h3>
-                            <p class="project-text">The hover effect raised a real design question: was the friction a usability problem or a conceptual decision? We kept it. The difficulty of accessing meaning is part of the experience.</p>
+                            <h3 class="project-subtitle">To see without being seen</h3>
+                            <p class="project-text">The titles of all 12 concepts are visible from the start — in red, against black. But their meaning, Zuboff's own words, only surfaces when the user hovers over them. A white circle expands from the cursor position, revealing the text beneath it.</p>
+                            <p class="project-text">Move away, and the meaning disappears. The content exists. It is technically visible. But it remains opaque until someone actively chooses to look — exactly like the data extraction mechanisms the site is documenting.</p>
+
+                            <div class="bs-image-stack">
+                                <img src="projects/blindspot/hidden.jpg" alt="Blind Spot — default state: 12 concept titles in red on black, meanings hidden" class="project-full-image">
+                                <img src="projects/blindspot/revealed.jpg" alt="Blind Spot — hover state: white circle expands, Zuboff excerpt becomes readable" class="project-full-image">
+                            </div>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">The friction debate</h3>
+                            <p class="project-text">The hover reveal raised a genuine design conflict early on. Every HCI principle points in the same direction: reduce friction. Make content accessible. Don't make users work for information.</p>
+                            <p class="project-text">But here, the friction was the argument. We were building a site about a system that deliberately obscures its own mechanisms — and making the content effortless to access would have undermined the very claim we were trying to make. We kept the friction. We defended it in our presentation. The professors pushed back on it, which was exactly the right response.</p>
+
                             <div class="process-callout">
                                 <span class="process-callout-label">Design decision</span>
-                                <p>The friction is the argument. Making the content harder to access replicates the experience of living inside surveillance capitalism. Usability and conceptual integrity were in direct conflict here, and we chose the concept.</p>
+                                <p>Usability and conceptual integrity were in direct conflict, and we chose the concept. The difficulty of accessing meaning is part of the experience — it replicates something real about living inside the system the site documents.</p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- ── MY CONTRIBUTION ── -->
-                    <section id="contribution" class="project-section project-major-section">
-                        <h2 class="project-section-title">My Contribution</h2>
+
+                    <!-- ── THE BUILD ── -->
+                    <section id="build" class="project-section project-major-section">
+                        <h2 class="project-section-title">The Build</h2>
+
                         <div class="project-step">
-                            <h3 class="project-subtitle">Building the site in Framer</h3>
-                            <p class="project-text">In this group project, I was responsible for the full technical construction of the site in Framer: implementing the hover reveal interaction, building the navigation architecture between the 12 interconnected concepts, and designing the full interaction logic.</p>
-                            <div class="fluid-insight-cards">
-                                <div class="fluid-insight-card fluid-insight-card--critical">
-                                    <span class="fluid-insight-card__icon">⬚</span>
-                                    <h3 class="fluid-insight-card__title">Hover interaction</h3>
-                                    <p class="fluid-insight-card__text">Implemented the reveal effect in Framer — the white circle expanding over each concept on hover.</p>
-                                </div>
-                                <div class="fluid-insight-card fluid-insight-card--elevated">
-                                    <span class="fluid-insight-card__icon">⬚</span>
-                                    <h3 class="fluid-insight-card__title">Navigation architecture</h3>
-                                    <p class="fluid-insight-card__text">Structured the reading flow between the 12 interconnected concepts without losing the cumulative argument.</p>
-                                </div>
-                                <div class="fluid-insight-card fluid-insight-card--stable">
-                                    <span class="fluid-insight-card__icon">⬚</span>
-                                    <h3 class="fluid-insight-card__title">Interaction logic</h3>
-                                    <p class="fluid-insight-card__text">Designed all state transitions, entry animation, and the visual system of progressive disclosure.</p>
-                                </div>
-                            </div>
+                            <h3 class="project-subtitle">Building in Framer</h3>
+                            <p class="project-text">My role in this project was the full technical construction of the site in Framer — translating the team's concept and visual direction into a working, interactive website. This sounds more straightforward than it was.</p>
+
+                            <p class="project-text">The hover reveal — a white circle expanding from the cursor to surface hidden text beneath it — required many iterations before it worked correctly. Framer's built-in interaction toolkit wasn't built for this level of spatial precision. The circle needed to expand from exactly the right position, track the cursor, and transition between states in a way that felt inevitable rather than mechanical.</p>
+
+                            <p class="project-text">The solution required going beneath Framer's drag-and-drop layer and writing React code directly inside the tool — custom code overrides controlling the component's state and animation logic. It was the first time I worked this way, and it changed how I think about no-code environments: not as limitations, but as platforms with deeper layers available to anyone willing to reach for them.</p>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">Three decisions that shaped the site</h3>
+
+                            <ol class="bs-decisions">
+                                <li class="bs-decision-item">
+                                    <span class="bs-decision-number">01</span>
+                                    <div class="bs-decision-content">
+                                        <h4>Hover reveal via React code override</h4>
+                                        <p>Framer's native interactions couldn't achieve the spatial precision the concept required. I wrote a custom React code override to control the circle's expansion timing, cursor-tracking, and state transitions — the mechanic that makes the entire argument work.</p>
+                                    </div>
+                                </li>
+                                <li class="bs-decision-item">
+                                    <span class="bs-decision-number">02</span>
+                                    <div class="bs-decision-content">
+                                        <h4>Navigation that preserves the cumulative argument</h4>
+                                        <p>Zuboff's 12 concepts build on each other — the reading order matters. I structured the navigation so users could move freely between concepts without losing the cumulative logic, while keeping the architecture flat: one level, anchor links, no nested pages.</p>
+                                    </div>
+                                </li>
+                                <li class="bs-decision-item">
+                                    <span class="bs-decision-number">03</span>
+                                    <div class="bs-decision-content">
+                                        <h4>Entry animation as orientation</h4>
+                                        <p>Before any interaction is possible, the 12 titles appear in sequence — establishing the visual language and the scale of what's hidden before the hover mechanic is introduced. The animation isn't decorative. It's the first layer of the argument.</p>
+                                    </div>
+                                </li>
+                            </ol>
                         </div>
                     </section>
+
 
                     <!-- ── REFLECTIONS ── -->
                     <section id="reflections" class="project-section project-major-section">
                         <h2 class="project-section-title">Reflections</h2>
-                        <p class="project-text">Blind Spot was the first project where I had to resolve a genuine conflict between design clarity and design argument. Every interaction design principle points toward reducing friction. Here, friction was the point.</p>
-                        <p class="project-text">The project also introduced me to critical design as a practice. The idea that a website can be an argument — that the way it behaves can carry a claim about the world, not just display information — is something I've carried into every web project since.</p>
+
+                        <p class="project-text">Blind Spot was the first project where I had to hold two contradictory design principles at once and make a conscious choice between them. Every course teaches that good design reduces friction. Here, friction was the point. Defending that decision — in front of professors who challenged it — was more valuable than any technically smooth outcome would have been.</p>
+
+                        <p class="project-text">It also introduced me to critical design as a practice: the idea that a digital artefact can carry an argument, not just display information. The way something behaves is itself a claim about the world. That's something I've carried into every project since.</p>
+
                         <div class="process-callout">
                             <span class="process-callout-label">What I would do differently</span>
-                            <p>Explore how the site behaves on mobile — the hover mechanic is entirely inaccessible on touch screens, which creates an irony the project probably doesn't intend.</p>
+                            <p>The hover mechanic is entirely inaccessible on touch screens — which creates an unintended irony. A site documenting the invisible infrastructure of surveillance capitalism is least accessible on mobile, the platform where most surveillance actually happens. In a future iteration, I'd explore how to preserve the conceptual tension of progressive disclosure while making the experience available across devices: perhaps a tap-to-reveal interaction, or a secondary mobile-specific reading mode.</p>
+                        </div>
+
+                        <div class="project-step">
+                            <h3 class="project-subtitle">What I learned</h3>
+                            <ul class="bs-learnings">
+                                <li class="bs-learning-item">
+                                    <span class="bs-learning-arrow">→</span>
+                                    <p><strong>Design can take a position.</strong> The way an interface behaves is itself an argument — not just a container for one.</p>
+                                </li>
+                                <li class="bs-learning-item">
+                                    <span class="bs-learning-arrow">→</span>
+                                    <p><strong>No-code tools have code underneath.</strong> Reaching for it — writing React directly inside Framer — was what made the project possible.</p>
+                                </li>
+                                <li class="bs-learning-item">
+                                    <span class="bs-learning-arrow">→</span>
+                                    <p><strong>Friction is a design choice, not a failure.</strong> The difference between bad friction and intentional friction is whether you can defend it.</p>
+                                </li>
+                            </ul>
                         </div>
                     </section>
 
