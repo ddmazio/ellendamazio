@@ -460,19 +460,30 @@ if (isFun) (function () {
     if (!viewport || !cards.length) return;
 
 
-    // ── Scroll lock ───────────────────────────────────────
-    document.documentElement.classList.add('has-fun');
-
-
-    // ── Active nav ────────────────────────────────────────
+    // ── Active nav (always — desktop + mobile) ────────────
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('href') === 'fun.html') link.classList.add('active');
     });
 
 
+    // ── Mobile: normal single-column scroll ───────────────
+    // CSS handles layout via media query; JS just reveals cards
+    // and skips the infinite canvas entirely.
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        cards.forEach(c => c.classList.add('is-visible'));
+        return;
+    }
+
+
+    // ── Desktop only below this line ──────────────────────
+
+    // Scroll lock (iOS needs html + body)
+    document.documentElement.classList.add('has-fun');
+
+
     // ── Config ────────────────────────────────────────────
-    const TILE_W      = 2200;   // horizontal period — content spans ~x30→x2190
-    const TILE_H      = 1650;   // vertical period   — content spans ~y20→y1350
+    const TILE_W      = 2180;   // content spans x=30→2060, ~120px gap at seam
+    const TILE_H      = 1550;   // content spans y=30→1270, ~310px gap at seam
     const FRICTION    = 0.96;
     const MIN_VEL     = 0.08;
     const STAGGER     = 55;
@@ -493,6 +504,13 @@ if (isFun) (function () {
 
     let viewOffsetX = 0, viewOffsetY = 0;
     let smoothTiltX = 0, smoothTiltY = 0;
+
+    // ── State — declared here so renderCards() can access them ──
+    let dragging   = false;
+    let lastX = 0, lastY = 0;
+    let vx = 0,    vy = 0;
+    let rafId      = null;
+    let hintHidden = false;
 
 
     // ── Render — nearest-copy + 3D tilt ──────────────────
@@ -534,14 +552,6 @@ if (isFun) (function () {
             setTimeout(() => card.classList.add('is-visible'), i * STAGGER)
         );
     });
-
-
-    // ── State ─────────────────────────────────────────────
-    let dragging   = false;
-    let lastX = 0, lastY = 0;
-    let vx = 0,    vy = 0;
-    let rafId      = null;
-    let hintHidden = false;
 
 
     // ── Helpers ───────────────────────────────────────────
@@ -603,12 +613,28 @@ if (isFun) (function () {
     });
 
     window.addEventListener('mousemove', e => {
-        if (!dragging) return;
-        const { x, y } = getXY(e);
-        vx = x - lastX;
-        vy = y - lastY;
-        lastX = x; lastY = y;
-        applyDelta(vx, vy);
+        if (dragging) {
+            // ── Drag: update velocity + position ──
+            const { x, y } = getXY(e);
+            vx = x - lastX;
+            vy = y - lastY;
+            lastX = x; lastY = y;
+            applyDelta(vx, vy);
+        } else {
+            // ── Cursor tilt: cards follow mouse gently ──
+            // Only when velocity has settled (not mid-inertia)
+            if (Math.abs(vx) >= 1 || Math.abs(vy) >= 1) return;
+            const vw = window.innerWidth;
+            const vh = viewport.offsetHeight || (window.innerHeight - 56);
+            const rx = (e.clientX / vw  - 0.5) * 2;   // -1 → +1
+            const ry = (e.clientY / vh - 0.5) * 2;    // -1 → +1
+            const tX = -ry * 2;    // max ±2° on X axis
+            const tY =  rx * 2;   // max ±2° on Y axis
+            smoothTiltX += (tX - smoothTiltX) * 0.07;
+            smoothTiltY += (tY - smoothTiltY) * 0.07;
+            const str = `rotateX(${smoothTiltX.toFixed(2)}deg) rotateY(${smoothTiltY.toFixed(2)}deg)`;
+            inners.forEach(inner => { if (inner) inner.style.transform = str; });
+        }
     });
 
     window.addEventListener('mouseup', () => {

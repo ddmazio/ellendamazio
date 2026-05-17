@@ -2749,3 +2749,66 @@ body.is-fun {
 @media (hover: none) and (pointer: coarse) {
     .fun-viewport { cursor: default; }
 }
+
+
+/* ──────────────────────────────────────────
+   RESPONSIVE ≤768px
+   Single-column normal scroll.
+   JS skips the canvas; CSS handles layout.
+────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+    /* Restore native document scroll.
+       !important beats the base body.is-fun rules.
+       overflow: visible (not auto) lets iOS Safari
+       scroll through the document natively. */
+    html.has-fun,
+    body.is-fun {
+        height: auto !important;
+        overflow: visible !important;
+        overscroll-behavior: auto !important;
+    }
+
+    /* Normal block container */
+    .fun-viewport {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        height: auto;
+        overflow: visible;
+        padding: 24px var(--page-padding) 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        cursor: default;
+        perspective: none;
+        touch-action: auto;
+    }
+
+    /* Cards: full width, static flow */
+    .fun-card {
+        position: relative !important;
+        width: 100% !important;
+        transform: none !important;
+        opacity: 1 !important;
+        perspective: none;
+    }
+
+    .fun-card-inner {
+        transform: none !important;
+    }
+
+    /* Prevent very tall images on small screens */
+    .fun-card-fig {
+        width: 100%;
+        max-height: 280px;
+    }
+
+    /* Hide desktop-only hint */
+    .fun-hint {
+        display: none;
+    }
+}

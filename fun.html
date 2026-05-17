@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ellen Damazio — Playground</title>
+        <meta name="description" content="Side quests and misc experiments — illustration, photography, motion, and more.">
+        <meta name="author" content="Ellen Damazio">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Ellen Damazio Portfolio">
+        <meta property="og:url" content="https://ddmazio.github.io/ellendamazio/fun.html">
+        <meta property="og:title" content="Ellen Damazio — Playground">
+        <meta property="og:description" content="Side quests and misc experiments — illustration, photography, motion, and more.">
+        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/img/og-image.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Ellen Damazio — Playground">
+        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/img/og-image.jpg">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
+        <link rel="stylesheet" href="css/portfolio.css">
+        <link rel="canonical" href="https://ddmazio.github.io/ellendamazio/fun.html">
+    </head>
+
+    <body class="is-fun">
+
+        <header>
+            <div class="logo-group">
+                <a href="index.html" class="logo">ellen damazio</a>
+                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
+                    <li><a href="fun.html" class="nav-link">fun</a></li>
+                    <li><a href="about.html" class="nav-link">about</a></li>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
+                </ul>
+            </nav>
+            <div class="header-end">
+                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
+            </div>
+            <div class="header-right">
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="nav-overlay" id="nav-overlay">
+            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
+            <a href="index.html#projects-grid">work</a>
+            <a href="fun.html">fun</a>
+            <a href="about.html">about</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
+        </div>
+
+
+        <!-- ═══════════════════════════════════════
+             INFINITE CANVAS — 12 cards
+             4 clusters across TILE_W=2200 px.
+             Titles/captions: a arrumar depois.
+
+             .fun-card    → JS sets translate (outer)
+             .fun-card-inner → JS sets rotateX/Y (tilt)
+        ═══════════════════════════════════════ -->
+        <main class="fun-viewport" id="fun-viewport" aria-label="Draggable playground canvas">
+
+
+            <!-- ══ CLUSTER 1  x ≈ 30–660 ══ -->
+
+            <!-- 01 · identidade1.JPG -->
+            <div class="fun-card fun-card--m" data-sx="30" data-sy="40">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:340px;background:#d4c4c0;">
+                        <img src="projects/fun/identidade1.JPG" alt="identidade" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 · dc1.JPG -->
+            <div class="fun-card fun-card--l" data-sx="340" data-sy="380">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:260px;background:#c8d0d8;">
+                        <img src="projects/fun/dc1.JPG" alt="dc1" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 · dc2.JPG -->
+            <div class="fun-card fun-card--m" data-sx="40" data-sy="780">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:300px;background:#ccd4cc;">
+                        <img src="projects/fun/dc2.JPG" alt="dc2" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ══ CLUSTER 2  x ≈ 700–1020 ══ -->
+
+            <!-- 04 · dc3.JPG -->
+            <div class="fun-card fun-card--m" data-sx="720" data-sy="80">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:220px;background:#d4d0c8;">
+                        <img src="projects/fun/dc3.JPG" alt="dc3" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05 · dc5.JPG -->
+            <div class="fun-card fun-card--l" data-sx="700" data-sy="440">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:310px;background:#ccc8d0;">
+                        <img src="projects/fun/dc5.JPG" alt="dc5" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 06 · dc7.JPG -->
+            <div class="fun-card fun-card--m" data-sx="730" data-sy="890">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:280px;background:#d4c4c0;">
+                        <img src="projects/fun/dc7.JPG" alt="dc7" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ══ CLUSTER 3  x ≈ 1200–1550 ══ -->
+
+            <!-- 07 · dc8.JPG -->
+            <div class="fun-card fun-card--l" data-sx="1220" data-sy="140">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:240px;background:#c8d0d8;">
+                        <img src="projects/fun/dc8.JPG" alt="dc8" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 08 · dg1.PNG -->
+            <div class="fun-card fun-card--m" data-sx="1200" data-sy="530">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:295px;background:#ccd4cc;">
+                        <img src="projects/fun/dg1.PNG" alt="dg1" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09 · inspo.JPG -->
+            <div class="fun-card fun-card--l" data-sx="1230" data-sy="970">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:290px;background:#d4d0c8;">
+                        <img src="projects/fun/inspo.JPG" alt="inspo" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ══ CLUSTER 4  x ≈ 1740–2060 ══ -->
+
+            <!-- 10 · inspo2.JPG -->
+            <div class="fun-card fun-card--m" data-sx="1760" data-sy="30">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:300px;background:#ccc8d0;">
+                        <img src="projects/fun/inspo2.JPG" alt="inspo2" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11 · inspo4.JPG -->
+            <div class="fun-card fun-card--l" data-sx="1740" data-sy="470">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:330px;background:#d4c4c0;">
+                        <img src="projects/fun/inspo4.JPG" alt="inspo4" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12 · cachorro.png -->
+            <div class="fun-card fun-card--m" data-sx="1780" data-sy="940">
+                <div class="fun-card-inner">
+                    <figure class="fun-card-fig" style="height:260px;background:#c8d0d8;">
+                        <img src="projects/fun/cachorro.png" alt="cachorro" loading="lazy">
+                    </figure>
+                    <div class="fun-card-meta">
+                        <span class="fun-card-title">a arrumar título</span>
+                        <span class="fun-card-desc">a arrumar legenda</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+
+        <p class="fun-hint" id="fun-hint">
+            <span class="fun-hint-cross" aria-hidden="true"></span>
+            scroll/drag to move
+        </p>
+
+        <script src="javascript/portfolio.js"></script>
+
+    </body>
+</html>
