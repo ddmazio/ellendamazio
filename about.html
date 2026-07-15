@@ -1,134 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About</title>
-        <meta name="description" content="Ellen Damazio is a Brazilian interaction designer and researcher based in Lisbon.">
-        <meta name="author" content="Ellen Damazio">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="About">
-        <meta property="og:description" content="Brazilian interaction designer based in Lisbon. UX research, affective computing, and human-centred systems.">
-        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/img/og-image.jpg">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-        <link rel="stylesheet" href="css/portfolio.css">
-    </head>
+<html lang="en" class="has-about">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body class="about-page">
+    <!-- ============ PRIMARY SEO ============ -->
+    <title>About — Ellen Damazio, Multidisciplinary Designer</title>
+    <meta name="title" content="About — Ellen Damazio, Multidisciplinary Designer">
+    <meta name="description" content="Ellen Damazio is a multidisciplinary designer based in Lisbon, finishing her Communication Design degree at FBAUL. Curious about prototyping, research, and where design meets emerging technologies.">
+    <meta name="keywords" content="Ellen Damazio, about, multidisciplinary designer, interaction designer, Communication Design, FBAUL, Lisbon, Brazil, product design, UX research">
+    <meta name="author" content="Ellen Damazio">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://www.ellendamazio.com/about.html">
 
-        <!-- Header -->
-        <header>
-            <div class="logo-group">
-                <a href="index.html" class="logo">ellen damazio</a>
-                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
-                    <li><a href="fun.html" class="nav-link">fun</a></li>
-                    <li><a href="about.html" class="nav-link">about</a></li>
-                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
-                </ul>
-            </nav>
-            <div class="header-end">
-                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
-            </div>
-            <div class="header-right">
-                <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </header>
+    <!-- ============ OPEN GRAPH / FACEBOOK ============ -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://www.ellendamazio.com/about.html">
+    <meta property="og:title" content="About — Ellen Damazio, Multidisciplinary Designer">
+    <meta property="og:description" content="Born in Brazil, based in Lisbon. Multidisciplinary designer with a love for prototyping, research, and visual craft.">
+    <meta property="og:image" content="https://www.ellendamazio.com/img/profile.jpeg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Ellen Damazio">
 
-        <!-- Mobile Nav Overlay -->
-        <div class="nav-overlay" id="nav-overlay">
-            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
-            <a href="index.html#projects-grid">work</a>
-            <a href="fun.html" class="nav-link">fun</a>
-            <a href="about.html">about</a>
-            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
+    <!-- ============ TWITTER / X ============ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.ellendamazio.com/about.html">
+    <meta name="twitter:title" content="About — Ellen Damazio, Multidisciplinary Designer">
+    <meta name="twitter:description" content="Born in Brazil, based in Lisbon. Multidisciplinary designer with a love for prototyping, research, and visual craft.">
+    <meta name="twitter:image" content="https://www.ellendamazio.com/img/profile.jpeg">
+
+    <!-- ============ FAVICON ============ -->
+    <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+    <link rel="alternate icon" href="img/icon.svg">
+
+    <!-- ============ PERFORMANCE ============ -->
+    <link rel="preload" href="fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/Manrope-Medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="img/profile.jpeg" as="image">
+
+    <link rel="stylesheet" href="css/portfolio.css">
+
+    <!-- ============ STRUCTURED DATA ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Ellen Damazio",
+        "jobTitle": "Multidisciplinary Designer",
+        "description": "Multidisciplinary designer with a love for prototyping, research, and visual craft, currently finishing a Communication Design degree at FBAUL.",
+        "url": "https://www.ellendamazio.com/about.html",
+        "image": "https://www.ellendamazio.com/img/profile.jpeg",
+        "nationality": "Brazilian",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Lisbon, Portugal"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Faculdade de Belas-Artes da Universidade de Lisboa (FBAUL)"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/ellendamazio",
+          "mailto:ellensdamazio@gmail.com"
+        ]
+      }
+    }
+    </script>
+  </head>
+  <body class="is-about">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header">
+      <a href="index.html" class="logo">Ellen Damazio</a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Work</a>
+        <a href="fun.html" class="nav-link">Fun</a>
+        <a href="about.html" class="nav-link is-active">About</a>
+      </nav>
+
+      <div class="header-links">
+        <div class="header-links__group">
+          <span class="header-links__label">Contact</span>
+          <a href="mailto:ellensdamazio@gmail.com" class="header-links__value">ellensdamazio@gmail.com</a>
         </div>
+        <div class="header-links__group">
+          <a href="https://www.linkedin.com/in/ellendamazio" target="_blank" rel="noopener" class="header-links__label">LinkedIn</a>
+          <a href="cv.pdf" target="_blank" rel="noopener" class="header-links__value">CV</a>
+        </div>
+      </div>
 
-        <!-- MAIN — single viewport, zero vertical scroll -->
-        <main class="about-main">
+      <button type="button" class="logo-dot" aria-label="Toggle dark mode" aria-pressed="false"></button>
 
-            <div class="about-layout">
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </header>
 
-                <!-- Row 1, Col 1 — bio label -->
-                <div class="about-label-cell">Hi there,<br>I'm Ellen.</div>
+    <!-- ============ MOBILE NAV (tablet and below) ============ -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+      <a href="index.html" class="mobile-nav__link">Work</a>
+      <a href="fun.html" class="mobile-nav__link">Fun</a>
+      <a href="about.html" class="mobile-nav__link is-active">About</a>
+    </nav>
 
-                <!-- Row 1, Col 2 — bio content -->
-                <div class="about-content-cell">
-                    <p class="about-body">
-                        My journey has been shaped by curiosity, constant learning, and making the most out of small opportunities. I'm a multidisciplinary designer finishing my Communication Design degree at <a href="https://www.belasartes.ulisboa.pt/" target="_blank" rel="noopener noreferrer" class="about-link">FBAUL</a>, with a strong interest in prototyping, research, visual craft, and the intersection between design and emerging technologies.
-                    </p>
-                    <p class="about-body">
-                        I'm fascinated by how different disciplines connect and influence the way we create experiences, systems, and stories. I'm always looking for ways to combine strategy, aesthetics, and human-centered thinking into meaningful work.
-                    </p>
-                    <p class="about-body">
-                        Right now I'm focused on expanding my practice through freelance projects, research, and collaborations with people who are deeply passionate about what they do.
-                    </p>
-                    <p class="about-body">
-                        Always feel free to reach out with cool project ideas (or for coffee) ☺
-                    </p>
-                    <div class="about-links-row">
-                        <a href="mailto:ellensdamazio@gmail.com" class="about-ext-link">Mail</a>
-                        <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer" class="about-ext-link">LinkedIn</a>
-                    </div>
-                </div>
+    <div class="nav-overlay" data-nav-overlay></div>
 
-                <!-- Row 2, Col 1 — beyond label -->
-                <div class="about-label-cell">&amp; Beyond</div>
+    <main id="main">
+      <div class="layout">
 
-                <!-- Row 2, Col 2 — beyond content -->
-                <div class="about-content-cell">
-                    <p class="about-body">Outside of design I'm:</p>
-                    <ul class="about-list">
-                        <li>Watching movies and series</li>
-                        <li>Trying out new recipes</li>
-                        <li>Building houses in the Sims 4</li>
-                        <li>In pursuit of best tune!</li>
-                    </ul>
-                    <div class="about-currently">
-                        <p class="about-body"><em>What I'm watching:</em> Full Potential, The Rookie, Outlander</p>
-                        <p class="about-body"><em>What I'm listening lately:</em> Noah Kahan, Leon Thomas, Mac Miller</p>
-                        <p class="about-body"><em>What I'm learning:</em> AI, Marketing</p>
-                    </div>
-                </div>
+        <!-- ============ BIO ============ -->
+        <aside class="sidebar">
+          <div class="sidebar-inner">
+            <p class="intro">
+              Hi, I&rsquo;m Ellen. I&rsquo;m a multidisciplinary designer with a love for
+              prototyping, research, and visual craft &mdash; and a real curiosity for
+              where design meets emerging technologies.
+            </p>
 
-                <!-- Col 3, Rows 1–2 — photo gallery (only element that scrolls) -->
-                <div class="about-photos-col" id="about-photos-col">
-                    <div class="about-photo-track" id="about-photo-track">
-                        <div class="about-photo-slide">
-                            <img src="img/ceramica.JPG" alt="Ellen at ceramics" draggable="false">
-                        </div>
-                        <div class="about-photo-slide">
-                            <img src="img/jmj.jpg" alt="Ellen with friends" draggable="false">
-                        </div>
-                        <div class="about-photo-slide">
-                            <img src="img/riso.jpg" alt="Ellen volunteering" draggable="false">
-                        </div>
-                        <div class="about-photo-slide">
-                            <img src="img/obidos.JPG" alt="Ellen in Óbidos" draggable="false">
-                        </div>
-                    </div>
-                </div>
+            <p class="intro">
+              Born in Brazil, now based in Lisbon. My path here has been shaped by
+              curiosity, constant learning, and making the most of small opportunities.
+            </p>
 
-            </div>
+            <p class="intro">
+              I&rsquo;m currently finishing my Communication Design degree at FBAUL,
+              and expanding my practice through freelance projects, research, and
+              collaborations with people who are deeply passionate about what they do.
+            </p>
 
-        </main>
+            <p class="intro">
+              Outside of design, you&rsquo;ll find me watching movies and series,
+              trying out new recipes, building elaborate houses in the Sims 4, or out
+              with my camera. <!-- I also spend way too much time prototyping in code. -->
+            </p>
 
-        <!-- Footer -->
-        <footer>
-            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
-            <div class="footer-links">
-                <a href="mailto:ellensdamazio@gmail.com">email</a>
-                <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
-            </div>
-        </footer>
+            <p class="intro">
+              Always feel free to reach out with cool project ideas (or for coffee) &#9786;&#65039;
+            </p>
 
-        <script src="javascript/portfolio.js"></script>
-    </body>
+          <p class="credit">© ellen damazio, 2026 — designed &amp; coded</p>
+        </aside>
+
+        <!-- ============ PHOTO (bouncing, DVD-screensaver style) ============ -->
+        <section class="about-visual" aria-hidden="true">
+          <div class="about-stage" id="about-stage">
+            <img src="img/profile.jpeg" alt="" class="about-photo" id="about-photo">
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div class="cursor-ball" aria-hidden="true">
+      <span class="cursor-dot"></span>
+      <span class="cursor-label"></span>
+    </div>
+
+    <script src="javascript/portfolio.js" defer></script>
+  </body>
 </html>

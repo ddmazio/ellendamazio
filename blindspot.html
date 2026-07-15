@@ -1,276 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blind Spot</title>
-        <meta name="description" content="Blind Spot — a critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience.">
-        <meta name="author" content="Ellen Damazio">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Blind Spot">
-        <meta property="og:description" content="A critical design website translating 12 concepts from Shoshana Zuboff's The Age of Surveillance Capitalism into an interactive digital experience built in Framer.">
-        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/blindspot/cover.jpg">
-        <meta property="og:site_name" content="Ellen Damazio Portfolio">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Blind Spot">
-        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/blindspot/cover.jpg">
-        <link rel="stylesheet" href="css/portfolio.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
+  <!-- ============ PRIMARY SEO ============ -->
+  <title>Blind Spot — Ellen Damazio</title>
+  <meta name="title" content="Blind Spot — Ellen Damazio">
+  <meta name="description" content="Blind Spot — a critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience.">
+  <meta name="keywords" content="Ellen Damazio, Blind Spot, critical design, surveillance capitalism, Framer, web design">
+  <meta name="author" content="Ellen Damazio">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="language" content="English">
+  <link rel="canonical" href="https://www.ellendamazio.com/blindspot.html">
 
-        <!-- Header -->
-        <header>
-            <div class="logo-group">
-                <a href="index.html" class="logo">ellen damazio</a>
-                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
-                    <li><a href="fun.html" class="nav-link">fun</a></li>
-                    <li><a href="about.html" class="nav-link">about</a></li>
-                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
-                </ul>
-            </nav>
-            <div class="header-end">
-                <a href="mailto:ellensdamazio@gmail.com">say hello ↗</a>
-            </div>
-            <div class="header-right">
-                <button class="hamburger" id="hamburger" aria-label="Open menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </header>
+  <!-- ============ OPEN GRAPH / FACEBOOK ============ -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.ellendamazio.com/blindspot.html">
+  <meta property="og:title" content="Blind Spot — Ellen Damazio">
+  <meta property="og:description" content="A critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience built in Framer.">
+  <meta property="og:image" content="https://www.ellendamazio.com/projects/blindspot/animation.gif">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ellen Damazio">
 
-        <!-- Mobile Nav Overlay -->
-        <div class="nav-overlay" id="nav-overlay">
-            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
-            <a href="index.html#projects-grid">work</a>
-            <a href="fun.html" class="nav-link">fun</a>
-            <a href="about.html">about</a>
-            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
+  <!-- ============ TWITTER / X ============ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.ellendamazio.com/blindspot.html">
+  <meta name="twitter:title" content="Blind Spot — Ellen Damazio">
+  <meta name="twitter:description" content="A critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience built in Framer.">
+  <meta name="twitter:image" content="https://www.ellendamazio.com/projects/blindspot/animation.gif">
+
+  <!-- ============ FAVICON ============ -->
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+  <link rel="alternate icon" href="img/icon.svg">
+
+  <!-- ============ PERFORMANCE ============ -->
+  <link rel="preload" href="fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Manrope-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="css/portfolio.css">
+
+  <!-- ============ STRUCTURED DATA ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Blind Spot",
+    "creator": {
+      "@type": "Person",
+      "name": "Ellen Damazio"
+    },
+    "url": "https://www.ellendamazio.com/blindspot.html",
+    "about": "A critical design website translating 12 concepts from Shoshana Zuboff's 'The Age of Surveillance Capitalism' into an interactive digital experience."
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a href="index.html" class="logo">Ellen Damazio</a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" class="nav-link is-active">Work</a>
+      <a href="fun.html" class="nav-link">Fun</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+
+    <div class="header-links">
+      <div class="header-links__group">
+        <span class="header-links__label">Contact</span>
+        <a href="mailto:ellensdamazio@gmail.com" class="header-links__value">ellensdamazio@gmail.com</a>
+      </div>
+      <div class="header-links__group">
+        <a href="https://www.linkedin.com/in/ellendamazio" target="_blank" rel="noopener" class="header-links__label">LinkedIn</a>
+        <a href="cv.pdf" target="_blank" rel="noopener" class="header-links__value">CV</a>
+      </div>
+    </div>
+
+    <button type="button" class="logo-dot" aria-label="Toggle dark mode" aria-pressed="false"></button>
+
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </header>
+
+  <!-- ============ MOBILE NAV (tablet and below) ============ -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="index.html" class="mobile-nav__link is-active">Work</a>
+    <a href="fun.html" class="mobile-nav__link">Fun</a>
+    <a href="about.html" class="mobile-nav__link">About</a>
+  </nav>
+
+  <div class="nav-overlay" data-nav-overlay></div>
+
+  <main id="main">
+    <div class="layout project-layout">
+
+      <!-- ============ PROJECT NAV ============ -->
+      <aside class="project-nav">
+        <div class="project-nav__inner">
+          <a href="index.html" class="project-nav__back"><span class="project-nav__icon" aria-hidden="true">&#8592;</span>Back</a>
+          <h1 class="project-nav__title">Blind Spot</h1>
+
+          <nav class="project-nav__sections" aria-label="Sections">
+            <a href="#overview" class="project-nav__section-link">Overview</a>
+            <a href="#book" class="project-nav__section-link">The Book</a>
+            <a href="#interaction" class="project-nav__section-link">The Interaction</a>
+            <a href="#contribution" class="project-nav__section-link">My Contribution</a>
+            <a href="#reflections" class="project-nav__section-link">Reflections</a>
+          </nav>
         </div>
 
-        <!-- Project Content -->
-        <section class="project-content">
-            <div class="project-container">
+        <a href="#main" class="project-nav__top" data-scroll-top><span class="project-nav__icon" aria-hidden="true">&#8593;</span>Back to top</a>
+      </aside>
 
-                <!-- Sidebar -->
-                <aside class="project-sidebar">
-                    <a href="index.html" class="sidebar-back">← back</a>
-                    <nav class="project-nav">
-                        <a href="#context"     class="project-nav-link">The Brief</a>
-                        <a href="#concept"     class="project-nav-link">The Argument</a>
-                        <a href="#interaction" class="project-nav-link">The Interaction</a>
-                        <a href="#build"       class="project-nav-link">The Build</a>
-                        <a href="#reflections" class="project-nav-link">Reflections</a>
-                    </nav>
-                </aside>
+      <!-- ============ PROJECT CONTENT ============ -->
+      <div class="project-content">
 
-                <!-- Main Content -->
-                <main class="project-main-content">
+        <figure class="project-hero">
+          <img src="projects/blindspot/animation.gif" alt="Blind Spot — site interaction recording, red typography revealed on hover over black background" class="project-hero__media" loading="lazy">
+        </figure>
 
-                    <p class="project-page-label">Communication Design III · Critical Design · FBAUL · 2024</p>
-                    <h1 class="project-page-title">Blind Spot</h1>
+        <div class="project-meta">
+          <div class="project-meta__item">
+            <p class="project-meta__label">Role</p>
+            <p class="project-meta__value">Website development</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Team</p>
+            <p class="project-meta__value">Maria do Carmo Almeida<br>Marta Caeiro<br>Teresa Soares</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Timeline</p>
+            <p class="project-meta__value">2024/25</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Tools</p>
+            <p class="project-meta__value">Framer<br>Figma<br>Critical Design</p>
+          </div>
+        </div>
 
-                    <p class="bs-hook">The brief said: make a list.<br>We made a list that watches you back.</p>
+        <div class="project-cta-links">
+          <a href="https://blindspot-dc3.framer.website/" target="_blank" rel="noopener noreferrer" class="project-cta-link">Visit Live Site &#8599;</a>
+        </div>
 
-                    <video autoplay loop muted playsinline class="project-cover-image">
-                        <source src="projects/blindspot/header.mp4" type="video/mp4">
-                    </video>
+        <!-- ============ OVERVIEW ============ -->
+        <section id="overview" class="project-section">
+          <h2 class="project-overview__title">Overview</h2>
 
-                    <div class="project-meta-grid project-meta-grid--4">
-                        <div class="project-meta-item">
-                            <span class="meta-label">My Role</span>
-                            <span class="meta-value">Website development</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">Timeline</span>
-                            <span class="meta-value">3 weeks · Dec 2024</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">Credits</span>
-                            <span class="meta-value">Maria do Carmo Almeida<br>Marta Caeiro<br>Teresa Soares</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span class="meta-label">Tools</span>
-                            <span class="meta-value">Framer · React<br>Figma</span>
-                        </div>
-                    </div>
+          <p>In the age of surveillance capitalism, the most valuable data grows in the shadows. Blind Spot is a critical design website that translates 12 concepts from Shoshana Zuboff&rsquo;s <em>The Age of Surveillance Capitalism</em> (2018) into a digital experience &mdash; making visible what was designed to be invisible: the system of extraction, prediction, and behavioural control that underpins the internet we use every day.</p>
 
-                    <div class="project-links">
-                        <a href="https://blindspot-dc3.framer.website/" target="_blank" rel="noopener noreferrer" class="project-link">Visit Live Site ↗</a>
-                    </div>
+          <p>The visual identity departs from absence: black background, red typography, maximum contrast. The site was built in Framer, with a navigation architecture designed to mirror the argument of the book itself.</p>
 
+          <div class="project-callout">
+            <span class="project-callout__label">In one sentence</span>
+            <p>A website that makes you perform the same act of unknowing it documents &mdash; revealing hidden meaning only when you decide to look.</p>
+          </div>
 
-                    <!-- ── THE BRIEF ── -->
-                    <section id="context" class="project-section">
-                        <h2 class="project-subtitle">The Brief</h2>
-
-                        <p class="project-text">In December 2024, our Communication Design III course gave us three weeks and a deceptively open brief: take an existing work as your foundation, extract a list or enumeration from it, and translate it into a webpage. The theme was truth, post-truth, and the blurring of reality in the post-digital age.</p>
-
-                        <p class="project-text">Most groups reached for the obvious references. We chose Shoshana Zuboff's <em>The Age of Surveillance Capitalism</em> — a 700-page academic book about how the digital economy extracts, predicts, and sells human behaviour. Not the obvious choice for a three-week student project. But Zuboff's book does something specific that made it the right one.</p>
-
-                        <div class="process-callout">
-                            <span class="process-callout-label">Why Zuboff</span>
-                            <p>The book names 12 mechanisms through which surveillance capitalism operates — from <em>Behavioral Surplus</em> to <em>Big Other</em>. Then it argues that most people have never heard these names. The system depends on that ignorance. That gap between what exists and what's known became our design problem.</p>
-                        </div>
-                    </section>
-
-
-                    <!-- ── THE ARGUMENT ── -->
-                    <section id="concept" class="project-section project-major-section">
-                        <h2 class="project-section-title">The Argument</h2>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Making the invisible visible</h3>
-                            <p class="project-text">Most websites about surveillance capitalism tell you what it is. We wanted to make you feel it.</p>
-                            <p class="project-text">Zuboff's 12 concepts aren't abstractions. <em>Behavioral Surplus. Surveillance Assets. Prediction Products.</em> These are names for things already happening to you every time you open a browser. The book's argument is that naming them is the first step toward resistance — and that most users have been systematically kept from knowing the names.</p>
-                            <p class="project-text">So the design question became: how do you build a website whose form makes the same argument as its content?</p>
-                        </div>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">The form is the argument</h3>
-                            <p class="project-text">We structured the site as an enumeration of the 12 concepts — exactly as Zuboff presents them, in order, each one building on the last. The visual identity departs from absence: black background, red typography, maximum contrast. A palette that signals warning before a single word is read.</p>
-                            <p class="project-text">But the visual identity alone wasn't enough. The argument needed to live in the interaction itself.</p>
-
-                            <img src="projects/blindspot/animation.gif" alt="Blind Spot — site interaction recording" class="project-full-image">
-                        </div>
-                    </section>
-
-
-                    <!-- ── THE INTERACTION ── -->
-                    <section id="interaction" class="project-section project-major-section">
-                        <h2 class="project-section-title">The Interaction</h2>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">To see without being seen</h3>
-                            <p class="project-text">The titles of all 12 concepts are visible from the start — in red, against black. But their meaning, Zuboff's own words, only surfaces when the user hovers over them. A white circle expands from the cursor position, revealing the text beneath it.</p>
-                            <p class="project-text">Move away, and the meaning disappears. The content exists. It is technically visible. But it remains opaque until someone actively chooses to look — exactly like the data extraction mechanisms the site is documenting.</p>
-
-                            <div class="bs-image-stack">
-                                <img src="projects/blindspot/hidden.jpg" alt="Blind Spot — default state: 12 concept titles in red on black, meanings hidden" class="project-full-image">
-                                <img src="projects/blindspot/revealed.jpg" alt="Blind Spot — hover state: white circle expands, Zuboff excerpt becomes readable" class="project-full-image">
-                            </div>
-                        </div>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">The friction debate</h3>
-                            <p class="project-text">The hover reveal raised a genuine design conflict early on. Every HCI principle points in the same direction: reduce friction. Make content accessible. Don't make users work for information.</p>
-                            <p class="project-text">But here, the friction was the argument. We were building a site about a system that deliberately obscures its own mechanisms — and making the content effortless to access would have undermined the very claim we were trying to make. We kept the friction. We defended it in our presentation. The professors pushed back on it, which was exactly the right response.</p>
-
-                            <div class="process-callout">
-                                <span class="process-callout-label">Design decision</span>
-                                <p>Usability and conceptual integrity were in direct conflict, and we chose the concept. The difficulty of accessing meaning is part of the experience — it replicates something real about living inside the system the site documents.</p>
-                            </div>
-                        </div>
-                    </section>
-
-
-                    <!-- ── THE BUILD ── -->
-                    <section id="build" class="project-section project-major-section">
-                        <h2 class="project-section-title">The Build</h2>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Building in Framer</h3>
-                            <p class="project-text">My role in this project was the full technical construction of the site in Framer — translating the team's concept and visual direction into a working, interactive website. This sounds more straightforward than it was.</p>
-
-                            <p class="project-text">The hover reveal — a white circle expanding from the cursor to surface hidden text beneath it — required many iterations before it worked correctly. Framer's built-in interaction toolkit wasn't built for this level of spatial precision. The circle needed to expand from exactly the right position, track the cursor, and transition between states in a way that felt inevitable rather than mechanical.</p>
-
-                            <p class="project-text">The solution required going beneath Framer's drag-and-drop layer and writing React code directly inside the tool — custom code overrides controlling the component's state and animation logic. It was the first time I worked this way, and it changed how I think about no-code environments: not as limitations, but as platforms with deeper layers available to anyone willing to reach for them.</p>
-                        </div>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">Three decisions that shaped the site</h3>
-
-                            <ol class="bs-decisions">
-                                <li class="bs-decision-item">
-                                    <span class="bs-decision-number">01</span>
-                                    <div class="bs-decision-content">
-                                        <h4>Hover reveal via React code override</h4>
-                                        <p>Framer's native interactions couldn't achieve the spatial precision the concept required. I wrote a custom React code override to control the circle's expansion timing, cursor-tracking, and state transitions — the mechanic that makes the entire argument work.</p>
-                                    </div>
-                                </li>
-                                <li class="bs-decision-item">
-                                    <span class="bs-decision-number">02</span>
-                                    <div class="bs-decision-content">
-                                        <h4>Navigation that preserves the cumulative argument</h4>
-                                        <p>Zuboff's 12 concepts build on each other — the reading order matters. I structured the navigation so users could move freely between concepts without losing the cumulative logic, while keeping the architecture flat: one level, anchor links, no nested pages.</p>
-                                    </div>
-                                </li>
-                                <li class="bs-decision-item">
-                                    <span class="bs-decision-number">03</span>
-                                    <div class="bs-decision-content">
-                                        <h4>Entry animation as orientation</h4>
-                                        <p>Before any interaction is possible, the 12 titles appear in sequence — establishing the visual language and the scale of what's hidden before the hover mechanic is introduced. The animation isn't decorative. It's the first layer of the argument.</p>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
-                    </section>
-
-
-                    <!-- ── REFLECTIONS ── -->
-                    <section id="reflections" class="project-section project-major-section">
-                        <h2 class="project-section-title">Reflections</h2>
-
-                        <p class="project-text">Blind Spot was the first project where I had to hold two contradictory design principles at once and make a conscious choice between them. Every course teaches that good design reduces friction. Here, friction was the point. Defending that decision — in front of professors who challenged it — was more valuable than any technically smooth outcome would have been.</p>
-
-                        <p class="project-text">It also introduced me to critical design as a practice: the idea that a digital artefact can carry an argument, not just display information. The way something behaves is itself a claim about the world. That's something I've carried into every project since.</p>
-
-                        <div class="process-callout">
-                            <span class="process-callout-label">What I would do differently</span>
-                            <p>The hover mechanic is entirely inaccessible on touch screens — which creates an unintended irony. A site documenting the invisible infrastructure of surveillance capitalism is least accessible on mobile, the platform where most surveillance actually happens. In a future iteration, I'd explore how to preserve the conceptual tension of progressive disclosure while making the experience available across devices: perhaps a tap-to-reveal interaction, or a secondary mobile-specific reading mode.</p>
-                        </div>
-
-                        <div class="project-step">
-                            <h3 class="project-subtitle">What I learned</h3>
-                            <ul class="bs-learnings">
-                                <li class="bs-learning-item">
-                                    <span class="bs-learning-arrow">→</span>
-                                    <p><strong>Design can take a position.</strong> The way an interface behaves is itself an argument — not just a container for one.</p>
-                                </li>
-                                <li class="bs-learning-item">
-                                    <span class="bs-learning-arrow">→</span>
-                                    <p><strong>No-code tools have code underneath.</strong> Reaching for it — writing React directly inside Framer — was what made the project possible.</p>
-                                </li>
-                                <li class="bs-learning-item">
-                                    <span class="bs-learning-arrow">→</span>
-                                    <p><strong>Friction is a design choice, not a failure.</strong> The difference between bad friction and intentional friction is whether you can defend it.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-                </main>
-            </div>
+          <img src="projects/blindspot/animation.gif" alt="Blind Spot — site interaction recording" class="project-full-image" loading="lazy">
         </section>
 
-        <!-- Project Navigation -->
-        <section class="project-navigation">
-            <div class="nav-left">
-                <a href="index.html" class="nav-button back"><span class="arrow">&#8592;</span><span>Back to Portfolio</span></a>
-            </div>
-            <div class="nav-center">
-                <a href="#" class="nav-button previous"><span class="arrow">&#8592;</span><span>Previous</span></a>
-                <a href="#" class="nav-button next"><span>Next</span><span class="arrow">&#8594;</span></a>
-            </div>
-            <div class="nav-right"></div>
+        <!-- ============ THE BOOK ============ -->
+        <section id="book" class="project-section">
+          <p class="project-section__eyebrow">&#9312; The Book</p>
+
+          <div class="project-step">
+            <h3 class="project-step__title">Shoshana Zuboff, 2018</h3>
+            <p><em>The Age of Surveillance Capitalism</em> is Zuboff&rsquo;s account of how the digital economy transformed human experience into raw material &mdash; a commodity to be predicted, packaged, and sold. The book names 12 core mechanisms through which this system operates: from <em>Behavioral Surplus</em> to <em>Big Other</em>.</p>
+            <p>These are not abstract concepts. They describe the infrastructure behind every search, every click, every moment of hesitation recorded on a screen. Zuboff&rsquo;s argument is that most people have never been told the names for what is happening to them &mdash; and that naming is the first step toward resistance.</p>
+          </div>
         </section>
 
-        <!-- Footer -->
-        <footer>
-            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
-            <div class="footer-links">
-                <a href="mailto:ellensdamazio@gmail.com">email</a>
-                <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
-            </div>
-        </footer>
+        <!-- ============ THE INTERACTION ============ -->
+        <section id="interaction" class="project-section">
+          <p class="project-section__eyebrow">&#9313; The Interaction</p>
 
-        <script src="javascript/portfolio.js"></script>
-    </body>
+          <div class="project-step">
+            <h3 class="project-step__title">To see without being seen.</h3>
+            <p>The central interaction decision mirrors the argument of the book. The titles of the 12 concepts are visible from the start &mdash; in red, against black &mdash; but their meaning and Zuboff&rsquo;s excerpts only appear when the user hovers over them.</p>
+            <p>The content exists. It is visible. But it remains opaque until someone decides to look &mdash; exactly like the data extraction mechanisms the site documents.</p>
+
+            <div class="project-images-row">
+              <img src="projects/blindspot/hidden.jpg" alt="Blind Spot concept title before hover — meaning still hidden" loading="lazy">
+              <img src="projects/blindspot/revealed.jpg" alt="Blind Spot concept revealed on hover — Zuboff excerpt visible" loading="lazy">
+            </div>
+          </div>
+
+          <div class="project-step">
+            <h3 class="project-step__title">The internal debate</h3>
+            <p>The hover effect raised a real design question: was the friction a usability problem or a conceptual decision? We kept it. The difficulty of accessing meaning is part of the experience.</p>
+
+            <div class="project-callout">
+              <span class="project-callout__label">Design decision</span>
+              <p>The friction is the argument. Making the content harder to access replicates the experience of living inside surveillance capitalism. Usability and conceptual integrity were in direct conflict here, and we chose the concept.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MY CONTRIBUTION ============ -->
+        <section id="contribution" class="project-section">
+          <p class="project-section__eyebrow">&#9314; My Contribution</p>
+
+          <div class="project-step">
+            <h3 class="project-step__title">Building the site in Framer</h3>
+            <p>In this group project, I was responsible for the full technical construction of the site in Framer: implementing the hover reveal interaction, building the navigation architecture between the 12 interconnected concepts, and designing the full interaction logic.</p>
+
+            <div class="project-icon-cards">
+              <div class="project-icon-card">
+                <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
+                <h4 class="project-icon-card__title">Hover interaction</h4>
+                <p class="project-icon-card__text">Implemented the reveal effect in Framer &mdash; the white circle expanding over each concept on hover.</p>
+              </div>
+              <div class="project-icon-card">
+                <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
+                <h4 class="project-icon-card__title">Navigation architecture</h4>
+                <p class="project-icon-card__text">Structured the reading flow between the 12 interconnected concepts without losing the cumulative argument.</p>
+              </div>
+              <div class="project-icon-card">
+                <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
+                <h4 class="project-icon-card__title">Interaction logic</h4>
+                <p class="project-icon-card__text">Designed all state transitions, entry animation, and the visual system of progressive disclosure.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ REFLECTIONS ============ -->
+        <section id="reflections" class="project-section">
+          <p class="project-section__eyebrow">&#9315; Reflections</p>
+
+          <p>Blind Spot was the first project where I had to resolve a genuine conflict between design clarity and design argument. Every interaction design principle points toward reducing friction. Here, friction was the point.</p>
+
+          <p>The project also introduced me to critical design as a practice. The idea that a website can be an argument &mdash; that the way it behaves can carry a claim about the world, not just display information &mdash; is something I&rsquo;ve carried into every web project since.</p>
+
+          <div class="project-callout">
+            <span class="project-callout__label">What I would do differently</span>
+            <p>Explore how the site behaves on mobile &mdash; the hover mechanic is entirely inaccessible on touch screens, which creates an irony the project probably doesn&rsquo;t intend.</p>
+          </div>
+        </section>
+
+        <nav class="project-pager" aria-label="Project navigation">
+          <a href="fluid.html" class="project-pager__link project-pager__link--prev">
+            <span class="project-pager__arrow" aria-hidden="true">&#8592;</span>
+            <span class="project-pager__text">
+              <span class="project-pager__label">Previous</span>
+              <span class="project-pager__name">FLUID.ai</span>
+            </span>
+          </a>
+          <a href="authorship.html" class="project-pager__link project-pager__link--next">
+            <span class="project-pager__text">
+              <span class="project-pager__label">Next</span>
+              <span class="project-pager__name">A Designer at the End of&hellip;Authorship</span>
+            </span>
+            <span class="project-pager__arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </div>
+
+    <p class="credit">© ellen damazio, 2026 — designed &amp; coded</p>
+  </main>
+
+  <div class="cursor-ball" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-label"></span>
+  </div>
+
+  <script src="javascript/portfolio.js" defer></script>
+</body>
 </html>

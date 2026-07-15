@@ -1,121 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alice in Wonderland</title>
-        <meta name="description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
-        <meta name="author" content="Ellen Damazio">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/icon.svg">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/icon.svg">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Alice in Wonderland">
-        <meta property="og:description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
-        <meta property="og:image" content="https://ddmazio.github.io/ellendamazio/projects/alice/comprimido/alice2.gif">
-        <meta property="og:site_name" content="Ellen Damazio Portfolio">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Alice in Wonderland">
-        <meta name="twitter:image" content="https://ddmazio.github.io/ellendamazio/projects/alice/comprimido/alice2.gif">
-        <link rel="stylesheet" href="css/portfolio.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-        <header>
-            <div class="logo-group">
-                <a href="index.html" class="logo">ellen damazio</a>
-                <button class="theme-toggle theme-star" id="theme-toggle" aria-label="Toggle theme">✦</button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html#projects-grid" class="nav-link">work</a></li>
-                    <li><a href="fun.html" class="nav-link">fun</a></li>
-                    <li><a href="about.html" class="nav-link">about</a></li>
-                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank" class="nav-link">resume</a></li>
-                </ul>
-            </nav>
-            <div class="header-end"><a href="mailto:ellensdamazio@gmail.com">say hello ↗</a></div>
-            <div class="header-right"><button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
-        </header>
+  <!-- ============ PRIMARY SEO ============ -->
+  <title>Alice in Wonderland: A Reinterpretation — Ellen Damazio</title>
+  <meta name="title" content="Alice in Wonderland: A Reinterpretation — Ellen Damazio">
+  <meta name="description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
+  <meta name="keywords" content="Ellen Damazio, Alice in Wonderland, editorial design, typography, bookbinding, French link stitch">
+  <meta name="author" content="Ellen Damazio">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="language" content="English">
+  <link rel="canonical" href="https://www.ellendamazio.com/alice.html">
 
-        <div class="nav-overlay" id="nav-overlay">
-            <button class="nav-overlay-close" id="nav-overlay-close">&#x2715;</button>
-            <a href="index.html#projects-grid">work</a>
-            <a href="fun.html" class="nav-link">fun</a>
-            <a href="about.html">about</a>
-            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:EU:b36b0e71-8cca-4b0e-8e88-5d5a8073d6d7" target="_blank">resume</a>
+  <!-- ============ OPEN GRAPH / FACEBOOK ============ -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.ellendamazio.com/alice.html">
+  <meta property="og:title" content="Alice in Wonderland: A Reinterpretation — Ellen Damazio">
+  <meta property="og:description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
+  <meta property="og:image" content="https://www.ellendamazio.com/projects/alice/comprimido/alice2.gif">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ellen Damazio">
+
+  <!-- ============ TWITTER / X ============ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.ellendamazio.com/alice.html">
+  <meta name="twitter:title" content="Alice in Wonderland: A Reinterpretation — Ellen Damazio">
+  <meta name="twitter:description" content="An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element. Handbound in French link stitch.">
+  <meta name="twitter:image" content="https://www.ellendamazio.com/projects/alice/comprimido/alice2.gif">
+
+  <!-- ============ FAVICON ============ -->
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+  <link rel="alternate icon" href="img/icon.svg">
+
+  <!-- ============ PERFORMANCE ============ -->
+  <link rel="preload" href="fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Manrope-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="css/portfolio.css">
+
+  <!-- ============ STRUCTURED DATA ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Alice in Wonderland: A Reinterpretation",
+    "creator": {
+      "@type": "Person",
+      "name": "Ellen Damazio"
+    },
+    "url": "https://www.ellendamazio.com/alice.html",
+    "about": "An editorial reinterpretation of Alice in Wonderland using typography as a disruptive visual element."
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a href="index.html" class="logo">Ellen Damazio</a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" class="nav-link is-active">Work</a>
+      <a href="fun.html" class="nav-link">Fun</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+
+    <div class="header-links">
+      <div class="header-links__group">
+        <span class="header-links__label">Contact</span>
+        <a href="mailto:ellensdamazio@gmail.com" class="header-links__value">ellensdamazio@gmail.com</a>
+      </div>
+      <div class="header-links__group">
+        <a href="https://www.linkedin.com/in/ellendamazio" target="_blank" rel="noopener" class="header-links__label">LinkedIn</a>
+        <a href="cv.pdf" target="_blank" rel="noopener" class="header-links__value">CV</a>
+      </div>
+    </div>
+
+    <button type="button" class="logo-dot" aria-label="Toggle dark mode" aria-pressed="false"></button>
+
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </header>
+
+  <!-- ============ MOBILE NAV (tablet and below) ============ -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="index.html" class="mobile-nav__link is-active">Work</a>
+    <a href="fun.html" class="mobile-nav__link">Fun</a>
+    <a href="about.html" class="mobile-nav__link">About</a>
+  </nav>
+
+  <div class="nav-overlay" data-nav-overlay></div>
+
+  <main id="main">
+    <div class="layout project-layout">
+
+      <!-- ============ PROJECT NAV ============ -->
+      <aside class="project-nav">
+        <div class="project-nav__inner">
+          <a href="index.html" class="project-nav__back"><span class="project-nav__icon" aria-hidden="true">&#8592;</span>Back</a>
+          <h1 class="project-nav__title">Alice in Wonderland: A Reinterpretation</h1>
         </div>
 
-        <section class="project-content">
-            <div class="project-container">
+        <a href="#main" class="project-nav__top" data-scroll-top><span class="project-nav__icon" aria-hidden="true">&#8593;</span>Back to top</a>
+      </aside>
 
-                <aside class="project-sidebar">
-                    <a href="index.html" class="sidebar-back">← back</a>
-                </aside>
+      <!-- ============ PROJECT CONTENT ============ -->
+      <div class="project-content">
 
-                <main class="project-main-content">
+        <figure class="project-hero">
+          <img src="projects/alice/comprimido/alice2.gif" alt="Alice in Wonderland editorial reinterpretation, handbound book with disruptive typography." class="project-hero__media" loading="lazy">
+        </figure>
 
-                <p class="project-page-label">Editorial Design · Fall 2025</p>
-                <h1 class="project-page-title">Alice in Wonderland: A Reinterpretation</h1>
+        <div class="project-meta">
+          <div class="project-meta__item">
+            <p class="project-meta__label">Role</p>
+            <p class="project-meta__value">Editorial Design</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Team</p>
+            <p class="project-meta__value">Solo</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Timeline</p>
+            <p class="project-meta__value">Fall 2025</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Tools</p>
+            <p class="project-meta__value">InDesign<br>Bookbinding<br>Editorial Design</p>
+          </div>
+        </div>
 
-                <div class="project-meta-grid project-meta-grid--4">
-                    <div class="project-meta-item">
-                        <span class="meta-label">My Role</span>
-                        <span class="meta-value">Editorial Design<br>Bookbinding</span>
-                    </div>
-                    <div class="project-meta-item">
-                        <span class="meta-label">Timeline</span>
-                        <span class="meta-value">Fall 2025</span>
-                    </div>
-                    <div class="project-meta-item">
-                        <span class="meta-label">Tools</span>
-                        <span class="meta-value">InDesign<br>Bookbinding</span>
-                    </div>
-                </div>
+        <section class="project-overview">
+          <h2 class="project-overview__title">Overview</h2>
 
-                <img src="projects/alice/comprimido/alice2.gif" alt="Alice in Wonderland" class="project-cover-image">
+          <p>I&rsquo;ve always loved Alice, the film, the cartoon, the chaos of it all. So when we were given the freedom to reinterpret any book, I didn&rsquo;t hesitate. The challenge I set for myself was different though: take a story we associate with bright colors and whimsical illustrations, and find something more solid underneath. Less playful on the surface, but stranger in a way that feels truer to what the story actually is.</p>
 
-                <section id="overview" class="project-section">
-                    <h2 class="project-subtitle">An editorial object</h2>
-                    <p class="project-text">I've always loved Alice — the film, the cartoon, the chaos of it all. So when we were given the freedom to reinterpret any book, I didn't hesitate. But the challenge I set for myself was different: take a story we associate with bright colors and whimsical illustrations, and find something more solid underneath. Less playful on the surface, but stranger in a way that feels truer to what the story actually is.</p>
-                    <p class="project-text">The edition I chose was an annotated one, which added a layer of complexity. The annotations needed to coexist with the narrative without competing with it — something the reader could choose to engage with or ignore entirely, without losing the thread of the story. That tension between main text and commentary shaped almost every layout decision.</p>
-                    <p class="project-text">Typography became the primary visual tool. Rather than illustrating Wonderland, I let the type perform it: shifts in scale, cuts, and misalignments that echo Alice's constant sense of displacement. The bookbinding was done in French link stitch, a deliberate choice that adds a quiet handmade quality to an otherwise unsettling object.</p>
-                    <p class="project-text">The result is an editorial piece that doesn't look like a children's book. Because it never really was one.</p>
-                </section>
+          <p>The edition I chose was an annotated one, which added a layer of complexity. The annotations needed to coexist with the narrative without competing with it, something the reader could choose to engage with or ignore entirely, without losing the thread of the story. That tension between main text and commentary shaped almost every layout decision.</p>
 
-                <section id="gallery" class="project-section project-major-section">
-                    <h2 class="project-section-title">Gallery</h2>
-                    <div class="gallery-grid">
-                        <img src="projects/alice/comprimido/alice1.jpg" alt="Alice in Wonderland" class="gallery-image large">
-                        <img src="projects/alice/comprimido/alice2.jpg" alt="Alice in Wonderland" class="gallery-image">
-                        <img src="projects/alice/comprimido/alice9.jpg" alt="Alice in Wonderland" class="gallery-image">
-                        <img src="projects/alice/comprimido/alice5.jpg" alt="Alice in Wonderland" class="gallery-image large">
-                        <img src="projects/alice/comprimido/alice8.jpg" alt="Alice in Wonderland" class="gallery-image">
-                        <img src="projects/alice/comprimido/alice3.jpg" alt="Alice in Wonderland" class="gallery-image">
-                    </div>
-                </section>
+          <p>Typography became the primary visual tool. Rather than illustrating Wonderland, I let the type perform it: shifts in scale, cuts, and misalignments that echo Alice&rsquo;s constant sense of displacement. The bookbinding was done in French link stitch, a deliberate choice that adds a quiet handmade quality to an otherwise unsettling object.</p>
 
-                </main>
-            </div>
+          <p>The result is an editorial piece that doesn&rsquo;t look like a children&rsquo;s book. Because it never really was one.</p>
         </section>
 
-        <section class="project-navigation">
-            <div class="nav-left"></div>
-            <div class="nav-center">
-                <a href="#" class="nav-button previous"><span class="arrow">&#8592;</span><span>Previous</span></a>
-                <a href="#" class="nav-button next"><span>Next</span><span class="arrow">&#8594;</span></a>
-            </div>
-            <div class="nav-right"></div>
-        </section>
+        <div class="project-gallery">
+          <img src="projects/alice/comprimido/alice1.jpg" alt="Alice in Wonderland spread, page one." loading="lazy">
+          <img src="projects/alice/comprimido/alice2.jpg" alt="Alice in Wonderland spread, page two." loading="lazy">
+          <img src="projects/alice/comprimido/alice9.jpg" alt="Alice in Wonderland spread, page three." loading="lazy">
+          <img src="projects/alice/comprimido/alice5.jpg" alt="Alice in Wonderland spread, page four." loading="lazy">
+          <img src="projects/alice/comprimido/alice8.jpg" alt="Alice in Wonderland spread, page five." loading="lazy">
+          <img src="projects/alice/comprimido/alice3.jpg" alt="Alice in Wonderland spread, page six." loading="lazy">
+        </div>
 
-        <footer>
-            <span class="footer-left">designed &amp; coded by ellen damazio — lisbon, 2026</span>
-            <div class="footer-links">
-                <a href="mailto:ellensdamazio@gmail.com">email</a>
-                <a href="https://www.linkedin.com/in/ellendamazio/" target="_blank" rel="noopener noreferrer">linkedin</a>
-                <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:4af54144-66d8-49b0-87c4-ae0f72d667c0" target="_blank" rel="noopener noreferrer">resume</a>
-            </div>
-        </footer>
+        <nav class="project-pager" aria-label="Project navigation">
+          <a href="authorship.html" class="project-pager__link project-pager__link--prev">
+            <span class="project-pager__arrow" aria-hidden="true">&#8592;</span>
+            <span class="project-pager__text">
+              <span class="project-pager__label">Previous</span>
+              <span class="project-pager__name">A Designer at the End of&hellip;Authorship</span>
+            </span>
+          </a>
+          <a href="azucrinacao.html" class="project-pager__link project-pager__link--next">
+            <span class="project-pager__text">
+              <span class="project-pager__label">Next</span>
+              <span class="project-pager__name">Azucrina&ccedil;&atilde;o</span>
+            </span>
+            <span class="project-pager__arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </nav>
 
-        <script src="javascript/portfolio.js"></script>
-    </body>
+      </div>
+
+    </div>
+
+    <p class="credit">© ellen damazio, 2026 — designed &amp; coded</p>
+  </main>
+
+  <div class="cursor-ball" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-label"></span>
+  </div>
+
+  <script src="javascript/portfolio.js" defer></script>
+</body>
 </html>
