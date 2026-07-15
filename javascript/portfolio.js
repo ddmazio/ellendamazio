@@ -298,6 +298,10 @@
       "img/jmj.jpg",
       "img/obidos.JPG",
       "img/riso.jpg",
+      "img/grad.jpg",
+      "img/avos.jpg",
+      "img/pai.jpg",
+      "img/pais.jpg",
     ];
 
     let photoIndex = 0;
