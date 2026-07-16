@@ -1221,23 +1221,6 @@ html.has-about .sidebar {
   margin: 0;
 }
 
-.project-video__cta {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-heading);
-  text-align: center;
-}
-
-.project-video__cta a {
-  color: var(--color-accent);
-  transition: opacity 0.25s var(--ease);
-}
-
-.project-video__cta a:hover,
-.project-video__cta a:active {
-  opacity: 0.7;
-}
-
 /* ---- previous / next project pager (end of every project page) ---- */
 .project-pager {
   display: flex;
