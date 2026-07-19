@@ -868,14 +868,6 @@ html.has-about .sidebar {
 .work-grid-masonry .project[data-span="3"] { grid-column: span 3; }
 .work-grid-masonry .project[data-span="4"] { grid-column: span 4; }
 
-.work-grid-masonry:has(.project:hover) .project {
-  opacity: 0.4;
-}
-
-.work-grid-masonry:has(.project:hover) .project:hover {
-  opacity: 1;
-}
-
 /* ---------------------------------------------------------
    Thumbnail View — toggled by the "Index View" button.
    Same project cards, reflowed into a single-column list:
@@ -906,6 +898,10 @@ html.has-about .sidebar {
   flex-direction: column;
   gap: 8px;
   padding-top: 0;
+}
+
+.work.is-thumbnail .project__meta {
+  flex: 0 0 auto;
 }
 
 .work.is-thumbnail .project__desc {
