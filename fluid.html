@@ -133,7 +133,7 @@
         <div class="project-meta">
           <div class="project-meta__item">
             <p class="project-meta__label">Role</p>
-            <p class="project-meta__value">Lead Designer &amp; Researcher<br>Concept &amp; System Design<br>Interaction Architecture</p>
+            <p class="project-meta__value">Research &amp; Concept<br>System Design<br>Interaction Architecture</p>
           </div>
           <div class="project-meta__item">
             <p class="project-meta__label">Team</p>
@@ -149,15 +149,11 @@
           </div>
         </div>
 
-        <div class="project-cta-links">
-          <a href="https://www.figma.com/proto/EAA1UmciVYhiLeZNImmQIs/Case-study-FLUID.ai?page-id=93%3A141&node-id=93-156&scaling=scale-down-width&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="project-cta-link">Read Case Study &#8599;</a>
-        </div>
-
         <!-- ============ OVERVIEW ============ -->
         <section id="overview" class="project-section">
           <h2 class="project-overview__title">Overview</h2>
 
-          <p>FLUID.ai is an affective computing system designed to bridge the communication gap between non-verbal autistic individuals and their caregivers. Grounded in Picard&rsquo;s (1997) definition of affective computing as computation that relates to, arises from, or deliberately influences emotions, the project departs from a central premise: internal emotional states often remain invisible. As Barrett (2017) argues, emotions have no universal expressions. They are constructed in highly contextual ways.</p>
+          <p>FLUID.ai is a speculative, academic concept &mdash; not a market product &mdash; built to explore how affective computing might mediate communication in caregiving relationships, rather than to prescribe a deployable solution. It is an affective computing system designed to bridge the communication gap between non-verbal autistic individuals and their caregivers. Grounded in Picard&rsquo;s (1997) definition of affective computing as computation that relates to, arises from, or deliberately influences emotions, the project departs from a central premise: internal emotional states often remain invisible. As Barrett (2017) argues, emotions have no universal expressions. They are constructed in highly contextual ways.</p>
 
           <p>The system consists of two connected objects: a lava lamp-inspired ambient device placed in the patient&rsquo;s room, and a companion watch for the caregiver. As the patient&rsquo;s emotional and physiological state shifts, the lamp responds in real time through colour, light movement, and sound. The watch mirrors these changes through colour and haptic vibration, keeping the caregiver informed without requiring constant visual monitoring.</p>
 
@@ -200,6 +196,7 @@
           <div class="project-step">
             <h3 class="project-step__title">Ethnographic Interviews</h3>
             <p>To ground the project in lived experience, I conducted two ethnographic interviews with people who interact daily with non-verbal users: a pedagogy student who accompanies a nine-year-old child with cerebral palsy at school, and the sister of a non-verbal autistic adult. Both interviews focused on daily communication patterns, moments of uncertainty, and the emotional cost of interpretive ambiguity.</p>
+            <p>Two interviews is a small sample &mdash; enough to surface real patterns and shape design decisions at this scope, but not enough for statistical validation. The insights below should be read as directional, not conclusive.</p>
 
             <div class="project-placeholder">
               <span class="project-placeholder__label">Research affinity map &mdash; two columns (patient / caregiver), clustered post-its from interview analysis, highlighting &ldquo;the guess&rdquo; and &ldquo;tacit knowledge&rdquo;.</span>
@@ -266,6 +263,8 @@
             <p>The choice of a lava lamp as the primary interface was not aesthetic &mdash; it was conceptual. The slow, organic, repetitive movement of the lamp&rsquo;s internal fluid creates a visual metaphor for emotional states: expansion and retraction, calm and agitation, flow and stillness. This behaviour communicates without requiring complex interpretation, making it legible even to someone with limited verbal comprehension.</p>
             <p>The lamp is grounded in Anna Vallg&aring;rda&rsquo;s (2013) understanding of computational artefacts: objects that take form through the relationship between physical form, temporal form, and interactive gestures. FLUID.ai is not just a functional tool. It is an emotional mediator that creates conditions of safety, calm, and mutual understanding.</p>
 
+            <p>The system infers emotional state from two sensing sources: a camera reads posture, movement, and facial cues, while a wearable biometric sensor tracks heart rate, skin temperature, and stress markers. Together they form the layer beneath every colour, vibration, and sound decision described below.</p>
+
             <div class="project-images-row">
               <img src="projects/fluid/lamp.png" alt="FLUID.ai ambient lamp — orange state, anxiety detected" loading="lazy">
               <img src="projects/fluid/relogio2.png" alt="Caregiver checking the FLUID watch — orange alert state" loading="lazy">
@@ -306,6 +305,11 @@
             <div class="project-placeholder">
               <span class="project-placeholder__label">Escalation decision tree &mdash; Detect &rarr; Self-regulate &rarr; Alert caregiver &rarr; Emergency services.</span>
             </div>
+          </div>
+
+          <div class="project-callout">
+            <span class="project-callout__label">Open question: consent</span>
+            <p>The caregiver&rsquo;s app has access to everything the sensors capture &mdash; heart rate, skin temperature, and inferred levels of stress, anxiety, and calm. What the project doesn&rsquo;t resolve is how consent works when the person being monitored can&rsquo;t verbally agree to it. That&rsquo;s a real ethical gap in the concept, not a solved one, and any future iteration would need to address it before this could move past speculative design.</p>
           </div>
         </section>
 
@@ -354,10 +358,6 @@
             <img src="projects/fluid/lamp-red.png" alt="FLUID.ai lamp in red state — distress detected" loading="lazy">
             <img src="projects/fluid/lamp-white.png" alt="FLUID.ai lamp in white state — neutral, calm" loading="lazy">
           </div>
-
-          <div class="project-placeholder">
-            <span class="project-placeholder__label">Full colour system diagram &mdash; typography, colour mapping grid, and haptic pattern legend.</span>
-          </div>
         </section>
 
         <!-- ============ PROCESS ============ -->
@@ -392,8 +392,6 @@
               <span class="project-placeholder__label">Design system overview &mdash; typography, colour palette (6 emotional states), icon set, haptic pattern legend.</span>
             </div>
           </div>
-
-          <img src="projects/fluid/menino2.png" alt="FLUID.ai in use — boy and lamp in bedroom" class="project-full-image" loading="lazy">
 
           <div class="project-step">
             <h3 class="project-step__title">Interface screens</h3>

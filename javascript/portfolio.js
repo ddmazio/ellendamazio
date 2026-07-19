@@ -283,68 +283,119 @@
   }
 
   /* ---------------------------------------------------------
-     Project page — gallery lightbox. Click any image inside
-     the case study to view it full-screen, then step through
-     every image on the page with the arrow buttons, the
-     keyboard arrows, or by clicking the sides.
+     Project page — reveal on scroll. Fades in content blocks
+     (.project-step, cards, callouts, charts...) as they enter
+     the viewport. Reuses the same reduced-motion guard as the
+     index card reveal above.
   --------------------------------------------------------- */
-  const projectLightbox = document.getElementById("project-lightbox");
+  const revealTargets = document.querySelectorAll(".reveal");
 
-  if (projectLightbox) {
-    const plMedia = projectLightbox.querySelector(".lightbox__media");
-    const plCounter = projectLightbox.querySelector(".lightbox__counter");
-    const plClose = projectLightbox.querySelector(".lightbox__close");
-    const plPrev = projectLightbox.querySelector(".lightbox__prev");
-    const plNext = projectLightbox.querySelector(".lightbox__next");
-    const plImages = Array.from(document.querySelectorAll(".project-content img"));
-    let plIndex = 0;
+  if (revealTargets.length) {
+    if ("IntersectionObserver" in window && !prefersReducedMotion) {
+      const contentRevealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
 
-    const showPlImage = (index) => {
-      if (!plImages.length || !plMedia) return;
-      plIndex = (index + plImages.length) % plImages.length;
-      const source = plImages[plIndex];
+      revealTargets.forEach((el) => contentRevealObserver.observe(el));
+    } else {
+      revealTargets.forEach((el) => el.classList.add("is-visible"));
+    }
+  }
 
-      plMedia.innerHTML = "";
-      const img = document.createElement("img");
-      img.src = source.currentSrc || source.src;
-      img.alt = source.alt || "";
-      plMedia.appendChild(img);
+  /* ---------------------------------------------------------
+     Project page — animated stats & chart bars. Numbers with
+     [data-count] count up from 0; bars with [data-value] grow
+     from 0% to their target width. Both start already showing
+     their final, correct value in the HTML, so anything that
+     can't run JS (or has reduced motion on) just sees the
+     static, accurate numbers — nothing ever displays "0%".
+  --------------------------------------------------------- */
+  const countTargets = document.querySelectorAll("[data-count]");
+  const barTargets = document.querySelectorAll("[data-value]");
 
-      if (plCounter) plCounter.textContent = `${plIndex + 1} / ${plImages.length}`;
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || "";
+    const duration = 900;
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = `${Math.round(target * eased)}${suffix}`;
+      if (progress < 1) requestAnimationFrame(step);
     };
 
-    const openProjectLightbox = (index) => {
-      showPlImage(index);
-      projectLightbox.classList.add("is-open");
-      projectLightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("lightbox-open");
+    requestAnimationFrame(step);
+  };
+
+  if ((countTargets.length || barTargets.length) && "IntersectionObserver" in window && !prefersReducedMotion) {
+    // Reset to a zero state right before observing, so the count-up
+    // and bar-grow actually have somewhere to animate from.
+    countTargets.forEach((el) => {
+      el.textContent = `0${el.dataset.suffix || ""}`;
+    });
+    barTargets.forEach((el) => {
+      el.style.width = "0%";
+    });
+
+    const statsObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+
+          if (el.hasAttribute("data-count")) animateCount(el);
+          if (el.hasAttribute("data-value")) el.style.width = `${el.dataset.value}%`;
+
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    countTargets.forEach((el) => statsObserver.observe(el));
+    barTargets.forEach((el) => statsObserver.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     Project page — reading progress bar. Thin bar fixed to the
+     top of the viewport, filling as the person scrolls through
+     the page. Skipped entirely if the markup isn't present.
+  --------------------------------------------------------- */
+  const progressFill = document.querySelector(".reading-progress__fill");
+
+  if (progressFill) {
+    let progressTicking = false;
+
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+      progressFill.style.transform = `scaleX(${progress})`;
+      progressTicking = false;
     };
 
-    const closeProjectLightbox = () => {
-      projectLightbox.classList.remove("is-open");
-      projectLightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("lightbox-open");
-      if (plMedia) plMedia.innerHTML = "";
-    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!progressTicking) {
+          requestAnimationFrame(updateProgress);
+          progressTicking = true;
+        }
+      },
+      { passive: true }
+    );
 
-    plImages.forEach((img, index) => {
-      img.addEventListener("click", () => openProjectLightbox(index));
-    });
-
-    if (plClose) plClose.addEventListener("click", closeProjectLightbox);
-    if (plPrev) plPrev.addEventListener("click", () => showPlImage(plIndex - 1));
-    if (plNext) plNext.addEventListener("click", () => showPlImage(plIndex + 1));
-
-    projectLightbox.addEventListener("click", (event) => {
-      if (event.target === projectLightbox) closeProjectLightbox();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (!projectLightbox.classList.contains("is-open")) return;
-      if (event.key === "Escape") closeProjectLightbox();
-      if (event.key === "ArrowRight") showPlImage(plIndex + 1);
-      if (event.key === "ArrowLeft") showPlImage(plIndex - 1);
-    });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
   }
 
   /* ---------------------------------------------------------
@@ -954,5 +1005,87 @@
       funViewport.addEventListener("dragstart", (event) => event.preventDefault());
       funViewport.addEventListener("contextmenu", (event) => event.preventDefault());
     }
+  }
+
+  /* ---------------------------------------------------------
+     Project page lightbox — click any image inside the case
+     study content (hero, gallery, full-width, side-by-side
+     rows) to view it full-screen. Prev/next buttons, arrow
+     keys, and a "x / y" counter step through every image on
+     the page in document order. Only runs on pages that have
+     the #project-lightbox markup (azucrinação, authorship,
+     blindspot, maisedu, alice).
+  --------------------------------------------------------- */
+  const projectLightbox = document.getElementById("project-lightbox");
+
+  if (projectLightbox) {
+    const plMedia = projectLightbox.querySelector(".lightbox__media");
+    const plClose = projectLightbox.querySelector(".lightbox__close");
+    const plPrev = projectLightbox.querySelector(".lightbox__prev");
+    const plNext = projectLightbox.querySelector(".lightbox__next");
+    const plCounter = projectLightbox.querySelector(".lightbox__counter");
+
+    const projectImages = Array.from(
+      document.querySelectorAll(".project-content img:not(.project-video__thumb)")
+    );
+
+    let plIndex = 0;
+
+    const renderProjectImage = (index) => {
+      if (!plMedia || !projectImages.length) return;
+      const source = projectImages[index];
+      plMedia.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = source.currentSrc || source.src;
+      img.alt = source.alt || "";
+      plMedia.appendChild(img);
+      if (plCounter) plCounter.textContent = `${index + 1} / ${projectImages.length}`;
+    };
+
+    const openProjectLightbox = (index) => {
+      plIndex = index;
+      renderProjectImage(plIndex);
+      projectLightbox.classList.add("is-open");
+      projectLightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+    };
+
+    const closeProjectLightbox = () => {
+      projectLightbox.classList.remove("is-open");
+      projectLightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (plMedia) plMedia.innerHTML = "";
+    };
+
+    const showNextImage = () => {
+      if (!projectImages.length) return;
+      plIndex = (plIndex + 1) % projectImages.length;
+      renderProjectImage(plIndex);
+    };
+
+    const showPrevImage = () => {
+      if (!projectImages.length) return;
+      plIndex = (plIndex - 1 + projectImages.length) % projectImages.length;
+      renderProjectImage(plIndex);
+    };
+
+    projectImages.forEach((img, index) => {
+      img.addEventListener("click", () => openProjectLightbox(index));
+    });
+
+    if (plClose) plClose.addEventListener("click", closeProjectLightbox);
+    if (plNext) plNext.addEventListener("click", showNextImage);
+    if (plPrev) plPrev.addEventListener("click", showPrevImage);
+
+    projectLightbox.addEventListener("click", (event) => {
+      if (event.target === projectLightbox) closeProjectLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!projectLightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") closeProjectLightbox();
+      if (event.key === "ArrowRight") showNextImage();
+      if (event.key === "ArrowLeft") showPrevImage();
+    });
   }
 })();

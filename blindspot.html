@@ -57,6 +57,10 @@
 </head>
 <body>
 
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress__fill"></div>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
@@ -153,9 +157,9 @@
         <section id="overview" class="project-section">
           <h2 class="project-overview__title">Overview</h2>
 
-          <p>In the age of surveillance capitalism, the most valuable data grows in the shadows, and Blind Spot tries to drag it into the light. The site translates twelve concepts from Shoshana Zuboff&rsquo;s <em>The Age of Surveillance Capitalism</em> (2018) into a digital experience, making visible the system of extraction, prediction, and behavioural control that quietly runs underneath the internet we use every day.</p>
+          <p>In the age of surveillance capitalism, the most valuable data grows in the shadows. Blind Spot is a critical design website that translates 12 concepts from Shoshana Zuboff&rsquo;s <em>The Age of Surveillance Capitalism</em> (2018) into a digital experience &mdash; making visible what was designed to be invisible: the system of extraction, prediction, and behavioural control that underpins the internet we use every day.</p>
 
-          <p>Its visual identity starts from absence: a black background, red typography, maximum contrast. We built the whole thing in Framer, shaping a navigation structure meant to echo the argument the book itself makes.</p>
+          <p>The visual identity departs from absence: black background, red typography, maximum contrast. The site was built in Framer, with a navigation architecture designed to mirror the argument of the book itself.</p>
 
           <div class="project-callout">
             <span class="project-callout__label">In one sentence</span>
@@ -171,8 +175,8 @@
 
           <div class="project-step">
             <h3 class="project-step__title">Shoshana Zuboff, 2018</h3>
-            <p><em>The Age of Surveillance Capitalism</em> is Zuboff&rsquo;s account of how the digital economy turned human experience into raw material, a commodity to be predicted, packaged, and sold. The book names twelve mechanisms behind this system, from <em>Behavioral Surplus</em> to <em>Big Other</em>.</p>
-            <p>None of these are abstract. They describe the infrastructure behind every search, every click, every hesitation a screen quietly records. Zuboff argues that most people have never even been given the words for what&rsquo;s happening to them, and that naming it is the first step toward resisting it.</p>
+            <p><em>The Age of Surveillance Capitalism</em> is Zuboff&rsquo;s account of how the digital economy transformed human experience into raw material &mdash; a commodity to be predicted, packaged, and sold. The book names 12 core mechanisms through which this system operates: from <em>Behavioral Surplus</em> to <em>Big Other</em>.</p>
+            <p>These are not abstract concepts. They describe the infrastructure behind every search, every click, every moment of hesitation recorded on a screen. Zuboff&rsquo;s argument is that most people have never been told the names for what is happening to them &mdash; and that naming is the first step toward resistance.</p>
           </div>
         </section>
 
@@ -182,8 +186,8 @@
 
           <div class="project-step">
             <h3 class="project-step__title">To see without being seen.</h3>
-            <p>The central interaction decision mirrors the book&rsquo;s own argument. The titles of the twelve concepts are visible from the start, in red against black, but their meaning and Zuboff&rsquo;s excerpts only surface once you hover over them.</p>
-            <p>The content is there and it&rsquo;s visible, but it stays opaque until someone decides to look for it &mdash; much like the extraction mechanisms the site is describing.</p>
+            <p>The central interaction decision mirrors the argument of the book. The titles of the 12 concepts are visible from the start &mdash; in red, against black &mdash; but their meaning and Zuboff&rsquo;s excerpts only appear when the user hovers over them.</p>
+            <p>The content exists. It is visible. But it remains opaque until someone decides to look &mdash; exactly like the data extraction mechanisms the site documents.</p>
 
             <div class="project-images-row project-images-row--stacked">
               <img src="projects/blindspot/hidden.jpg" alt="Blind Spot concept title before hover — meaning still hidden" loading="lazy">
@@ -192,7 +196,9 @@
           </div>
 
           <div class="project-step">
-            <h3 class="project-step__title">What we tried first</h3>
+            <h3 class="project-step__title">The internal debate</h3>
+            <p>The hover effect raised a real design question: was the friction a usability problem or a conceptual decision? We kept it. The difficulty of accessing meaning is part of the experience.</p>
+
             <p>Before landing on this reveal, we tried a multiply blend mode, where the excerpt text already sat on the page and simply changed colour on hover. It felt like a colour trick rather than an act of uncovering, so we dropped it for a version where the text truly isn&rsquo;t there until you go looking.</p>
 
             <p>Early wireframes also explored adding content with nothing to do with the excerpts &mdash; a fake cookie banner, a &ldquo;be careful&rdquo; warning &mdash; as pure distraction, mimicking the noise real surveillance interfaces bury you in. We left those out of the final site; the hover-reveal carried the argument on its own.</p>
@@ -212,18 +218,23 @@
 
           <div class="project-step">
             <h3 class="project-step__title">Building the site in Framer</h3>
-            <p>In this group project, I handled the full technical build in Framer: the hover-reveal component, how the concepts sit on the page, and the interaction logic tying it all together.</p>
+            <p>In this group project, I was responsible for the full technical construction of the site in Framer: implementing the hover reveal interaction, building the navigation architecture between the 12 interconnected concepts, and designing the full interaction logic.</p>
 
             <div class="project-icon-cards">
               <div class="project-icon-card">
                 <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
-                <h4 class="project-icon-card__title">Hover component</h4>
-                <p class="project-icon-card__text">Built once by hand and reused throughout the site &mdash; the reveal shows up far more often than the twelve headline concepts, wherever a hidden excerpt needed the same logic.</p>
+                <h4 class="project-icon-card__title">Hover interaction</h4>
+                <p class="project-icon-card__text">Implemented the reveal effect in Framer &mdash; the white circle expanding over each concept on hover.</p>
               </div>
               <div class="project-icon-card">
                 <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
-                <h4 class="project-icon-card__title">Loose navigation</h4>
-                <p class="project-icon-card__text">The concepts sit unaligned on the page instead of in a grid, so reading the site is less about following a menu and more about scrolling and hovering until something catches.</p>
+                <h4 class="project-icon-card__title">Navigation architecture</h4>
+                <p class="project-icon-card__text">Structured the reading flow between the 12 interconnected concepts without losing the cumulative argument.</p>
+              </div>
+              <div class="project-icon-card">
+                <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
+                <h4 class="project-icon-card__title">Interaction logic</h4>
+                <p class="project-icon-card__text">Designed all state transitions, entry animation, and the visual system of progressive disclosure.</p>
               </div>
             </div>
           </div>
@@ -233,13 +244,13 @@
         <section id="reflections" class="project-section">
           <p class="project-section__eyebrow">&#9315; Reflections</p>
 
-          <p>Blind Spot was the first project that forced me to resolve a real conflict between design clarity and design argument. Almost every interaction principle points toward reducing friction, but here, friction was the whole point.</p>
+          <p>Blind Spot was the first project where I had to resolve a genuine conflict between design clarity and design argument. Every interaction design principle points toward reducing friction. Here, friction was the point.</p>
 
-          <p>It also introduced me to critical design as a practice &mdash; the idea that a website can make an argument, that how it behaves can carry a claim about the world instead of just displaying information. That idea has stuck with me in every web project since.</p>
+          <p>The project also introduced me to critical design as a practice. The idea that a website can be an argument &mdash; that the way it behaves can carry a claim about the world, not just display information &mdash; is something I&rsquo;ve carried into every web project since.</p>
 
           <div class="project-callout">
-            <span class="project-callout__label">Desktop-only, by design</span>
-            <p>We thought about adapting the interaction for mobile, but decided against it. Hover only really works with a cursor, and any touchscreen version &mdash; tap, hold, toggle &mdash; would have been a different interaction altogether, not a translation of this one. So the site stays desktop-only, rather than compromise the effect it&rsquo;s built around.</p>
+            <span class="project-callout__label">What I would do differently</span>
+            <p>Explore how the site behaves on mobile &mdash; the hover mechanic is entirely inaccessible on touch screens, which creates an irony the project probably doesn&rsquo;t intend.</p>
           </div>
         </section>
 
