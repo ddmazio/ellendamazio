@@ -1141,6 +1141,24 @@ html.has-about .sidebar {
   margin-top: 20px;
 }
 
+.project-overview--note {
+  max-width: none;
+  margin-top: 32px;
+  margin-bottom: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-overview--note a {
+  color: inherit;
+  transition: color 0.25s var(--ease);
+}
+
+.project-overview--note a:hover,
+.project-overview--note a:active {
+  color: var(--color-accent);
+}
+
 .project-section p {
   font-size: 14px;
   line-height: 1.7;
@@ -1668,7 +1686,7 @@ html.has-about .sidebar {
 
 .project-nav__badge-logo {
   display: block;
-  height: 32px;
+  height: 85px;
   width: auto;
 }
 
