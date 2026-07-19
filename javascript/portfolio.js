@@ -283,6 +283,71 @@
   }
 
   /* ---------------------------------------------------------
+     Project page — gallery lightbox. Click any image inside
+     the case study to view it full-screen, then step through
+     every image on the page with the arrow buttons, the
+     keyboard arrows, or by clicking the sides.
+  --------------------------------------------------------- */
+  const projectLightbox = document.getElementById("project-lightbox");
+
+  if (projectLightbox) {
+    const plMedia = projectLightbox.querySelector(".lightbox__media");
+    const plCounter = projectLightbox.querySelector(".lightbox__counter");
+    const plClose = projectLightbox.querySelector(".lightbox__close");
+    const plPrev = projectLightbox.querySelector(".lightbox__prev");
+    const plNext = projectLightbox.querySelector(".lightbox__next");
+    const plImages = Array.from(document.querySelectorAll(".project-content img"));
+    let plIndex = 0;
+
+    const showPlImage = (index) => {
+      if (!plImages.length || !plMedia) return;
+      plIndex = (index + plImages.length) % plImages.length;
+      const source = plImages[plIndex];
+
+      plMedia.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = source.currentSrc || source.src;
+      img.alt = source.alt || "";
+      plMedia.appendChild(img);
+
+      if (plCounter) plCounter.textContent = `${plIndex + 1} / ${plImages.length}`;
+    };
+
+    const openProjectLightbox = (index) => {
+      showPlImage(index);
+      projectLightbox.classList.add("is-open");
+      projectLightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+    };
+
+    const closeProjectLightbox = () => {
+      projectLightbox.classList.remove("is-open");
+      projectLightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (plMedia) plMedia.innerHTML = "";
+    };
+
+    plImages.forEach((img, index) => {
+      img.addEventListener("click", () => openProjectLightbox(index));
+    });
+
+    if (plClose) plClose.addEventListener("click", closeProjectLightbox);
+    if (plPrev) plPrev.addEventListener("click", () => showPlImage(plIndex - 1));
+    if (plNext) plNext.addEventListener("click", () => showPlImage(plIndex + 1));
+
+    projectLightbox.addEventListener("click", (event) => {
+      if (event.target === projectLightbox) closeProjectLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!projectLightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") closeProjectLightbox();
+      if (event.key === "ArrowRight") showPlImage(plIndex + 1);
+      if (event.key === "ArrowLeft") showPlImage(plIndex - 1);
+    });
+  }
+
+  /* ---------------------------------------------------------
      About page — bouncing photo, DVD-screensaver style.
      The photo drifts inside its stage and swaps to the next
      image every time it touches an edge.
