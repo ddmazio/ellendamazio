@@ -537,23 +537,23 @@
   if (funViewport && funCards.length) {
     document.documentElement.classList.add("has-fun");
 
-    /* ---------- Lightbox: click a card to view it full-screen ---------- */
+    /* ---------- Lightbox: click a card to view it full-screen,
+       with prev/next buttons and arrow keys to step through every
+       card on the canvas in document order. ---------- */
     const lightbox = document.getElementById("fun-lightbox");
     const lightboxMedia = lightbox ? lightbox.querySelector(".lightbox__media") : null;
     const lightboxTitle = lightbox ? lightbox.querySelector(".lightbox__title") : null;
     const lightboxDesc = lightbox ? lightbox.querySelector(".lightbox__desc") : null;
     const lightboxClose = lightbox ? lightbox.querySelector(".lightbox__close") : null;
+    const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox__prev") : null;
+    const lightboxNext = lightbox ? lightbox.querySelector(".lightbox__next") : null;
+    const lightboxCounter = lightbox ? lightbox.querySelector(".lightbox__counter") : null;
 
-    const closeLightbox = () => {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("lightbox-open");
-      if (lightboxMedia) lightboxMedia.innerHTML = "";
-    };
+    let funLightboxIndex = 0;
 
-    const openLightbox = (card) => {
-      if (!lightbox || !lightboxMedia) return;
+    const renderFunLightbox = (index) => {
+      if (!lightbox || !lightboxMedia || !funCards.length) return;
+      const card = funCards[index];
       const sourceImg = card.querySelector("img");
       const sourceVideo = card.querySelector("video");
       const title = card.querySelector(".fun-card-title");
@@ -575,28 +575,55 @@
         img.src = sourceImg.currentSrc || sourceImg.src;
         img.alt = sourceImg.alt || "";
         lightboxMedia.appendChild(img);
-      } else {
-        return;
       }
 
       if (lightboxTitle) lightboxTitle.textContent = title ? title.textContent : "";
       if (lightboxDesc) lightboxDesc.textContent = desc ? desc.textContent : "";
+      if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${funCards.length}`;
+    };
 
+    const openLightbox = (index) => {
+      if (!lightbox || !lightboxMedia) return;
+      funLightboxIndex = index;
+      renderFunLightbox(funLightboxIndex);
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
     };
 
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (lightboxMedia) lightboxMedia.innerHTML = "";
+    };
+
+    const showNextFunImage = () => {
+      if (!funCards.length) return;
+      funLightboxIndex = (funLightboxIndex + 1) % funCards.length;
+      renderFunLightbox(funLightboxIndex);
+    };
+
+    const showPrevFunImage = () => {
+      if (!funCards.length) return;
+      funLightboxIndex = (funLightboxIndex - 1 + funCards.length) % funCards.length;
+      renderFunLightbox(funLightboxIndex);
+    };
+
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxNext) lightboxNext.addEventListener("click", showNextFunImage);
+    if (lightboxPrev) lightboxPrev.addEventListener("click", showPrevFunImage);
     if (lightbox) {
       lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) closeLightbox();
       });
     }
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
-        closeLightbox();
-      }
+      if (!lightbox || !lightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") showNextFunImage();
+      if (event.key === "ArrowLeft") showPrevFunImage();
     });
 
     // On the desktop canvas, a "click" can also be the tail end of a
@@ -612,15 +639,17 @@
       if (event.target.closest("a")) return; // let caption links navigate normally
       const card = event.target.closest(".fun-card");
       if (!card) return;
-      openLightbox(card);
+      const index = funCards.indexOf(card);
+      if (index === -1) return;
+      openLightbox(index);
     });
 
     if (window.matchMedia("(max-width: 768px)").matches) {
       // Mobile: plain single-column scroll, no canvas.
       funCards.forEach((card) => card.classList.add("is-visible"));
     } else {
-      let TILE_W = 2180;
-      let TILE_H = 2700;
+      let TILE_W = 1400;
+      let TILE_H = 1400;
       const FRICTION = 0.96;
       const MIN_VEL = 0.08;
       const STAGGER = 55;
@@ -629,9 +658,21 @@
       const TILT_LERP = 0.09;
       const TILT_DONE = 0.015;
 
-      const worldPos = funCards.map((card) => ({
+      // The hand-placed data-sx/data-sy coordinates were scattered
+      // across a wide, generous canvas. Compressing them toward a
+      // shared centre before resolveOverlaps runs is what actually
+      // brings cards closer together — GAP only stops cards from
+      // sitting too close, it can never pull already-distant cards in.
+      const COMPRESSION = 0.75;
+      const rawWorldPos = funCards.map((card) => ({
         wx: parseFloat(card.dataset.sx) || 0,
         wy: parseFloat(card.dataset.sy) || 0,
+      }));
+      const originCx = rawWorldPos.reduce((sum, p) => sum + p.wx, 0) / rawWorldPos.length;
+      const originCy = rawWorldPos.reduce((sum, p) => sum + p.wy, 0) / rawWorldPos.length;
+      const worldPos = rawWorldPos.map((p) => ({
+        wx: originCx + (p.wx - originCx) * COMPRESSION,
+        wy: originCy + (p.wy - originCy) * COMPRESSION,
       }));
       const inners = funCards.map((c) => c.querySelector(".fun-card-inner"));
 
@@ -683,7 +724,7 @@
       // boxes actually touch gets nudged apart along whichever axis
       // needs the smaller push — just enough to clear the overlap,
       // preserving the organic layout everywhere else.
-      const GAP = 36;
+      const GAP = 24;
       const MAX_ITERATIONS = 300;
 
       const resolveOverlaps = () => {
@@ -784,8 +825,8 @@
           maxY = Math.max(maxY, box.y + box.h);
         });
 
-        TILE_W = Math.max(TILE_W, maxX - minX + MARGIN * 2);
-        TILE_H = Math.max(TILE_H, maxY - minY + MARGIN * 2);
+        TILE_W = maxX - minX + MARGIN * 2;
+        TILE_H = maxY - minY + MARGIN * 2;
 
         boxes.forEach((box) => {
           worldPos[box.i].wx = box.x;
