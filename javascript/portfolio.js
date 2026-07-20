@@ -652,6 +652,7 @@
       let TILE_H = 1400;
       const FRICTION = 0.96;
       const MIN_VEL = 0.08;
+      const MOVE_SMOOTH = 0.22; // how eagerly the rendered canvas eases toward the pointer/target — lower = softer, floatier movement
       const STAGGER = 55;
       const TILT_FACTOR = 0.32;
       const MAX_TILT = 5;
@@ -676,8 +677,21 @@
       }));
       const inners = funCards.map((c) => c.querySelector(".fun-card-inner"));
 
+      // Each card eases toward the shared target with its own slightly
+      // different lag — deterministic "randomness" from the index, so
+      // it's stable across reloads but not a uniform grid. This is
+      // what keeps the whole cluster from moving in rigid lockstep and
+      // gives it that loose, organic trailing feel.
+      const CARD_LAG_MIN = 0.12;
+      const CARD_LAG_MAX = 0.3;
+      const cardLag = funCards.map((_, i) => CARD_LAG_MIN + (((i * 47) % 100) / 100) * (CARD_LAG_MAX - CARD_LAG_MIN));
+      const cardOffsetX = funCards.map(() => 0);
+      const cardOffsetY = funCards.map(() => 0);
+
       let viewOffsetX = 0;
       let viewOffsetY = 0;
+      let targetOffsetX = 0;
+      let targetOffsetY = 0;
       let smoothTiltX = 0;
       let smoothTiltY = 0;
 
@@ -705,8 +719,8 @@
 
         for (let i = 0; i < funCards.length; i++) {
           const { wx, wy } = worldPos[i];
-          const rawX = wx + viewOffsetX;
-          const rawY = wy + viewOffsetY;
+          const rawX = wx + cardOffsetX[i];
+          const rawY = wy + cardOffsetY[i];
 
           const kx = -Math.round((rawX - cx) / TILE_W);
           const ky = -Math.round((rawY - cy) / TILE_H);
@@ -812,7 +826,7 @@
         // ever butting up against the real cards — fixed pixel values
         // would silently break again the next time cards are added or
         // moved, so this is recomputed from scratch every time.
-        const MARGIN = 100;
+        const MARGIN = 40;
         let minX = Infinity;
         let minY = Infinity;
         let maxX = -Infinity;
@@ -883,9 +897,9 @@
       };
 
       const applyDelta = (dx, dy) => {
-        viewOffsetX += dx;
-        viewOffsetY += dy;
-        renderCards();
+        targetOffsetX += dx;
+        targetOffsetY += dy;
+        ensureMotionLoop();
       };
 
       const hideHint = () => {
@@ -904,22 +918,62 @@
         }
       };
 
-      const startInertia = () => {
-        cancelAnimationFrame(rafId);
-        (function tick() {
+      const ensureMotionLoop = () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(motionTick);
+      };
+
+      const motionTick = () => {
+        if (!dragging) {
+          // Momentum: keep nudging the target forward while there's
+          // velocity, decaying it each frame.
           vx *= FRICTION;
           vy *= FRICTION;
           if (Math.abs(vx) < MIN_VEL) vx = 0;
           if (Math.abs(vy) < MIN_VEL) vy = 0;
+          targetOffsetX += vx;
+          targetOffsetY += vy;
+        }
 
-          applyDelta(vx, vy);
+        // Ease the rendered offset toward the target instead of
+        // snapping straight to it — this is what gives both dragging
+        // and momentum a soft, floaty feel rather than a rigid 1:1
+        // follow.
+        viewOffsetX += (targetOffsetX - viewOffsetX) * MOVE_SMOOTH;
+        viewOffsetY += (targetOffsetY - viewOffsetY) * MOVE_SMOOTH;
 
-          const tiltGone = Math.abs(smoothTiltX) < TILT_DONE && Math.abs(smoothTiltY) < TILT_DONE;
+        // Then each card chases that shared offset with its own lag,
+        // so the cluster doesn't move in rigid lockstep — some cards
+        // catch up quicker than others, like a loose flock.
+        let maxCardLag = 0;
+        for (let i = 0; i < funCards.length; i++) {
+          cardOffsetX[i] += (viewOffsetX - cardOffsetX[i]) * cardLag[i];
+          cardOffsetY[i] += (viewOffsetY - cardOffsetY[i]) * cardLag[i];
+          maxCardLag = Math.max(
+            maxCardLag,
+            Math.abs(viewOffsetX - cardOffsetX[i]),
+            Math.abs(viewOffsetY - cardOffsetY[i])
+          );
+        }
 
-          if (vx !== 0 || vy !== 0 || !tiltGone) {
-            rafId = requestAnimationFrame(tick);
-          }
-        })();
+        renderCards();
+
+        const settledPos =
+          Math.abs(targetOffsetX - viewOffsetX) < 0.03 &&
+          Math.abs(targetOffsetY - viewOffsetY) < 0.03 &&
+          maxCardLag < 0.05;
+        const settledVel = vx === 0 && vy === 0;
+        const tiltGone = Math.abs(smoothTiltX) < TILT_DONE && Math.abs(smoothTiltY) < TILT_DONE;
+
+        if (dragging || !settledPos || !settledVel || !tiltGone) {
+          rafId = requestAnimationFrame(motionTick);
+        } else {
+          rafId = null;
+        }
+      };
+
+      const startInertia = () => {
+        ensureMotionLoop();
       };
 
       funViewport.addEventListener("mousedown", (event) => {
@@ -928,7 +982,6 @@
         dragDistance = 0;
         ({ x: lastX, y: lastY } = getXY(event));
         vx = vy = 0;
-        cancelAnimationFrame(rafId);
         hideHint();
         setCursorGrabbing(true);
       });
@@ -974,7 +1027,6 @@
           dragDistance = 0;
           ({ x: lastX, y: lastY } = getXY(event));
           vx = vy = 0;
-          cancelAnimationFrame(rafId);
           hideHint();
         },
         { passive: true }
@@ -1017,7 +1069,6 @@
           const dy = -event.deltaY * mul;
 
           if (event.deltaMode === 1) {
-            cancelAnimationFrame(rafId);
             vx = dx * 0.35;
             vy = dy * 0.35;
             applyDelta(dx, dy);
