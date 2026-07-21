@@ -646,16 +646,6 @@ html.has-about .sidebar {
   filter: brightness(0.96);
 }
 
-/* Hovering any card dims its siblings to draw focus to it,
-   instead of the hovered card itself scaling up. */
-.work-grid-masonry:has(.project:hover) .project {
-  opacity: 0.4;
-}
-
-.work-grid-masonry:has(.project:hover) .project:hover {
-  opacity: 1;
-}
-
 /* =========================================================
    INDEX PAGE — 6-column grid layout
    6 columns, 30px gutter, 25px margins. Cards span 2-4
