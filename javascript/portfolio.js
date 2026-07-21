@@ -537,23 +537,23 @@
   if (funViewport && funCards.length) {
     document.documentElement.classList.add("has-fun");
 
-    /* ---------- Lightbox: click a card to view it full-screen,
-       with prev/next buttons and arrow keys to step through every
-       card on the canvas in document order. ---------- */
+    /* ---------- Lightbox: click a card to view it full-screen ---------- */
     const lightbox = document.getElementById("fun-lightbox");
     const lightboxMedia = lightbox ? lightbox.querySelector(".lightbox__media") : null;
     const lightboxTitle = lightbox ? lightbox.querySelector(".lightbox__title") : null;
     const lightboxDesc = lightbox ? lightbox.querySelector(".lightbox__desc") : null;
     const lightboxClose = lightbox ? lightbox.querySelector(".lightbox__close") : null;
-    const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox__prev") : null;
-    const lightboxNext = lightbox ? lightbox.querySelector(".lightbox__next") : null;
-    const lightboxCounter = lightbox ? lightbox.querySelector(".lightbox__counter") : null;
 
-    let funLightboxIndex = 0;
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (lightboxMedia) lightboxMedia.innerHTML = "";
+    };
 
-    const renderFunLightbox = (index) => {
-      if (!lightbox || !lightboxMedia || !funCards.length) return;
-      const card = funCards[index];
+    const openLightbox = (card) => {
+      if (!lightbox || !lightboxMedia) return;
       const sourceImg = card.querySelector("img");
       const sourceVideo = card.querySelector("video");
       const title = card.querySelector(".fun-card-title");
@@ -575,55 +575,28 @@
         img.src = sourceImg.currentSrc || sourceImg.src;
         img.alt = sourceImg.alt || "";
         lightboxMedia.appendChild(img);
+      } else {
+        return;
       }
 
       if (lightboxTitle) lightboxTitle.textContent = title ? title.textContent : "";
       if (lightboxDesc) lightboxDesc.textContent = desc ? desc.textContent : "";
-      if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${funCards.length}`;
-    };
 
-    const openLightbox = (index) => {
-      if (!lightbox || !lightboxMedia) return;
-      funLightboxIndex = index;
-      renderFunLightbox(funLightboxIndex);
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
     };
 
-    const closeLightbox = () => {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("lightbox-open");
-      if (lightboxMedia) lightboxMedia.innerHTML = "";
-    };
-
-    const showNextFunImage = () => {
-      if (!funCards.length) return;
-      funLightboxIndex = (funLightboxIndex + 1) % funCards.length;
-      renderFunLightbox(funLightboxIndex);
-    };
-
-    const showPrevFunImage = () => {
-      if (!funCards.length) return;
-      funLightboxIndex = (funLightboxIndex - 1 + funCards.length) % funCards.length;
-      renderFunLightbox(funLightboxIndex);
-    };
-
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightboxNext) lightboxNext.addEventListener("click", showNextFunImage);
-    if (lightboxPrev) lightboxPrev.addEventListener("click", showPrevFunImage);
     if (lightbox) {
       lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) closeLightbox();
       });
     }
     document.addEventListener("keydown", (event) => {
-      if (!lightbox || !lightbox.classList.contains("is-open")) return;
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowRight") showNextFunImage();
-      if (event.key === "ArrowLeft") showPrevFunImage();
+      if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
     });
 
     // On the desktop canvas, a "click" can also be the tail end of a
@@ -639,59 +612,65 @@
       if (event.target.closest("a")) return; // let caption links navigate normally
       const card = event.target.closest(".fun-card");
       if (!card) return;
-      const index = funCards.indexOf(card);
-      if (index === -1) return;
-      openLightbox(index);
+      openLightbox(card);
     });
 
     if (window.matchMedia("(max-width: 768px)").matches) {
       // Mobile: plain single-column scroll, no canvas.
       funCards.forEach((card) => card.classList.add("is-visible"));
     } else {
-      let TILE_W = 1400;
-      let TILE_H = 1400;
+      let TILE_W = 2180;
+      let TILE_H = 2700;
       const FRICTION = 0.96;
       const MIN_VEL = 0.08;
-      const MOVE_SMOOTH = 0.22; // how eagerly the rendered canvas eases toward the pointer/target — lower = softer, floatier movement
       const STAGGER = 55;
       const TILT_FACTOR = 0.32;
       const MAX_TILT = 5;
       const TILT_LERP = 0.09;
       const TILT_DONE = 0.015;
 
-      // The hand-placed data-sx/data-sy coordinates were scattered
-      // across a wide, generous canvas. Compressing them toward a
-      // shared centre before resolveOverlaps runs is what actually
-      // brings cards closer together — GAP only stops cards from
-      // sitting too close, it can never pull already-distant cards in.
-      const COMPRESSION = 0.75;
-      const rawWorldPos = funCards.map((card) => ({
+      const worldPos = funCards.map((card) => ({
         wx: parseFloat(card.dataset.sx) || 0,
         wy: parseFloat(card.dataset.sy) || 0,
       }));
-      const originCx = rawWorldPos.reduce((sum, p) => sum + p.wx, 0) / rawWorldPos.length;
-      const originCy = rawWorldPos.reduce((sum, p) => sum + p.wy, 0) / rawWorldPos.length;
-      const worldPos = rawWorldPos.map((p) => ({
-        wx: originCx + (p.wx - originCx) * COMPRESSION,
-        wy: originCy + (p.wy - originCy) * COMPRESSION,
-      }));
       const inners = funCards.map((c) => c.querySelector(".fun-card-inner"));
 
-      // Each card eases toward the shared target with its own slightly
-      // different lag — deterministic "randomness" from the index, so
-      // it's stable across reloads but not a uniform grid. This is
-      // what keeps the whole cluster from moving in rigid lockstep and
-      // gives it that loose, organic trailing feel.
-      const CARD_LAG_MIN = 0.12;
-      const CARD_LAG_MAX = 0.3;
-      const cardLag = funCards.map((_, i) => CARD_LAG_MIN + (((i * 47) % 100) / 100) * (CARD_LAG_MAX - CARD_LAG_MIN));
-      const cardOffsetX = funCards.map(() => 0);
-      const cardOffsetY = funCards.map(() => 0);
+      /* ---------- Depth parallax + idle float ----------
+         Two extra, purely-additive motion layers on top of the
+         existing drag/tilt system:
+         1. PARALLAX — each card nudges toward/away from the cursor
+            by an amount proportional to its own "depth" (bigger
+            cards read as closer, so they move more).
+         2. IDLE FLOAT — a slow, per-card sine drift so the canvas
+            never looks fully still, even with the cursor parked.
+         Both are skipped entirely under prefers-reduced-motion. --- */
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const PARALLAX_STRENGTH = 26; // px of travel at full depth, edge to edge
+      const PARALLAX_LERP = 0.06;
+      const IDLE_AMP_MIN = 4;
+      const IDLE_AMP_MAX = 10;
+      const IDLE_SPEED_MIN = 0.00025;
+      const IDLE_SPEED_MAX = 0.00055;
+
+      const depths = funCards.map((card) =>
+        card.classList.contains("fun-card--l") ? 0.85 + Math.random() * 0.3 : 0.4 + Math.random() * 0.3
+      );
+      const idleParams = funCards.map(() => ({
+        phaseX: Math.random() * Math.PI * 2,
+        phaseY: Math.random() * Math.PI * 2,
+        speedX: IDLE_SPEED_MIN + Math.random() * (IDLE_SPEED_MAX - IDLE_SPEED_MIN),
+        speedY: IDLE_SPEED_MIN + Math.random() * (IDLE_SPEED_MAX - IDLE_SPEED_MIN),
+        ampX: IDLE_AMP_MIN + Math.random() * (IDLE_AMP_MAX - IDLE_AMP_MIN),
+        ampY: IDLE_AMP_MIN + Math.random() * (IDLE_AMP_MAX - IDLE_AMP_MIN),
+      }));
+
+      let mouseRX = 0; // normalized cursor pos, -1..1 — updated only when not dragging
+      let mouseRY = 0;
+      let parallaxX = 0; // eased, shared -1..1 driver; per-card offset = parallaxX * depth * STRENGTH
+      let parallaxY = 0;
 
       let viewOffsetX = 0;
       let viewOffsetY = 0;
-      let targetOffsetX = 0;
-      let targetOffsetY = 0;
       let smoothTiltX = 0;
       let smoothTiltY = 0;
 
@@ -717,10 +696,25 @@
 
         const tiltStr = `rotateX(${smoothTiltX.toFixed(2)}deg) rotateY(${smoothTiltY.toFixed(2)}deg)`;
 
+        const now = prefersReducedMotion ? 0 : performance.now();
+
         for (let i = 0; i < funCards.length; i++) {
           const { wx, wy } = worldPos[i];
-          const rawX = wx + cardOffsetX[i];
-          const rawY = wy + cardOffsetY[i];
+
+          let px = 0;
+          let py = 0;
+          if (!prefersReducedMotion) {
+            const depth = depths[i];
+            px = parallaxX * depth * PARALLAX_STRENGTH;
+            py = parallaxY * depth * PARALLAX_STRENGTH;
+
+            const idle = idleParams[i];
+            px += Math.sin(now * idle.speedX + idle.phaseX) * idle.ampX;
+            py += Math.cos(now * idle.speedY + idle.phaseY) * idle.ampY;
+          }
+
+          const rawX = wx + viewOffsetX + px;
+          const rawY = wy + viewOffsetY + py;
 
           const kx = -Math.round((rawX - cx) / TILE_W);
           const ky = -Math.round((rawY - cy) / TILE_H);
@@ -732,13 +726,22 @@
 
       renderCards();
 
+      if (!prefersReducedMotion) {
+        (function floatLoop() {
+          parallaxX += (mouseRX - parallaxX) * PARALLAX_LERP;
+          parallaxY += (mouseRY - parallaxY) * PARALLAX_LERP;
+          renderCards();
+          requestAnimationFrame(floatLoop);
+        })();
+      }
+
       // Auto-separation: cards keep their hand-placed, scattered
       // positions (mixed sizes, mixed x/y, no grid) but once each
       // image/video's real size is known, any pair of cards whose
       // boxes actually touch gets nudged apart along whichever axis
       // needs the smaller push — just enough to clear the overlap,
       // preserving the organic layout everywhere else.
-      const GAP = 24;
+      const GAP = 36;
       const MAX_ITERATIONS = 300;
 
       const resolveOverlaps = () => {
@@ -826,7 +829,7 @@
         // ever butting up against the real cards — fixed pixel values
         // would silently break again the next time cards are added or
         // moved, so this is recomputed from scratch every time.
-        const MARGIN = 40;
+        const MARGIN = 100;
         let minX = Infinity;
         let minY = Infinity;
         let maxX = -Infinity;
@@ -839,8 +842,8 @@
           maxY = Math.max(maxY, box.y + box.h);
         });
 
-        TILE_W = maxX - minX + MARGIN * 2;
-        TILE_H = maxY - minY + MARGIN * 2;
+        TILE_W = Math.max(TILE_W, maxX - minX + MARGIN * 2);
+        TILE_H = Math.max(TILE_H, maxY - minY + MARGIN * 2);
 
         boxes.forEach((box) => {
           worldPos[box.i].wx = box.x;
@@ -897,9 +900,9 @@
       };
 
       const applyDelta = (dx, dy) => {
-        targetOffsetX += dx;
-        targetOffsetY += dy;
-        ensureMotionLoop();
+        viewOffsetX += dx;
+        viewOffsetY += dy;
+        renderCards();
       };
 
       const hideHint = () => {
@@ -918,62 +921,22 @@
         }
       };
 
-      const ensureMotionLoop = () => {
-        if (rafId) return;
-        rafId = requestAnimationFrame(motionTick);
-      };
-
-      const motionTick = () => {
-        if (!dragging) {
-          // Momentum: keep nudging the target forward while there's
-          // velocity, decaying it each frame.
+      const startInertia = () => {
+        cancelAnimationFrame(rafId);
+        (function tick() {
           vx *= FRICTION;
           vy *= FRICTION;
           if (Math.abs(vx) < MIN_VEL) vx = 0;
           if (Math.abs(vy) < MIN_VEL) vy = 0;
-          targetOffsetX += vx;
-          targetOffsetY += vy;
-        }
 
-        // Ease the rendered offset toward the target instead of
-        // snapping straight to it — this is what gives both dragging
-        // and momentum a soft, floaty feel rather than a rigid 1:1
-        // follow.
-        viewOffsetX += (targetOffsetX - viewOffsetX) * MOVE_SMOOTH;
-        viewOffsetY += (targetOffsetY - viewOffsetY) * MOVE_SMOOTH;
+          applyDelta(vx, vy);
 
-        // Then each card chases that shared offset with its own lag,
-        // so the cluster doesn't move in rigid lockstep — some cards
-        // catch up quicker than others, like a loose flock.
-        let maxCardLag = 0;
-        for (let i = 0; i < funCards.length; i++) {
-          cardOffsetX[i] += (viewOffsetX - cardOffsetX[i]) * cardLag[i];
-          cardOffsetY[i] += (viewOffsetY - cardOffsetY[i]) * cardLag[i];
-          maxCardLag = Math.max(
-            maxCardLag,
-            Math.abs(viewOffsetX - cardOffsetX[i]),
-            Math.abs(viewOffsetY - cardOffsetY[i])
-          );
-        }
+          const tiltGone = Math.abs(smoothTiltX) < TILT_DONE && Math.abs(smoothTiltY) < TILT_DONE;
 
-        renderCards();
-
-        const settledPos =
-          Math.abs(targetOffsetX - viewOffsetX) < 0.03 &&
-          Math.abs(targetOffsetY - viewOffsetY) < 0.03 &&
-          maxCardLag < 0.05;
-        const settledVel = vx === 0 && vy === 0;
-        const tiltGone = Math.abs(smoothTiltX) < TILT_DONE && Math.abs(smoothTiltY) < TILT_DONE;
-
-        if (dragging || !settledPos || !settledVel || !tiltGone) {
-          rafId = requestAnimationFrame(motionTick);
-        } else {
-          rafId = null;
-        }
-      };
-
-      const startInertia = () => {
-        ensureMotionLoop();
+          if (vx !== 0 || vy !== 0 || !tiltGone) {
+            rafId = requestAnimationFrame(tick);
+          }
+        })();
       };
 
       funViewport.addEventListener("mousedown", (event) => {
@@ -982,6 +945,7 @@
         dragDistance = 0;
         ({ x: lastX, y: lastY } = getXY(event));
         vx = vy = 0;
+        cancelAnimationFrame(rafId);
         hideHint();
         setCursorGrabbing(true);
       });
@@ -1001,6 +965,8 @@
           const vh = funViewport.offsetHeight || window.innerHeight;
           const rx = (event.clientX / vw - 0.5) * 2;
           const ry = (event.clientY / vh - 0.5) * 2;
+          mouseRX = rx;
+          mouseRY = ry;
           const tX = -ry * 2;
           const tY = rx * 2;
           smoothTiltX += (tX - smoothTiltX) * 0.07;
@@ -1027,6 +993,7 @@
           dragDistance = 0;
           ({ x: lastX, y: lastY } = getXY(event));
           vx = vy = 0;
+          cancelAnimationFrame(rafId);
           hideHint();
         },
         { passive: true }
@@ -1069,6 +1036,7 @@
           const dy = -event.deltaY * mul;
 
           if (event.deltaMode === 1) {
+            cancelAnimationFrame(rafId);
             vx = dx * 0.35;
             vy = dy * 0.35;
             applyDelta(dx, dy);
