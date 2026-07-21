@@ -87,6 +87,50 @@
 }
 
 /* =========================================================
+   PRELOADER — shown once per session on first entry via index.html
+   ========================================================= */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease), visibility 0.6s var(--ease);
+}
+
+.preloader__logo {
+  width: 56px;
+  height: auto;
+  animation: preloader-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.86); opacity: 0.55; }
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* If this session already saw the preloader, skip it entirely — no flash. */
+html.preload-skip .preloader {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader__logo {
+    animation: none;
+  }
+}
+
+/* =========================================================
    DARK MODE — toggled by the logo-dot button in the header.
    Every color in the site is a var() against these tokens,
    so redefining them here is enough to flip the whole page.
@@ -266,6 +310,35 @@ button {
   color: var(--color-accent);
 }
 
+.say-hello {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-body);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color 0.25s var(--ease);
+}
+
+.say-hello:hover,
+.say-hello:active {
+  color: var(--color-accent);
+}
+
+.say-hello__arrow {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 0.25s var(--ease);
+}
+
+.say-hello:hover .say-hello__arrow,
+.say-hello:active .say-hello__arrow {
+  transform: translate(2px, -2px);
+}
+
 /* ---------------------------------------------------------
    Header links — Contact / LinkedIn+CV blocks
    (new shared header, used across every page)
@@ -331,27 +404,29 @@ a.header-links__label:active {
   grid-row: 1;
   justify-self: end;
   margin-top: 1px;
-  display: inline-block;
-  width: 14px;
-  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   padding: 0;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-accent);
+  border: none;
   background: transparent;
   appearance: none;
   -webkit-appearance: none;
   flex-shrink: 0;
-  transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+  transition: transform 0.2s var(--ease);
 }
 
 .logo-dot:hover {
   transform: scale(1.15);
 }
 
-.logo-dot--filled,
-body.is-dark .logo-dot {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+.logo-dot__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 /* ---------------------------------------------------------
@@ -612,6 +687,19 @@ html.has-about .sidebar {
   min-width: 0;
 }
 
+.work-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.work-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .project {
   width: 100%;
   margin-bottom: 36px;
@@ -635,6 +723,17 @@ html.has-about .sidebar {
   border-radius: 2px;
 }
 
+.placeholder {
+  display: block;
+  width: 100%;
+  background: var(--color-placeholder);
+  transition: background 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.project[data-ratio="tall"] .placeholder { aspect-ratio: 5 / 6; }
+.project[data-ratio="square"] .placeholder { aspect-ratio: 6 / 5; }
+.project[data-ratio="wide"] .placeholder { aspect-ratio: 4 / 3; }
+
 .project__media {
   display: block;
   width: 100%;
@@ -642,8 +741,26 @@ html.has-about .sidebar {
   transition: transform 0.5s var(--ease), filter 0.4s var(--ease);
 }
 
+.project:hover .placeholder {
+  background: var(--color-placeholder-hover);
+}
+
 .project:hover .project__media {
   filter: brightness(0.96);
+}
+
+.project--soon:hover .placeholder {
+  background: var(--color-placeholder);
+}
+
+/* Hovering any card dims its siblings to draw focus to it,
+   instead of the hovered card itself scaling up. */
+.work-grid:has(.project:hover) .project {
+  opacity: 0.4;
+}
+
+.work-grid:has(.project:hover) .project:hover {
+  opacity: 1;
 }
 
 /* =========================================================
@@ -1225,7 +1342,7 @@ html.has-about .sidebar {
 
 .project-pager__link {
   display: inline-flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 10px;
   transition: color 0.25s var(--ease);
 }
@@ -1845,114 +1962,37 @@ html.has-about .sidebar {
 }
 
 /* =========================================================
-   BACK TO TOP (small screens only — see 860px media query)
+   BACK TO TOP
    ========================================================= */
 .back-to-top {
-  display: none;
   position: fixed;
-  right: 16px;
-  bottom: 28px;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
+  bottom: 32px;
+  left: 50%;
+  transform: translate(-50%, 12px);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 50%;
   color: var(--color-body-soft);
-  font-size: 14px;
-  line-height: 1;
-  box-shadow: 0 4px 14px rgba(46, 65, 80, 0.1);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(46, 65, 80, 0.08);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
   z-index: 90;
 }
 
 .back-to-top.is-visible {
-  opacity: 0.65;
-  transform: translateY(0);
+  opacity: 1;
+  transform: translate(-50%, 0);
   pointer-events: auto;
 }
 
-.back-to-top:hover,
-.back-to-top:focus-visible {
-  opacity: 1;
+.back-to-top:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
-}
-
-@media (max-width: 860px) {
-  .back-to-top {
-    display: flex;
-  }
-}
-
-/* The fun page's interactive drag/zoom canvas is still active in
-   this range (it only becomes a normal scrolling list at 768px),
-   so "scroll to top" doesn't apply there yet. */
-@media (min-width: 769px) and (max-width: 860px) {
-  body.is-fun .back-to-top {
-    display: none;
-  }
-}
-
-/* =========================================================
-   SITE FOOTER — small screens only. Desktop has no footer by
-   design (contact info lives in .header-links); below 1024px
-   that block hides, so this carries the same contact links
-   as a normal footer at the end of the page content instead
-   of stuffing them into the hamburger drawer.
-   ========================================================= */
-.site-footer {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .site-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 40px var(--gutter) 56px;
-  }
-
-  .site-footer__contact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .site-footer__link {
-
-    font-size: 13px;
-    color: var(--color-body);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    transition: color 0.25s var(--ease);
-  }
-
-  .site-footer__link:hover,
-  .site-footer__link:active {
-    color: var(--color-accent);
-  }
-
-  .site-footer__credit {
-    font-size: 12px;
-    color: var(--color-body-soft);
-  }
-}
-
-/* Same reasoning as .back-to-top above: the fun page's drag
-   canvas is still active in this range, so its footer (which
-   sits after the canvas in document order) isn't reachable —
-   suppress it until the page becomes a normal scrolling list. */
-@media (min-width: 769px) and (max-width: 1024px) {
-  body.is-fun .site-footer {
-    display: none;
-  }
 }
 
 /* =========================================================
@@ -2033,9 +2073,8 @@ html.has-about .sidebar {
    the desktop layout, each query below overrides for
    narrower screens):
 
-     1150px  → project pages: sidebar shrinks, 3-col grids → 2
-     1080px  → index grid drops from 6 columns to 2
      1024px  → tablet and below: hamburger nav takes over
+     1080px  → work grid drops from two columns to one
      860px   → sidebar stacks above the work/about content
      768px   → fun page canvas becomes a static scrolling list
      640px   → compact header + spacing for phones
@@ -2043,24 +2082,6 @@ html.has-about .sidebar {
 @media (pointer: coarse), (hover: none) {
   .cursor-ball {
     display: none !important;
-  }
-}
-
-/* ---------------------------------------------------------
-   1150px — project pages: the fixed 400px sidebar next to
-   project-content leaves too little room in this range
-   (tablets like iPad/Surface land here before the 860px
-   stack kicks in), so the sidebar narrows and the 3-column
-   stat/icon card grids drop to 2 columns.
---------------------------------------------------------- */
-@media (max-width: 1150px) {
-  :root {
-    --sidebar-width: 280px;
-  }
-
-  .project-stat-cards,
-  .project-icon-cards {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2076,12 +2097,8 @@ html.has-about .sidebar {
   }
 
   .main-nav,
+  .say-hello,
   .header-links {
-    display: none;
-  }
-
-  /* The footer carries the credit line on small screens now. */
-  .credit {
     display: none;
   }
 
@@ -2210,11 +2227,56 @@ html.has-about .sidebar {
 }
 
 /* ---------------------------------------------------------
+   1080px — work grid: two columns → one
+--------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .work-grid {
+    flex-direction: column;
+    gap: 0;
+    max-width: 640px;
+  }
+
+  /* Removes the two column boxes visually (DOM stays put for
+     desktop) so the projects become direct flex children of
+     .work-grid and can be reordered below. */
+  .work-col {
+    display: contents;
+  }
+
+  .project {
+    margin-bottom: 48px;
+  }
+
+  .project:last-child {
+    margin-bottom: 0;
+  }
+
+  .work-col:not(:last-child) .project:last-child {
+    margin-bottom: 48px;
+  }
+
+  /* Stacked reading order: Ting, Fluid, Blindspot, Authorship,
+     Alice, Azucrinação, Maisedu, All in a Chain. */
+  .project[data-project="ting"]        { order: 1; }
+  .project[data-project="fluid"]       { order: 2; }
+  .project[data-project="blindspot"]   { order: 3; }
+  .project[data-project="authorship"]  { order: 4; }
+  .project[data-project="alice"]       { order: 5; }
+  .project[data-project="azucrinacao"] { order: 6; }
+  .project[data-project="maisedu"]     { order: 7; }
+  .project[data-project="chain"]       { order: 8; }
+}
+
+/* ---------------------------------------------------------
    860px — sidebar stacks above content
 --------------------------------------------------------- */
 @media (max-width: 860px) {
   .layout {
     flex-direction: column;
+  }
+
+  .work-grid {
+    max-width: none;
   }
 
   .sidebar {
@@ -2235,44 +2297,8 @@ html.has-about .sidebar {
     flex: 1 1 auto;
     width: 100%;
     padding-right: 0;
-    padding-bottom: 0;
-    margin-bottom: 32px;
-  }
-
-  /* Relies on justify-content: space-between across a tall,
-     viewport-height sidebar to land pinned at the bottom — once
-     the sidebar stacks above the content and loses that height,
-     there's nothing to push it anywhere, so it ends up sitting
-     right under the title instead. Hidden here; scrolling back
-     up is trivial on mobile without it. */
-  .project-nav__top {
-    display: none;
-  }
-
-  /* A vertical list of 8 jump-links doesn't work stacked above
-     the content on mobile — it pushes the hero image way down
-     and reads like a wall of text. A compact, horizontally
-     scrollable strip keeps the same jump-to-section function
-     without dominating the screen. */
-  .project-nav__sections {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 20px;
-    margin-top: 16px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .project-nav__sections::-webkit-scrollbar {
-    display: none;
-  }
-
-  .project-nav__section-link {
-    flex: 0 0 auto;
-    padding: 4px 0;
-    white-space: nowrap;
+    padding-bottom: 48px;
+    margin-bottom: 48px;
   }
 
   html.has-about .sidebar {
@@ -2294,6 +2320,11 @@ html.has-about .sidebar {
     width: 100%;
     height: 60vh;
     min-height: 60vh;
+  }
+
+  .credit {
+    position: static;
+    margin-top: 48px;
   }
 
   .project-stat-cards,
@@ -2401,6 +2432,16 @@ html.has-about .sidebar {
   .project-gallery--cols-3,
   .project-gallery--cols-4 {
     grid-template-columns: 1fr;
+  }
+
+  .project-pager {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-pager__link--next {
+    margin-left: 0;
+    text-align: left;
   }
 }
 
@@ -2598,11 +2639,10 @@ body.is-fun {
     bottom: auto;
     height: auto;
     overflow: visible;
-    padding: 32px var(--gutter) 96px;
+    padding: 24px 20px 80px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0;
+    gap: 40px;
     cursor: default;
     perspective: none;
     touch-action: auto;
@@ -2611,15 +2651,9 @@ body.is-fun {
   .fun-card {
     position: relative !important;
     width: 100% !important;
-    max-width: 480px;
     transform: none !important;
     opacity: 1 !important;
     perspective: none;
-    margin-bottom: 56px;
-  }
-
-  .fun-card:last-child {
-    margin-bottom: 0;
   }
 
   .fun-card-inner {
@@ -2628,7 +2662,7 @@ body.is-fun {
 
   .fun-card-fig {
     width: 100%;
-    margin-bottom: 14px;
+    max-height: 280px;
   }
 
   .fun-hint {
@@ -2797,7 +2831,7 @@ body.lightbox-open {
 
 @media (max-width: 768px) {
   .lightbox {
-    padding: 24px 52px;
+    padding: 24px;
   }
 
   .lightbox__close {
@@ -2806,16 +2840,16 @@ body.lightbox-open {
   }
 
   .lightbox__nav {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     font-size: 20px;
   }
 
   .lightbox__prev {
-    left: 6px;
+    left: 4px;
   }
 
   .lightbox__next {
-    right: 6px;
+    right: 4px;
   }
 }

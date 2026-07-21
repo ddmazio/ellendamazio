@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Runs synchronously, before anything paints, so a repeat visit
+       this session never flashes the preloader. -->
+  <script>
+    (function () {
+      try {
+        if (window.sessionStorage.getItem("ellendamazio-visited")) {
+          document.documentElement.classList.add("preload-skip");
+        }
+      } catch (err) { /* sessionStorage unavailable — preloader shows every time */ }
+    })();
+  </script>
+
+
   <!-- ============ PRIMARY SEO ============ -->
   <title>Ellen Damazio</title>
   <meta name="title" content="Ellen Damazio — Multidisciplinary Product &amp; Interaction Designer">
@@ -33,8 +46,8 @@
   <meta name="twitter:image" content="https://www.ellendamazio.com/images/og-cover.jpg">
 
   <!-- ============ FAVICON ============ -->
-  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
-  <link rel="alternate icon" href="img/icon.svg">
+  <link rel="icon" type="image/svg+xml" href="img/logo-laranja1.svg">
+  <link rel="alternate icon" href="img/logo-laranja1.svg">
 
   <!-- ============ PERFORMANCE ============ -->
   <link rel="preload" href="fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -69,6 +82,11 @@
 </head>
 <body>
 
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <img src="img/logo-laranja1.svg" alt="" class="preloader__logo">
+  </div>
+  <noscript><style>.preloader{display:none!important;}</style></noscript>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
@@ -92,7 +110,9 @@
       </div>
     </div>
 
-    <button type="button" class="logo-dot" aria-label="Toggle dark mode" aria-pressed="false"></button>
+    <button type="button" class="logo-dot" aria-label="Toggle dark mode" aria-pressed="false">
+      <img src="img/logo-laranja4.svg" alt="" class="logo-dot__icon">
+    </button>
 
     <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span class="nav-toggle__bar"></span>
@@ -301,27 +321,15 @@
         </div>
       </section>
 
+      <p class="credit">© ellen damazio, 2026 — designed &amp; coded</p>
 
     </div>
-  <p class="credit">© ellen damazio, 2026 — designed &amp; coded</p>
-
   </main>
-
-  <footer class="site-footer">
-    <div class="site-footer__contact">
-      <a href="mailto:ellensdamazio@gmail.com" class="site-footer__link">ellensdamazio@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ellendamazio" target="_blank" rel="noopener" class="site-footer__link">LinkedIn</a>
-      <a href="cv.pdf" target="_blank" rel="noopener" class="site-footer__link">CV</a>
-    </div>
-    <p class="site-footer__credit">© ellen damazio, 2026 — designed &amp; coded</p>
-  </footer>
 
   <div class="cursor-ball" aria-hidden="true">
     <span class="cursor-dot"></span>
     <span class="cursor-label"></span>
   </div>
-
-  <button type="button" class="back-to-top" aria-label="Back to top" data-back-to-top>&#8593;</button>
 
   <script src="javascript/portfolio.js" defer></script>
 </body>

@@ -2,6 +2,40 @@
   "use strict";
 
   /* ---------------------------------------------------------
+     Preloader — shown once per browser session, on whichever
+     page has a #preloader element (currently just index.html).
+     The "already visited" flag is checked synchronously in the
+     page's <head> (see inline script) to avoid a flash; here we
+     just handle the fade-out once the page has actually loaded.
+  --------------------------------------------------------- */
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    const PRELOAD_KEY = "ellendamazio-visited";
+    const MIN_VISIBLE_MS = 1200;
+    const shownAt = Date.now();
+
+    const hidePreloader = () => {
+      const elapsed = Date.now() - shownAt;
+      const wait = Math.max(0, MIN_VISIBLE_MS - elapsed);
+      window.setTimeout(() => {
+        preloader.classList.add("is-hidden");
+        try {
+          window.sessionStorage.setItem(PRELOAD_KEY, "1");
+        } catch (err) {
+          /* sessionStorage unavailable — preloader will just show again */
+        }
+        window.setTimeout(() => preloader.remove(), 650);
+      }, wait);
+    };
+
+    if (document.readyState === "complete") {
+      hidePreloader();
+    } else {
+      window.addEventListener("load", hidePreloader);
+    }
+  }
+
+  /* ---------------------------------------------------------
      Dark mode — toggled by the logo-dot button in the header.
      Persists the choice so it sticks across page loads.
   --------------------------------------------------------- */
@@ -10,7 +44,15 @@
 
   const applyTheme = (isDark) => {
     document.body.classList.toggle("is-dark", isDark);
-    logoDots.forEach((dot) => dot.setAttribute("aria-pressed", String(isDark)));
+    logoDots.forEach((dot) => {
+      dot.setAttribute("aria-pressed", String(isDark));
+      const icon = dot.querySelector(".logo-dot__icon");
+      if (icon) {
+        // Icon shown is the ACTION the click performs: moon-ish mark to
+        // switch to dark, orange mark to switch back to light.
+        icon.src = isDark ? "img/logo-laranja1.svg" : "img/logo-laranja4.svg";
+      }
+    });
   };
 
   let storedTheme = null;
@@ -263,26 +305,9 @@
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    const scrollSectionNavToLink = (link) => {
-      if (!window.matchMedia("(max-width: 860px)").matches) return;
-      const container = link.closest(".project-nav__sections");
-      if (!container) return;
-      // Scroll only the horizontal strip itself (container.scrollTo),
-      // never the page — this must not touch window scroll position,
-      // since the nav isn't sticky on mobile and may be off-screen by
-      // the time a later section becomes active.
-      const targetLeft = link.offsetLeft - (container.clientWidth - link.offsetWidth) / 2;
-      container.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-      });
-    };
-
     const setActiveLink = (id) => {
       sectionLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === `#${id}`;
-        link.classList.toggle("is-active", isActive);
-        if (isActive) scrollSectionNavToLink(link);
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
       });
     };
 
@@ -554,22 +579,23 @@
   if (funViewport && funCards.length) {
     document.documentElement.classList.add("has-fun");
 
-    /* ---------- Lightbox: click a card to view it full-screen,
-       step through every card with the arrows / arrow keys ---------- */
+    /* ---------- Lightbox: click a card to view it full-screen ---------- */
     const lightbox = document.getElementById("fun-lightbox");
     const lightboxMedia = lightbox ? lightbox.querySelector(".lightbox__media") : null;
     const lightboxTitle = lightbox ? lightbox.querySelector(".lightbox__title") : null;
     const lightboxDesc = lightbox ? lightbox.querySelector(".lightbox__desc") : null;
     const lightboxClose = lightbox ? lightbox.querySelector(".lightbox__close") : null;
-    const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox__prev") : null;
-    const lightboxNext = lightbox ? lightbox.querySelector(".lightbox__next") : null;
-    const lightboxCounter = lightbox ? lightbox.querySelector(".lightbox__counter") : null;
 
-    let funLightboxIndex = 0;
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (lightboxMedia) lightboxMedia.innerHTML = "";
+    };
 
-    const renderFunLightbox = (index) => {
-      if (!lightbox || !lightboxMedia || !funCards.length) return;
-      const card = funCards[index];
+    const openLightbox = (card) => {
+      if (!lightbox || !lightboxMedia) return;
       const sourceImg = card.querySelector("img");
       const sourceVideo = card.querySelector("video");
       const title = card.querySelector(".fun-card-title");
@@ -597,52 +623,22 @@
 
       if (lightboxTitle) lightboxTitle.textContent = title ? title.textContent : "";
       if (lightboxDesc) lightboxDesc.textContent = desc ? desc.textContent : "";
-      if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${funCards.length}`;
-    };
-
-    const closeLightbox = () => {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("lightbox-open");
-      if (lightboxMedia) lightboxMedia.innerHTML = "";
-    };
-
-    const openLightbox = (index) => {
-      if (!lightbox || !lightboxMedia) return;
-      funLightboxIndex = index;
-      renderFunLightbox(funLightboxIndex);
 
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
     };
 
-    const showNextFunCard = () => {
-      if (!funCards.length) return;
-      funLightboxIndex = (funLightboxIndex + 1) % funCards.length;
-      renderFunLightbox(funLightboxIndex);
-    };
-
-    const showPrevFunCard = () => {
-      if (!funCards.length) return;
-      funLightboxIndex = (funLightboxIndex - 1 + funCards.length) % funCards.length;
-      renderFunLightbox(funLightboxIndex);
-    };
-
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightboxNext) lightboxNext.addEventListener("click", showNextFunCard);
-    if (lightboxPrev) lightboxPrev.addEventListener("click", showPrevFunCard);
     if (lightbox) {
       lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) closeLightbox();
       });
     }
     document.addEventListener("keydown", (event) => {
-      if (!lightbox || !lightbox.classList.contains("is-open")) return;
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowRight") showNextFunCard();
-      if (event.key === "ArrowLeft") showPrevFunCard();
+      if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
     });
 
     // On the desktop canvas, a "click" can also be the tail end of a
@@ -658,9 +654,7 @@
       if (event.target.closest("a")) return; // let caption links navigate normally
       const card = event.target.closest(".fun-card");
       if (!card) return;
-      const index = funCards.indexOf(card);
-      if (index === -1) return;
-      openLightbox(index);
+      openLightbox(card);
     });
 
     if (window.matchMedia("(max-width: 768px)").matches) {
@@ -1195,58 +1189,5 @@
       if (event.key === "ArrowRight") showNextImage();
       if (event.key === "ArrowLeft") showPrevImage();
     });
-  }
-
-  /* ---------------------------------------------------------
-     Back to top (small screens) — fades in once the page has
-     scrolled a bit, scrolls smoothly back to the top on click.
-  --------------------------------------------------------- */
-  const backToTop = document.querySelector(".back-to-top");
-
-  if (backToTop) {
-    const toggleBackToTop = () => {
-      backToTop.classList.toggle("is-visible", window.scrollY > 480);
-    };
-
-    toggleBackToTop();
-    window.addEventListener("scroll", toggleBackToTop, { passive: true });
-
-    const scrollToTop = () => {
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
-    };
-
-    // A scroll/swipe gesture that happens to start on this fixed
-    // button was being misread as a tap on some mobile browsers,
-    // snapping the page back to top mid-scroll. Track the touch's
-    // own movement and only treat it as an activation if it barely
-    // moved — a real drag/scroll starting here now does nothing.
-    let touchStart = null;
-
-    backToTop.addEventListener(
-      "touchstart",
-      (event) => {
-        const touch = event.touches[0];
-        touchStart = { x: touch.clientX, y: touch.clientY };
-      },
-      { passive: true }
-    );
-
-    backToTop.addEventListener("touchend", (event) => {
-      if (!touchStart) return;
-      const touch = event.changedTouches[0];
-      const movedX = Math.abs(touch.clientX - touchStart.x);
-      const movedY = Math.abs(touch.clientY - touchStart.y);
-      touchStart = null;
-      if (movedX < 10 && movedY < 10) {
-        event.preventDefault();
-        scrollToTop();
-      }
-    });
-
-    // Covers mouse clicks and keyboard (Enter/Space) activation. The
-    // touchend handler above calls preventDefault() on a real tap, so
-    // no duplicate synthetic click follows it on touch devices.
-    backToTop.addEventListener("click", scrollToTop);
   }
 })();
