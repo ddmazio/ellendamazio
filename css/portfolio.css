@@ -337,35 +337,6 @@ button {
   color: var(--color-accent);
 }
 
-.say-hello {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  color: var(--color-body);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  transition: color 0.25s var(--ease);
-}
-
-.say-hello:hover,
-.say-hello:active {
-  color: var(--color-accent);
-}
-
-.say-hello__arrow {
-  display: inline-block;
-  font-size: 13px;
-  line-height: 1;
-  transition: transform 0.25s var(--ease);
-}
-
-.say-hello:hover .say-hello__arrow,
-.say-hello:active .say-hello__arrow {
-  transform: translate(2px, -2px);
-}
-
 /* ---------------------------------------------------------
    Header links — Contact / LinkedIn+CV blocks
    (new shared header, used across every page)
@@ -581,51 +552,6 @@ body.nav-open .nav-toggle__bar:nth-child(3) {
   }
 }
 
-.find-me {
-  margin-top: 8px;
-}
-
-.find-me__label {
-  font-size: 13px;
-  color: var(--color-body-soft);
-  margin-bottom: 10px;
-}
-
-.find-me__list {
-  display: flex;
-  flex-direction: column;
-}
-
-.find-me__list a {
-  font-size: 13px;
-  color: var(--color-heading);
-  display: inline-block;
-  position: relative;
-  width: fit-content;
-  transition: color 0.25s var(--ease);
-}
-
-.find-me__list a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: -1px;
-  height: 1px;
-  background: var(--color-accent);
-  transition: right 0.3s var(--ease);
-}
-
-.find-me__list a:hover,
-.find-me__list a:active {
-  color: var(--color-accent);
-}
-
-.find-me__list a:hover::after,
-.find-me__list a:active::after {
-  right: 0;
-}
-
 .credit {
   position: fixed;
   left: var(--gutter);
@@ -711,19 +637,6 @@ html.has-about .sidebar {
    ========================================================= */
 .work {
   flex: 1 1 auto;
-  min-width: 0;
-}
-
-.work-grid {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.work-col {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -1258,75 +1171,6 @@ html.has-about .sidebar {
   height: auto;
   max-height: 640px;
   margin: 0 auto;
-}
-
-.project-video {
-  position: relative;
-  display: block;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.project-video__thumb {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: filter 0.3s var(--ease);
-}
-
-.project-video__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
-}
-
-.project-video__play svg {
-  width: 22px;
-  height: 22px;
-  margin-left: 3px;
-  fill: var(--color-accent);
-}
-
-.project-video:hover .project-video__thumb {
-  filter: brightness(0.9);
-}
-
-.project-video:hover .project-video__play {
-  transform: translate(-50%, -50%) scale(1.08);
-  background: #fff;
-}
-
-.project-video-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 0;
-}
-
-.project-video__cta {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-heading);
-  text-align: center;
-}
-
-.project-video__cta a {
-  color: var(--color-accent);
-  transition: opacity 0.25s var(--ease);
-}
-
-.project-video__cta a:hover,
-.project-video__cta a:active {
-  opacity: 0.7;
 }
 
 .project-video-card__caption {
@@ -1944,6 +1788,38 @@ html.has-about .sidebar {
   color: var(--color-body-soft);
 }
 
+.mobile-back-to-top {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .mobile-back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: fixed;
+    right: 16px;
+    bottom: 20px;
+    z-index: 40;
+    padding: 10px 16px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-body-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color 0.25s var(--ease);
+  }
+
+  .mobile-back-to-top:hover,
+  .mobile-back-to-top:active {
+    color: var(--color-accent);
+  }
+}
+
 /* ---- reveal on scroll (project-step, cards, callouts, charts...) ---- */
 .reveal {
   opacity: 0;
@@ -1998,37 +1874,6 @@ html.has-about .sidebar {
   font-style: italic;
   color: var(--color-body-soft);
   margin: 32px 0 0;
-}
-
-/* ---- optional one-line tagline under the sidebar title ---- */
-.project-nav__tagline {
-  font-size: 13px;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--color-body-soft);
-  margin-top: -12px;
-}
-
-/* ---- small "Exhibited at" badge (label + museum logo) ---- */
-.project-nav__badge {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.project-nav__badge-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-body-soft);
-}
-
-.project-nav__badge-logo {
-  display: block;
-  height: 32px;
-  width: auto;
 }
 
 /* ---- pull quotes (research interviews, etc.) ---- */
@@ -2121,49 +1966,6 @@ html.has-about .sidebar {
   color: var(--color-body-soft);
   max-width: 46ch;
   text-wrap: pretty;
-}
-
-/* =========================================================
-   BACK TO TOP
-   ========================================================= */
-.back-to-top {
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
-  transform: translate(-50%, 12px);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  color: var(--color-body-soft);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(46, 65, 80, 0.08);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
-  z-index: 90;
-}
-
-.back-to-top.is-visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
-}
-
-.back-to-top:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-/* The fun page's interactive drag/zoom canvas is still active in
-   this range (it only becomes a normal scrolling list at 768px),
-   so "scroll to top" doesn't apply there yet. */
-@media (min-width: 769px) and (max-width: 860px) {
-  body.is-fun .back-to-top {
-    display: none;
-  }
 }
 
 /* =========================================================
@@ -2345,7 +2147,6 @@ html.has-about .sidebar {
   }
 
   .main-nav,
-  .say-hello,
   .header-links {
     display: none;
   }
@@ -2483,29 +2284,12 @@ html.has-about .sidebar {
    1080px — work grid: two columns → one
 --------------------------------------------------------- */
 @media (max-width: 1080px) {
-  .work-grid {
-    flex-direction: column;
-    gap: 0;
-    max-width: 640px;
-  }
-
-  /* Removes the two column boxes visually (DOM stays put for
-     desktop) so the projects become direct flex children of
-     .work-grid and can be reordered below. */
-  .work-col {
-    display: contents;
-  }
-
   .project {
     margin-bottom: 48px;
   }
 
   .project:last-child {
     margin-bottom: 0;
-  }
-
-  .work-col:not(:last-child) .project:last-child {
-    margin-bottom: 48px;
   }
 
   /* Stacked reading order: Ting, Fluid, Blindspot, Authorship,
@@ -2527,10 +2311,6 @@ html.has-about .sidebar {
 @media (max-width: 860px) {
   .layout {
     flex-direction: column;
-  }
-
-  .work-grid {
-    max-width: none;
   }
 
   .project-meta {
@@ -2560,14 +2340,21 @@ html.has-about .sidebar {
     margin-bottom: 32px;
   }
 
-  /* Relies on justify-content: space-between across a tall,
-     viewport-height sidebar to land pinned at the bottom — once
-     the sidebar stacks above the content and loses that height,
-     there's nothing to push it anywhere, so it ends up sitting
-     right under the title instead. Hidden here; scrolling back
-     up is trivial on mobile without it. */
+  /* Turned into a fixed floating button on mobile — as a plain
+     inline link at the top of the sidebar, it scrolled out of
+     view immediately and was never reachable once you'd
+     actually scrolled down far enough to need it. */
   .project-nav__top {
-    display: none;
+    position: fixed;
+    right: 16px;
+    bottom: 20px;
+    z-index: 40;
+    margin-top: 0;
+    padding: 10px 16px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
   }
 
   /* A vertical list of 8 jump-links doesn't work stacked above
@@ -2663,6 +2450,13 @@ html.has-about .sidebar {
 
   .index-layout {
     padding: 32px 20px 96px;
+  }
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    row-gap: 24px;
   }
 
   .work-grid-masonry {
