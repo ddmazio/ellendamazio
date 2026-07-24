@@ -2509,15 +2509,16 @@ html.has-about .sidebar {
   }
 
   /* Stacked reading order: Ting, Fluid, Blindspot, Authorship,
-     Alice, Azucrinação, Maisedu, All in a Chain. */
+     Alice, Azucrinação, Card, Maisedu, All in a Chain. */
   .project[data-project="ting"]        { order: 1; }
   .project[data-project="fluid"]       { order: 2; }
   .project[data-project="blindspot"]   { order: 3; }
   .project[data-project="authorship"]  { order: 4; }
   .project[data-project="alice"]       { order: 5; }
   .project[data-project="azucrinacao"] { order: 6; }
-  .project[data-project="maisedu"]     { order: 7; }
-  .project[data-project="chain"]       { order: 8; }
+  .project[data-project="card"]        { order: 7; }
+  .project[data-project="maisedu"]     { order: 8; }
+  .project[data-project="chain"]       { order: 9; }
 }
 
 /* ---------------------------------------------------------
