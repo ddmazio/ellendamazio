@@ -87,6 +87,50 @@
 }
 
 /* =========================================================
+   PRELOADER — shown once per session on first entry via index.html
+   ========================================================= */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease), visibility 0.6s var(--ease);
+}
+
+.preloader__logo {
+  width: 56px;
+  height: auto;
+  animation: preloader-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.86); opacity: 0.55; }
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* If this session already saw the preloader, skip it entirely — no flash. */
+html.preload-skip .preloader {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader__logo {
+    animation: none;
+  }
+}
+
+/* =========================================================
    DARK MODE — toggled by the logo-dot button in the header.
    Every color in the site is a var() against these tokens,
    so redefining them here is enough to flip the whole page.
@@ -293,6 +337,35 @@ button {
   color: var(--color-accent);
 }
 
+.say-hello {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-body);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color 0.25s var(--ease);
+}
+
+.say-hello:hover,
+.say-hello:active {
+  color: var(--color-accent);
+}
+
+.say-hello__arrow {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 0.25s var(--ease);
+}
+
+.say-hello:hover .say-hello__arrow,
+.say-hello:active .say-hello__arrow {
+  transform: translate(2px, -2px);
+}
+
 /* ---------------------------------------------------------
    Header links — Contact / LinkedIn+CV blocks
    (new shared header, used across every page)
@@ -358,27 +431,29 @@ a.header-links__label:active {
   grid-row: 1;
   justify-self: end;
   margin-top: 1px;
-  display: inline-block;
-  width: 14px;
-  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   padding: 0;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-accent);
+  border: none;
   background: transparent;
   appearance: none;
   -webkit-appearance: none;
   flex-shrink: 0;
-  transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+  transition: transform 0.2s var(--ease);
 }
 
 .logo-dot:hover {
   transform: scale(1.15);
 }
 
-.logo-dot--filled,
-body.is-dark .logo-dot {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+.logo-dot__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 /* ---------------------------------------------------------
@@ -636,6 +711,19 @@ html.has-about .sidebar {
    ========================================================= */
 .work {
   flex: 1 1 auto;
+  min-width: 0;
+}
+
+.work-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.work-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -2035,48 +2123,37 @@ html.has-about .sidebar {
 }
 
 /* =========================================================
-   BACK TO TOP (small screens only — see 860px media query)
+   BACK TO TOP
    ========================================================= */
 .back-to-top {
-  display: none;
   position: fixed;
-  right: 16px;
-  bottom: 28px;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
+  bottom: 32px;
+  left: 50%;
+  transform: translate(-50%, 12px);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 50%;
   color: var(--color-body-soft);
-  font-size: 14px;
-  line-height: 1;
-  box-shadow: 0 4px 14px rgba(46, 65, 80, 0.1);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(46, 65, 80, 0.08);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
   z-index: 90;
 }
 
 .back-to-top.is-visible {
-  opacity: 0.65;
-  transform: translateY(0);
+  opacity: 1;
+  transform: translate(-50%, 0);
   pointer-events: auto;
 }
 
-.back-to-top:hover,
-.back-to-top:focus-visible {
-  opacity: 1;
+.back-to-top:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
-}
-
-@media (max-width: 860px) {
-  .back-to-top {
-    display: flex;
-  }
 }
 
 /* The fun page's interactive drag/zoom canvas is still active in
@@ -2267,6 +2344,7 @@ html.has-about .sidebar {
   }
 
   .main-nav,
+  .say-hello,
   .header-links {
     display: none;
   }
@@ -2401,11 +2479,56 @@ html.has-about .sidebar {
 }
 
 /* ---------------------------------------------------------
+   1080px — work grid: two columns → one
+--------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .work-grid {
+    flex-direction: column;
+    gap: 0;
+    max-width: 640px;
+  }
+
+  /* Removes the two column boxes visually (DOM stays put for
+     desktop) so the projects become direct flex children of
+     .work-grid and can be reordered below. */
+  .work-col {
+    display: contents;
+  }
+
+  .project {
+    margin-bottom: 48px;
+  }
+
+  .project:last-child {
+    margin-bottom: 0;
+  }
+
+  .work-col:not(:last-child) .project:last-child {
+    margin-bottom: 48px;
+  }
+
+  /* Stacked reading order: Ting, Fluid, Blindspot, Authorship,
+     Alice, Azucrinação, Maisedu, All in a Chain. */
+  .project[data-project="ting"]        { order: 1; }
+  .project[data-project="fluid"]       { order: 2; }
+  .project[data-project="blindspot"]   { order: 3; }
+  .project[data-project="authorship"]  { order: 4; }
+  .project[data-project="alice"]       { order: 5; }
+  .project[data-project="azucrinacao"] { order: 6; }
+  .project[data-project="maisedu"]     { order: 7; }
+  .project[data-project="chain"]       { order: 8; }
+}
+
+/* ---------------------------------------------------------
    860px — sidebar stacks above content
 --------------------------------------------------------- */
 @media (max-width: 860px) {
   .layout {
     flex-direction: column;
+  }
+
+  .work-grid {
+    max-width: none;
   }
 
   .project-meta {
