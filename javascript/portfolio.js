@@ -364,7 +364,9 @@
   const barTargets = document.querySelectorAll("[data-value]");
 
   const animateCount = (el) => {
-    const target = parseFloat(el.dataset.count);
+    const raw = el.dataset.count;
+    const target = parseFloat(raw);
+    const decimals = raw.includes(".") ? raw.split(".")[1].length : 0;
     const suffix = el.dataset.suffix || "";
     const duration = 900;
     const start = performance.now();
@@ -372,7 +374,7 @@
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = `${Math.round(target * eased)}${suffix}`;
+      el.textContent = `${(target * eased).toFixed(decimals)}${suffix}`;
       if (progress < 1) requestAnimationFrame(step);
     };
 
