@@ -108,16 +108,18 @@
         <div class="project-nav__inner">
           <a href="index.html" class="project-nav__back"><span class="project-nav__icon" aria-hidden="true">&#8592;</span>Back</a>
           <h1 class="project-nav__title">FLUID.ai</h1>
-          <p class="project-nav__tagline">When words aren&rsquo;t available, the body still speaks.</p>
 
           <nav class="project-nav__sections" aria-label="Sections">
             <a href="#overview" class="project-nav__section-link">Overview</a>
+            <a href="#brief" class="project-nav__section-link">The Brief</a>
             <a href="#problem" class="project-nav__section-link">Problem</a>
             <a href="#research" class="project-nav__section-link">Research</a>
+            <a href="#ideation" class="project-nav__section-link">Ideation &amp; Scope</a>
             <a href="#principles" class="project-nav__section-link">Design Principles</a>
             <a href="#system" class="project-nav__section-link">The System</a>
-            <a href="#colors" class="project-nav__section-link">Emotional Colours</a>
+            <a href="#colors" class="project-nav__section-link">Emotional Colour System</a>
             <a href="#process" class="project-nav__section-link">Process</a>
+            <a href="#outcomes" class="project-nav__section-link">Key Outcomes</a>
             <a href="#reflections" class="project-nav__section-link">Reflections</a>
           </nav>
         </div>
@@ -147,13 +149,17 @@
           </div>
           <div class="project-meta__item">
             <p class="project-meta__label">Tools</p>
-            <p class="project-meta__value">Figma<br>Ethnographic Research<br>Affinity Mapping<br>Speculative Design</p>
+            <p class="project-meta__value">Figma</p>
+          </div>
+          <div class="project-meta__item">
+            <p class="project-meta__label">Methods</p>
+            <p class="project-meta__value">Ethnographic Research<br>Affinity Mapping<br>Speculative Design</p>
           </div>
         </div>
 
         <!-- ============ OVERVIEW ============ -->
         <section id="overview" class="project-section">
-          <h2 class="project-overview__title">Overview</h2>
+          <h2 class="project-overview__title">When words aren&rsquo;t available, the body still speaks.</h2>
 
           <p>FLUID.ai is a speculative, academic concept &mdash; not a market product &mdash; built to explore how affective computing might mediate communication in caregiving relationships, rather than to prescribe a deployable solution. It is an affective computing system designed to bridge the communication gap between non-verbal autistic individuals and their caregivers. Grounded in Picard&rsquo;s (1997) definition of affective computing as computation that relates to, arises from, or deliberately influences emotions, the project departs from a central premise: internal emotional states often remain invisible. As Barrett (2017) argues, emotions have no universal expressions. They are constructed in highly contextual ways.</p>
 
@@ -164,6 +170,20 @@
           <img src="projects/fluid/menino2.png" alt="Boy sitting on bed with FLUID.ai lamp glowing beside him" class="project-full-image" loading="lazy">
         </section>
 
+        <!-- ============ THE BRIEF ============ -->
+        <section id="brief" class="project-section">
+          <h2 class="project-overview__title">The Brief</h2>
+
+          <p>FLUID.ai was developed for Empa[s]thetic[s] AI: Communicate the Invisible Mind, the Interaction Studies and Practices brief at FBAUL, led by Professor <a href="https://www.inesrodolfo.com/" target="_blank" rel="noopener noreferrer">In&ecirc;s Rodolfo</a>. The brief posed one central question: can an AI agent make the invisible constructs of the mind, emotions, sensations, or ways of thinking, visible or perceptible, and in doing so expand social, human, or ethical awareness?</p>
+
+          <p>It also came with a specific formal constraint: the AI agent&rsquo;s representation could not be a literal humanoid or a conversational chat interface. It had to be abstract, only lightly anthropomorphic at most, or inspired by more-than-human, biotic entities, living organisms or elements of an ecosystem, such as plants, water, or rain. The work was individual, and had to be documented as a UX/UI case study following the Design Thinking process across three phases: research and ethnographic observation, definition and ideation, and prototyping.</p>
+
+          <div class="project-callout reveal">
+            <span class="project-callout__label">The constraint that shaped everything</span>
+            <p>No humanoid face, no chat window. The brief asked for something abstract or biotic instead, which is exactly why a lava lamp, an organic, living-feeling form with no face and no voice interface, was never a stretch. It was closer to what the brief was already asking for than a screen ever could have been.</p>
+          </div>
+        </section>
+
         <!-- ============ THE PROBLEM ============ -->
         <section id="problem" class="project-section">
           <h2 class="project-overview__title">The Problem</h2>
@@ -171,6 +191,24 @@
           <p>Non-verbal autistic individuals often express emotions through atypical signals: subtle movements, changes in posture, sounds, or shifts in breathing rhythm that are difficult to read, even for those who know them intimately. For caregivers, recognising distress, pain, or anxiety becomes a process of constant interpretation, carried out under pressure, with little external support.</p>
 
           <p>This asymmetry creates a cycle of frustration on both sides: the person who cannot express themselves clearly, and the caregiver who cannot understand clearly. Over time, this erodes the quality of the relationship and places enormous emotional weight on those who provide care.</p>
+
+          <div class="project-stat-cards">
+            <div class="project-stat-card reveal">
+              <span class="project-stat-card__figure" data-count="26.7" data-suffix="%">26.7%</span>
+              <h3 class="project-stat-card__title">Non-verbal or minimally verbal</h3>
+              <p class="project-stat-card__text">Of 8-year-olds with autism meet criteria for &ldquo;profound autism&rdquo;, defined as non-verbal, minimally verbal, or having an IQ below 50. <em>CDC, Public Health Reports, 2023.</em></p>
+            </div>
+            <div class="project-stat-card reveal">
+              <span class="project-stat-card__figure" data-count="3.6" data-suffix="&times;">3.6&times;</span>
+              <h3 class="project-stat-card__title">Higher odds of stress</h3>
+              <p class="project-stat-card__text">Autism caregivers report significantly higher stress than caregivers of non-autistic individuals. <em>eClinicalMedicine (The Lancet), 2023.</em></p>
+            </div>
+            <div class="project-stat-card reveal">
+              <span class="project-stat-card__figure" data-count="1.8" data-suffix="&times;">1.8&times;</span>
+              <h3 class="project-stat-card__title">Higher odds of anxiety &amp; depression</h3>
+              <p class="project-stat-card__text">Clinically diagnosed anxiety and depressive disorders are markedly more common among autism caregivers. <em>Same cohort study, 2023.</em></p>
+            </div>
+          </div>
 
           <div class="project-icon-cards">
             <div class="project-icon-card">
@@ -200,9 +238,7 @@
             <p>To ground the project in lived experience, I conducted two ethnographic interviews with people who interact daily with non-verbal users: a pedagogy student who accompanies a nine-year-old child with cerebral palsy at school, and the sister of a non-verbal autistic adult. Both interviews focused on daily communication patterns, moments of uncertainty, and the emotional cost of interpretive ambiguity.</p>
             <p>Two interviews is a small sample &mdash; enough to surface real patterns and shape design decisions at this scope, but not enough for statistical validation. The insights below should be read as directional, not conclusive.</p>
 
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Research affinity map &mdash; two columns (patient / caregiver), clustered post-its from interview analysis, highlighting &ldquo;the guess&rdquo; and &ldquo;tacit knowledge&rdquo;.</span>
-            </div>
+            <img src="projects/fluid/affinity-map.svg" alt="Research affinity map — patient and caregiver columns, clustered insights highlighting &quot;the guess&quot; and &quot;tacit knowledge&quot;" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-step">
@@ -232,10 +268,41 @@
           </div>
         </section>
 
+        <!-- ============ IDEATION & SCOPE ============ -->
+        <section id="ideation" class="project-section">
+          <p class="project-section__eyebrow">&#9313; Ideation &amp; Scope</p>
+
+          <div class="project-step">
+            <h3 class="project-step__title">Narrowing the scope</h3>
+            <p>The brief asked a deliberately broad question: can an AI agent make the invisible constructs of the mind, emotions, sensations, ways of thinking, visible or perceptible? Read literally, that opened the door to any non-verbal patient, not only autistic individuals, but also people left non-verbal by conditions such as a cerebral ischemia, aphasia, or other acquired communication loss.</p>
+            <p>I chose to narrow that scope to non-verbal autistic individuals specifically. Trying to design for every cause of non-verbal communication at once would have flattened very different lived experiences into one generic profile, and made every downstream decision, from the ethnographic questions I asked to the sensory calibration of the system, vaguer than it needed to be. Focusing on one population let the research actually sharpen the design, instead of just broadening it.</p>
+          </div>
+
+          <div class="project-step">
+            <h3 class="project-step__title">Exploring the object</h3>
+            <p>Before settling on an ambient lamp, I considered two other form factors, each rejected for a reason specific to this population rather than a generic design preference.</p>
+
+            <div class="project-concept-cards">
+              <div class="project-concept-card reveal">
+                <span class="project-concept-card__why">Rejected</span>
+                <h4 class="project-concept-card__name">Watch</h4>
+                <p class="project-concept-card__text">Placing the primary device on the patient&rsquo;s own body risked the same tactile sensitivity many non-verbal autistic individuals experience with wearables, and a wrist-worn object can&rsquo;t fill a room with ambient colour and light the way the space itself needs to communicate.</p>
+              </div>
+              <div class="project-concept-card reveal">
+                <span class="project-concept-card__why">Rejected</span>
+                <h4 class="project-concept-card__name">Sensory rug</h4>
+                <p class="project-concept-card__text">A rug only registers something when it&rsquo;s physically stepped on or touched, which makes it reactive rather than ambient. It couldn&rsquo;t hold a continuous, passive presence in the room, or mirror its state to a caregiver&rsquo;s watch the way an always-visible light source can.</p>
+              </div>
+            </div>
+
+            <p>The lamp won for the opposite reasons: it asks nothing of the patient&rsquo;s body, it&rsquo;s always present in the room without demanding attention, and its light can be seen, felt as warmth, and mirrored remotely, all at once.</p>
+          </div>
+        </section>
+
         <!-- ============ DESIGN PRINCIPLES ============ -->
         <section id="principles" class="project-section">
-          <h2 class="project-overview__title">Design Principles</h2>
-          <p>Three commitments shaped every decision, from the choice of object to the colour system to the escalation logic.</p>
+          <p class="project-section__eyebrow">&#9314; Design Principles</p>
+          <p>Three commitments crystallised out of that exploration, and shaped every decision from there on, through the colour system and the escalation logic.</p>
 
           <div class="project-icon-cards">
             <div class="project-icon-card">
@@ -258,7 +325,7 @@
 
         <!-- ============ THE SYSTEM ============ -->
         <section id="system" class="project-section">
-          <p class="project-section__eyebrow">&#9313; The System</p>
+          <p class="project-section__eyebrow">&#9315; The System</p>
 
           <div class="project-step">
             <h3 class="project-step__title">Two connected objects</h3>
@@ -295,18 +362,14 @@
               </div>
             </div>
 
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Multimodal interaction diagram &mdash; patient at centre, lamp (colour) on one side, watch (haptic) on the other, sound wave below.</span>
-            </div>
+            <img src="projects/fluid/multimodal.svg" alt="Multimodal interaction diagram — patient at centre, lamp (luminous) and watch (haptic) to each side, sound below" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-step">
             <h3 class="project-step__title">Escalation logic</h3>
             <p>One of the core principles of FLUID.ai is knowing its own limits. The system follows a clear escalation model: it first attempts autonomous self-regulation through sound and colour; if the patient does not improve, it alerts the caregiver; if the caregiver cannot resolve the situation, it contacts emergency services. At every step, human agency is preserved.</p>
 
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Escalation decision tree &mdash; Detect &rarr; Self-regulate &rarr; Alert caregiver &rarr; Emergency services.</span>
-            </div>
+            <img src="projects/fluid/escalation-tree.svg" alt="Escalation decision tree — Detect, then Self-regulate, then Alert caregiver, then Emergency services, with human agency preserved at every step" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-callout">
@@ -317,7 +380,7 @@
 
         <!-- ============ EMOTIONAL COLOUR SYSTEM ============ -->
         <section id="colors" class="project-section">
-          <h2 class="project-overview__title">Emotional Colour System</h2>
+          <p class="project-section__eyebrow">&#9316; Emotional Colour System</p>
 
           <p>The colour system was built at the intersection of two references: Plutchik&rsquo;s Wheel of Emotion, which maps the intensity and variation of emotional states, and Eva Heller&rsquo;s psychology of colour, which links specific hues to felt sensations and affective associations. Rather than reproducing rigid colour schemes, the system is softer and more situated: each colour, or transition between colours, expresses not just an emotional state, but its intensity, urgency, and need for intervention.</p>
 
@@ -357,14 +420,14 @@
           </div>
 
           <div class="project-images-row">
-            <img src="projects/fluid/lamp-red.png" alt="FLUID.ai lamp in red state — distress detected" loading="lazy">
-            <img src="projects/fluid/lamp-white.png" alt="FLUID.ai lamp in white state — neutral, calm" loading="lazy">
+            <img src="projects/fluid/vermelho.png" alt="FLUID.ai lamp in red state — distress detected" loading="lazy">
+            <img src="projects/fluid/branco.png" alt="FLUID.ai lamp in white state — neutral, calm" loading="lazy">
           </div>
         </section>
 
         <!-- ============ PROCESS ============ -->
         <section id="process" class="project-section">
-          <p class="project-section__eyebrow">&#9314; Process</p>
+          <p class="project-section__eyebrow">&#9317; Process</p>
 
           <div class="project-step">
             <h3 class="project-step__title">Choosing the object</h3>
@@ -378,12 +441,8 @@
             <h3 class="project-step__title">Wireflow and user flow</h3>
             <p>The interaction model was mapped through two parallel documents: the conceptual wireflow (the system&rsquo;s decision logic, from emotional detection to escalation) and the user flow (the lived experience of both the patient and the caregiver across an emotional episode). These became the backbone of the interface design. Every screen, every vibration pattern, every colour transition was derived from them.</p>
 
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Wireflow decision tree &mdash; full flow from detection to resolution, branch points labelled.</span>
-            </div>
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Dual-path user flow &mdash; two swim lanes, patient and caregiver, showing how their experiences interlock across one episode.</span>
-            </div>
+            <img src="projects/fluid/wireflow.svg" alt="Wireflow decision tree — sensing, emotion classification, multimodal output, and the trend check that triggers escalation" class="project-full-image" loading="lazy">
+            <img src="projects/fluid/user-flow.svg" alt="Dual-path user flow — patient and caregiver swimlanes showing how their experiences interlock across one emotional episode" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-step">
@@ -410,9 +469,37 @@
           </div>
         </section>
 
+        <!-- ============ KEY OUTCOMES ============ -->
+        <section id="outcomes" class="project-section">
+          <p class="project-section__eyebrow">&#9318; Key Outcomes</p>
+
+          <div class="project-icon-cards">
+            <div class="project-icon-card reveal">
+              <span class="project-icon-card__icon" aria-hidden="true">&#9670;</span>
+              <h4 class="project-icon-card__title">Recognised by the brief&rsquo;s own question</h4>
+              <p class="project-icon-card__text">Professor <a href="https://www.inesrodolfo.com/" target="_blank" rel="noopener noreferrer">In&ecirc;s Rodolfo</a>&rsquo;s feedback confirmed the concept resolved the brief&rsquo;s central question: whether an AI agent could make invisible constructs of the mind perceptible without relying on a humanoid or conversational interface.</p>
+            </div>
+            <div class="project-icon-card reveal">
+              <span class="project-icon-card__icon" aria-hidden="true">&#9679;</span>
+              <h4 class="project-icon-card__title">Escalation without removing agency</h4>
+              <p class="project-icon-card__text">The detect &rarr; self-regulate &rarr; alert caregiver &rarr; emergency services logic gives the system a clear way to act on its own limits, without ever taking the decision away from the humans involved.</p>
+            </div>
+            <div class="project-icon-card reveal">
+              <span class="project-icon-card__icon" aria-hidden="true">&#9673;</span>
+              <h4 class="project-icon-card__title">A shared language, not a gimmick</h4>
+              <p class="project-icon-card__text">Grounded in Plutchik and Heller rather than invented from scratch, the light, haptic, and sound system gives patient and caregiver a common, legible vocabulary for states that used to depend entirely on guesswork.</p>
+            </div>
+            <div class="project-icon-card reveal">
+              <span class="project-icon-card__icon" aria-hidden="true">&#9678;</span>
+              <h4 class="project-icon-card__title">Honesty about its own limits</h4>
+              <p class="project-icon-card__text">FLUID.ai is designed to recognise when a situation is beyond it and hand control back to a human. That humility was built into the escalation logic from the start, not added after the fact as a disclaimer.</p>
+            </div>
+          </div>
+        </section>
+
         <!-- ============ REFLECTIONS ============ -->
         <section id="reflections" class="project-section">
-          <p class="project-section__eyebrow">&#9315; Reflections</p>
+          <p class="project-section__eyebrow">&#9319; Reflections</p>
 
           <p>FLUID.ai clarified something I had only intuited before: designing for vulnerability is, inevitably, an ethical act. Every decision, which colour represents anxiety, how long the system waits before alerting the caregiver, what the lamp does when it doesn&rsquo;t know what&rsquo;s wrong, carries a moral weight that aesthetic choices alone cannot resolve.</p>
 
