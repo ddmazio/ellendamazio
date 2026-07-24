@@ -1361,6 +1361,7 @@ html.has-about .sidebar {
   justify-content: space-between;
   gap: 16px;
   margin-top: 12px;
+  margin-bottom: 40px;
 }
 
 .project-video-embed__footer .project-video-card__caption {
