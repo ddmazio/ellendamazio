@@ -135,7 +135,11 @@
       <div class="project-content">
 
         <figure class="project-hero">
-          <img src="projects/ting/ting-animado.gif" alt="Ting — wearable for real-world connection" class="project-hero__media" loading="eager" fetchpriority="high">
+          <video class="project-hero__media" autoplay muted loop playsinline aria-label="Ting — wearable for real-world connection">
+            <source src="projects/ting/ting-animado.mp4" type="video/mp4">
+            <source src="projects/ting/ting-animado.webm" type="video/webm">
+            <img src="projects/ting/ting-animado.gif" alt="Ting — wearable for real-world connection">
+          </video>
         </figure>
 
         <div class="project-meta">
@@ -410,6 +414,8 @@
             <p>Ting is a hybrid system composed of two elements: a small wearable device placed on the upper spine, and a complementary mobile app. The wearable acts as a real-time emotional radar, while the app functions as a private affective log rather than a social feed.</p>
             <p>After account creation, the user completes a brief personality questionnaire to train their personal AI. The wearable then collects biometric data in real time and compares affective profiles whenever another Ting user is nearby. If compatibility is detected, both devices vibrate gently, discreet enough not to demand action yet distinct enough to spark curiosity, and a pop-up then appears in the app inviting the user to decide whether to meet.</p>
 
+            <img src="projects/ting/app-screens-row.png" alt="Ting app screens — sign in, onboarding questions, searching for a match, and a confirmed match" class="project-full-image" loading="lazy">
+
             <figure class="project-phone-clip reveal">
               <video src="projects/ting/ting-onboarding.mp4" autoplay muted loop playsinline></video>
               <figcaption>Onboarding: training the personal AI.</figcaption>
@@ -462,6 +468,8 @@
               <li class="project-flow__step"><span class="project-flow__num">7</span><span class="project-flow__label">Physical encounter</span></li>
               <li class="project-flow__step"><span class="project-flow__num">8</span><span class="project-flow__label">Interaction Summary <small>(Ting Score)</small></span></li>
             </ol>
+
+            <img src="projects/ting/sequence2.png" alt="Ting screen sequence — onboarding questions, waiting for questions, searching, match, and interaction summary" class="project-full-image" loading="lazy">
 
             <p>Post-interaction prompts, such as asking &ldquo;What kind of energy are you bringing today?&rdquo;, support emotional self-awareness and help refine the AI model over time.</p>
           </div>
