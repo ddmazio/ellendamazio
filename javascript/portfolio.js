@@ -281,14 +281,47 @@
 
   /* ---------------------------------------------------------
      Generic "scroll to top" links — used by plain text links
-     like the project page nav (always clickable, no show/hide)
+     like the project page nav. The floating pill button
+     (.project-nav__top) additionally stays hidden until the
+     user has scrolled past a threshold, so it doesn't appear
+     the instant a page loads.
   --------------------------------------------------------- */
-  document.querySelectorAll("[data-scroll-top]").forEach((link) => {
+  const scrollTopLinks = document.querySelectorAll("[data-scroll-top]");
+  const SCROLL_TOP_SHOW_AT = 480;
+
+  scrollTopLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  });
+
+  const floatingScrollTop = document.querySelector(".project-nav__top[data-scroll-top]");
+
+  if (floatingScrollTop) {
+    const updateScrollTopVisibility = () => {
+      floatingScrollTop.classList.toggle("is-visible", window.scrollY > SCROLL_TOP_SHOW_AT);
+    };
+
+    window.addEventListener("scroll", updateScrollTopVisibility, { passive: true });
+    updateScrollTopVisibility();
+  }
+
+  /* ---------------------------------------------------------
+     Looping video fallback — Safari/WebKit unreliably honors
+     the native `loop` attribute on muted autoplay clips (it
+     fires `ended` but doesn't always restart). Forcing a
+     restart on `ended` fixes it there without affecting
+     browsers where native loop already works.
+  --------------------------------------------------------- */
+  document.querySelectorAll("video[loop]").forEach((video) => {
+    video.addEventListener("ended", () => {
+      video.currentTime = 0;
+      video.play().catch(() => {
+        /* autoplay retry blocked — ignore, matches native loop's own silent failure mode */
       });
     });
   });

@@ -983,16 +983,34 @@ html.has-about .sidebar {
 }
 
 .project-nav__top {
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 40;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 10px 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
   font-size: 12px;
   font-weight: 500;
   color: var(--color-body-soft);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   width: fit-content;
-  transition: color 0.25s var(--ease);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: color 0.25s var(--ease), opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.project-nav__top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .project-nav__top:hover,
@@ -1801,38 +1819,6 @@ html.has-about .sidebar {
   color: var(--color-body-soft);
 }
 
-.mobile-back-to-top {
-  display: none;
-}
-
-@media (max-width: 860px) {
-  .mobile-back-to-top {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    position: fixed;
-    right: 16px;
-    bottom: 20px;
-    z-index: 40;
-    padding: 10px 16px;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--color-body-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: color 0.25s var(--ease);
-  }
-
-  .mobile-back-to-top:hover,
-  .mobile-back-to-top:active {
-    color: var(--color-accent);
-  }
-}
-
 /* ---- reveal on scroll (project-step, cards, callouts, charts...) ---- */
 .reveal {
   opacity: 0;
@@ -2483,22 +2469,8 @@ html.has-about .sidebar {
     margin-bottom: 32px;
   }
 
-  /* Turned into a fixed floating button on mobile — as a plain
-     inline link at the top of the sidebar, it scrolled out of
-     view immediately and was never reachable once you'd
-     actually scrolled down far enough to need it. */
-  .project-nav__top {
-    position: fixed;
-    right: 16px;
-    bottom: 20px;
-    z-index: 40;
-    margin-top: 0;
-    padding: 10px 16px;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
-  }
+  /* .project-nav__top is a fixed floating button at every
+     width now (see base rule) — no override needed here. */
 
   /* A vertical list of 8 jump-links doesn't work stacked above
      the content on mobile — it pushes the hero image way down
