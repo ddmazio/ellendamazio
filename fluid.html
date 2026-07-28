@@ -238,7 +238,27 @@
             <p>To ground the project in lived experience, I conducted two ethnographic interviews with people who interact daily with non-verbal users: a pedagogy student who accompanies a nine-year-old child with cerebral palsy at school, and the sister of a non-verbal autistic adult. Both interviews focused on daily communication patterns, moments of uncertainty, and the emotional cost of interpretive ambiguity.</p>
             <p>Two interviews is a small sample &mdash; enough to surface real patterns and shape design decisions at this scope, but not enough for statistical validation. The insights below should be read as directional, not conclusive.</p>
 
-            <img src="projects/fluid/affinity-map.svg" alt="Research affinity map — patient and caregiver columns, clustered insights highlighting &quot;the guess&quot; and &quot;tacit knowledge&quot;" class="project-full-image" loading="lazy">
+            <div class="affinity-board">
+              <div class="affinity-cluster reveal">
+                <span class="affinity-cluster__label" style="--cluster-color:#A6ADB3;">The Guess</span>
+                <div class="affinity-note">Something was clearly wrong, but no way to tell if it was pain, hunger, sensory overload, or sadness.</div>
+                <div class="affinity-note">Before, it was just guessing &mdash; no tool to lean on, only accumulated familiarity.</div>
+              </div>
+              <div class="affinity-cluster reveal">
+                <span class="affinity-cluster__label" style="--cluster-color:#3498DB;">What Works Today</span>
+                <div class="affinity-note">Facial expressions, legible only after a year and a half of daily, close contact.</div>
+                <div class="affinity-note">Yes/no picture cards &mdash; the only method that has actually worked so far.</div>
+                <div class="affinity-note">Sounds and rhythms she reproduces with precision, and understands quickly.</div>
+              </div>
+              <div class="affinity-cluster reveal">
+                <span class="affinity-cluster__label" style="--cluster-color:#818A92;">What Failed</span>
+                <div class="affinity-note">AAC communication apps tried the year before didn&rsquo;t work &mdash; not designed for her context or level of understanding.</div>
+              </div>
+              <div class="affinity-cluster reveal">
+                <span class="affinity-cluster__label" style="--cluster-color:#E0453C;">The Fear</span>
+                <div class="affinity-note">Not privacy &mdash; the fear named was the system mixing up its reading of one emotion for another.</div>
+              </div>
+            </div>
           </div>
 
           <div class="project-step">
@@ -265,6 +285,27 @@
             <p><strong>The biggest challenge is not identification, but intervention:</strong> deciding how, when, and how far the technology should act without overstepping. FLUID.ai knows its limits and escalates to human intervention when needed.</p>
             <p><strong>Multimodality is essential.</strong> Combining visual, haptic, and sonic stimuli creates a more gradual and less invasive reading of emotional states, respecting different sensory sensitivities.</p>
             <p><strong>Colour and rhythm are language, not decoration.</strong> Chromatic codes linked to emotional states are not labels but a translation system between two different emotional worlds.</p>
+          </div>
+
+          <div class="project-step">
+            <h3 class="project-step__title">Benchmarking</h3>
+            <p>FLUID.ai was designed in dialogue with existing assistive tools, each one revealing a gap the project set out to address.</p>
+
+            <ul class="project-benchmark-list">
+              <li class="project-benchmark-item">
+                <span class="project-benchmark-item__name">Avaz AAC</span>
+                <span class="project-benchmark-item__gap">Gives the patient a way to express intent through symbols, but assumes enough motor and cognitive control to operate a grid interface &mdash; and says nothing about the caregiver&rsquo;s side of the loop.</span>
+              </li>
+              <li class="project-benchmark-item">
+                <span class="project-benchmark-item__name">EmbracePlus (Empatica)</span>
+                <span class="project-benchmark-item__gap">Reads physiological signals with clinical precision for seizure and stress detection, but surfaces them as data on a screen for a clinician to review &mdash; not as an ambient signal a caregiver reads at a glance, in real time.</span>
+              </li>
+            </ul>
+
+            <p>The gap was clear: nothing translated involuntary physiological signal directly into ambient, multimodal output for someone who cannot operate an interface at all.</p>
+
+            <img src="projects/fluid/benchmark.jpg" alt="Reference moodboard — Refik Anadol's Machine Hallucination, teamLab's Resonating Lamps, 4YouandMe, Avaz AAC, Soma Design, The School of Life, and EmbracePlus" class="project-full-image" loading="lazy">
+            <p class="project-video-card__caption" style="text-align:left;">Beyond direct assistive-tech comparisons, two bodies of work shaped the project&rsquo;s register: Refik Anadol&rsquo;s <em>Machine Hallucination</em> and teamLab&rsquo;s <em>Resonating Lamps</em> informed how the lamp&rsquo;s light could move and feel alive; Kristina H&ouml;&ouml;k&rsquo;s Soma Design and The School of Life&rsquo;s trauma-to-healing work informed designing with the body, not just for it.</p>
           </div>
         </section>
 
@@ -327,6 +368,10 @@
         <section id="system" class="project-section">
           <p class="project-section__eyebrow">&#9315; The System</p>
 
+          <p>At its core, FLUID.ai closes a loop between three parties: it senses the patient, translates that into feedback for both the patient and the caregiver, and leaves the final act of care &mdash; the actual socialisation &mdash; to the humans involved.</p>
+
+          <img src="projects/fluid/system-loop.svg" alt="System overview diagram — Patient, FLUID.ai, and Caregivers, showing sensing and feedback loops, with a Socialisation loop closing back from caregiver to patient" class="project-full-image" style="max-width: 520px; margin-left: auto; margin-right: auto;" loading="lazy">
+
           <div class="project-step">
             <h3 class="project-step__title">Two connected objects</h3>
             <p>The choice of a lava lamp as the primary interface was not aesthetic &mdash; it was conceptual. The slow, organic, repetitive movement of the lamp&rsquo;s internal fluid creates a visual metaphor for emotional states: expansion and retraction, calm and agitation, flow and stillness. This behaviour communicates without requiring complex interpretation, making it legible even to someone with limited verbal comprehension.</p>
@@ -342,9 +387,9 @@
 
           <div class="project-step">
             <h3 class="project-step__title">Multimodal interaction</h3>
-            <p>The system communicates across three sensory channels simultaneously, calibrated to different sensory tolerances and contexts of use.</p>
+            <p>The system communicates across four channels simultaneously, calibrated to different sensory tolerances and contexts of use.</p>
 
-            <div class="project-icon-cards">
+            <div class="project-icon-cards" style="grid-template-columns: repeat(2, 1fr);">
               <div class="project-icon-card">
                 <span class="project-icon-card__icon" aria-hidden="true">&#9680;</span>
                 <h4 class="project-icon-card__title">Luminous</h4>
@@ -353,7 +398,12 @@
               <div class="project-icon-card">
                 <span class="project-icon-card__icon" aria-hidden="true">&#9678;</span>
                 <h4 class="project-icon-card__title">Haptic</h4>
-                <p class="project-icon-card__text">The watch vibrates to alert the caregiver and mirrors the lamp&rsquo;s colour on its screen. Vibration as interface is intimate and discreet: it delivers information without breaking the relational moment.</p>
+                <p class="project-icon-card__text">The watch vibrates to alert the caregiver, a discreet first signal that delivers information without breaking the relational moment.</p>
+              </div>
+              <div class="project-icon-card">
+                <span class="project-icon-card__icon" aria-hidden="true">&#9633;</span>
+                <h4 class="project-icon-card__title">GUI</h4>
+                <p class="project-icon-card__text">The watch screen mirrors the lamp&rsquo;s colour and, on demand, shows the weekly pattern chart &mdash; giving the caregiver detail beyond what a glance at colour alone can carry.</p>
               </div>
               <div class="project-icon-card">
                 <span class="project-icon-card__icon" aria-hidden="true">&#9673;</span>
@@ -362,7 +412,7 @@
               </div>
             </div>
 
-            <img src="projects/fluid/multimodal.svg" alt="Multimodal interaction diagram — patient at centre, lamp (luminous) and watch (haptic) to each side, sound below" class="project-full-image" loading="lazy">
+            <img src="projects/fluid/multimodal.svg" alt="Multimodal interaction diagram — FLUID.ai at centre, radiating to GUI, Haptic, Luminous, and Sonic channels" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-step">
@@ -433,8 +483,6 @@
             <h3 class="project-step__title">Choosing the object</h3>
             <p>The decision to build around a lamp, specifically a lava lamp, came from a question the research kept returning to: what physical object could carry emotional meaning without demanding interpretation? The lava lamp&rsquo;s internal movement, fluid rising and falling in slow, continuous cycles, offered a ready-made visual vocabulary for emotional rhythm. Heating and expansion became metaphors for distress; cooling and retraction for calm.</p>
             <p>The form was then refined: rather than a traditional triangular lava lamp, the object needed softer edges and space for a speaker, through which the AI communicates with the patient via voice and sound. Several sketches explored this balance between the lamp&rsquo;s organic form and the functional requirements of speaker placement.</p>
-
-            <img src="projects/fluid/lamp-context.png" alt="FLUID.ai lamp in a domestic bedroom setting" class="project-full-image" loading="lazy">
           </div>
 
           <div class="project-step">
@@ -446,26 +494,13 @@
           </div>
 
           <div class="project-step">
-            <h3 class="project-step__title">Design system</h3>
-            <p>The interface system uses General Sans across all touchpoints, a rational, clean typeface that contrasts with the organic emotionality of the lamp&rsquo;s physical form. The design system maps emotional states to colour values, icon sets, and haptic patterns, creating a consistent visual language across the lamp interface, the watch display, and the onboarding flow.</p>
-
-            <div class="project-placeholder">
-              <span class="project-placeholder__label">Design system overview &mdash; typography, colour palette (6 emotional states), icon set, haptic pattern legend.</span>
-            </div>
-          </div>
-
-          <div class="project-step">
             <h3 class="project-step__title">Interface screens</h3>
             <p>The onboarding flow connects the caregiver&rsquo;s watch to the FLUID.ai lamp, establishes the patient&rsquo;s profile, and calibrates the emotional sensitivity thresholds. The watch interface uses the same fluid graphic language as the lamp, with colour as the primary information layer and vibration as the secondary alert.</p>
 
-            <div class="project-images-row">
-              <div class="project-placeholder" style="margin:0;">
-                <span class="project-placeholder__label">FLUID watch GUI &mdash; pairing screen, active monitoring state, orange alert with vibration indicator.</span>
-              </div>
-              <div class="project-placeholder" style="margin:0;">
-                <span class="project-placeholder__label">App onboarding flow &mdash; login/sync, patient profile setup, sensitivity calibration.</span>
-              </div>
-            </div>
+            <figure class="project-phone-clip project-phone-clip--dark">
+              <video src="projects/fluid/watch-demo.mp4" poster="projects/fluid/watch-demo-poster.jpg" muted playsinline autoplay loop preload="metadata"></video>
+              <figcaption>FLUID watch GUI &mdash; notification, red distress alert, weekly pattern chart, and resolved emotional state.</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -473,7 +508,7 @@
         <section id="outcomes" class="project-section">
           <p class="project-section__eyebrow">&#9318; Key Outcomes</p>
 
-          <div class="project-icon-cards">
+          <div class="project-icon-cards" style="grid-template-columns: repeat(2, 1fr);">
             <div class="project-icon-card reveal">
               <span class="project-icon-card__icon" aria-hidden="true">&#9670;</span>
               <h4 class="project-icon-card__title">Recognised by the brief&rsquo;s own question</h4>
@@ -506,6 +541,8 @@
           <p>The project also deepened my understanding of what affective computing actually demands. It is not about making technology emotional. It is about making technology aware of emotion without flattening it. Emotions, as Barrett (2017) argues, are not universal expressions waiting to be decoded. They are constructed, contextual, and relational. A system that forgets this will misread more than it reads.</p>
 
           <p>One of the most important outcomes was the recognition of FLUID.ai&rsquo;s own limits. The system is designed to know when it is out of its depth, and to hand control back to the humans who carry the care. That humility is not a weakness. It is the most responsible thing the technology can do.</p>
+
+          <p>That same humility exposes a limit the project hasn&rsquo;t solved yet: what happens when the system misreads emotional state too often. A caregiver who gets enough false alerts will start doing the opposite of what FLUID.ai is meant to enable &mdash; tuning the alerts out instead of trusting them. Rebuilding that trust after a wrong call, whether through a visible confidence level, a way to flag an inaccurate alert, or a longer calibration period before the system is trusted with real decisions, is a real limitation of the current concept, not one this speculative version resolves.</p>
 
           <div class="project-callout">
             <span class="project-callout__label">What I would do differently</span>

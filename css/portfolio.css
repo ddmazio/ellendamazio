@@ -1253,6 +1253,18 @@ html.has-about .sidebar {
   text-align: center;
 }
 
+/* ---- dark variant: for clips whose content (video/mockup) is
+   already black, so the placeholder box doesn't fight it with a
+   light grey frame ---- */
+.project-phone-clip--dark {
+  background: #0B0C0D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-phone-clip--dark figcaption {
+  color: #C9CDD1;
+}
+
 /* ---- previous / next project pager (end of every project page) ---- */
 .project-pager {
   display: flex;
@@ -1968,6 +1980,45 @@ html.has-about .sidebar {
   text-wrap: pretty;
 }
 
+/* ---- affinity board: clustered research notes, built in
+   HTML/CSS rather than exported as an image, so the content
+   stays authentic and editable ---- */
+.affinity-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin: 32px 0;
+}
+
+.affinity-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.affinity-cluster__label {
+  display: inline-block;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cluster-color, var(--color-accent));
+  margin-bottom: 2px;
+}
+
+.affinity-note {
+  background: var(--color-placeholder);
+  border-radius: 2px;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-body);
+  box-shadow: 0 1px 3px rgba(46, 65, 80, 0.08);
+}
+
 /* =========================================================
    SITE FOOTER — small screens only. Desktop has no footer by
    design (contact info lives in .header-links); below 1024px
@@ -2131,6 +2182,10 @@ html.has-about .sidebar {
   .project-stat-cards,
   .project-icon-cards,
   .project-concept-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .affinity-board {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -2410,6 +2465,10 @@ html.has-about .sidebar {
   .project-charts-pair,
   .project-images-row,
   .project-color-system {
+    grid-template-columns: 1fr;
+  }
+
+  .affinity-board {
     grid-template-columns: 1fr;
   }
 
