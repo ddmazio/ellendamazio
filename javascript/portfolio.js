@@ -1192,4 +1192,48 @@
       if (event.key === "ArrowLeft") showPrevImage();
     });
   }
+
+  /* ---------------------------------------------------------
+     Story carousel — simple arrow-navigated slideshow for the
+     FLUID.ai storyboard. No scroll-linking: prev/next buttons
+     just step the track by one frame.
+  --------------------------------------------------------- */
+  const storyCarousel = document.querySelector("[data-story-carousel]");
+
+  if (storyCarousel) {
+    const storyTrack = storyCarousel.querySelector("[data-story-track]");
+    const storyFrames = storyTrack ? Array.from(storyTrack.children) : [];
+    const storyPrev = storyCarousel.querySelector(".story-carousel__prev");
+    const storyNext = storyCarousel.querySelector(".story-carousel__next");
+    const storyCounter = document.querySelector("[data-story-counter]");
+    let storyIndex = 0;
+
+    const renderStory = () => {
+      if (!storyTrack) return;
+      storyTrack.style.transform = `translateX(${-storyIndex * 100}%)`;
+      if (storyCounter) storyCounter.textContent = `${storyIndex + 1} / ${storyFrames.length}`;
+      if (storyPrev) storyPrev.disabled = storyIndex === 0;
+      if (storyNext) storyNext.disabled = storyIndex === storyFrames.length - 1;
+    };
+
+    if (storyPrev) {
+      storyPrev.addEventListener("click", () => {
+        if (storyIndex > 0) {
+          storyIndex -= 1;
+          renderStory();
+        }
+      });
+    }
+
+    if (storyNext) {
+      storyNext.addEventListener("click", () => {
+        if (storyIndex < storyFrames.length - 1) {
+          storyIndex += 1;
+          renderStory();
+        }
+      });
+    }
+
+    renderStory();
+  }
 })();
