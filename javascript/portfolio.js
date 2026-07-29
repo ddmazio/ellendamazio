@@ -620,6 +620,11 @@
     const lightboxTitle = lightbox ? lightbox.querySelector(".lightbox__title") : null;
     const lightboxDesc = lightbox ? lightbox.querySelector(".lightbox__desc") : null;
     const lightboxClose = lightbox ? lightbox.querySelector(".lightbox__close") : null;
+    const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox__prev") : null;
+    const lightboxNext = lightbox ? lightbox.querySelector(".lightbox__next") : null;
+    const lightboxCounter = lightbox ? lightbox.querySelector(".lightbox__counter") : null;
+
+    let funIndex = 0;
 
     const closeLightbox = () => {
       if (!lightbox) return;
@@ -629,8 +634,9 @@
       if (lightboxMedia) lightboxMedia.innerHTML = "";
     };
 
-    const openLightbox = (card) => {
-      if (!lightbox || !lightboxMedia) return;
+    const renderFunCard = (index) => {
+      if (!lightbox || !lightboxMedia || !funCards.length) return;
+      const card = funCards[index];
       const sourceImg = card.querySelector("img");
       const sourceVideo = card.querySelector("video");
       const title = card.querySelector(".fun-card-title");
@@ -658,22 +664,43 @@
 
       if (lightboxTitle) lightboxTitle.textContent = title ? title.textContent : "";
       if (lightboxDesc) lightboxDesc.textContent = desc ? desc.textContent : "";
+      if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${funCards.length}`;
+    };
 
+    const openLightbox = (index) => {
+      if (!lightbox) return;
+      funIndex = index;
+      renderFunCard(funIndex);
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
     };
 
+    const showNextFunCard = () => {
+      if (!funCards.length) return;
+      funIndex = (funIndex + 1) % funCards.length;
+      renderFunCard(funIndex);
+    };
+
+    const showPrevFunCard = () => {
+      if (!funCards.length) return;
+      funIndex = (funIndex - 1 + funCards.length) % funCards.length;
+      renderFunCard(funIndex);
+    };
+
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxNext) lightboxNext.addEventListener("click", showNextFunCard);
+    if (lightboxPrev) lightboxPrev.addEventListener("click", showPrevFunCard);
     if (lightbox) {
       lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) closeLightbox();
       });
     }
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
-        closeLightbox();
-      }
+      if (!lightbox || !lightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") showNextFunCard();
+      if (event.key === "ArrowLeft") showPrevFunCard();
     });
 
     // On the desktop canvas, a "click" can also be the tail end of a
@@ -689,7 +716,9 @@
       if (event.target.closest("a")) return; // let caption links navigate normally
       const card = event.target.closest(".fun-card");
       if (!card) return;
-      openLightbox(card);
+      const index = funCards.indexOf(card);
+      if (index === -1) return;
+      openLightbox(index);
     });
 
     if (window.matchMedia("(max-width: 768px)").matches) {

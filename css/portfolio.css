@@ -1946,27 +1946,6 @@ html.has-about .sidebar {
   text-wrap: pretty;
 }
 
-/* ---- placeholder box for images not exported yet ---- */
-.project-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 220px;
-  padding: 24px;
-  margin: 32px 0;
-  background: var(--color-placeholder);
-  border-radius: 2px;
-  text-align: center;
-}
-
-.project-placeholder__label {
-  font-size: 12px;
-  font-style: italic;
-  color: var(--color-body-soft);
-  max-width: 46ch;
-  text-wrap: pretty;
-}
-
 /* ---- affinity board: clustered research notes, built in
    HTML/CSS rather than exported as an image, so the content
    stays authentic and editable ---- */
@@ -2702,10 +2681,8 @@ body.is-fun {
   filter: drop-shadow(0 8px 28px rgba(46, 65, 80, 0.12));
 }
 
-.fun-card--s { width: 200px; }
 .fun-card--m { width: 260px; }
 .fun-card--l { width: 320px; }
-.fun-card--xl { width: 380px; }
 
 .fun-card-inner {
   width: 100%;
