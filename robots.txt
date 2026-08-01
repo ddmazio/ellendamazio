@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ellendamazio.com/sitemap.xml
